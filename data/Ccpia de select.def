@@ -1,0 +1,96 @@
+;---------------------------------------------------------------------
+[Characters]
+Goku
+Goku SSJ
+Goku SSJ2
+Goku SSJ3
+Goku SSJ God
+Vegeta
+Vegeta SSJ2
+Majin Vegeta SSJ2
+Gohan All Forms
+Mystic Gohan
+Trunks
+Trunks SSJ
+Kid Goten SSJ
+Kid Trunks SSJ
+Gotenks SSJ
+Piccolo
+Master Roshi
+Krillin
+Yamcha
+Tien
+Chiaotzu
+SUpreme Kai
+Tarble
+Raditz
+Vegeta Saiyan
+Nappa
+Freeza 
+Cooler
+Android 17
+Android 18
+Android 16
+Cell
+Broly LSSJ
+Dabura
+Majin Buu
+Buu
+Naruto
+Naruto Teen
+Naruto Biju
+Sasuke
+Sasuke Teen
+Sasuke Eternal
+Sakura 
+Sakura Teen
+Kakashi
+Sai
+Yamato
+Killer bee
+Minato
+Kushina
+Rock Lee Teen
+Chouji Teen
+Shikamaru Teen
+Hinata teen
+Gaara Kazekage
+Temari Teen
+Tsunade
+Jiraiya
+Tendo
+Konan 
+Itachi
+Kisame
+Zetsu
+Tobi
+Tobi Rinnegan
+Kabutochimaru
+Itachi Edo Tensei
+Deidara Edo Tensei
+Sasori Edo Tensei
+Kakuzu Edo Tensei
+Nagato Edo Tensei
+Madara
+randomselect
+
+
+;-----------------------
+[ExtraStages]
+ ;Put extra stages here. They will be available in VS and Watch modes.
+ ;For example, you can insert "stages/mybg.def".
+stages/Distance.def
+
+;---------------------------------------------------------------------
+[Options]
+ ;Here you set the maximum number of matches to fight before game ends
+ ;in Arcade Mode. The first number is the number of matches against
+ ;characters with order=1, followed by order=2 and order=3 respectively.
+ ;For example, for 4,3,1 you will fight up to 4 randomly-picked
+ ;characters who have order=1, followed by 3 with order=2 and 1 with
+ ;order=3.
+arcade.maxmatches = 2,0,0,0,0,0,0,0,0,0
+
+ ;Maximum number of matches to fight before game ends in Team Mode.
+ ;Like arcade.maxmatches, but applies to Team Battle.
+team.maxmatches = 4,1,1,0,0,0,0,0,0,0

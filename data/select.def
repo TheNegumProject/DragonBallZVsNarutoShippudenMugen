@@ -1,0 +1,127 @@
+;---------------------------------------------------------------------
+[Characters]
+Goku, stages/Tenkaichi Budokai.def
+Goku SSJ, stages/NAMEKD.def
+Goku SSJ2, stages/Rocks_Earth_Kai.def
+Goku SSJ3, stages/Planeta Supremo.def
+Goku SSJ God, stages/Infinity World.def
+Vegeta, stages/Infinity World.def
+Vegeta SSJ, stages/Mountain_Road.def
+Vegeta SSJ2, stages/Rocks_Earth_Kai.def
+Majin Vegeta SSJ2, stages/Rocks_Earth_Kai.def 
+Gohan, stages/Battle_Saiyan.def
+Gohan SSJ2, stages/CELL_GAMES.def
+Saiyaman, stages/Tenkaichi Budokai.def
+Mystic Gohan, stages/Rocks_Earth_Kai.def
+Trunks, stages/City_Destroyed.def
+Trunks SSJ, stages/City_Destroyed.def
+Kid Goten SSJ, stages/Kamis_Lookout.def
+Kid Trunks SSJ, stages/Kamis_Lookout.def
+Gotenks SSJ, stages/Kamis_Lookout.def
+Piccolo, stages/Kamis_Lookout.def
+Krillin, stages/kame-house.def
+Yamcha, stages/kame-house.def
+Tien, stages/Battle_Saiyan.def
+Chiaotzu, stages/Battle_Saiyan.def
+SUpreme Kai, stages/Planeta Supremo.def
+Raditz, stages/Battle_Saiyan.def
+Vegeta Saiyan, stages/Earth_Rocks.def
+Nappa, stages/Battle_Saiyan.def
+Freeza, stages/NAMEKD.def
+Android 17, stages/City_Destroyed.def
+Android 18, stages/Mountain_Road.def
+Android 16, stages/City_Destroyed.def
+Cell, stages/CELL_GAMES.def
+Broly LSSJ, stages/Nuevo_vegita2.def
+Dabura, stages/Planet Zun.def
+Majin Buu, stages/City_Destroyed.def
+Buu, stages/Planeta Supremo.def
+Naruto, stages/stages/inner_konoha.def
+Naruto Teen, stages/Kyuubi Jail.def
+Naruto Sage, stages/Konoha Destroyed.def
+Naruto Biju, stages/Infinity World.def
+Naruto Kurama, stages/Jiraya Memories.def
+Sasuke, stages/The Valley of the End.def
+Sasuke Teen, stages/Itachi Word.def
+Sasuke Eternal, stages/stages/inner_konoha.def
+Sakura, stages/stages/inner_konoha.def
+Sakura Teen, stages/Forest.def
+Kakashi, stages/Trainig Rasenshuriken.def
+Sai, stages/stages/inner_konoha.def
+Yamato, stages/stages/inner_konoha.def
+Killer bee, stages/Trainig Rasenshuriken.def
+Minato, stages/Kyuubi Attack.def
+Kushina, stages/Kyuubi Attack.def
+Rock Lee Teen, stages/Trainig Rasenshuriken.def
+Chouji Teen, stages/Forest.def
+Shikamaru Teen, stages/Forest.def
+Hinata teen, stages/Forest.def
+Gaara Kazekage, stages/Rocks_Earth_Kai.def
+Temari Teen, stages/Rocks_Earth_Kai.def
+Tsunade, stages/Konoha Destroyed.def
+Jiraiya, stages/Jiraiya Stage.def
+Tendo, stages/Chibaku Tensei.def
+Konan, stages/Jiraiya vs Pein.def
+Itachi, stages/Itachi Word.def
+Kisame, stages/Akatsuki Cueva.def
+Zetsu, stages/Forest.def
+Tobi, stages/Akatsuki Cueva.def
+Tobi Rinnegan, stages/Kamui.def
+Kabutochimaru, stages/Forest.def
+Itachi Edo Tensei, stages/Earth_Rocks.def
+Deidara Edo Tensei, stages/Earth_Rocks.def
+Sasori Edo Tensei, stages/Earth_Rocks.def
+Kakuzu Edo Tensei, stages/Earth_Rocks.def
+Nagato Edo Tensei, stages/Earth_Rocks.def
+Madara, stages/Konoha Destroyed.def
+Goku SSJ Rikudo
+Naruto Goku Custume
+randomselect
+
+
+;-----------------------
+[ExtraStages]
+stages/Tenkaichi Budokai.def
+stages/Battle_Saiyan.def
+stages/Earth_Rocks.def
+stages/NAMEKD.def
+stages/Mountain_Road.def
+stages/City_Destroyed.def
+stages/Nuevo_vegita2.def
+stages/CELL_GAMES.def
+stages/Rocks_Earth_Kai.def
+stages/Planet Zun.def
+stages/Planeta Supremo.def
+stages/kame-house.def
+stages/Kamis_Lookout.def
+stages/Infinity World.def
+stages/Planet Zun.def
+stages/Kyuubi Attack.def
+stages/Konoha Destroyed.def
+stages/The Valley of the End.def
+stages/Itachi World.def
+stages/Jiraiya Stage.def
+stages/Jiraiya vs Pein.def
+stages/Forest.def
+stages/Chibaku Tensei.def
+stages/Kamui.def
+stages/Trainig Rasenshuriken.def
+stages/Akatsuki Cueva.def
+stages/Kyuubi Jail.def
+stages/Jiraya Memories.def
+stages/MtHokage.def
+stages/inner_konoha.def
+
+;---------------------------------------------------------------------
+[Options]
+ ;Here you set the maximum number of matches to fight before game ends
+ ;in Arcade Mode. The first number is the number of matches against
+ ;characters with order=1, followed by order=2 and order=3 respectively.
+ ;For example, for 4,3,1 you will fight up to 4 randomly-picked
+ ;characters who have order=1, followed by 3 with order=2 and 1 with
+ ;order=3.
+arcade.maxmatches = 9,0,0,0,0,0,0,0,0,0
+
+ ;Maximum number of matches to fight before game ends in Team Mode.
+ ;Like arcade.maxmatches, but applies to Team Battle.
+team.maxmatches = 4,1,1,0,0,0,0,0,0,0

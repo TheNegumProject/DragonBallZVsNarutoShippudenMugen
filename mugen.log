@@ -1,0 +1,187 @@
+------------------------------------------
+M.U.G.E.N ver 1.00 (2011.01.18) status log
+------------------------------------------
+Parsing command line...
+Command line: D:\Kaioh-SAMA\Jogos M.U.G.E.N\Dragon Ball Z VS Naruto Shippuden\Dragon Ball Z VS Naruto Shippuden.exe
+Parse command line OK
+Initializing...
+Allocating game variables
+Reading configuration file...OK
+Initializing timer...performance timer enabled...frequency 3579545...OK
+Initializing keyboard...configuring...OK
+Initializing input engine...OK
+Initializing sound...Using SDL audio driver: dsound
+Requesting mixer parameters (44100, 16, 2, 2048)...
+Opened mixer with parameters (44100, 16, 2, 2048)...
+OK
+Initializing BGM...Unrecognized plugin: vorbisplugBGMThreadInit returned 0
+OK
+Initializing graphics...gameCoord 640x480...render mode 0_0...trying 640x480x16 mode 0x0...success...OK
+Setting callbacks...OK
+Initializing font...OK
+Initializing game variables...OK
+Loading system fonts...OK
+Loading options...
+Initializing pads...failed
+Reinitializing input engine...OK
+Remapping keys...OK
+Reinitializing input engine...OK
+Options loaded OK
+Loading system...
+  Load system file system.def...OK
+  Load system spr...OK
+  Load system snd...OK
+  Load system fonts...OK
+  Load system anim...OK
+  Load [Title Info]...OK
+  Load [Option Info]...OK
+  Load [Select Info]...OK
+  Load [VS Screen]...OK
+  Load [Victory Screen]...OK
+  Load [Demo Mode]...OK
+  Load [Continue Screen]...OK
+  Load [Game Over Screen]...OK
+  Load [Win Screen]...OK
+  Load [Survival Results Screen]...OK
+  Load [Default Ending]...OK
+  Load [End Credits]...OK
+  Load TitleBG...VersusBG...VictoryBG...SelectBG...OptionBG...OK
+  Loading fight data
+    Opening fight data file data/fight.def...OK
+    Reading [Files]...OK
+    Loading fonts...OK
+    Load fight anim...OK
+    Reading [Lifebar]...[Turns Lifebar]...[Simul Lifebar]...[Powerbar]...
+    [Face]...[Simul Face]...[Turns Face]...
+    [Name]...[Simul Name]...[Turns Name]...
+    [Time]...[Combo]...[Round]...[WinIcon]...OK
+    Allocating explods...OK
+  Fight data loaded OK
+System loaded OK
+Initialize OK
+Set up graphics...timer...OK
+Initializing character info...OK
+Initializing select screen...finding characters...OK
+
+Entering main loop
+Entering character select.
+attempting load and start...attempting load of sound/shippuuden.mp3...hooking mixer callback...
+success!
+starting BGM...
+Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Loading character chars/Sasuke Eternal/Sasuke Eternal.def...
+  Loading info...OK
+  Loading cmd command set FG-MSasuke2.cmd...OK
+  Loading cns FG-MSasuke2.cns...OK
+  Loading cns config.txt...OK
+  Loading cmd state entry FG-MSasuke2.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff FG-MSasuke.sff...OK
+  Loading anim FG-MSasuke.air...OK
+  Loading snd FG-MSasuke.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
+  SFF v1.01 palette hack engaged.
+  31591 expressions (6173 on trigger lines)
+Character Sasuke Eternal.def loaded OK
+Start of game loop
+End of game loop
+Total time: 1.77s
+Total frames: 94 	Skipped frames: 2
+Avg game rate: 53.11
+Avg frame rate: 51.98
+
+Entering character select.
+attempting load and start...attempting load of sound/shippuuden.mp3...success!
+starting BGM...
+attempting load and start...nothing to do!
+Entering character select.
+attempting load and start...nothing to do!
+attempting load and start...nothing to do!
+Loading character chars/Goku/Goku.def...
+  Loading info...OK
+  Loading cmd command set Goku.cmd...OK
+  Loading cns Goku.cns...OK
+  Loading cns Transformations.cns...attempting load and start...attempting load of sound/versus.mp3...Couldn't open BGM file sound/versus.mp3!
+error 1!
+OK
+  Loading cmd state entry Goku.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff Goku.sff...OK
+  Loading anim Goku.air...OK
+  Loading snd Goku.snd...OK
+  Loading pals...(1,1)OK
+  9110 expressions (3525 on trigger lines)
+Character Goku.def loaded OK
+Loading character chars/Naruto Goku Custume/Naruto Goku Custume.def...
+  Loading info...OK
+  Loading cmd command set naruto_nzc.cmd...OK
+  Loading cns naruto_nzc.cns...OK
+  Loading cns override.cns...OK
+  Loading cns kage_bunshin_no_helper.cns...OK
+  Loading cns new_jutsu.cns...OK
+  Loading cmd state entry naruto_nzc.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff naruto_nzc.sff...OK
+  Loading anim naruto_nzc.air...OK
+  Loading snd naruto_nzc.jp.snd...OK
+  Loading pals...(1,1)(1,2)OK
+  SFF v1.01 palette hack engaged.
+  5156 expressions (1300 on trigger lines)
+Character Naruto Goku Custume.def loaded OK
+Initializing stage...
+  Loading BG...attempting load of sound/seize the day.mp3...success!
+OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+prebuffering BGM...
+End of game loop
+Total time: 17.52s
+Total frames: 960 	Skipped frames: 45
+Avg game rate: 54.79
+Avg frame rate: 52.23
+
+Start of game loop
+End of game loop
+Total time: 3.39s
+Total frames: 196 	Skipped frames: 0
+Avg game rate: 57.82
+Avg frame rate: 57.82
+
+Entering character select.
+attempting load and start...attempting load of sound/shippuuden.mp3...success!
+starting BGM...
+Returned from main loop
+Deinitializing...
+Frames      : 1250
+Time elapsed: 238.650 sec
+ticks: 23865, tps: 100, start 439, end 24304
+
+Clearing player cache...OK
+Freeing character info...OK
+Freeing select screen...OK
+Freeing fight data...OK
+Freeing system data...OK
+Freeing game variables...OK
+Deinitializing input...pad...keyboard...OK
+Removing callbacks...OK
+Deintializing timer...OK
+Deinitializing graphics...OK
+Deinitializing BGM...Cleaning up mixer callback...unhooking mixer callback...
+
+Mixer callback was entered 2750 times
+Mixer callback timing stats (last 2750 calls):
+	10.000000 median, 61.765455 avg, -1.#IND00 sample std. dev.
+Top 10 slowest times:	69011 (1), 61333 (1), 5034 (1), 102 (1), 99 (2), 93 (1), 92 (1), 85 (1), 78 (1), 76 (1)
+Top 10 fastest times:	6 (3), 7 (8), 8 (107), 9 (710), 10 (977), 11 (85), 12 (53), 13 (27), 14 (24), 15 (13)
+OK
+Deinitializing sound...OK
+Successful program termination.
+
+Log file successfully closed.
