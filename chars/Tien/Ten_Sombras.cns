@@ -1,0 +1,1055 @@
+;-----------------------------------
+;Sombra - Stand Light Punch
+[Statedef 10200]
+type = S
+physics = N
+movetype = A
+anim = 10200				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+;[State Anim]
+;type = changeanim
+;trigger1 = time = 3
+;value = 10200				;es la animación vacía de imagen y solo con el cuadro de colsión de daño
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA                     ;Attribute: Standing, Normal Attack
+damage = 10, 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 8                 ;Time attacker pauses, time opponent shakes
+sparkno = s7002                   ;Spark anim no (Def: set above)
+sparkxy = -10, -55               ;X-offset for the "hit spark" rel. to p2,
+guard.sparkno = s7005
+;Y-offset for the spark rel. to p1
+hitsound = s0, 5                  ;Sound to play on hit
+guardsound = s0, 8                ;Sound to play on guard
+ground.type = High               ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 5             ;Time that the opponent slides back
+ground.hittime  = 10             ;Time opponent is in hit state
+ground.velocity = -3.5             ;Velocity at which opponent is pushed
+airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -1.4,-3           ;X-velocity at which opponent is pushed,
+;Y-velocity at which opponent is pushed
+air.hittime = 12                 ;Time before opponent regains control in air
+
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+
+;-----------------------------------
+;Sombra - Stand Light Punch - 2nd hit
+[Statedef 10201]
+type = S
+physics = N
+movetype = A
+anim = 10201				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 201, 1]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA                     ;Attribute: Standing, Normal Attack
+damage = 10, 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 8                 ;Time attacker pauses, time opponent shakes
+sparkno = s7002                      ;Spark anim no (Def: set above)
+sparkxy = -10, -55               ;X-offset for the "hit spark" rel. to p2,
+guard.sparkno = s7005
+;Y-offset for the spark rel. to p1
+hitsound = s0, 5                  ;Sound to play on hit
+guardsound = s0, 8               ;Sound to play on guard
+ground.type = High               ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 5             ;Time that the opponent slides back
+ground.hittime  = 10             ;Time opponent is in hit state
+ground.velocity = -3.5             ;Velocity at which opponent is pushed
+airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -1.4,-3           ;X-velocity at which opponent is pushed,
+;Y-velocity at which opponent is pushed
+air.hittime = 12
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;-----------------------------------
+;Sombra - Standing strong punch
+[Statedef 10210]
+type = S
+physics = N
+movetype = A
+anim = 10210				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 210, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA
+animtype  = Medium
+damage    = 14
+guardflag = MA
+pausetime = 12,12
+sparkno = S7000
+sparkxy = -10,-40
+guard.sparkno = s7005
+hitsound   = s0, 6
+guardsound = s0, 8
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -5.5
+air.velocity = -2.5,-4
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;-----------------------------------
+;Sombra - Standing light kick
+[Statedef 10230]
+type = S
+physics = N
+movetype = A
+anim = 10230				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 230, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA
+animtype  = Medium
+damage    = 13
+guardflag = MA
+pausetime = 12,12
+sparkno = s7002
+sparkxy = -10,-45
+guard.sparkno = s7005
+hitsound   = s0, 5
+guardsound = s0, 8
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 11
+ground.velocity = -3.5
+air.velocity = -2.5,-3.5
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;-----------------------------------
+;Sombra - Standing strong kick
+[Statedef 10240]
+type = S
+physics = N
+movetype = A
+anim = 10240				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 240, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA
+animtype  = Medium
+damage    = 15
+guardflag = MA
+pausetime = 10,12
+sparkno = s7003
+sparkxy = -10,-60
+guard.sparkno = s7005
+hitsound   = s0, 6
+guardsound = s0, 8
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -4, 0
+air.velocity = -4, 2
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;-----------------------------------
+;Sombra - Comand - Patada arriba
+[Statedef 10330]
+type = S
+physics = N
+movetype = A
+anim = 10330				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 330, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA
+animtype  = Medium
+damage    = 15
+guardflag = MA
+pausetime = 10,12
+sparkno = s7003
+sparkxy = -10,-65
+guard.sparkno = s7005
+hitsound   = s0, 6
+guardsound = s0, 8
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -1, -5
+air.velocity = -3, -3
+recover = 0
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;-----------------------------------
+;Sombra - Crouching light punch
+[Statedef 10400]
+type = S
+physics = N
+movetype = A
+anim = 10400				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 400, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = C, NA
+damage    = 10
+priority  = 3
+animtype  = Light
+hitflag = MAF
+guardflag = L
+pausetime = 10,11
+sparkno = s7002
+sparkxy = -10,-35
+guard.sparkno = s7005
+hitsound   = s0, 5
+guardsound = s0, 8
+ground.type = Low
+ground.slidetime = 4
+ground.hittime  = 10
+ground.velocity = -4
+air.velocity = -1.5,-3
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+;-----------------------------------
+;Sombra - Crouching strong punch
+[Statedef 10410]
+type = S
+physics = N
+movetype = A
+anim = 10410				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 410, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = C, NA
+damage    = 15
+animtype  = Medium
+hitflag = MAF
+guardflag = M
+pausetime = 12,12
+sparkno = s7000
+sparkxy = -10,-65
+guard.sparkno = s7005
+hitsound   = s0, 6
+guardsound = s0, 8
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -4
+air.velocity = -3,-4
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;-----------------------------------
+;Sombra - Crouching light kick
+[Statedef 10430]
+type = S
+physics = N
+movetype = A
+anim = 10430				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 430, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = C, NA
+damage    = 14
+animtype  = Light
+hitflag = MAFD
+guardflag = L
+pausetime = 8,15
+sparkno = s7002
+sparkxy = -10,-28
+guard.sparkno = s7005
+hitsound   = s0, 5
+guardsound = s0, 8
+ground.type = Low
+ground.slidetime = 6
+ground.hittime  = 10
+ground.velocity = -5
+air.velocity = -2,-3
+down.velocity = -5,0
+down.hittime = 20
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+;-----------------------------------
+;Sombra - Crouch Strong Kick
+[Statedef 10440]
+type = S
+physics = N
+movetype = A
+anim = 10440				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 440, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = C, NA
+damage    = 15
+hitflag = MAFD
+guardflag = L
+pausetime = 12,12
+sparkno = s7003
+sparkxy = -5,-10
+guard.sparkno = s7005
+hitsound   = s0, 7
+guardsound = s0, 8
+ground.type = Trip
+ground.slidetime = 10
+ground.hittime  = 15
+ground.velocity = -1.5,-2
+air.velocity = -1.2,-3
+guard.velocity = -5
+fall = 1
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+;-----------------------------------
+;Sombra - Jump Light Punch
+[Statedef 10600]
+type = S
+physics = N
+movetype = A
+anim = 10600				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 600, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = A, NA
+damage    = 10
+guardflag = HA
+priority = 3
+pausetime = 7,8
+sparkno = s7002
+sparkxy = -10,-20
+guard.sparkno = s7005
+hitsound   = s0,5
+guardsound = s0,8
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 5
+ground.velocity = -4
+air.velocity = -1.3,-3
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+;-----------------------------------
+;Sombra - Jump Strong Punch
+[Statedef 10610]
+type = S
+physics = N
+movetype = A
+anim = 10610				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 610, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = A, NA
+damage = 15
+guardflag = HA
+priority = 4
+pausetime = 12,12
+sparkno = s7000
+sparkxy = -10,-25
+guard.sparkno = s7005
+hitsound   = s0,6
+guardsound = s0,8
+animtype = Med
+ground.type = High
+ground.slidetime = 17
+ground.hittime  = 17
+ground.velocity = -5
+air.velocity = -3,-4
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+;-----------------------------------
+;Sombra - Jump Light Kick
+[Statedef 10630]
+type = S
+physics = N
+movetype = A
+anim = 10630				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 630, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = A, NA
+damage = 13
+guardflag = HA
+priority = 3
+pausetime = 8,8
+sparkno = s7000
+sparkxy = -5,-15
+guard.sparkno = s7005
+hitsound   = s0,5
+guardsound = s0,8
+ground.type = High
+ground.slidetime = 6
+ground.hittime  = 6
+ground.velocity = -4
+air.velocity = -2,-3
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+;-----------------------------------
+;Sombra - Jump Strong Kick
+[Statedef 10640]
+type = S
+physics = N
+movetype = A
+anim = 10640				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 640, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = A, NA
+damage    = 15
+guardflag = HA
+priority = 4
+pausetime = 12,12
+sparkno = s7003
+sparkxy = -10,0
+guard.sparkno = s7005
+hitsound   = s0,7
+guardsound = s0,8
+animtype = Med
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -5
+air.velocity = -3, 4
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;===================================================================================
+;---------------- Specials ---------------------------------------------------------
+;===================================================================================
+
+;Sombra - Atake de palmas - 1rst hit
+
+[Statedef 11600]
+type = S
+physics = N
+movetype = A
+anim = 11600				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 11600, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA
+animtype  = Medium
+damage    = 10
+guardflag = MA
+pausetime = 12,15
+sparkno = S7000
+sparkxy = -10,-65
+guard.sparkno = s7005
+hitsound   = s0, 7
+guardsound = s0, 8
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -5.5
+air.velocity = -2.5,-4
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+;----------------------------------
+;Sombra - Atake de palmas - 2nd hit
+
+[Statedef 11601]
+type = S
+physics = N
+movetype = A
+anim = 11601				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 11601, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA
+animtype  = Medium
+damage    = 10
+guardflag = MA
+pausetime = 12,18
+sparkno = S7002
+sparkxy = -10,-55
+guard.sparkno = s7005
+hitsound   = s0, 7
+guardsound = s0, 8
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -5.5
+air.velocity = -2.5,-4
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+
+;----------------------------------
+;Sombra - Atake de palmas - 3rd hit
+
+[Statedef 11602]
+type = S
+physics = N
+movetype = A
+anim = 11602				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 11602, 2]
+type = HitDef
+trigger1 = Time = 7
+trigger2 = Time = 10
+attr = S, NA
+animtype  = Medium
+damage    = 10
+guardflag = MA
+pausetime = 12,13
+sparkno = -1
+sparkxy = -10,-40
+guard.sparkno = s7005
+hitsound   = s0, 7
+guardsound = s0, 8
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -3, -9
+air.velocity = -3, -7.5
+fall = 1
+fall.recover = 0
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;----------------------------------
+;----------------------------------
+;Sombra - Palmas Rush
+
+[Statedef 11680]
+type = S
+physics = N
+movetype = A
+anim = 11680				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 11680, 2]
+type = HitDef
+trigger1 = Time = 9
+attr = S, NA
+animtype  = Light
+damage    = 5
+guardflag = MA
+pausetime = 5,7
+sparkno = s7002
+sparkxy = -10,-45
+guard.sparkno = s7005
+hitsound   = s0, 7
+guardsound = s0, 8
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -7, 0
+air.velocity = -5, -1
+fall = 0
+fall.recover = 0
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;----------------------------------
+;----------------------------------
+;Sombra - Shin Torpedo - Stand abajo
+
+[Statedef 11700]
+type = S
+physics = N
+movetype = A
+anim = 11700				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 11700, 2]
+type = HitDef
+;trigger1 = animelem = 1
+trigger1 = Time = 2
+trigger2 = Time = 4
+attr = S, NA
+animtype  = Medium
+damage    = 12
+priority = 7,hits
+guardflag = MA
+pausetime = 5, 7
+sparkno = s7000
+sparkxy = -10,-25
+guard.sparkno = s7005
+hitsound   = s0, 7
+guardsound = s0, 8
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 11
+ground.velocity = 1,-9.5
+air.velocity = -2.5,-8.5
+fall = 1
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+
+;----------------------------------
+;Sombra - Salto definitivo - rodillazo final
+
+[Statedef 11810]
+type = S
+physics = N
+movetype = A
+anim = 11810				;es una animación vacía, con tiempo -1
+velset = 0,0,0
+ctrl = 0
+
+[State nohit]
+type = nothitby
+trigger1 = time >= 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT	;para que nada golpee al helper
+time = 1
+
+[State ride]
+type = HitOverride
+trigger1 = Time = 0			;para que cuando de su golpe, pase al state que lo desaparezca inmediatamente
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 15000
+time = -1
+
+[State 11810, 2]
+type = HitDef
+trigger1 = Time = 2
+trigger2 = Time = 4
+attr = S,SA
+hitflag = MAFD
+guardflag = MA
+animtype = Up
+priority = 7,hit
+animtype  = Medium
+damage    = 10
+;guardflag = MA
+pausetime = 5,7
+sparkno = s7000
+sparkxy = -10, 10
+guard.sparkno = s7005
+hitsound   = s0, 7
+guardsound = s0, 8
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 11
+ground.velocity = -1.5, 5
+air.velocity = -1.5, 5.5
+fall = 1
+
+;[State 0, BindToParent]
+;type = BindToParent
+;trigger1 = time = 0
+;time = 1
+;facing = 0
+;pos = 0,0
+;ignorehitpause =
+;persistent =
+
+
+[State Dest]
+type = destroyself
+;trigger1 = Movecontact = 1
+trigger1 = Time = 11               ; Acá debería ir el tiempo que dura el frame que golpea
+trigger2 = parent,movetype = H
+

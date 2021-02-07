@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="East Shin "
+displayname ="Supreme Kai"
+versiondate =23,10,2009
+mugenversion =06,14,2003
+author ="DGZ/Zerberus Dante"
+pal.defaults =1,2
+
+[Files]
+sprite =Kaioshin.sff
+anim =Kaioshin.air
+sound =Kaioshin.snd
+cmd =Kaioshin.cmd
+cns =Kaioshin.cns
+stcommon =common1.cns
+st =Kaioshin.cns
+pal1=Paleta1.act
+pal2=Paleta2.act
+st1=Normal.cns
+st2=Hypers.cns
+st3=Helpers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

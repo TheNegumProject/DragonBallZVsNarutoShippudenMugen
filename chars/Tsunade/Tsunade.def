@@ -1,0 +1,22 @@
+[Info]
+name ="Tsunade"
+displayname ="Tsunade"
+versiondate = 
+mugenversion = 
+author ="Gabrieldra6"
+pal.defaults =1,2
+
+[Files]
+sprite =Tsunade.sff
+anim =Tsunade.air
+sound =Tsunade.snd 
+cmd =Tsunade.cmd
+cns =Tsunade.cns
+stcommon =common1.cns
+st =Tsunade.cns
+pal1=Tsunade.act
+pal2=Tsunade.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

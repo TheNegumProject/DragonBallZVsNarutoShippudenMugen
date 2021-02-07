@@ -1,0 +1,36 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name="Nappa"
+displayname="Nappa"
+versiondate=04,14,2002
+mugenversion=04,14,2002
+author=""
+pal.defaults=1,2
+
+; Files for the player
+[Files]
+cmd=Nappa.cmd
+cns=Nappa.cns
+st=Nappa.cns
+stcommon=common1.cns
+sprite=Nappa.sff
+anim=Nappa.air
+sound=Nappa.snd
+pal1=Nappa.act
+pal2=Nappa2.act
+st1=Nappa_IA.cns
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard=intro.def
+;ending.storyboard=ending.def
+
+
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard= ..\data\final.def

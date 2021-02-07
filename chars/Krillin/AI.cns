@@ -1,0 +1,175 @@
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------
+
+[Statedef -2]
+
+; Clipboard de ai
+[State -2, 1]
+type = DisplayToClipboard
+trigger1 = var(59) = 1
+text = "Ai activada"
+;------------------------------
+
+
+;Si p2 permanece volando
+[State -2, AI2]
+type = ChangeState
+triggerall = Ctrl
+triggerall = var(59) = 1
+triggerall = random < 300
+triggerall = Stateno != 107 && Stateno != 920
+triggerall = movetype != A
+;trigger1 = P2statetype = S
+trigger1 = P2BodyDist Y <= -100 && time >=200
+value = 2100 ;   teleport combo
+
+
+
+;-------------------------
+[State -2, AI1]; no vueles
+type = ChangeState
+triggerall = var(59) = 1
+triggerall = random < 499
+triggerall = Stateno = 107
+trigger1 = P2statetype = S && time >= 100
+;trigger1 = P2BodyDist Y < 37
+value = 800;50 ;100
+
+[State -2, AI1]; no vueles
+type = ChangeState
+triggerall = var(59) = 1
+triggerall = random < 499
+triggerall = Stateno = 107
+trigger1 = P2statetype = S && time >= 200
+;trigger1 = P2BodyDist Y < 37
+value = 50 ;100
+;------------------
+
+[State -2, AI2]; carga ki
+type =  ChangeState
+triggerall = var(59) = 1
+triggerall = random < 499
+triggerall = Stateno != 830
+triggerall = ctrl
+trigger1 = P2statetype = S
+;trigger1 = P2BodyDist X <= 0
+trigger1 = P2BodyDist X >= 200 || P2BodyDist Y >= 100
+trigger1 = Power <= 2500
+value = 830
+
+;------------------
+;Combo_a
+[State -2, Combo_a]
+type = ChangeState
+value = 1000
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 200)
+;trigger1 = power >= 500
+triggera1 = random < 499
+
+[State -2, Combo_a]
+type = ChangeState
+value = 1001
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 1000)
+
+[State -2, Combo_a]
+type = ChangeState
+value = 1002
+triggerall = random < 499
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 1001) && (time = 20)
+
+[State -2, Combo_a]
+type = ChangeState
+value = 1003
+triggerall = random < 499
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 1001) && (time = 20)
+
+[State -2, Combo_a]
+type = ChangeState
+value = 1004
+triggerall = random < 799
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 1001) && (time = 20)
+;---------------------
+
+
+[State -2, AI4]; comer sensu
+type =  ChangeState
+triggerall = Ctrl  ;IMPORTANTE para que no lo haga en medio de un ataque
+triggerall = var(59) = 1
+triggerall = var(56) = 0
+triggerall = random < 499
+triggerall = alive = 1
+triggerall = Stateno != 107
+triggerall = Stateno != 920 && Stateno != 830
+trigger1 = life <= 500 && life > 0
+trigger1 = Pos Y = 0
+trigger1 = P2movetype != A
+;trigger1 = life < p2life
+;trigger1 = P2life >= 37
+value = 920
+
+;------------------
+
+;Combo_b
+[State -2, Combo_b]
+type = ChangeState
+value = 1100
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 210)
+;trigger1 = power >= 500
+
+[State -2, Combo_b] ;stado base 1101 ,patada manda al aire a p2
+type = ChangeState
+value = 1101
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 1100)
+
+[State -2, Combo_b]
+type = ChangeState
+value = 1102
+triggerall = random < 499
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 1101) && time = 10
+
+[State -2, Combo_b]
+type = ChangeState
+value = 3150
+triggerall = random < 499
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 1101)
+
+[State -2, Combo_b]
+type = ChangeState
+value = 880
+triggerall = random < 799
+trigger1 = (var(59) = 1) && (MoveContact) && (stateno = 1101)
+;---------------------
+
+[State -2, AI4]; hombrazo
+type =  ChangeState
+triggerall = var(59) = 1
+triggerall = random < 399
+triggerall = P2movetype != A
+triggerall = Stateno != 2400 && Stateno != 2401 && Stateno != 2402
+triggerall = alive = 1
+triggerAll = numproj = 0
+trigger1 = P2BodyDist Y >= -10 && P2BodyDist Y <= 10      ;entre -10 y 10
+trigger1 = P2BodyDist X >= 100
+trigger1 = power >= 1500
+trigger1 = prevstateno != 2400 && prevStateno != 2401 && prevStateno != 2402
+;trigger1 = P2life >= 37
+value = 2400
+;------------------
+
+;[State -2, AI5]; defensa ERROR
+;type =  null ;ChangeState
+;triggerall = var(59) = 1
+;triggerall = P2movetype = A
+;triggerall = random < 499
+;triggerall = Stateno != 830
+;trigger1 = statetype = S
+;trigger1 = P2BodyDist X <= 0
+;trigger1 = P2BodyDist X <= 20
+;value = 150
+
+;------------------
+
+
+
+

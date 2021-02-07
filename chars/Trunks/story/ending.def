@@ -1,0 +1,159 @@
+;Trunkz's ending storyboard.
+;-------------------------------------
+[SceneDef]
+spr = ending.sff
+startscene = 0    
+;-------------------------------------
+;Pictures for the ladies.
+[Scene 0]
+fadein.time = 100      
+fadein.col = 0,0,0     
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG0
+layer0.starttime = 0   
+layer0.anim =  -1   
+layer0.offset = 0,0
+end.time = 500     
+
+[Scene 1]
+fadein.time = 100      
+fadein.col = 0,0,0     
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG1
+layer0.starttime = 0   
+layer0.anim =  -1   
+layer0.offset = 0,0
+end.time = 500  
+
+[Scene 2]
+fadein.time = 100      
+fadein.col = 0,0,0     
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG2
+layer0.starttime = 0   
+layer0.anim =  -1   
+layer0.offset = 0,0
+end.time = 500  
+
+[Scene 3]
+fadein.time = 100      
+fadein.col = 0,0,0     
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG3
+layer0.starttime = 0   
+layer0.anim =  -1   
+layer0.offset = 0,0
+end.time = 500  
+
+[Scene 4]
+fadein.time = 100      
+fadein.col = 0,0,0     
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG4
+layer0.starttime = 0   
+layer0.anim =  -1   
+layer0.offset = 0,0
+end.time = 500  
+;-------------------------------------
+;Credits
+[Scene 5]
+fadein.time = 100      
+fadein.col = 0,0,0     
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG5
+bgm = nowillpower.ogg
+bgm.loop = 0
+layer0.starttime = 0   
+layer0.anim =  -1   
+layer0.offset = 0,0
+end.time = 17700
+;-------------------------------------
+;Pic 1
+[BG0Def]
+
+[BG0 Credits]
+id = 1
+type = normal
+spriteno = 0,0
+start = -160,0
+window = 0,24, 319,215
+
+;Pic 2
+[BG1Def]
+
+[BG1 Credits]
+id = 1
+type = normal
+spriteno = 0,1
+start = -160,0
+window = 0,24, 319,215
+
+;Pic 3
+[BG2Def]
+
+[BG2 Credits]
+id = 1
+type = normal
+spriteno = 0,2
+start = -160,0
+window = 0,24, 319,215
+
+;Pic 4
+[BG3Def]
+
+[BG3 Credits]
+id = 1
+type = normal
+spriteno = 0,3
+start = -160,0
+window = 0,24, 319,215
+
+;Pic 5
+[BG4Def]
+
+[BG4 Credits]
+id = 1
+type = normal
+spriteno = 0,4
+start = -160,0
+window = 0,24, 319,215
+;-------------------------------------
+;List of Alleged Victims
+[BG5Def]
+
+[BG5 Credits]
+id = 1
+type = normal
+spriteno = 1,0
+start = -160,240
+window = 0,24, 319,215
+
+[BG5CtrlDef Credits]
+CtrlID = 1
+looptime = -1
+
+[BG5Ctrl Start scrolling]
+type = VelSet
+time = 0
+y = -0.25
+
+[BG5Ctrl Stop scrolling]
+type = VelSet
+time = 4000
+y = 0
+;--------------------------------------
+;"Background Scrolling" Credits
+[Begin Action 2]
+1,0, 0,0, -1

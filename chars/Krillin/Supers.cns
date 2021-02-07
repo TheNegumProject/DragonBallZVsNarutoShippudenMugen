@@ -1,0 +1,2210 @@
+
+;=================================================
+;BOLA_GRANDE
+;=================================================
+;inicio
+[Statedef 3000]
+type    = S
+movetype= A
+physics = S
+velset = 0,0,0
+juggle = 4
+ctrl = 0
+poweradd= -1000
+anim = 3000 ; animacion char
+
+[State 830, carga];
+type = PlaySnd
+trigger1 = AnimElem = 3, = 40
+;trigger1 = AnimElem = 3
+value = 2000,4
+volume = 255
+channel = 1
+
+[State 830, lanzamiento];
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = 2000,5
+volume = 255
+channel = 2
+
+
+[State 2501:	PalFX]
+type			= null ;PalFX
+trigger1		= (!Time)
+time			= 40
+add			= 0,0,0 ;100,100,100
+mul			= 256,256,256
+sinadd		= -100,-100,-100, 40
+invertall		= 0
+color			= 256
+
+[State 2501:	BGPalFX]
+type			= BGPalFX
+trigger1		= ProjContact = 1 ;(MoveHit)
+time			= 5
+add			= 75,75,75
+mul			= 256,256,256
+sinadd		= 80,80,80,4
+invertall		= 0
+color			= 256
+persistent		= 0
+ignorehitpause	= 1
+
+
+[State 900, Turn]
+type = Turn
+Trigger1 = P2Dist X < 0
+
+
+[State 3000, acumulacion];efecto de acumulacion energia.
+type = Explod
+trigger1 = animelem = 2
+anim = 8055
+ID = 8055
+postype = p1
+pos = -8, -40
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2 ;30
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.3, 0.3
+ontop = 0
+
+
+[State 300, efecto];efecto energia acumulada
+type = Explod
+trigger1 = animelem = 4
+anim = 8060
+ID = 8060
+postype = p1
+pos = -12, -40
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2 ;30
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.4,0.4
+ontop = 0
+
+
+[State 3000 , lanzado]
+type = Projectile
+trigger1 = AnimElem = 6 ; imagem que lançara o fire ball
+projanim = 8050 ; numero do fire ball
+projhitanim = 8010 ; quando acerta o p2 ,efeito
+projshadow = 0,0,0
+projpriority = 4
+projremovetime = 100 ; tempo que o fire ball ficara ativo
+projid = 8001
+velocity = 6,0 ;IfElse(Random <= 499,-0.8,0.8) ; velocidade do fire ball
+accel = .2 ;IfElse(Random <= 499,-0.1,0.1)
+offset = 23,-37 ; a posiçao onde o fire ball vai sair
+attr = S, SP ; indica que é um SP , special Atack
+damage   = 10,5 ; damage que tira , e damage defendendo
+animtype = hard
+guardflag = MA
+hitflag = MAFPDP
+pausetime = 1,3
+hitsound   = S1000,2 ; som quando acerta o fire ball
+guardsound = S1000,2
+sparkno = -1
+ground.type = Low
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -5
+air.animtype = Low
+air.velocity = -1,-1
+air.juggle = 2
+projscale = 0.9, 0.9
+palfx.time		= 12
+palfx.mul		= 256,256,256
+palfx.add		= 100,100,100  ;200,50,10
+palfx.sinadd	= 175,25,5,4
+envshake.time 	= 12
+envshake.freq 	= 120
+envshake.ampl 	= -4
+persistent		= 0
+
+[State 2053: StopSnd]
+type = StopSnd
+trigger1 = (life = 0) || (stateno != 3000)
+channel = 1
+
+
+[State 2501, 3]
+type=ChangeState
+trigger1=AnimTime=0
+trigger1=Pos Y < 0
+value=107
+
+[State 2501, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-------------------------------
+
+
+
+==========================================================
+;KAME-HAME-HA (simple)
+==========================================================
+;Inicio
+[Statedef 3150]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+velset = 0,0,0
+;anim = 3100      ;animacion krillin
+
+
+;Las animaciones debe tener el mismo numero de frames y de tics ya q se usa el mismo codec
+[State 2501, 2]       ; si esta en el aire.
+type = changeanim
+trigger1 = time = 0
+trigger1 = Pos Y < 0
+value = 3060
+
+[State 2501, 2]       ; si esta en el suelo
+type = changeanim
+trigger1 = time = 0
+trigger1 = Pos Y >= 0
+value = 3065
+
+;---------Estados de pausa.
+;NOTA:modificar esto puede producir multiples bugs en los combos
+;Usados para ajustar combos y entrelazarlos con el kamehame.
+[State 0, Pause] ;viene de combo_b 1ªopcion
+type = Pause
+trigger1 = time = 0 && PrevStateNo = 1101
+time = 90
+movetime = 90
+;ignorehitpause =
+;persistent =
+;endcmdbuftime = (winmugen only)
+;pausebg =  (winmugen only)
+
+[State 0, Pause] ;viene de combo_x6 ==> solo modo violento
+type = Pause
+trigger1 = time = 0 && PrevStateNo = 1305
+time = 90
+movetime = 90
+
+;---------------------------
+;---------------------------
+
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0,100]
+flag = nomusic
+
+
+[State 2501, pause]
+type = null ;superpause
+trigger1 = time = 1
+;pos =
+;sound =
+time =  600
+anim = -1
+darken =     1
+unhittable = 1
+movetime = 600
+
+[State 2500,voz] ;kame
+type = playsnd
+trigger1 = time = 20 ;AnimElem = 1, = 8;
+value = S3150,0
+volume = 255
+channel		= 1
+
+
+[State 830, SND1];sonido estallido  de aura
+type = PlaySnd
+trigger1 = time = 1
+value = 50,6
+volume = 255
+channel = 2
+
+[State 830, sound2];sonido continuado
+type = PlaySnd
+trigger1 = (Time > 85) && ((GameTime%15) = 0) ;empieza qnd el tiempo sea 85 y luego reinica cada 15 tics.
+value = 50,7
+volume = 255
+;loop = 1
+channel = 3
+
+[State 830, SND3];sonido onda expansiba
+type = null ;PlaySnd
+trigger1 = time = 1
+value = 100,5
+volume = 255
+channel = 4
+;loop = 1
+
+
+[State 830, Aura] ; si esta en el aire
+type = Explod
+trigger1 = time = 1 && Pos Y < 0
+anim = 7002 ;
+ID = 7002
+pos = 0, 7
+sprpriority = 3 ;-1
+supermovetime = -1 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -1
+bindtime = -1
+ownpal = 0
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.6 , 0.6
+ontop = 0
+
+
+[State 830, Aura] ; aura si esta en el suelo
+type = Explod
+trigger1 = time = 1 && Pos Y >= 0
+anim = 7002 ;
+ID = 7002
+pos = -7, -7
+sprpriority = 3 ;-1
+supermovetime = -1 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -1
+bindtime = -1
+ownpal = 0
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.5 , 0.45
+ontop = 0
+
+[State 2500: polvo_tierra1]
+type = Explod
+triggerall = Pos Y = 0   ;solo si esta en el suelo
+trigger1  = time = 1
+anim = 7100
+ID = 7100
+pos = -3, 4
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermove = -1
+removeongethit = 0
+sprpriority = 2
+scale = 0.6 , 0.6
+
+
+[State 2500: polvo_tierra2]
+type = Explod
+triggerall = Pos Y = 0
+trigger1  = time = 1
+anim = 7101
+ID = 7101
+pos = -4,-1
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermove = -1
+removeongethit = 0
+sprpriority = -2
+scale = 0.6 , 0.6
+
+[State 830, EFECTO onda expansiba]
+type = null ;Explod
+trigger1 = time = 1
+anim = 7054
+ID = 7054
+pos = 0, -35
+sprpriority = 1 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2 ;-1
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.8 ,0.8
+ontop = 0
+
+
+
+[State 2500,elect1]
+type = null;playsnd
+;trigger1 = animelem = 7, = 80
+trigger1 = (Time > 268) && ((GameTime%60) = 0)  ; 189 (duracion sprites)+ 80
+value = 3100, 4
+volume = 255
+channel		= 3
+
+
+;cambio de statedef segun condicion
+
+[State 2500, 0]    ;ve a lanzar en el aire-abajo
+type = changestate
+trigger1 = Time = 100
+trigger1 = Pos Y < 0
+trigger1 = command = "holddown"
+value = 3153
+ctrl = 0
+;----
+[State 2500, 0]    ;ve a lanzar en el suelo-arriba  o aire-arriba
+type = changestate
+trigger1 = Time = 100
+;trigger1 = Pos Y >= 0
+;trigger1 = p2bodydist Y <= 60
+trigger1 = command = "holdup"
+value = 3152
+ctrl = 0
+;------
+[State 2500, 0]    ;ve a lanzar adelante ya sea en aire o tierra
+type = changestate
+trigger1 = Time = 100
+;trigger1 = Pos Y >= 0
+value = 3151
+ctrl = 0
+
+
+;----------------------------------------------------------
+;CONTINUACION 1 final
+;rayo suelo-frente y aire-frente
+[Statedef 3151]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+;anim = 3101      ;animacion krillin
+ctrl = 0
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0, 450]
+flag = nomusic
+
+
+[State 0,aura cuerpo ]
+type = removeExplod
+trigger1 = time = 0
+;trigger1 = AnimElem = 3, = 1
+ID  = 7002
+
+
+[State 2501, 2]       ; si esta en el aire
+type = changeanim
+trigger1 = time = 0
+trigger1 = Pos Y < 0
+value = 3061
+;-----
+[State 2501, 2]       ; si esta en el suelo
+type = changeanim
+trigger1 = time = 0
+trigger1 = Pos Y >= 0
+value = 3051
+
+
+[state 1701, ColorFX]
+type = null ;PalFX
+trigger1 = Time > 0
+trigger1 = TimeMod = 12,0 ; activa en time = 0, 12 , 24 ,36....
+time = 2
+add = 64,64,64
+
+
+[State 2500,voz] ;voz kame
+type = playsnd
+triggerall = PrevStateNo = 1004 ;solo se activa qndo se hace el kame sin carga (en medio de combos)
+trigger1 = AnimElem = 1;
+value = S3150,0
+volume = 255
+channel		= 5
+
+[State 2500,voz]  ;grito
+type = playsnd
+triggerall = PrevStateNo != 1004
+trigger1 = animelem = 1
+value = 3150, 2
+volume = 255
+channel		= 5
+
+[State 2501,rayo]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 2000,9
+volume = 255
+;freqmul = 0.9
+channel = 6
+
+
+[State 2501,explosion];cuando acierta el kame
+type = playsnd
+trigger1 = time = 190
+trigger1 = ProjHit 8120 = 1, < 15; activate si el proj 8120 ha acertado en los ultimos 15tics
+value = 3100, 6
+volume = 255
+;freqmul = 0.9
+channel = 7
+
+[State 2501, 4]
+type = poweradd
+trigger1 = time = 1 || time = 10 || time = 20 || time = 30
+value = -500
+
+[State 2500, aura cuerpo]
+type = null;Explod
+trigger1 = AnimElem = 2, = 90;150
+anim = 8174
+ID = 8174
+pos = 0,6
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  20 ;999999
+supermovetime = -1
+removeongethit = 1
+sprpriority = 3
+scale = 1.1, 1.1
+ownpal = 1
+shadow = 0,0,0
+
+;---
+;se ha usado explode por dar error
+;de posicion el projhitanim (proj 3150, beam)
+[State 3150, explosion]
+type = Explod
+trigger1 = time = 190
+trigger1 = ProjHit 8120 = 1, < 15; activate si el proj 8120 ha acertado en los ultimos 15tics
+anim = 8200
+ID = 8200
+postype = p2
+pos = 0, 0
+sprpriority = 3
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2
+bindtime = 1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 1,1
+ontop = 0
+
+[State 2500: polvo_special]
+type = Explod
+triggerall = Pos Y >= 0
+trigger1  = time = 1
+anim = 7105
+ID = 7105
+pos = -60, 8
+postype = p1
+facing = 1
+;bindtime = 1
+removetime = -2
+supermovetime = -1
+removeongethit = 0
+sprpriority = 2
+scale = 0.8, 0.8
+
+
+[State 2500, bola_kamehaameha];efecto al lanzar la bola
+type = Explod
+;trigger1 = time > 130 && ((GameTime%25) = 0)
+;trigger1 = TimeMod = 25, 130
+trigger1 = (time = 1) || (time = 10) || (time = 20) || (time = 30) || (time = 40) || (time = 50) || (time = 60) || (time = 70) ||  (time = 80) || (time = 90) || (time = 100) || (time = 110) || (time = 120) || (time = 130) || (time = 140) || (time = 160)
+anim = 8008
+ID = 8005
+postype = p1
+pos = 60, -37 ;34, -37
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 1.5, 1.2
+ontop = 0
+
+[State 830, EFECTO SUELO]
+type = null ;Explod
+triggerall = Pos Y = 0
+trigger1 = animelem = 4
+anim = 7010
+ID = 7010
+pos = 0, 0
+sprpriority = -3
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 350 ;-1
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.5,0.5
+ontop = 0
+
+[State 0, BGPalFX]    ;dar efecto de color al fondo  greyscale
+type = BGPalFX
+trigger1 = Animelem = 1
+time = 200
+add = 0,0,0 ;13,100, 145
+mul = 256,256,256
+sinadd = 0,0,0,10
+invertall = 0 ; efecto negatico
+color = 0  ; 256 ==>normal   , 0 = greyscale
+;ignorehitpause =
+;persistent =
+
+
+
+[State 3150, Beam]
+type = Projectile
+trigger1 = AnimElem = 1, = 1
+getpower  = 0
+projanim = 8120
+projID = 8120
+;projhitanim = 8200  ;;;da error de posicion,se ha usado explode
+projpriority = 5
+;projremove = 1
+projremovetime = 210 ;310
+projremanim = 8120   ;animacion qndo es removido o terminado
+projhits = 60 ; mas hits mas tiempo permanece le proj en pantalla
+projmisstime = 2
+numhits = 4
+velocity = 0
+accel = 0
+offset = 30,-34
+projscale = 1, 1
+
+attr = S, HP
+affectteam = B ;a todos
+damage   = 2,1
+animtype = Hard
+guardflag = MA
+hitflag = MAFD
+priority = 7
+pausetime = 1,8
+;hitsound   = S3100, 6 ;1000,1
+sparkno = -1
+guard.sparkno = -1
+guardsound = S1000,1
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 15
+ground.velocity = -8
+air.animtype = High
+air.velocity = -2
+air.juggle = 2
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+palfx.time = 23
+palfx.add = 0,128,255
+fall = 1
+fall.xvelocity = -6
+fall.yvelocity = -4.5
+fall.recover = 0
+fall.recovertime = 100
+down.bounce = 1
+
+envshake.time = 50;(int)
+envshake.freq = 100;(float)
+envshake.ampl = -6 ;(int)
+envshake.phase = 0;(float)
+
+fall.envshake.time = 50
+fall.envshake.freq = 60
+fall.envshake.ampl = -8
+fall.envshake.phase = 0
+;(afterimage winmugen only)
+;afterimage.time =
+;afterimage.length =
+;afterimage.palcolor =
+;afterimage.palinvertall =
+;afterimage.palbright = 0,0,0
+;afterimage.palcontrast = 0,0,0
+;afterimage.palpostbright =0,0,0
+;afterimage.paladd =  0,0,0
+;afterimage.palmul = 0,0,0
+;afterimage.timegap =
+;afterimage.framegap =
+;afterimage.trans = ;none,add,add1,addalpha,sub
+--------
+[State 2500, 6]
+type = changestate
+trigger1 = time = 250;400 ;animtime = 0
+value = 0
+ctrl = 1
+
+
+;----------------------------------------------------------
+;CONTINUACION 2 final
+;rayo suelo-arriba y aire-arriba
+[Statedef 3152]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+;anim = 3101      ;animacion krillin
+ctrl = 0
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0, 450]
+flag = nomusic
+
+
+[State 0,aura cuerpo ]
+type = removeExplod
+trigger1 = time = 0
+;trigger1 = AnimElem = 3, = 1
+ID  = 7002
+
+
+[State 2501, 2]       ; si esta en el aire
+type = changeanim
+trigger1 = time = 0
+trigger1 = Pos Y < 0
+value = 3062
+;-----
+[State 2501, 2]       ; si esta en el suelo
+type = changeanim
+trigger1 = time = 0
+trigger1 = Pos Y >= 0
+value = 3052
+
+
+[state 1701, ColorFX]
+type = null ;PalFX
+trigger1 = Time > 0
+trigger1 = TimeMod = 12,0 ; activa en time = 0, 12 , 24 ,36....
+time = 2
+add = 64,64,64
+
+[State 2500,voz]
+type = playsnd
+trigger1 = animelem = 1
+value = 3150, 2
+volume = 255
+channel		= 5
+
+[State 2501,rayo]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 2000,9
+volume = 255
+;freqmul = 0.9
+channel = 6
+
+
+[State 2501,explosion]
+type = playsnd
+trigger1 = time = 190
+trigger1 = ProjHit 8120 = 1, < 15; activate si el proj 8120 ha acertado en los ultimos 15tics
+value = 3100, 6
+volume = 255
+;freqmul = 0.9
+channel = 7
+
+[State 2501, 4]
+type = poweradd
+trigger1 = time = 1 || time = 10 || time = 20 || time = 30
+value = -500
+
+[State 2500, aura cuerpo]
+type = null;Explod
+trigger1 = AnimElem = 2, = 90;150
+anim = 8174
+ID = 8174
+pos = 0,6
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  20 ;999999
+supermovetime = -1
+removeongethit = 1
+sprpriority = 3
+scale = 1.1, 1.1
+ownpal = 1
+shadow = 0,0,0
+
+;---
+;se ha usado explode por dar error
+;de posicion el projhitanim (proj 3150, beam)
+[State 3150, explosion]
+type = Explod
+trigger1 = time = 190
+trigger1 = ProjHit 8120 = 1, < 15; activate si el proj 8120 ha acertado en los ultimos 15tics
+anim = 8200
+ID = 8200
+postype = p2
+pos = 0, 0
+sprpriority = 3
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2
+bindtime = 1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 1,1
+ontop = 0
+
+[State 2500: polvo_special]
+type = Explod
+triggerall = Pos Y >= 0
+trigger1  = time = 1
+anim = 7105
+ID = 7105
+pos = -60, 8
+postype = p1
+facing = 1
+;bindtime = 1
+removetime = -2
+supermovetime = -1
+removeongethit = 0
+sprpriority = 2
+scale = 0.8, 0.8
+
+
+[State 2500, efectoazul];efecto al lanzar la bola
+type = Explod
+;trigger1 = time > 130 && ((GameTime%25) = 0)
+;trigger1 = TimeMod = 25, 130
+trigger1 = (time = 1) || (time = 40) || (time = 80) || (time = 120) || (time = 160)
+anim = 8007
+ID = 8007
+postype = p1
+pos = 20, -44 ;34, -37
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.6, 0.6
+ontop = 0
+
+[State 830, EFECTO SUELO]
+type = null ;Explod
+triggerall = Pos Y = 0
+trigger1 = animelem = 4
+anim = 7010
+ID = 7010
+pos = 0, 0
+sprpriority = -3
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 350 ;-1
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.5,0.5
+ontop = 0
+
+[State 0, BGPalFX]    ;dar efecto de color al fondo  greyscale
+type = BGPalFX
+trigger1 = Animelem = 1
+time = 200
+add = 0,0,0 ;13,100, 145
+mul = 256,256,256
+sinadd = 0,0,0,10
+invertall = 0 ; efecto negatico
+color = 0  ; 256 ==>normal   , 0 = greyscale
+;ignorehitpause =
+;persistent =
+
+
+
+[State 3150, Beam]
+type = Projectile
+trigger1 = AnimElem = 1, = 1
+getpower  = 0
+projanim = 8121
+projID = 8121
+;projhitanim = 8200  ;;;da error de posicion,se ha usado explode
+projpriority = 5
+;projremove = 1
+projremovetime = 210 ;310
+projremanim = 8121   ;animacion qndo es removido o terminado
+projhits = 60 ; mas hits mas tiempo permanece le proj en pantalla
+projmisstime = 2
+numhits = 4
+velocity = 0
+accel = 0
+offset = 42,-56
+projscale = 0.3, 0.3
+
+attr = S, HA
+affectteam = B ;a todos
+damage   = 2,1
+animtype = Hard
+guardflag = MA
+hitflag = MAFP
+priority = 7
+pausetime = 1,8
+;hitsound   = S3100, 6 ;1000,1
+sparkno = -1
+guard.sparkno = -1
+guardsound = S1000,1
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 15
+ground.velocity = -8
+air.animtype = High
+air.velocity = -2
+air.juggle = 2
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+palfx.time = 23
+palfx.add = 0,128,255
+fall = 1
+fall.xvelocity = -6
+fall.yvelocity = -4.5
+fall.recover = 0
+fall.recovertime = 100
+down.bounce = 1
+
+envshake.time = 50;(int)
+envshake.freq = 100;(float)
+envshake.ampl = -6 ;(int)
+envshake.phase = 0;(float)
+
+fall.envshake.time = 50
+fall.envshake.freq = 60
+fall.envshake.ampl = -8
+fall.envshake.phase = 0
+;(afterimage winmugen only)
+;afterimage.time =
+;afterimage.length =
+;afterimage.palcolor =
+;afterimage.palinvertall =
+;afterimage.palbright = 0,0,0
+;afterimage.palcontrast = 0,0,0
+;afterimage.palpostbright =0,0,0
+;afterimage.paladd =  0,0,0
+;afterimage.palmul = 0,0,0
+;afterimage.timegap =
+;afterimage.framegap =
+;afterimage.trans = ;none,add,add1,addalpha,sub
+--------
+[State 2500, 6]
+type = changestate
+trigger1 = time = 250;400 ;animtime = 0
+value = 0
+ctrl = 1
+
+
+;----------------------------------------------------------
+;CONTINUACION 3 final
+;rayo aire-abajo
+[Statedef 3153]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+;anim = 3101      ;animacion krillin
+ctrl = 0
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0, 450]
+flag = nomusic
+
+
+[State 0,aura cuerpo ]
+type = removeExplod
+trigger1 = time = 0
+;trigger1 = AnimElem = 3, = 1
+ID  = 7002
+
+
+[State 2501, 2]       ; si esta en el aire
+type = changeanim
+trigger1 = time = 0
+trigger1 = Pos Y < 0
+value = 3063
+
+
+[State 2500,voz]
+type = playsnd
+trigger1 = animelem = 1
+value = 3150, 2
+volume = 255
+channel		= 5
+
+[State 2501,rayo]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 2000,9
+volume = 255
+;freqmul = 0.9
+channel = 6
+
+
+[State 2501,explosion]
+type = playsnd
+trigger1 = time = 190
+trigger1 = ProjHit 8120 = 1, < 15; activate si el proj 8120 ha acertado en los ultimos 15tics
+value = 3100, 6
+volume = 255
+;freqmul = 0.9
+channel = 7
+
+[State 2501, 4]
+type = poweradd
+trigger1 = time = 1 || time = 10 || time = 20 || time = 30
+value = -500
+
+[State 2500, aura cuerpo]
+type = null;Explod
+trigger1 = AnimElem = 2, = 90;150
+anim = 8174
+ID = 8174
+pos = 0,6
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  20 ;999999
+supermovetime = -1
+removeongethit = 1
+sprpriority = 3
+scale = 1.1, 1.1
+ownpal = 1
+shadow = 0,0,0
+
+;---
+;se ha usado explode por dar error
+;de posicion el projhitanim (proj 3150, beam)
+[State 3150, explosion]
+type = Explod
+trigger1 = time = 190
+trigger1 = ProjHit 8120 = 1, < 15; activate si el proj 8120 ha acertado en los ultimos 15tics
+anim = 8200
+ID = 8200
+postype = p2
+pos = 0, 0
+sprpriority = 3
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2
+bindtime = 1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 1,1
+ontop = 0
+
+[State 2500: polvo_special]
+type = Explod
+triggerall = Pos Y >= 0
+trigger1  = time = 1
+anim = 7105
+ID = 7105
+pos = -60, 8
+postype = p1
+facing = 1
+;bindtime = 1
+removetime = -2
+supermovetime = -1
+removeongethit = 0
+sprpriority = 2
+scale = 0.8, 0.8
+
+
+[State 2500, efectoazul];efecto al lanzar la bola
+type = Explod
+;trigger1 = time > 130 && ((GameTime%25) = 0)
+;trigger1 = TimeMod = 25, 130
+trigger1 = (time = 1) || (time = 40) || (time = 80) || (time = 120) || (time = 160)
+anim = 8006
+ID = 8006
+postype = p1
+pos = 30, -32 ;34, -37
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.6, 0.6
+ontop = 0
+
+
+[State 0, BGPalFX]    ;dar efecto de color al fondo  greyscale
+type = BGPalFX
+trigger1 = Animelem = 1
+time = 200
+add = 0,0,0 ;13,100, 145
+mul = 256,256,256
+sinadd = 0,0,0,10
+invertall = 0 ; efecto negatico
+color = 0  ; 256 ==>normal   , 0 = greyscale
+;ignorehitpause =
+;persistent =
+
+
+
+[State 3150, Beam]
+type = Projectile
+trigger1 = AnimElem = 1, = 1
+getpower  = 0
+projanim = 8122
+projID = 8122
+;projhitanim = 8200  ;;;da error de posicion,se ha usado explode
+projpriority = 5
+;projremove = 1
+projremovetime = 210 ;310
+projremanim = 8122   ;animacion qndo es removido o terminado
+projhits = 60 ; mas hits mas tiempo permanece le proj en pantalla
+projmisstime = 2
+numhits = 4
+velocity = 0
+accel = 0
+offset = 49,-19
+projscale = 0.3, 0.3
+
+attr = S, HA
+affectteam = B ;a todos
+damage   = 2,1
+animtype = Hard
+guardflag = MA
+hitflag = MAFD
+priority = 7
+pausetime = 1,8
+;hitsound   = S3100, 6 ;1000,1
+sparkno = -1
+guard.sparkno = -1
+guardsound = S1000,1
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 15
+ground.velocity = -8
+air.animtype = High
+air.velocity = -2
+air.juggle = 2
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+palfx.time = 23
+palfx.add = 0,128,255
+fall = 1
+fall.xvelocity = -6
+fall.yvelocity = -4.5
+fall.recover = 0
+fall.recovertime = 100
+down.bounce = 1
+
+envshake.time = 50;(int)
+envshake.freq = 100;(float)
+envshake.ampl = -6 ;(int)
+envshake.phase = 0;(float)
+
+fall.envshake.time = 50
+fall.envshake.freq = 60
+fall.envshake.ampl = -8
+fall.envshake.phase = 0
+;(afterimage winmugen only)
+;afterimage.time =
+;afterimage.length =
+;afterimage.palcolor =
+;afterimage.palinvertall =
+;afterimage.palbright = 0,0,0
+;afterimage.palcontrast = 0,0,0
+;afterimage.palpostbright =0,0,0
+;afterimage.paladd =  0,0,0
+;afterimage.palmul = 0,0,0
+;afterimage.timegap =
+;afterimage.framegap =
+;afterimage.trans = ;none,add,add1,addalpha,sub
+--------
+[State 2500, 6]
+type = changestate
+trigger1 = time = 250;400 ;animtime = 0
+value = 0
+ctrl = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================================================
+;KAKUSAN ENERGY HA (ataque a Saibamanes)
+==========================================================
+;carga
+[Statedef 3100]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+velset = 0,0,0
+anim = 3100      ;animacion krillin
+
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0,600]
+flag = nomusic
+
+
+[State 2500,BG]
+type = playsnd
+trigger1 = time = 0   ;
+value = S3100,7
+volume = 255
+channel		= 5
+
+;explod, screen transition BG (duracion 94tics)
+[State 0, Explod]
+type = Explod
+trigger1 = facing = 1
+trigger1 = time = 0
+anim = 9500
+ID = 9500
+pos = -240, 0 ;-10,0
+;pos = -160,120
+postype = back
+;postype = front
+facing = 1
+vel = 15, 0
+trans = add
+removetime = 17
+;scale = ifelse(time>100,2,.35+((time-10)*.05)),ifelse(time>100,2,.35+((time-10)*.05))
+sprpriority = -8
+supermovetime = 99999
+pausemovetime = 99999
+ownpal = 1
+
+[State 0, Explod]  ;secuencia
+type = Explod
+trigger1 = facing = 1
+trigger1 = time = 16
+anim = 9501
+ID = 9501
+pos = 0, 0 ;-10,0
+postype = back
+facing = 1
+trans = add
+removetime = 40
+scale = 1,1
+sprpriority = -8
+supermovetime = 99999
+pausemovetime = 99999
+ownpal = 1
+
+[State 11, Explod]   ; scale y fuera
+type = Explod
+trigger1 = facing = 1
+trigger1 = time = 54
+anim = 9502
+ID = 9502
+pos = 0, 0 ;-10,0
+postype = back
+facing = 1
+;trans = add1
+removetime = 41
+;scale = ((time-57)*0.05)+1 ,  ((time-57)*0.05)+1
+sprpriority = -8
+supermovetime = 99999
+pausemovetime = 99999
+ownpal = 1
+
+
+[State 0, ]
+type = ModifyExplod
+trigger1 = time > 54
+ID = 9502
+scale = ((time-54)*0.05)+1 ,  ((time-54)*0.05)+1
+pos = -(time-54), -(time-54)
+postype = left
+ignorehitpause = 1
+ownpal = 1
+trans = add
+
+[State 2501, pause]
+type = superpause
+trigger1 = time = 1
+;pos = 0, 0
+;sound =
+time =  660 ; 600   + 60 (quitar 60 tics si se anula el BG)
+anim = -1
+darken =     1
+unhittable = 1
+movetime = 660
+
+
+[State 2500, 1]
+type = null ;EnvShake
+trigger1 = time = 150
+time = 200
+freq = 60
+ampl = -4
+phase = 0
+
+[State 2050,rastro]
+type = AfterImage
+trigger1 = AnimElem = 2
+time = 300
+trans = add
+TimeGap  = 2
+FrameGap = 2
+length = 15 ;6
+PalBright   =  0, 0, 0
+PalContrast = 120,120,120 ;128,128,128
+PalAdd      =  0,  0,  0
+PalMul      =   1,  1,  1
+
+
+
+
+
+[State 2500, aura manos]
+type =  Explod
+trigger1 = AnimElem = 7, = 120;50
+anim = 8172
+ID = 8172
+pos = 0,-51
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  -1 ;999999
+supermovetime = -1
+removeongethit = 1
+sprpriority = 2
+scale = 0.5, 0.4
+ownpal = 1
+shadow = 0,0,0
+;trans = add1
+
+[State 2500, aura cuerpo]
+type = Explod
+trigger1 = AnimElem = 7, = 215;150
+anim = 8173
+ID = 8173
+pos = 0,6
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  -1 ;999999
+supermovetime = -1
+removeongethit = 1
+sprpriority = -3
+scale = 1.1, 1.1
+ownpal = 1
+shadow = 0,0,0
+
+
+[State 2500, electricidad]  ;mano derecha
+type = Explod
+trigger1 = AnimElem = 7, = 80
+anim = 8150
+ID = 8150
+pos = -20,-51
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  999999
+supermovetime = -1  ; -1 para ignora superpausa
+removeongethit = 1
+sprpriority = 3
+scale =  0.35, 0.35;0.25, 0.25
+ownpal = 1
+shadow = 0,0,0
+
+
+[State 830, electricidad]   ;mano izq
+type = Explod
+trigger1 = animelem = 7, = 80
+anim = 8150
+ID = 8151
+pos = 21, -51
+sprpriority = 2 ;-1
+supermovetime = -1 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 999999
+bindtime = -1
+vel = 0, 0
+accel = 0, 0
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.35, 0.35;0.25, 0.25
+ontop = 0
+
+[State 830, electricidadcentro]
+type = Explod
+trigger1 = animelem = 7, = 190  ;160+removetime de electricidadmov
+trigger2 = animelem = 7, = 260
+anim = 8150
+ID = 8152
+pos = 0, -51
+sprpriority = 2 ;-1
+supermovetime = -1 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 30
+bindtime = -1
+vel = 0, 0
+accel = 0, 0
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.4, 0.4
+ontop = 0
+
+[State 830, electricidadcentro2];final
+type = Explod
+trigger1 = animelem = 7, = 330  ;160+removetime de electricidadmov
+anim = 8150
+ID = 8155
+pos = 0, -51
+sprpriority = 2 ;-1
+supermovetime = -1; tiempo q la animacion no se congelara durante una superpausa
+removetime = 999999
+bindtime = -1
+vel = 0, 0
+accel = 0, 0
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.4, 0.4
+ontop = 0
+
+
+[State 2500, electricidadmov]  ;mano derecha
+type = Explod
+trigger1 = AnimElem = 7, = 170
+trigger2 = animelem = 7, = 240
+trigger3 = animelem = 7, = 310
+trigger4 = animelem = 7, = 380
+anim = 8150
+ID = 8153
+pos = -20,-51
+postype = p1
+facing = -1
+vel = 0.1, 0
+accel = 0.05, 0
+;bindtime = -1
+removetime =  30;168
+supermovetime = -1
+removeongethit = 1
+sprpriority = 3
+scale = 0.25, 0.25
+ownpal = 1
+shadow = 0,0,0
+
+
+[State 830, electricidadmov]   ;mano izq
+type = Explod
+trigger1 = animelem = 7, = 170
+trigger2 = animelem = 7, = 240
+trigger3 = animelem = 7, = 310
+trigger4 = animelem = 7, = 380
+anim = 8150
+ID = 8154
+pos = 21, -51
+sprpriority = 2 ;-1
+supermovetime = -1 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 30 ;168
+;bindtime = -1
+vel = -0.1, 0
+accel = -0.05, 0
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.25, 0.25
+ontop = 0
+
+[State 0 , piedras]   ;particulas  grandes  por delante
+type = Explod
+;trigger1 = AnimElem = 7, = 1
+trigger1 = time > 270 && ((GameTime%40) = 0)    ;210 +60 (quitar 60 tics si se anula el BG)
+anim = 7120
+id = 7120
+pos = 0, 0;-33,-4
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,IfElse(Random <= 499,-0.3,-0.6)
+accel = 0,0
+random	= 50,0  ; x = (-25, 25) relativo a pos
+removetime = 60
+supermovetime = -1
+pausemovetime = 0
+scale = 0.8 , 0.8
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0 , piedras]   ;particulas  grandes  por detras
+type = Explod
+;trigger1 = AnimElem = 7, = 1
+trigger1 = time > 270 && ((GameTime%45) = 0)       ;210 +60 (quitar 60 tics si se anula el BG)
+anim = 7120
+id = 7120
+pos = 0, 0;-33,-4
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,IfElse(Random <= 499,-0.3,-0.6)
+accel = 0,0
+random	= 50,0  ; x = (-25, 25) relativo a pos
+removetime = 60
+supermovetime = -1
+supermovetime = 0
+pausemovetime = 0
+scale = 0.8 , 0.8
+sprpriority = -3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 2500,voz]
+type = playsnd
+trigger1 = AnimElem = 7, = 30   ; sprite 7º ,transcurridos 30 tics
+value = S3100,1
+volume = 255
+channel		= 1
+
+[State 2500,elect1]
+type = playsnd
+;trigger1 = animelem = 7, = 80
+trigger1 = (Time > 328) && ((GameTime%60) = 0)  ; 189 (duracion sprites)+ 80   ;268  +60 (quitar 60 tics si se anula el BG)
+value = 3100, 4
+volume = 255
+channel		= 3
+;loop = 1
+
+[State 2500,elect2]
+type = playsnd
+trigger1 = animelem = 7, = 170
+trigger2 = animelem = 7, = 240
+trigger3 = animelem = 7, = 310
+value = 3100,3
+volume = 255
+channel		= 4
+
+[State 2500,brazos]
+type = playsnd
+trigger1 = AnimElem = 2
+;trigger2 = time = 50
+value = 0,6
+volume = 255
+channel		= 2
+
+[State 2501,musica]
+type =  null ;playsnd
+trigger1 = time = 350
+value = 2000,10
+volume = 255
+loop = 1
+channel = 1
+
+[State 2500, 0]    ;ve a lanzar rayo
+type = changestate
+trigger1 = Time = 660    ; (quitar 60 tics si se anula el BG)
+value = 3101
+ctrl = 0
+
+
+;--------------------------------------------------
+;CONTINUACION 1 final
+;rayo frente
+[Statedef 3101]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+anim = 3101      ;animacion krillin
+ctrl = 0
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0, 450]
+flag = nomusic
+
+
+[State 2500;  elect]
+type		= null ;StopSnd
+trigger1 = time = 0 ;AnimElem = 3, = 1
+channel		= 3    ;id del sonido
+
+
+[State 0,efecto manos]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8172
+
+[State 0,rayos amarI ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8150
+
+[State 0,rayos amarD ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8151
+
+[State 0,rayos amarC1 ]
+type = removeExplod
+;trigger1 = time = 0
+trigger1 = AnimElem = 3, = 1;time = 0
+ID  = 8155
+
+[State 0,aura cuerpo ]
+type = removeExplod
+trigger1 = time = 0
+;trigger1 = AnimElem = 3, = 1
+ID  = 8173
+
+
+[State 2501, 2]
+type = null ;changeanim
+trigger1 = time = 0
+value = 3051
+
+[state 1701, ColorFX]
+type = null ;PalFX
+trigger1 = Time > 0
+trigger1 = TimeMod = 12,0 ; activa en time = 0, 12 , 24 ,36....
+time = 2
+add = 64,64,64
+
+
+[State 2500,voz]
+type = playsnd
+trigger1 = animelem = 1, = 19
+value = 3100, 0
+volume = 255
+channel		= 4
+
+[State 2500,elect1]
+type = playsnd
+;trigger1 = animelem = 7, = 80
+trigger1 = (Time = 1) || (time = 60)
+value = 3100, 4
+volume = 255
+channel		= 3
+;loop = 1
+
+[State 2501,rayo]
+type = playsnd
+trigger1 = time = 130 ;AnimElem = 1
+value = 3100,2
+volume = 255
+;freqmul = 0.9
+channel = 2
+
+[State 2501,explosion]
+type = playsnd
+trigger1 = time = 250;270
+value = 3100, 6
+volume = 255
+;freqmul = 0.9
+channel = 5
+
+[State 2501, 4]
+type = poweradd
+trigger1 = time > 0
+value = -50
+
+[State 2500, aura cuerpo]
+type = Explod
+trigger1 = AnimElem = 2, = 90;150
+anim = 8174
+ID = 8174
+pos = 0,6
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  20 ;999999
+supermovetime = -1
+removeongethit = 1
+sprpriority = 3
+scale = 1.1, 1.1
+ownpal = 1
+shadow = 0,0,0
+
+[State 2500, aura cuerpoD]
+type = Explod
+trigger1 = time = 0
+anim = 8174
+ID = 8174
+pos = 0,6
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  129 ;999999
+supermovetime = -1
+removeongethit = 1
+sprpriority = -3
+scale = 1.1, 1.1
+ownpal = 1
+shadow = 0,0,0
+
+
+[State 2500, aura manos]
+type =  Explod
+trigger1 = time = 1 ;AnimElem = 7, = 120;50
+anim = 8176
+ID = 8176
+pos = -5,-51
+postype = p1
+facing = 1
+vel = 0, 0
+accel = 0, 0
+bindtime = -1
+removetime =  129 ;999999
+supermovetime = -1
+removeongethit = 1
+sprpriority = 2
+scale = 0.3, 0.4
+ownpal = 1
+shadow = 0,0,0
+;trans = add1
+
+[State 2500, efecto];efecto al lanzar la bola
+type = Explod
+;trigger1 = time > 130 && ((GameTime%25) = 0)
+;trigger1 = TimeMod = 25, 130
+trigger1 = (time = 130) || (time = 155) || (time = 180) || (time = 205) || (time = 230) || (time = 255);
+anim = 8175
+ID = 8175
+postype = p1
+pos = 25, -37 ;34, -37
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 1, 1
+ontop = 0
+
+[State 2500: polvo_tierra1]
+type = Explod
+triggerall = Pos Y = 0
+trigger1  = time = 130 || time = 250  ;&& ((GameTime%120) = 0)
+anim = 7100
+ID = 7100
+pos = -3, 4
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermove = -1
+removeongethit = 0
+sprpriority = 2
+scale = 1, 1
+
+
+[State 2500: polvo_tierra2]
+type = Explod
+triggerall = Pos Y = 0
+trigger1  = time = 130 || time = 250
+anim = 7101
+ID = 7101
+pos = -4,-1
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermove = -1
+removeongethit = 0
+sprpriority = -2
+scale = 1, 1
+
+[State 2500, humomanos]
+type = Explod
+trigger1  = time = 340
+anim = 7130
+ID = 7130
+pos = 25,-25
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermovetime = -1
+removeongethit = 0
+sprpriority = -2
+scale = 1, 1
+
+[State 830, EFECTO SUELO]
+type = null ;Explod
+triggerall = Pos Y = 0
+trigger1 = animelem = 4
+anim = 7010
+ID = 7010
+pos = 0, 0
+sprpriority = -3
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 350 ;-1
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.5,0.5
+ontop = 0
+
+
+
+
+[State 0, EnvColor]; color fondo opaco
+type = null ;EnvColor
+trigger1 =  Animelem = 3, = 1
+value = 255,168, 1
+time = 310
+under = 1
+;ignorehitpause =
+;persistent =
+
+[State 2501, Beam]
+type = Projectile
+trigger1 = AnimElem = 3, = 1
+getpower  = 0
+projanim = 8190
+projID = 8170
+projhitanim = 8200  ;-1
+projpriority = 5
+;projremove = 1
+projremovetime = 160 ;310
+projremanim = 8171   ;animacion qndo es removido o terminado
+projhits = 40 ; mas hits mas tiempo permanece le proj en pantalla
+projmisstime = 2
+numhits = 4
+velocity = 0
+accel = 0
+offset = 35,-33
+projscale = 1, 1
+
+attr = S, HA
+affectteam = B ;a todos
+damage   = 8,4
+animtype = Hard
+guardflag = MA
+hitflag = MAFP
+priority = 7
+pausetime = 1,8
+;hitsound   = S3100, 6 ;S1000,1
+sparkno = -1
+guard.sparkno = -1
+guardsound = S1000,1
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 15
+ground.velocity = -8
+air.animtype = High
+air.velocity = -2
+air.juggle = 2
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+palfx.time = 23
+palfx.add = 0,128,255
+ fall = 1
+fall.xvelocity = -6
+fall.yvelocity = -4.5
+fall.recover = 0
+fall.recovertime = 100
+down.bounce = 1
+
+
+
+
+[State 2501, Beam]
+type = Projectile
+trigger1 = AnimElem = 3, = 1
+getpower  = 0
+projanim = 8170
+projID = 8170
+projhitanim = 8200  ;-1
+projpriority = 5
+;projremove = 1
+projremovetime = 310 ;310
+projremanim = 8171   ;animacion qndo es removido o terminado
+projhits = 40 ; mas hits mas tiempo permanece le proj en pantalla
+projmisstime = 2
+numhits = 4
+velocity = 0
+accel = 0
+offset = 20,-33
+projscale = 1, 1
+
+attr = S, HA
+affectteam = B ;a todos
+damage   = 8,4
+animtype = Hard
+guardflag = MA
+hitflag = MAFP
+priority = 7
+pausetime = 1,8
+;hitsound   = S3100, 6 ;S1000,1
+sparkno = -1
+guard.sparkno = -1
+guardsound = S1000,1
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 15
+ground.velocity = -8
+air.animtype = High
+air.velocity = -2
+air.juggle = 2
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+palfx.time = 23
+palfx.add = 0,128,255
+ fall = 1
+fall.xvelocity = -6
+fall.yvelocity = -4.5
+fall.recover = 0
+fall.recovertime = 100
+down.bounce = 1
+
+
+
+
+
+
+envshake.time = 50;(int)
+envshake.freq = 100;(float)
+envshake.ampl = -6 ;(int)
+envshake.phase = 0;(float)
+
+fall.envshake.time = 50
+fall.envshake.freq = 60
+fall.envshake.ampl = -8
+fall.envshake.phase = 0
+;(afterimage winmugen only)
+;afterimage.time =
+;afterimage.length =
+;afterimage.palcolor =
+;afterimage.palinvertall =
+;afterimage.palbright = 0,0,0
+;afterimage.palcontrast = 0,0,0
+;afterimage.palpostbright =0,0,0
+;afterimage.paladd =  0,0,0
+;afterimage.palmul = 0,0,0
+;afterimage.timegap =
+;afterimage.framegap =
+;afterimage.trans = ;none,add,add1,addalpha,sub
+;----------------------------
+
+[State 2500, 6]
+type = changestate
+trigger1 = time = 468;400 ;animtime = 0
+value = 0
+ctrl = 1
+
+;----------------------
+
+
+
+;=================================================
+;Disco Cortante
+;=================================================
+;inicio
+[Statedef 3200]
+type    = S
+movetype= A
+physics = S
+velset = 0,0,0
+juggle = 4
+ctrl = 0
+poweradd= -1000
+anim = 3200 ; animacion char
+
+[State 830, voz];
+type = PlaySnd
+trigger1 = AnimElem = 1, = 1
+value = 3200,2
+volume = 255
+channel = 0
+
+[State 830, carga];
+type = PlaySnd
+trigger1 = AnimElem = 1, = 130
+;trigger1 = AnimElem = 3
+value = 3200,1
+volume = 255
+channel = 1
+
+[State 830, kienzan];
+type = PlaySnd
+trigger1 = AnimElem = 2
+;trigger1 = AnimElem = 3
+value = 3200,3
+volume = 255
+channel = 2
+
+[State 900, Turn]
+type = Turn
+Trigger1 = P2Dist X < 0
+
+
+[State 3000, acumulacion];efecto de acumulacion energia.
+type = Explod
+trigger1 = animelem = 1, = 130
+;trigger1 = time = 10
+anim = 8180
+ID = 8180
+postype = p1
+pos = -20, -60
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2 ;30
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = .7, .7
+ontop = 0
+
+
+[State 300, efecto];efecto energia acumulada
+type = Explod
+trigger1 = animelem = 2
+anim = 8181
+ID = 8181
+postype = p1
+pos = -7, -67
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -1 ;30
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = .7,.7
+ontop = 0
+
+
+[State 2053: StopSnd]
+type = null ;StopSnd
+trigger1 = (life = 0) || (stateno != 3000)
+channel = 3
+
+
+[State 2053, 5bis];si p1 apreta command "y" ve a lanzar.
+type = ChangeState
+trigger1 = command = "y"
+trigger1 = animelem = 2, >=10
+value = 3201
+ctrl = 0
+
+[State 2501, end]
+type = ChangeState
+trigger1 = Time = 830
+value = 3201
+ctrl = 0
+
+;----------------
+;lanzamiento
+[Statedef 3201]
+type    = S
+movetype= A
+physics = S
+velset = 0,0,0
+juggle = 4
+ctrl = 0
+poweradd= 0
+anim = 3201 ; animacion char
+
+[State 2053: StopSnd]
+type = StopSnd
+trigger1 = 1
+channel = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id =  8181
+;ignorehitpause =
+;persistent =
+
+[State 830, carga];
+type = null ;PlaySnd
+trigger1 = AnimElem = 3, = 40
+;trigger1 = AnimElem = 3
+value = 2000,4
+volume = 255
+channel = 5
+
+[State 830, lanzamiento];
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 3200,4
+volume = 255
+channel = 4
+
+[State 300, efecto];efecto energia acumulada
+type = Explod
+trigger1 = animelem = 1
+anim = 8181
+ID = 8183
+postype = p1
+pos = -7, -57
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 10 ;30
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = .7,.7
+ontop = 0
+
+
+[State 2501:	PalFX]
+type			= null ;PalFX
+trigger1		= (!Time)
+time			= 40
+add			= 0,0,0 ;100,100,100
+mul			= 256,256,256
+sinadd		= -100,-100,-100, 40
+invertall		= 0
+color			= 256
+
+[State 2501:	BGPalFX]
+type			= BGPalFX
+trigger1		= ProjContact = 1 ;(MoveHit)
+time			= 50
+add			= 0,0,0 ;75,75,75
+mul			= 256,256,256
+sinadd		        = -100,-100,-100, 70 ;80,80,80,4
+invertall		= 0
+color			= 256
+persistent		= 0
+ignorehitpause	= 1
+
+
+;---
+;se ha usado explode por dar error
+;el projhitanim (proj 8181, beam)
+[State 3150, explosion]
+type = Explod
+trigger1 = time >= 14
+trigger1 = ProjHit 8181 = 1, < 15; activate si el proj 8120 ha acertado en los ultimos 15tics
+anim = 7140
+ID = 7140
+postype = p2
+pos = 3, -28
+sprpriority = 3
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -2
+bindtime = -1
+ownpal = 0
+shadow = 0,0,0 ; 0-255
+removeongethit = 0
+scale = .5,.5
+ontop = 1
+
+[State 3000 , lanzado]
+type = Projectile
+trigger1 = AnimElem = 2 ; imagem que lançara o fire ball
+projanim = 8181 ; numero do fire ball
+projhitanim = 7140 ; quando acerta o p2 ,efeito
+projshadow = 0,0,0
+projpriority = 4
+projremove = 0
+projremovetime = -1 ; tempo que o fire ball ficara ativo
+projid = 8182
+velocity = 6,0 ;IfElse(Random <= 499,-0.8,0.8) ; velocidade do fire ball
+accel = .2 ;IfElse(Random <= 499,-0.1,0.1)
+offset = 23,-37 ; a posiçao onde o fire ball vai sair
+attr = S, SP ; indica que é um SP , special Atack
+damage   = 80,60 ; damage que tira , e damage defendendo
+animtype = hard
+guardflag = MA
+hitflag = MAFPDP
+pausetime = 1,10
+hitsound   = S3200,6 ; som quando acerta o fire ball
+guardsound = S3200,6
+sparkno = 7140
+ground.type = Low
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -5
+air.animtype = Low
+air.velocity = -1,-1
+air.juggle = 2
+projscale = 0.7, 0.7
+palfx.time		= 12
+palfx.mul		= 256,256,256
+palfx.add		= 100,100,100  ;200,50,10
+palfx.sinadd	= 175,25,5,4
+envshake.time 	= 12
+envshake.freq 	= 120
+envshake.ampl 	= -4
+persistent		= 0
+
+
+[State 2501, 3]
+type=ChangeState
+trigger1=AnimTime=0
+trigger1=Pos Y < 0
+value=107
+
+[State 2501, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

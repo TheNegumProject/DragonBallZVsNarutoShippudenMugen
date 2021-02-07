@@ -1,0 +1,51 @@
+Sakura criada por "Ninguém" (01/08/2009)
+
+CRÉDITOS A:
+
+darkrasengan - portrait
+pakis pride - sprites
+capcom & SNK - efeitos (alguns editados por mim)
+Griever80 & Nightmare pelos sons
+
+informações do personagem:
+
+~~> Sprites normais da sakura do jogo "naruto ninja council 3" ripado com pakis pride
+~~> Hitsparks extraídos do jogo "Night warriors: darkstalkers revenge"
+~~> Efeitos gerais extraídos dos jogos da capcom e SNK e editados por mim
+
+COMANDOS:
+
+a, a - combo de socos
+b    - soco pra cima
+x    - Shuriken
+y    - chute forte
+
+run + b - super hit
+
+a (abaixado) - soco abaixado
+b (abaixado) - soco para cima
+x (abaixado) - kunai
+
+a (no alto) - soco no alto
+b (no alto) - chute
+x (no alto) - kunai no alto
+
+b + y (segura) - power charge
+a + x          - teleport
+
+F,FD,D,DF,F, a/b  - investida pra cima
+*atalho* : faça o soco do botão "a" e depois pressione "b+y"
+
+D,DB,B, a/b       - arremesso
+
+B,BD,D,DF,F, a/b  - super soco
+power>=500
+*atalho* : faça o run (FF) e depois pressione a+b
+
+D,DB,B,D,DB,B, a/b - special 1 - sakura combo
+power>=1000
+*atalho* : faça o soco do botão "b" e depois pressione "a+x"
+
+F,FD,D,DB,B,D,DB,B, a/b - special 2 - sakura combo/inner sakura mode.
+power>=2000
+

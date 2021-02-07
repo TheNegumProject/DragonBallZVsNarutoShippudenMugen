@@ -1,0 +1,296 @@
+
+[Statedef -2]
+
+;Galactic Donut Stuff
+[State -2]
+type = Statetypeset
+trigger1 = 1
+hitcountpersist = 1
+
+[State -2]
+type = StopSnd
+trigger1 = prevstateno = 191
+channel = 2
+
+[State -2]
+type = EnvShake
+trigger1 = prevstateno = 191
+time = 2
+
+[State -2]
+type = Varadd
+trigger1 = movehit = 1
+trigger2 = numhelper > 0
+trigger2 = helper, movehit = 1
+v = 17
+value = 1
+
+[State -2]
+type = Removeexplod
+trigger1 = stateno != 950
+trigger1 = numexplod(1732) > 0
+id = 1732
+
+[State -2]
+type = Varset
+trigger1 = p2movetype != H
+v = 17
+value = 0
+
+;[State -2: DisplayToClipBoard]
+;type = DisplayToClipBoard
+;trigger1 = 1
+;text = "Variable 1: %d, X Dist: %d, VelX: %d, P2Height: %d, P2PosY: %d"
+;params = Var(1), Var(14), floor(vel x), Var(42),Var(41)
+
+[State -2: DisplayToClipBoard]
+type = DisplayToClipBoard
+trigger1 = 1
+text = "Ghost1: %d, Ghost2: %d, Ghost3: %d, Ghost4: %d, SSJ3Time: %d"
+params = Var(25),Var(26),Var(27),Var(28),Var(6)
+
+[State -2]
+type = ChangeState
+trigger1 = command = "s"
+trigger1 = Var(31) = 4 || Var(1) = 1
+trigger1 = Statetype = S
+trigger1 = ctrl
+trigger1 = Var(5) != 1
+value = 3000
+
+[State -2]
+type = ChangeState
+triggerall = Var(5) = 1
+triggerall = numhelper(3001) = 0
+trigger1 = Statetype = S
+trigger1 = ctrl
+trigger2 = stateno = 1500
+value = 3002
+
+[State -2]
+type = assertspecial
+trigger1 = p2stateno = 1103
+flag = noautoturn
+
+[State -2] 
+type = turn
+triggerall = ctrl
+triggerall = stateno != 100 && stateno != 105
+triggerall = p2stateno = 1103
+triggerall = numhelper(1102) > 0
+trigger1 = facing = 1
+trigger1 = helper(1102),pos x < (pos x - 10)
+trigger2 = facing = -1
+trigger2 = helper(1102),pos x > (pos x + 10)
+
+[State -2] 
+type = turn
+triggerall = stateno = 1500
+triggerall = p2stateno = 1103
+triggerall = numhelper(1102) > 0
+trigger1 = facing = 1
+trigger1 = helper(1102),pos x < (pos x - 10)
+trigger2 = facing = -1
+trigger2 = helper(1102),pos x > (pos x + 10)
+
+; Fly Stuff --------------------------------------------------------------------
+[State -2]
+type = changestate
+trigger1 = (stateno = 0)||(stateno = [10,12])||(stateno = 20)||(stateno = [50,51])
+trigger1 = Pos Y < 0 && ctrl && Var(15) = 1500
+v = 15
+value = 1500
+
+[State -2]
+type = Varset
+trigger1 = Pos Y >= 0 && Var(15) != 0
+v = 15
+value = 0
+
+[State -2]
+type = Velset
+trigger1 = Var(15) = 1500
+trigger1 = (stateno = 130) || (stateno = 131) || (stateno = 132)
+y = 0
+;--------------------------------------------------------------------------------
+
+[state -2]
+type = varset
+trigger1 = 1
+v= 14
+value = floor(p2bodydist x)
+
+; Var for Super Jump
+[State -2]
+type = varadd
+trigger1 = 1
+trigger1 = p2bodydist y < -10
+trigger1 = var(24) <=100
+v = 24
+value = 1
+
+[State -2]
+type = varset
+trigger1 = 1
+trigger1 = p2bodydist y >= -10
+v = 24
+value = 0
+
+[State -2]
+type = SuperPause
+trigger1 = P1name != "Gotenks by Pextin"
+time = 100000000000000000000
+
+;Zanzoken
+[State -2]
+type = ChangeState
+value = 1000
+triggerall = p2stateno != 1103
+triggerall = numhelper(1102) = 0
+triggerall = var(1) = 1
+triggerall = random <= 10
+triggerall = command = "holdb"
+triggerall = command = "holdy"
+trigger1 = statetype = S
+trigger1 = ctrl = 1
+trigger2 = stateno = 1500
+trigger3 = movecontact && stateno = 2040
+;---------------------------------------------------------------------------
+;Power Up
+[State -2]
+type = null ;ChangeState
+value = 730
+triggerall = p2stateno != 1103
+triggerall = numhelper(1102) = 0
+triggerall = var(1) = 1
+triggerall = p2bodydist x > 100
+triggerall = random < 199
+triggerall = command = "holdc"
+triggerall = command = "holdz"
+triggerall = Power < 3000
+trigger1 = statetype = S
+trigger1 = ctrl = 1
+trigger2 = stateno = 1500
+
+; Guarding
+[State -2]
+type = ChangeState
+value = 120
+triggerall = !win
+triggerall = p2movetype = A
+triggerall = Var(1) = 1
+triggerall = Random <= 349
+trigger1 = ctrl
+
+; Super Jump
+[State -2]
+type = ChangeState
+value = 1040
+triggerall = !win
+triggerall = Var(1) = 1
+trigger1 = P2bodydist X < 50
+trigger1 = var(24) >= 200
+trigger1 = statetype = S
+trigger1 = ctrl
+;------------------------------------------------------------
+;THE MODE==========================================================
+
+;Counter Helper!
+[State -2]
+type = Helper
+trigger1 = command = "AI21"
+trigger2 = command = "AI22"
+trigger3 = command = "AI23"
+trigger4 = command = "AI24"
+helpertype = normal
+ID = 1234
+name = "CommandCounter"
+stateno = 1234
+
+[State -2]
+type = VarSet
+triggerall = Var(31) != 4
+trigger1 = numhelper(1234) = 0
+trigger2 = command = "AI22"
+trigger2 = Var(31) != 1
+trigger3 = command = "AI21"
+trigger3 = Var(31) != 2
+trigger4 = command = "AI23"
+trigger4 = Var(31) != 3
+v = 31
+value = 0
+
+[State -2]
+type = VarSet
+trigger1 = command = "AI24"
+trigger1 = numhelper(1234) > 0
+v = 31
+value = 1
+
+[State -2]
+type = VarSet
+trigger1 = command = "AI22"
+trigger1 = numhelper(1234) > 0
+trigger1 = Var(31) = 1
+v = 31
+value = 2
+
+[State -2]
+type = VarSet
+trigger1 = command = "AI21"
+trigger1 = numhelper(1234) > 0
+trigger1 = Var(31) = 2
+v = 31
+value = 3
+
+[State -2]
+type = VarSet
+trigger1 = command = "AI23"
+trigger1 = numhelper(1234) > 0
+trigger1 = Var(31) = 3
+v = 31
+value = 4
+
+[State -2]
+type = Helper
+trigger1 = numhelper(2345) = 0
+trigger1 = var(5) = 1
+trigger1 = alive = 1
+helpertype = normal
+ID = 2345
+name = "soundcounter"
+stateno = 1235
+supermovetime = 500
+
+[State -2]
+type = explod
+trigger1 = var(5) = 1
+trigger1 = numexplod(8812) = 0
+trigger1 = alive = 1
+id = 8812
+sprpriority = 3
+anim = 8812
+pos = -3,0
+supermovetime = -1
+bindtime = -1
+
+[Statedef 1234]
+type    = S
+anim = 1234
+
+[State 1234]
+type = DestroySelf
+trigger1 = time = 50
+
+[Statedef 1235]
+type    = S
+anim = 1234
+
+[State 1235]
+type = playsnd
+trigger1 = time = 0
+value = 3000,4
+
+[State 1235]
+type = DestroySelf
+trigger1 = time = 200

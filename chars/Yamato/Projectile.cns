@@ -1,0 +1,153 @@
+; Kunai Throw
+; CNS difficulty: easy
+[StateDef 999]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 999
+poweradd = 20
+
+[State 999, 1]
+type = Projectile
+trigger1 = AnimElem = 2
+projanim = 1000
+projhitanim = 1001
+projpriority = 1
+projheightbound = -240, 100
+projedgebound = 100
+projscreenbound = 100
+projshadow = -1
+offset = 50,-4
+velocity = 10
+attr = S, SP
+damage   = 5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+pausetime = 10,10
+hitsound   = 5,2
+sparkxy = 500,500
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+air.animtype = Back
+air.velocity = -1.4,-3
+air.juggle = 3
+air.fall = 1
+down.velocity = 1,3
+down.hittime = 30
+down.bounce = 0
+
+[State 999, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;---------------------------------------------------------------
+; Kunai Throw
+; CNS difficulty: easy
+[StateDef 998]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 998
+poweradd = 20
+
+[State 998, 1]
+type = Projectile
+trigger1 = AnimElem = 2
+projanim = 1002
+projhitanim = 1001
+projpriority = 1
+projheightbound = -240, 100
+projedgebound = 100
+projscreenbound = 100
+projshadow = -1
+offset = 50,-4
+velocity = 11
+attr = S, SP
+damage   = 5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+pausetime = 10,10
+hitsound   = 5,2
+sparkxy = 500,500
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+air.animtype = Back
+air.velocity = -1.4,-3
+air.juggle = 3
+air.fall = 1
+down.velocity = 1,3
+down.hittime = 30
+down.bounce = 0
+
+[State 998, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------
+; Explode Kunai Throw
+; CNS difficulty: easy
+[StateDef 997]
+type = C
+movetype= A
+physics = C
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 997
+poweradd = 20
+
+[State 997, 1]
+type = Projectile
+trigger1 = AnimElem = 2
+projanim = 1003
+projhitanim = 1004
+projpriority = 1
+projheightbound = -240, 100
+projedgebound = 100
+projscreenbound = 100
+projshadow = -1
+offset = 70,-10
+velocity = 11
+attr = S, SP
+damage   = 30
+animtype = Light
+guardflag = MA
+hitflag = MAF
+pausetime = 10,10
+hitsound   = S11,11
+sparkxy = 500,500
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 5
+ground.velocity = -7
+air.animtype = Back
+air.velocity = -6.5,-5
+air.juggle = 7
+air.fall = 6
+down.velocity = 8,7
+down.hittime = 6
+down.bounce = 8
+Fall=2
+
+[State 997, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

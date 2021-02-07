@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="sakura"
+displayname ="Sakura"
+versiondate =01-08-2009
+mugenversion =06,14,2003
+author ="Ninguém"
+pal.defaults =1 
+
+[Files]
+sprite =sakura.sff
+anim =sakura.air
+;sound = player.snd
+cmd =sakura.cmd
+cns =sakura.cns
+stcommon =sakuracommon.cns
+st =sakura.cns
+sound=sakura.snd
+pal1=sakura.act
+pal2=sakura2.act
+pal3=sakura3.act
+pal4=sakura4.act
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+;intro.storyboard = 
+;ending.storyboard = 

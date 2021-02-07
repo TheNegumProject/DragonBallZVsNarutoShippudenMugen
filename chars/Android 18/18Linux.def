@@ -1,0 +1,33 @@
+; Definition file for 18 by Chrono_Strife and Neocide
+; Contains all the filenames needed for the character
+
+; This .DEF has the paths set for Linux users(I think????)
+; I don't know diddly about WinMUGEN -> LinMUGEN compatibility
+
+; Player information
+[Info]
+name = "18"                       ;Name of character
+displayname = "Juuhachi-gou"      ;Name of character to display
+versiondate = 03,16,2008          ;Version date of character
+mugenversion = 14,06,2003         ;Version of M.U.G.E.N character works on
+author = "Chrono_Strife"          ;Character author name
+pal.defaults = 1,2,3,4,5,6        ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd      = coding\18CMD.cmd       ;Command set
+cns      = coding\18CNS.cns       ;Constants
+st       = coding\18CNS.cns       ;States
+stcommon = coding\commonCNS.cns   ;Common states
+sprite   = graphical\18SFF.sff    ;Sprite
+anim     = coding\18AIR.air       ;Animation
+sound    = audio\18SND.snd        ;Sound
+pal1     = graphical\18.act       ;Standard Android 18
+pal2     = graphical\Yuuna.act    ;Yuuna Miyama(Maburaho)
+pal3     = graphical\Bulma_N.act  ;Namek Saga Bulma
+pal4     = graphical\18b.act      ;Android 18 Alternate Colors
+pal5     = graphical\Tifa.act     ;Tifa Lockheart(Final Fantasy VII)
+pal6     = graphical\18c.act      ;Android 18 in black
+pal7     = graphical\Rin.act      ;Rin Kamishiro(Maburaho)
+pal8     = graphical\Aerith.act   ;Aerith Gainsborough(Final Fantasy VII)
+pal9     = graphical\Bulma_A.act  ;Android Saga Bulma

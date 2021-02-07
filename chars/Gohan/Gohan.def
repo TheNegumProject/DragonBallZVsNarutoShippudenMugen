@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+;::: http://www.facebook.com/SmkA.eLe
+
+[Info]
+name ="Gohan Sword"
+displayname ="Kid Gohan"
+versiondate =29/01/2010
+mugenversion = 
+author ="Leo & Julian_Sk"
+pal.defaults =1
+
+[Files]
+sprite =GohanSword.sff
+anim =GohanSword.air
+sound =GohanSword.snd
+cmd =GohanSword.cmd
+cns =GohanSword.cns
+stcommon =common1.cns
+st =GohanSword.cns
+pal1=GohanSword.act
+pal2=GohanSword1.act
+pal3=GohanSword2.act
+pal4=GohanSword2.act
+st1=Poderes.cns
+st2=Combos.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

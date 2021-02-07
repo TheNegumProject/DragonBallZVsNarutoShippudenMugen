@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************     http://virtualltek.mgbr.net     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Cell Perfecto By Team OS"
+displayname ="Perfect Cell"
+versiondate =25/06/2009
+mugenversion = 
+author ="Necromancer Remaked By Team OS"
+pal.defaults =1,2
+
+[Files]
+sprite =CellSFF.sff
+anim =CellAIR.air
+sound =CellSND.snd
+cmd =CellCMD.cmd
+cns =CellCNS.cns
+stcommon =CellCNS.cns
+st =CellCNS.cns
+pal1=cell01.act
+pal2=Cell01_original.act
+pal3=cell03.act
+st1=Cell_IA.cns
+
+
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard =..\data\final.def

@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Raditz"
+displayname = "Raditz"
+versiondate = 24,02,2010
+mugenversion = 06,14,2003
+author = "Sawady"
+pal.defaults = 1
+
+[Files]
+sprite = raditz.sff
+anim = raditz.air
+sound = raditz.snd
+cmd = raditz.cmd
+cns = raditz.cns
+stcommon = common1.cns
+st = Basico.cns
+st1 = Moves.cns
+st2 = Helpers.cns
+st3 = Specials.cns
+pal1 = raditz.act
+pal2 = napa.act
+pal3 = bardack.act
+pal4 = thoma.act
+pal5 = turles.act
+pal6 = turles2.act
+

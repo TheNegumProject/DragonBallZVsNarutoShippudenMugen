@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Minato Hokage"
+displayname = "Minato"
+versiondate = 
+mugenversion = 
+author = "Sasuke94"
+pal.defaults = 1
+
+[Files]
+sprite = MinatoS94.sff
+anim = MinatoS94.air
+sound = MinatoS94.snd
+cmd = MinatoS94.cmd
+cns = MinatoS94.cns
+stcommon = common(MinatoS94).cns
+st = MinatoS94.cns
+pal1 = MinatoS94.act
+pal2 = MinatoS94(2).act
+pal3 = MinatoS94(3).act
+pal4 = MinatoS94(4).act
+pal5 = MinatoS94 (YF).act
+pal6 = MinatoS94(6).act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

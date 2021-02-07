@@ -1,0 +1,538 @@
+;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$;
+;--------------------------------------------------------------------------------------;
+;--------------------------------------------------------------------------------------;
+;------------------------------;CLIFF-Naruto-Rikudo;-----------------------------------;
+;------------------------------;<----------------->;-----------------------------------;
+;--------------------------------------------------------------------------------------;
+;--------------------------------------------------------------------------------------;
+;--------------------------------------CNS---------------------------------------------;
+;------------------------------------<----->-------------------------------------------;
+;--------------------------------------------------------------------------------------;
+;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$(=CSmugen.UCOZ.COM=)$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$;
+;-------------------------------------------------------------------------------
+[Statedef 309]
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+anim = 5000
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 230, 5]
+type = SelfState
+trigger1 = time = 70
+value = 5100
+ctrl = 0
+;-------------------------------------------------------------------------------
+[Statedef 314]
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+anim = 5000
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 230, 5]
+type = SelfState
+trigger1 = time = 270
+value = 5100
+ctrl = 0
+
+[Statedef 5600]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+anim = 5030
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 8
+freq = 50
+ampl = -8
+phase = 50
+;ignorehitpause =
+;persistent =
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 1
+trigger1 = Anim != 1050
+value = 1050
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 2
+trigger1 = Anim != 2050
+value = 2050
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 3
+trigger1 = Anim != 3050
+value = 3050
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 =1
+value = 0
+movecamera = 0,0
+;ignorehitpause =
+;persistent =
+
+[State 1025, State]
+type = ChangeState
+trigger1 = HitShakeOver = 1
+value = 5601
+
+
+;------------------
+[Statedef 5601]
+type    = A
+movetype= H
+physics = N
+anim = 5030
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 8
+freq = 50
+ampl = -8
+phase = 50
+;ignorehitpause =
+;persistent =
+
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 1
+trigger1 = Anim != 1050
+value = 1050
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 2
+trigger1 = Anim != 2050
+value = 2050
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 3
+trigger1 = Anim != 3050
+value = 3050
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 =1
+value = 0
+movecamera = 0,0
+;ignorehitpause =
+;persistent =
+
+
+[State 1026, Velocity]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 1026, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .45
+
+[State 1026, No scroll]
+type = ScreenBound
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist < 65
+trigger2 = FrontEdgeBodyDist < 65
+value = 1
+
+[State 1026, Hit wall]
+type = ChangeState
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist <= 20
+trigger2 = FrontEdgeBodyDist <= 20
+value = 5602
+
+[State 1026, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+;------------------
+[Statedef 5602]
+type    = A
+movetype= H
+physics = N
+anim = 5030
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 8
+freq = 50
+ampl = -8
+phase = 50
+;ignorehitpause =
+;persistent =
+
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 1
+trigger1 = Anim != 1050
+value = 1050
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 2
+trigger1 = Anim != 2050
+value = 2050
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 3
+trigger1 = Anim != 3050
+value = 3050
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 =1
+value = 0
+movecamera = 0,0
+;ignorehitpause =
+;persistent =
+
+
+[State 1027, Turn]
+type = Turn
+trigger1 = (Time = 0) && (FrontEdgeBodyDist <= 30)
+
+[State 1027, Pos]
+type = PosAdd
+trigger1 = Time = 0
+x = 15 - BackEdgeBodyDist
+
+[State 1027, Stop moving]
+type = PosFreeze
+trigger1 = 1
+x = 1
+y = 1
+
+[State 1027, Spark]
+type = Explod
+trigger1 = Time = 0
+anim = F72
+pos = 0, floor (screenpos y) - 50
+postype = back
+sprpriority = 3
+
+[State 1027, Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 5030
+
+[State 1027, Sound]
+type = PlaySnd
+trigger1 = Time = 0
+value = F7,0
+volume = 999999999999999999999999999999999999999999
+
+[State 1027, State]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 5603
+;------------------
+[Statedef 5603]
+type    = A
+movetype= H
+physics = N
+anim = 5030
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 8
+freq = 50
+ampl = -8
+phase = 50
+;ignorehitpause =
+;persistent =
+
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 1
+trigger1 = Anim != 1050
+value = 1050
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 2
+trigger1 = Anim != 2050
+value = 2050
+
+[State 181, ChangeAnim]
+type = ChangeAnim
+triggerall = var(10) = 3
+trigger1 = Anim != 3050
+value = 3050
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 =1
+value = 0
+movecamera = 0,0
+;ignorehitpause =
+;persistent =
+
+
+[State 1028, Vel Y]
+type = VelSet
+trigger1 = Time = 0
+y = -6
+
+[State 1028, Vel X]
+type = VelSet
+trigger1 = Time = 0
+x = 1.6
+
+[State 1028, Turn]
+type = Turn
+trigger1 = (Time = 0) && (BackEdgeDist < 30)
+
+[State 1028, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .35
+
+[State 1028, Anim 5050] ;Self falling animation
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5052)
+value = 5050
+
+[State 1028, Anim 5052] ;Self falling animation (diagup type)
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5052)
+value = 5052
+
+[State 1028, Anim 5060] ;Coming down - normal
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5050
+trigger1 = SelfAnimExist(5060)
+persistent = 0
+value = 5060
+
+[State 1028, Anim 5062] ;Coming down - diagup type
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5052
+trigger1 = SelfAnimExist(5062)
+persistent = 0
+value = 5062
+
+[State 1028, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+[Statedef 106063]
+type    = A
+movetype= H
+physics = N
+juggle  = 1
+velset = 0,0
+anim = 5110
+ctrl = 0
+poweradd = -500
+sprpriority = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 15
+freq = 90
+ampl = -15
+phase = 90
+;ignorehitpause =
+;persistent =
+
+[State 0, PosSet]
+type = PosSet
+TRIGGER1 = TIME = 0
+Y = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, ChangeState]
+type = SELFSTATE
+trigger1 = animtime = 0
+value = 5110
+CTRL = 1
+
+[Statedef 199913]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ANIM = 5000
+ctrl = 0
+poweradd = -1
+sprpriority = 1
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = time = 0
+value = -5
+kill = 1
+absolute = 1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =1
+flag = nomusic
+flag2 = timerfreeze
+
+[State ??, ??]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = nowalk
+
+[State 0, ChangeState]
+type = SELFSTATE
+trigger1 = animtime = 0
+value = 5050
+CTRL = 1
+
+[Statedef 199917]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 3,-5
+ANIM = 5000
+ctrl = 0
+poweradd = -1
+sprpriority = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =1
+flag = nomusic
+flag2 = timerfreeze
+
+[State ??, ??]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = nowalk
+
+[State 0, ChangeState]
+type = SELFSTATE
+trigger1 = animtime = 0
+value = 5050
+CTRL = 1
+
+
+;-------------------------------------------------------------------------45 deg
+[Statedef 1105000]
+type    = U
+movetype= H
+physics = S
+ctrl = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 0
+y = 0
+
+[State 5020, 2]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5110
+
+[State 5020, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 = Time > 0
+value = anim
+
+[State 5000, 5]
+type = StateTypeSet
+trigger1 = Time = 0
+trigger1 = GetHitVar(yvel) != 0 || GetHitVar(fall)
+trigger2 = Pos Y != 0
+statetype = a
+
+[State 5000, 7]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 1105001
+;-------------------------------------------------------------------------------
+[Statedef 1105001]
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S11,0
+volume = 9999
+channel = -1
+
+[State 0, HitVelSet]
+type = HitVelSet
+trigger1 = time =0
+x = 1
+y = 1
+
+[State 0, Gravity]
+type = Gravity
+trigger1 = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = time*55
+
+[State 230, 5]
+type = SelfState
+trigger1 = vel y>0
+trigger1 = pos y>-vel y+25
+value = 5100
+ctrl = 0
+

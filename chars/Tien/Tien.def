@@ -1,0 +1,37 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name="TenShinHan"
+displayname="Tien"
+versiondate=04,14,2002
+mugenversion=04,14,2002
+author=""
+pal.defaults=1,2
+
+; Files for the player
+[Files]
+cmd=TenShinHan.cmd
+cns=TenShinHan.cns
+st=TenShinHan.cns
+stcommon=common1.cns
+sprite=TenShinHan.sff
+anim=TenShinHan.air
+sound=TenShinHan.snd
+pal1=TenShinHan_01.act
+pal2=TenShinHan_02.act
+st1=Ten_Sombras.cns
+st2=TenShinHan_IA.cns
+
+
+
+
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard=intro.def
+;ending.storyboard=ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=

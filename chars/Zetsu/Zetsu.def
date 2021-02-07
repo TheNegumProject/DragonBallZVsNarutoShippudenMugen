@@ -1,0 +1,29 @@
+[Info]
+name ="Zetsu"
+displayname ="Zetsu"
+versiondate =05,23,2006
+mugenversion =04,14,2002
+author ="Gabrieldra6"
+pal.defaults =1,2
+
+[Files]
+cmd     =ZetsuM92.cmd
+cns     =ZetsuM92.cns
+st      =ZetsuM92.cns
+stcommon =common1.cns
+sprite  =ZetsuM92.sff
+anim    =ZetsuM92.air
+sound=
+pal1=ZetsuM92.act
+pal2=ZetsuM92.act
+st1=AI.cns
+st2=bunshin.cns
+
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard =
+;ending.storyboard =
+[Arcade]
+intro.storyboard=
+ending.storyboard=

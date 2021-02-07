@@ -1,0 +1,902 @@
+;----------------------------------------------------------------------------------------------
+;-----------------------------------------------------------------------------------------------
+;shunkanido kame-hame-ha
+;KAME-HAME-HA multiopciones  BETA 60%
+;inicio
+
+;kame carga
+[Statedef 3050]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+velset = 0,0,0
+anim = 3050
+
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0,450]
+flag = nomusic
+
+[State 2500, 1]
+type = EnvShake
+trigger1 = time = 150
+time = 200
+freq = 60
+ampl = -4
+phase = 0
+
+
+[State 2500, acumulacion]
+type = Explod
+trigger1 = (Time = 55)
+anim = 8105
+ID = 8105
+pos = -20,-30
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2 ;350
+supermove = -1
+removeongethit = 1
+sprpriority = 3
+scale = 0.2, 0.2
+
+[State 2500: bola];sprite superpuesto
+type = Explod
+trigger1 = (Time = 295) ; 55+240
+anim = 8107
+ID = 8107
+pos = -20,-30
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 50  
+supermove = -1
+removeongethit = 1
+sprpriority = 3
+scale = 0.15, 0.15
+
+[State 2500: polvo_tierra1]
+type = Explod
+triggerall = Pos Y = 0
+trigger1 = (Time = 210)
+anim = 7100
+ID = 7100
+pos = -3, 12
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermove = -1
+removeongethit = 0
+sprpriority = 2
+scale = 0.5, 0.5
+
+
+[State 2500: polvo_tierra2]
+type = Explod
+triggerall = Pos Y = 0
+trigger1 = (Time = 210)
+anim = 7101
+ID = 7101
+pos = -4,-8
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermove = -1
+removeongethit = 0
+sprpriority = -2
+scale = 0.5, 0.5
+
+
+[State 830, EFECTO SUELO]
+type = Explod
+triggerall = Pos Y = 0
+trigger1 = animelem = 4
+anim = 7010 
+ID = 7010
+pos = 0, 0
+sprpriority = -3 
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 350 ;-1
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.5,0.5
+ontop = 0
+
+[State 2500,voz]
+type = playsnd
+trigger1 = time = 80
+value = 2000,6
+volume = 255
+channel		= 0
+
+[State 2500,bola]
+type = playsnd
+trigger1 = time = 180
+value = 2000,8
+volume = 255
+channel		= 2
+
+[State 2500,brazos]
+type = playsnd
+trigger1 = time = 0
+;trigger2 = time = 50
+value = 0,6
+volume = 255
+channel		= 5
+
+[State 2501,musica]
+type =  playsnd
+trigger1 = time = 350
+value = 2000,10
+volume = 255
+loop = 1
+channel = 1
+
+[State 2501, Varset]; controla la cancelacion automatica dl kame
+type = VarSet
+trigger1 = AnimElem = 1
+var(57) = 0
+
+
+[State 2500, 0]    ;ve a esperando opcion
+type = changestate
+trigger1 = AnimTime = 0
+value = 3055 
+ctrl = 0
+
+
+;--------------------------------------------------
+;CONTINUACION 1
+
+;kame Cargado: esperando orden  (BUCLE PRINCIPAL)
+[Statedef 3055]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+velset = 0,0,0
+anim = 3055
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0, 190]
+flag = nomusic
+
+
+[State 2500, 1]
+type = EnvShake
+trigger1 = time = 0
+time = 190
+freq = 60
+ampl = -4
+phase = 0
+
+[State 900, Turn]
+type = Turn
+Trigger1 = P2Dist X < 0
+trigger1 = time = 0
+
+[State 2500: bola acumulada]
+type = Explod
+trigger1 = (Time = 0)
+anim = 8106
+ID = 8106
+pos = -20,-30
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2  ;250
+supermove = -1
+removeongethit = 1
+sprpriority = 3
+scale = 0.2, 0.2
+
+[State 2500: bola] ;sprite superpuesto
+type = Explod
+trigger1 = (Time = 20) ;
+anim = 8107
+ID = 8107
+pos = -20,-30
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 110 ;
+supermove = -1
+removeongethit = 1
+sprpriority = 3
+scale = 0.15, 0.15
+
+[State 2500: rayosbrillo]
+type = Explod
+trigger1 = (Time = 0)
+anim = 8110
+ID = 8110
+pos = -20,-30
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 190
+supermove = -1
+removeongethit = 1
+sprpriority = 3
+scale = 1,1 ;0.2, 0.2
+
+[State 830, Aura]
+type = null ;Explod
+trigger1 = animelem = 4
+anim = 7000 ;831
+ID = 7000
+pos = 0, 5
+sprpriority = 3 ;-1
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = -1
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.5,0.5
+ontop = 0
+
+[State 830, EFECTO SUELO]
+type = Explod
+triggerall = Pos Y = 0
+trigger1 = time = 0 ;animelem = 4
+anim = 7010 
+ID = 7010
+pos = 0, 0
+sprpriority = -3 
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 190 ;-1
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.5,0.5
+ontop = 0
+
+
+[State 2500: polvo_tierra1]
+type = Explod
+triggerall = Pos Y = 0
+trigger1 = (Time = 0)
+anim = 7100
+ID = 7100
+pos = -3, 12 ;0,3
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermove = -1
+removeongethit = 1
+sprpriority = 4
+scale = 0.8, 0.8
+
+
+[State 2500: polvo_tierra2]
+type = Explod
+triggerall = Pos Y = 0
+trigger1 = (Time = 0)
+anim = 7101
+ID = 7101
+pos = -6, -8 ;0,3
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2
+supermove = -1
+removeongethit = 1
+sprpriority = -3 ;-2
+scale = 0.8, 0.8
+
+
+[State 2500,1]
+type = null ;playsnd
+trigger1 = time = 80
+value = 2000,6
+volume = 255
+channel		= 1
+
+[State 830, removeAura]
+type = null ;removeExplod
+ID  = 7000
+trigger1 = (command != "ki") || (command != "ki2") || (life = 0) || (stateno != 830)
+
+
+[State 2610,9] ; para parar cancion
+type = StopSnd
+trigger1 = (life = 0) || (command = "z") 
+channel = 1
+
+[State 2610,9]
+type = StopSnd
+trigger1 = (life = 0) || (command = "start") 
+channel = 1
+
+
+;---opciones---
+
+[State 3055, opcion1] ;cancela kame
+type = changestate
+trigger1 = command = "start"
+;trigger1 = animtime = 0
+value = 3056
+ctrl = 0
+
+[State 2500, opcion_kame1]; kame frontal
+type = changestate
+trigger1 = command = "z"
+;trigger1 = p2bodydist Y > -60
+;trigger1 = p2bodydist Y < 60
+;trigger1 = animtime = 0
+value = 3051
+ctrl = 0
+
+[State 2500, opcion_kame2] ; kame arriba
+type = null ;changestate
+triggerall = var(1) != 3
+trigger1 = p2bodydist Y > 60
+trigger1 = animtime = 0
+value = 3052
+ctrl = 0
+
+[State 2500, opcion_kame3] ;kame abajo
+type = null ;changestate
+triggerall = var(1) != 3
+trigger1 = p2bodydist Y < -60
+trigger1 = animtime = 0
+value = 3053
+ctrl = 0
+
+
+[State 2500, opcion_teleport1] ;teletransportacion
+type = changestate
+trigger1 = command = "y"
+;triggerall = var(1) != 3
+;trigger1 = p2bodydist Y < -60
+;trigger1 = animtime = 0
+value = 3057
+ctrl = 0
+
+---
+[State 2501, Varset]; controla la cancelacion automatica dl kame
+type = VarAdd
+trigger1 = Time = 1
+v = 57
+value = 1
+
+[State 2500, 0] ; cuando acabe la musica cancela kame automaticamente.
+type = changestate
+triggerall = var (57) = 7
+trigger1 = time = 127  ;
+value = 3056
+ctrl = 0
+
+
+[State 2500, 0] ; si no tocamos opcion repite funcion
+type = changestate
+trigger1 = animtime = 0  ;despues d 190 tics
+value = 3055
+ctrl = 0
+
+;-----------
+
+
+;kame frente
+[Statedef 3051]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+ctrl = 0
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0, 450]
+flag = nomusic
+
+
+[State 2500;  Snd]
+type			= null ;StopSnd
+trigger1 = time = 0
+channel		= 1
+
+
+[State 0,efecto suelo]
+type = removeExplod
+trigger1 = time = 0
+ID  = 7010
+
+[State 0, ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8105
+
+[State 0, ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8106
+
+[State 0, ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8107
+
+[State 0,rayobrillo ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8110
+
+[State 2501, 2]
+type = changeanim
+trigger1 = time = 0
+value = 3051
+
+
+[State 830, EFECTO SUELO]
+type = Explod
+triggerall = Pos Y = 0
+trigger1 = time = 0 ;animelem = 4
+anim = 7011 
+ID = 7011
+pos = 0, 0
+sprpriority = -3 
+supermovetime = 0 ; tiempo q la animacion no se congelara durante una superpausa
+removetime = 440  ;-1
+bindtime = -1
+ownpal = 1
+shadow = 0,0,0 ; 0-255
+removeongethit = 1
+scale = 0.5,0.5
+ontop = 0
+
+
+
+[State 2501,voz]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 2000,7
+volume = 255
+;freqmul = 1.1
+channel = 0
+
+[State 2501,rayo]
+type = playsnd
+trigger1 = time = 60 ;AnimElem = 1
+value = 2000,9
+volume = 255
+freqmul = 0.9
+channel = 4
+
+[State 2501,goku]
+type = playsnd
+trigger1 = time = 100
+value = 2000,11
+volume = 255
+channel = 3
+
+
+[State 2501, 4]
+type = poweradd
+trigger1 = time > 0
+value = -10
+
+[State 2501, Beam]
+type = Projectile
+trigger1 = AnimElem = 1
+getpower  = 0
+projanim = 8100
+projID = 8100
+projhitanim = -1
+projpriority = 5
+;projremove = 1
+projremovetime = 210 ;310
+projremanim = 8101
+
+projhits = 120
+projmisstime = 2
+numhits = 4
+velocity = 0
+accel = 0
+offset = 20,-33
+
+attr = S, HA
+affectteam = B ;a todos
+damage   = 8,4
+animtype = Hard
+guardflag = MA
+hitflag = MAFP
+priority = 7
+pausetime = 1,8
+hitsound   = S15,0
+sparkno = -1
+guard.sparkno = -1
+guardsound = S16,0
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 15
+ground.velocity = -8
+air.animtype = High
+air.velocity = -2
+air.juggle = 2
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+palfx.time = 23
+palfx.add = 0,128,255
+scale  = 0.8,0.8
+fall = 1
+fall.xvelocity = -8 
+fall.yvelocity = -4.5
+fall.recover = 0
+fall.recovertime = 100
+down.bounce = 1
+ 
+envshake.time = 50;(int)
+envshake.freq = 100;(float)
+envshake.ampl = -6 ;(int)
+envshake.phase = 0;(float)
+
+fall.envshake.time = 50
+fall.envshake.freq = 60
+fall.envshake.ampl = -8
+fall.envshake.phase = 0
+
+[State 2501, Varset]; limita el kame a uno por ronda
+type = VarSet
+trigger1 = AnimElem = 1
+var(58) = 1
+
+[State 2500, 6]
+type = changestate
+trigger1 = animtime = 0
+;trigger1 = P2life = 500
+;trigger1 = power > 0
+value = 0
+ctrl = 1
+
+;[State 2500, 6]
+;type = changestate
+;trigger1 = animtime = 0
+;trigger1 = power = 0
+;value = 5300
+;ctrl = 0
+
+;------------
+
+;kame arriba
+[Statedef 3052]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+ctrl = 0
+
+[State 2502, 2]
+type = changeanim
+trigger1 = time = 0
+value = 2502
+
+[State 2502,9]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 2500,1
+volume = 255
+
+[State 2502, 4]
+type = poweradd
+trigger1 = time > 0
+value = -10
+
+[State 2502, 5]
+type = Projectile
+trigger1 = AnimElem = 1
+getpower  = 0
+projanim = 2516
+projhitanim = -1
+projpriority = 5
+projremovetime = 84
+projid = 2516
+projhits = 120
+projmisstime = 2
+numhits = 4
+velocity = 0
+accel = 0
+offset = 37,-77
+attr = S, NA
+damage   = 18,8
+animtype = Hard
+guardflag = MA
+hitflag = MAFP
+pausetime = 1,1
+hitsound   = S15,0
+sparkno = -1
+guard.sparkno = -1
+guardsound = S16,0
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 15
+ground.velocity = -8
+air.animtype = High
+air.velocity = -2
+air.juggle = 2
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+palfx.time = 23
+palfx.add = 0,128,255
+
+[State 2502, 6]
+type = changestate
+trigger1 = animtime = 0
+trigger1 = power > 0
+value = 0
+ctrl = 1
+
+;[State 2502, 6]
+;type = changestate
+;trigger1 = animtime = 0
+;trigger1 = power = 0
+;value = 5300
+;ctrl = 0
+
+;------------
+
+;kame abajo
+[Statedef 3053]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+ctrl = 0
+
+[State 2503, 2]
+type = changeanim
+trigger1 = time = 0
+value = 2503
+
+[State 2503,9]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 2500,1
+volume = 255
+
+[State 2503, 4]
+type = poweradd
+trigger1 = time > 0
+value = -10
+
+[State 2503, 6]
+type = envcolor
+trigger1 = win = 1
+value = 255,255,255
+time = 72
+under = 1
+
+[State 2503, 5]
+type = Projectile
+trigger1 = AnimElem = 1
+getpower  = 0
+projanim = 2517
+projhitanim = -1
+projpriority = 5
+projremovetime = 84
+projid = 2517
+projhits = 120
+projmisstime = 2
+numhits = 4
+velocity = 0
+accel = 0
+offset = 31,-48
+attr = S, NA
+damage   = 18,8
+animtype = Hard
+guardflag = MA
+hitflag = MAFP
+pausetime = 1,1
+hitsound   = S15,0
+sparkno = -1
+guard.sparkno = -1
+guardsound = S16,0
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 15
+ground.velocity = -8
+air.animtype = High
+air.velocity = -2
+air.juggle = 2
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+palfx.time = 23
+palfx.add = 0,128,255
+
+[State 2503, 6]
+type = changestate
+trigger1 = animtime = 0
+trigger1 = power > 0
+value = 0
+ctrl = 1
+
+
+;------------
+;teleporte
+[Statedef 3057] 
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+ctrl = 0
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0, 450]
+flag = nomusic
+
+[State 900, Turn]
+type = Turn
+Trigger1 = P2Dist X < 0
+trigger1 = AnimElem = 13, =34
+
+
+[State 0,efecto suelo]
+type = removeExplod
+trigger1 = animtime = 0 ;time = 0
+ID  = 7010
+
+[State 0, ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8105
+
+[State 0, ]
+type = removeExplod
+trigger1 = animtime = 0  ;time = 0
+ID  = 8106
+
+[State 0, ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8107
+
+[State 0,rayobrillo ]
+type = removeExplod
+trigger1 = animtime = 0 ;time = 0
+ID  = 8110
+
+[State 3060, 2]
+type = changeanim
+trigger1 = time = 0
+value = 3057
+
+
+[State 2054, teletrans]
+type = PlaySnd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 14
+value = S50,2 ;5 ;S50,0 
+volume = 255
+
+
+[State 100, 7]
+type = ScreenBound
+Trigger1 = Time = 0
+Trigger2 = Time >= 10
+Trigger3 = AnimElem = 10
+Trigger4 = AnimElem = 11
+Trigger5 = AnimElem = 12
+Trigger6 = AnimTime = 0
+value = 0   ; 0 = para seguir a p1
+movecamera = 1,1
+
+[State 2054, 1] ;reposicionar p1 
+type = PosAdd
+trigger1 = AnimElem = 13
+;trigger1 != P2dist X = 0
+;y = -25
+;x = 300 
+x = p2bodydist x + 100
+y = p2bodydist y - 0
+
+[State 2500, 0] ; vuelve a BUCLE PRINCIPAL
+type = changestate
+trigger1 = animtime = 0  ;despues d  tics
+value = 3055
+ctrl = 0
+
+;----------
+
+;Cancela kame
+[Statedef 3056] 
+type = S
+movetype = I
+physics = S
+anim = 3055
+velset = 0,0,0
+ctrl = 0
+
+[State 2500, 1]
+type = assertspecial
+trigger1 = time = [0, 190]
+flag = nomusic
+
+[State 900, Turn]
+type = Turn
+Trigger1 = P2Dist X < 0
+trigger1 = Time = 0
+
+
+[State 0,efecto suelo]
+type = null ;removeExplod
+trigger1 = time = 0
+ID  = 7010
+
+[State 0, ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8105
+
+[State 0, ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8106
+
+[State 0, ]
+type = removeExplod
+trigger1 = time = 0
+ID  = 8107
+
+[State 0,rayobrillo ]
+type =  removeExplod
+trigger1 = time = 120
+ID  = 8110
+
+[State 3056, 2]
+type = null ;changeanim
+trigger1 = time = 0
+value = 3055
+
+[State 2500: boladispersa] ;
+type = Explod
+trigger1 = Time = 0 ;
+anim = 8108
+ID = 8108
+pos = -20,-30
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -2 ;110 ;
+supermove = -1
+removeongethit = 1
+sprpriority = 3
+scale = 0.15, 0.15
+
+
+[State 2054, bola]
+type = PlaySnd
+trigger1 = Time = 10 ;130
+value = 2000,13  
+volume = 255
+channel = 0
+
+[State 2054, bola]
+type = PlaySnd
+trigger1 = Time = 80
+value = 2000,12  
+volume = 255
+channel = 1
+
+[State 2500, 0] ; vuelve a stand
+type = changestate
+trigger1 = animtime = 0  ;despues d  tics
+value = 0
+ctrl = 1
+
+;----------
+

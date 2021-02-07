@@ -1,0 +1,24 @@
+[Info]
+name ="Naruto Goku "
+displayname ="Naruto Goku Custume"
+versiondate =1,6,2013
+mugenversion =1.0
+author ="Stroyt O and barry"
+pal.defaults =1,2,3,4,5,6
+
+[Files]
+sprite =naruto_nzc.sff
+anim =naruto_nzc.air
+sound =naruto_nzc.jp.snd
+cmd =naruto_nzc.cmd
+cns =naruto_nzc.cns
+stcommon =common1.cns
+st =naruto_nzc.cns
+pal1=Goku.act
+pal2= 1.act
+st1=override.cns
+st2=kage_bunshin_no_helper.cns
+st3=new_jutsu.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

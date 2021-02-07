@@ -1,0 +1,1242 @@
+;seq. Contra Buu2
+[StateDef 3400]
+type = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3400
+poweradd = 20
+sprpriority = 2
+
+
+[State 3656, 1]
+type = superpause
+trigger1 = time = 0
+time = 150
+anim = -1
+darken = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 3
+x = 10
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 7
+x = 0
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S1,0
+volume = 1000
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S1,1
+volume = 1000
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 2544
+ID = 2544
+pos = 3,10
+scale = 0.7,0.7
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 150
+supermove = -1
+sprpriority = 7
+
+
+
+[State 3400, 1]
+type = HitDef
+trigger1 = animelem = 4
+trigger2 = animelem = 5
+attr = S, NA
+damage = 20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = 0
+sparkxy = 0, -46
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+fall.recover = 0
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit
+value = 3401
+ctrl = 0
+;anim =
+;ignorehitpause =
+;persistent =
+
+
+[State 3400, end]
+type = ChangeState
+trigger1 = animTime = 0
+value = 0
+ctrl = 1
+
+
+[StateDef 3401]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3401
+poweradd = 20
+sprpriority = 2
+
+[State 3401, VelSet]
+type = VelSet
+trigger1 = animelem = 2
+x = p2bodydist x - 2
+y = p2bodydist y - 10
+;ignorehitpause =
+;persistent =
+
+[State 3401, VelSet]
+type = VelSet
+trigger1 = animelem = 3
+x = 10
+y = - 1
+;ignorehitpause =
+;persistent =
+
+[State 3401, VelSet]
+type = VelSet
+trigger1 = animelem = 5
+x = 15
+y = 4.3
+;ignorehitpause =
+;persistent =
+
+[State 3401, VelSet]
+type = VelSet
+trigger1 = animelem = 7
+trigger2 = animelem = 8
+trigger3 = animelem = 9
+trigger4 = animelem = 10
+x = 2
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 3401, 1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 15
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 110
+sparkno = 0
+sparkxy = -10, -76
+hitsound = S200, 1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 3401, 1]
+type = HitDef
+trigger1 = AnimElem = 4
+attr = S, NA
+damage = 15
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 110
+sparkno = 0
+sparkxy = -10, -76
+hitsound = S210, 1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 3401, end]
+type = ChangeState
+trigger1 = animelem = 10
+value = 3402
+ctrl = 1
+
+[State 3401, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+[StateDef 3402]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3402
+poweradd = 20
+sprpriority = 2
+
+[State 0, Turn]
+type = Turn
+trigger1 = animelem = 1
+trigger2 = animelem = 8
+trigger3 = animelem = 11
+trigger4 = animelem = 14
+trigger5 = animelem = 17
+trigger6 = animelem = 20
+trigger7 = animelem = 23
+trigger8 = animelem = 26
+trigger9 = animelem = 29
+trigger10 = animelem = 32
+trigger11 = animelem = 36
+trigger12 = animelem = 39
+;ignorehitpause =
+;persistent =
+
+[state 3402]
+type = velset
+trigger1 = animelem = 2
+x = 20
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 8
+trigger2 = animelem = 11
+trigger3 = animelem = 14
+trigger4 = animelem = 17
+trigger5 = animelem = 20
+trigger6 = animelem = 23
+trigger7 = animelem = 26
+trigger8 = animelem = 29
+trigger9 = animelem = 32
+trigger10 = animelem = 36
+trigger11 = animelem = 39
+x = p2bodydist x - 20
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 3402, 1]
+type = HitDef
+trigger1 = AnimElem = 4
+trigger2 = animelem = 6
+trigger3 = animelem = 9
+trigger4 = animelem = 12
+trigger5 = animelem = 15
+trigger6 = animelem = 18
+trigger7 = animelem = 21
+trigger8 = animelem = 24
+trigger9 = animelem = 27
+trigger10 = animelem = 30
+trigger11 = animelem = 34
+trigger12 = animelem = 37
+trigger13 = animelem = 40
+attr = S, NA
+damage = 15
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 5, 110
+sparkno = 0
+sparkxy = -10, -76
+hitsound = S200, 1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 3402, 1]
+type = HitDef
+trigger1 = AnimElem = 42
+attr = S, NA
+damage = 15
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = S210, 1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,-15
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+fall.recover = 0
+
+[State 3402, end]
+type = ChangeState
+trigger1 = animelem = 49
+value = 3403
+ctrl = 1
+
+[State 3402, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+[StateDef 3403]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3403
+poweradd = 20
+sprpriority = 2
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 1
+x = p2bodydist x - 2
+y = p2bodydist y - 15
+;ignorehitpause =
+;persistent =
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 5
+x = 0
+y = 5
+;ignorehitpause =
+;persistent =
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 11
+x = p2bodydist x - 2
+y = p2bodydist y - 5
+;ignorehitpause =
+;persistent =
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 7
+x = 0
+y = 10
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+trigger2 = animelem = 7
+value = S23,0
+volume = 0
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 3403, 1]
+type = HitDef
+trigger1 = AnimElem = 6
+attr = S, NA
+damage = 15
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = S210, 1
+guardsound = 6, 0
+ground.type = high
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,3
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = 0,3
+air.hittime = 12
+
+[State 3403, 2]
+type = HitDef
+trigger1 = animelem = 10
+attr = S, NA
+damage = 15
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = S13, 1
+guardsound = 6, 0
+ground.type = trip
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -100,6
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -100,6
+air.hittime = 12
+
+
+[State 3403, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-------------------------------------------------------------------------------
+[StateDef 1449]
+type = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1449
+poweradd = 20
+sprpriority = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 8
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 1450, 1]
+type = HitDef
+trigger1 = animelem = 2
+attr = S, NA
+damage = 20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = 0
+sparkxy = 0, -46
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,-15
+airguard.velocity = -1.9,-.8
+air.type = High
+fall.recover = 0
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit = 2
+value = 1450
+ctrl = 0
+;anim =
+;ignorehitpause =
+;persistent =
+
+
+[State 2045, end]
+type = ChangeState
+trigger1 = Time = 40
+value = 0
+ctrl = 1
+
+-------------------------------------------------
+[StateDef 1450]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1450
+poweradd = 20
+sprpriority = 2
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 3
+x = p2bodydist x - 2
+y = p2bodydist y - 10
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S14,1
+volume = 1000
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 1450, 1]
+type = HitDef
+trigger1 = animelem = 3
+trigger2 = animelem = 7
+trigger3 = animelem = 11
+trigger4 = animelem = 15
+trigger5 = animelem = 19
+trigger6 = animelem = 23
+trigger7 = animelem = 27
+trigger8 = animelem = 31
+trigger9 = animelem = 33
+trigger10 = animelem = 35
+trigger11 = animelem = 37
+trigger12 = animelem = 39
+trigger13 = animelem = 41
+trigger14 = animelem = 43
+trigger15 = animelem = 45
+trigger16 = animelem = 47
+trigger17 = animelem = 49
+trigger18 = animelem = 51
+trigger19 = animelem = 53
+trigger20 = animelem = 55
+trigger21 = animelem = 57
+trigger22 = animelem = 59
+trigger23 = animelem = 61
+trigger24 = animelem = 63
+trigger25 = animelem = 65
+trigger26 = animelem = 67
+trigger27 = animelem = 69
+trigger28 = animelem = 71
+trigger29 = animelem = 73
+trigger30 = animelem = 75
+attr = S, NA
+damage = 11,1
+animtype = Light
+hitflag = MAFDP
+priority = 3, hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -56
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = none
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,20
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+p2stateno = 1452
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 3
+trigger2 = animelem = 11
+trigger3 = animelem = 19
+trigger4 = animelem = 31
+trigger5 = animelem = 39
+trigger6 = animelem = 47
+trigger7 = animelem = 57
+trigger8 = animelem = 63
+trigger9 = animelem = 71
+trigger10 = animelem = 77
+trigger11 = animelem = 79
+anim = 126
+ID = 126
+pos = 30,-40
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 1,1
+sprpriority = 7
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 7
+trigger2 = animelem = 15
+trigger3 = animelem = 23
+trigger4 = animelem = 27
+trigger5 = animelem = 33
+trigger6 = animelem = 41
+trigger7 = animelem = 49
+trigger8 = animelem = 53
+trigger9 = animelem = 65
+trigger10 = animelem = 75
+trigger11 = animelem = 79
+anim = 941
+ID = 941
+pos = 20,-47
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 1,1
+sprpriority = 7
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+;ignorehitpause =
+;persistent =
+
+
+[State 1450, 1]
+type = HitDef
+trigger1 = AnimElem = 5
+trigger2 = animelem = 9
+trigger3 = animelem = 13
+trigger4 = animelem = 17
+trigger5 = animelem = 21
+trigger6 = animelem = 25
+trigger7 = animelem = 29
+trigger8 = animelem = 33
+trigger9 = animelem = 77
+trigger10 = animelem = 79
+trigger11 = animelem = 81
+attr = S, NA
+damage = 11,1
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -56
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = none
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,20
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animelem = 33
+value = 1451
+ctrl = 0
+;anim =
+;ignorehitpause =
+;persistent =
+
+[State 1450, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+-----------------------------------------------
+[StateDef 1451]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1451
+poweradd = 20
+sprpriority = 2
+
+[State 1451, 1]
+type = HitDef
+trigger1 = animelem = 2
+attr = S, NA
+damage = 20
+animtype = Light
+hitflag = MAFDP
+priority = 3, Hit
+pausetime = 0, 150
+sparkno = -1
+sparkxy = -10, -56
+hitsound = S210, 1
+guardsound = 6, 0
+ground.type = high
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,20
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 1451, 1]
+type = HitDef
+trigger1 = animelem = 5
+trigger2 = animelem = 7
+trigger3 = animelem = 9
+trigger4 = animelem = 11
+trigger5 = animelem = 13
+trigger6 = animelem = 15
+trigger7 = animelem = 17
+trigger8 = animelem = 19
+trigger9 = animelem = 21
+trigger10 = animelem = 23
+trigger11 = animelem = 25
+trigger12 = animelem = 27
+trigger13 = animelem = 29
+trigger14 = animelem = 31
+attr = S, NA
+damage = 11,1
+animtype = Light
+hitflag = MAFDP
+priority = 3, Hit
+pausetime = 5, 10
+sparkno = -1
+sparkxy = -10, -56
+hitsound = S200, 1
+guardsound = 6, 0
+ground.type = high
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,20
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 1451, 1]
+type = HitDef
+trigger1 = animelem = 33
+trigger2 = animelem = 35
+trigger3 = animelem = 37
+trigger4 = animelem = 39
+trigger5 = animelem = 41
+trigger6 = animelem = 43
+trigger7 = animelem = 45
+trigger8 = animelem = 47
+trigger9 = animelem = 49
+trigger10 = animelem = 51
+trigger11 = animelem = 53
+trigger12 = animelem = 55
+trigger13 = animelem = 57
+trigger14 = animelem = 59
+trigger15 = animelem = 61
+trigger16 = animelem = 63
+trigger17 = animelem = 65
+trigger18 = animelem = 67
+trigger19 = animelem = 69
+trigger20 = animelem = 71
+trigger21 = animelem = 73
+trigger22 = animelem = 75
+trigger23 = animelem = 77
+attr = S, NA
+damage = 11,1
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 5, 10
+sparkno = -1
+sparkxy = -10, -56
+hitsound = S210, 1
+guardsound = 6, 0
+ground.type = low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,20
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 1451, 1]
+type = HitDef
+trigger1 = animelem = 79
+attr = S, NA
+damage = 21
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 5, 100
+sparkno = -1
+sparkxy = -10, -56
+hitsound = S210, 1
+guardsound = 6, 0
+ground.type = low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,20
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 1451, 1]
+type = HitDef
+trigger1 = animelem = 81
+attr = S, NA
+damage = 26
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 5, 15
+sparkno = -1
+sparkxy = -10, -56
+hitsound = S210, 1
+guardsound = 6, 0
+ground.type = low
+ground.slidetime = 50
+ground.hittime  = 12
+ground.velocity = 6,0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, VelSet]
+type = posadd
+trigger1 = animelem = 81
+x = p2bodydist x - 1
+y = p2bodydist y - 30
+;ignorehitpause =
+;persistent =
+
+
+[State 1451, 1]
+type = HitDef
+trigger1 = animelem = 83
+attr = S, NA
+damage = 26
+animtype = heavy
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 5, 50
+sparkno = -1
+sparkxy = -10, -56
+hitsound = S200, 1
+guardsound = 6, 0
+ground.type = high
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = 0,0
+air.hittime = 12
+fall = 1
+fall.recover = 1
+
+[State 1451, 1]
+type = HitDef
+trigger1 = animelem = 85
+attr = S, NA
+damage = 26
+animtype = heavy
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 5, 10
+sparkno = -1
+sparkxy = -10, -56
+hitsound = S230, 1
+guardsound = 6, 0
+ground.type = trip
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -10,20
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -10,20
+air.hittime = 12
+fall = 1
+fall.recover = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 32
+anim = 149
+ID = 149
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 99999999999999999999999999999999999999
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 280
+supermove
+pausemove
+scale = 1,1
+sprpriority = 7
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 32
+value = S1,0
+volume = 1000
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 32
+value = S1,1
+volume = 1000
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 1
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = animelem = 58
+channel = -1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 2
+trigger2 = animelem = 5
+trigger3 = animelem = 7
+trigger4 = animelem = 9
+trigger5 = animelem = 11
+trigger6 = animelem = 13
+trigger7 = animelem = 15
+trigger8 = animelem = 17
+trigger9 = animelem = 19
+trigger10 = animelem = 21
+trigger11 = animelem = 23
+trigger12 = animelem = 25
+trigger13 = animelem = 27
+trigger14 = animelem = 29
+trigger15 = animelem = 31
+trigger16 = animelem = 33
+trigger17 = animelem = 35
+trigger18 = animelem = 37
+trigger19 = animelem = 39
+trigger20 = animelem = 41
+trigger21 = animelem = 43
+trigger22 = animelem = 45
+trigger23 = animelem = 47
+trigger24 = animelem = 49
+trigger25 = animelem = 51
+trigger26 = animelem = 53
+trigger27 = animelem = 55
+trigger28 = animelem = 57
+trigger29 = animelem = 59
+trigger30 = animelem = 61
+x = 1
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem = 2
+trigger2 = animelem = 5
+trigger3 = animelem = 7
+trigger4 = animelem = 9
+trigger5 = animelem = 11
+trigger6 = animelem = 13
+trigger7 = animelem = 15
+trigger8 = animelem = 17
+trigger9 = animelem = 19
+trigger10 = animelem = 21
+trigger11 = animelem = 23
+trigger12 = animelem = 25
+trigger13 = animelem = 27
+trigger14 = animelem = 29
+trigger15 = animelem = 31
+trigger16 = animelem = 33
+trigger17 = animelem = 35
+trigger18 = animelem = 37
+trigger19 = animelem = 39
+trigger20 = animelem = 41
+trigger21 = animelem = 43
+trigger22 = animelem = 45
+trigger23 = animelem = 47
+trigger24 = animelem = 49
+trigger25 = animelem = 51
+trigger26 = animelem = 53
+trigger27 = animelem = 55
+trigger28 = animelem = 57
+trigger29 = animelem = 59
+trigger30 = animelem = 61
+x = 1
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 63
+trigger2 = animelem = 65
+trigger3 = animelem = 67
+trigger4 = animelem = 69
+trigger5 = animelem = 71
+trigger6 = animelem = 73
+trigger7 = animelem = 75
+trigger8 = animelem = 77
+trigger9 = animelem = 79
+x = 1
+y = 0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem = 63
+trigger2 = animelem = 65
+trigger3 = animelem = 67
+trigger4 = animelem = 69
+trigger5 = animelem = 71
+trigger6 = animelem = 73
+trigger7 = animelem = 75
+trigger8 = animelem = 77
+trigger9 = animelem = 79
+x = 1
+y = 0
+
+[State 1451, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+----------------------------------------------
+[StateDef 1452]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1452
+poweradd = 20
+sprpriority = 0
+
+[State 1519, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 1452
+
+[State 210, 4]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 1
+x = -1
+y = 0
+;ignorehitpause =
+;persistent =
+
+
+[State 1450, 1]
+type = HitDef
+trigger1 = animelem = 2
+trigger2 = animelem = 4
+trigger3 = animelem = 6
+trigger4 = animelem = 8
+trigger5 = animelem = 10
+trigger6 = animelem = 12
+trigger7 = animelem = 14
+trigger8 = animelem = 18
+trigger9 = animelem = 20
+trigger10 = animelem = 22
+trigger11 = animelem = 24
+trigger12 = animelem = 26
+trigger13 = animelem = 28
+trigger14 = animelem = 30
+trigger15 = animelem = 32
+trigger16 = animelem = 34
+trigger17 = animelem = 36
+trigger18 = animelem = 48
+trigger19 = animelem = 40
+trigger20 = animelem = 42
+trigger21 = animelem = 44
+trigger22 = animelem = 46
+trigger23 = animelem = 48
+trigger24 = animelem = 50
+trigger25 = animelem = 52
+trigger26 = animelem = 54
+trigger27 = animelem = 56
+trigger28 = animelem = 58
+trigger29 = animelem = 60
+trigger30 = animelem = 62
+attr = S, NA
+damage = 20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -56
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = none
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity =10,0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 1450, 1]
+type = HitDef
+trigger1 = animelem = 64
+trigger2 = animelem = 68
+trigger3 = animelem = 70
+trigger4 = animelem = 72
+trigger5 = animelem = 75
+attr = S, NA
+damage = 20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -56
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = none
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity =10,0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+[State 1450, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+;-------------------------------------------------------------------------------

@@ -1,0 +1,28 @@
+
+[Info]
+name    ="Kakarotto normal"
+displayname ="Goku SSJ2 Full"
+author ="FRS GAMES"
+pal.defaults =1,2      
+versiondate=9/3/2007
+mugenversion=06,14,2003
+
+[Files]
+cmd     =kakaroto.cmd
+cns     =kakaroto.cns
+st      =kakaroto.cns
+stcommon =common1.cns
+sprite  =kakaroto.sff
+anim    =kakaroto.air
+sound   =kakaroto.snd
+pal1=kakaroto1.act
+pal2=kakaroto2.act
+st1=
+[Arcade]
+intro.storyboard = 
+ending.storyboard=..\data\final.def
+
+                                ; Feito no Brasil (Brasilia)                
+;                              Autor: FRS GAMES >Franciynaldo
+;[[[[[[[[[[[[[[[[[[[[[[[[[[[[E-mail: superkakarotto@hotmail.com]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+;[[[[[[[[[[[[[[[[[[[[[[[[[[[ msn tambem e kakarotto@hotmail.com]]]]]]]]]]]]]]]]]]]]]]]]]]]]]

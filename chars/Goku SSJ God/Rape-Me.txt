@@ -1,0 +1,169 @@
+==========================================================================================
+-----------------------|Son Goku   1.0|--------------------------------
+==========================================================================================
+
+Coding  -  NeoCide
+
+Sprites -  NeoCide
+==========================================================================================
+-----------------------|Gameplay Mechanics|----------------------------------
+==========================================================================================
+
+I reinvented my system completely for the most part, each button is a diff attack style button,
+Melee can chain into itself for up to 5 hits ki Does as well. Power AND Agilty does a max of 4 hits.
+Melee can also be chained into any other button and into itself again after the second attack is
+intiated for up to 5 hits ie: "x,x,y,x,b". 
+
+this works for power too but does a max of 5 hits. ie: 
+"a,a,x,y" Ki and agilty attacks are different, while you can chain them from a melee or power attack
+you cannot chain into a power or melee attack from a ki or agilty combo, they will however go into 
+one another for a max of 3 hits ie: "Y.b,b" air attacks are similiar but they do a max of 3 hits as well 
+(unless you time it right and juggle for 4 hits) there are NO crouching attacks. 
+
+
+==========================================================================================
+------------------------|Attacks|------------------------------------
+==========================================================================================
+
+
+------------------------------------------------------------------------------------------
+------------------------|Standing|-----------------------------------
+------------------------------------------------------------------------------------------
+a = Power Attack
+b = Agilty Attack
+x = Melee Attack
+y = Ki Attack
+
+------------------------------------------------------------------------------------------
+------------------------|Air|----------------------------------------
+------------------------------------------------------------------------------------------
+a       =  Power Attack
+b =     =  Agilty Attack (Requiers 200 power to do)
+x =     =  Melee Attack
+y =     =  Ki Attack
+fwd fwd =  Dash fwd
+bck bck =  Dash back
+UP UP   -  Dash Up
+
+
+------------------------------------------------------------------------------------------
+------------------------|Chains|-----------------------------------
+------------------------------------------------------------------------------------------
+I dont wanna ruin the expierence of finding them out for yourself, but I will say
+goku has 60+ diff combinations to find(air+ground).Can you find them all?
+
+
+==========================================================================================
+------------------------|jap translation|------------------------------
+==========================================================================================
+Win pose 1 - "All My Training and you were still tough!"
+
+Win pose 2 - "Is that it?"
+
+Intro 1    - "Kaiouken x20"
+
+Intro 2    -   *UNKNOWN*
+
+==========================================================================================
+----------------------|Things Left|--------------------------------------
+==========================================================================================
+Nimbus Intro (1.5 release)
+custom intro vs people (1.5 release)
+Genkidama super rehaul (1.5 release)
+Another super maybe?
+AI (1.5 release I'm looking at you strifey!)
+
+
+==========================================================================================
+---------------------|Known Bugs|-------------------------
+==========================================================================================
+
+
+--------------------------------------------------
+------------|Additional basics|-----------------
+--------------------------------------------------
+b+y                    - Charge up 
+a+x                    - Zanzoken (doable in the air as well)
+Fwd + Ki Attack(close) - Grab and Blast (throw whatever)
+
+==========================================================================================
+--------------------------|Specials|--------------------------------------
+==========================================================================================
+
+Kaioken Attack Elbow    -   QCF, X
+
+
+Kaioken Attack Khh      -   QCF, Y
+
+
+Kaioken Hammer Smash    -   QCB, A
+
+
+Kaioken Ki Blast        -   QCB, B
+
+
+Kaioken Kick Flip       -   QCF, A or B
+
+
+Kaioken Toss            -   HCF, X or Y
+
+
+Kikou\Ki Toss           -   B,QCB,X or Y (Far)
+
+
+Kikou\Ki Outburst       -   B,QCB, X or Y (Close)   
+
+
+                
+========================================================================================
+------------------|Level 1 Supers|------------------------------
+========================================================================================
+Kaioken Super Assault 1 -   QCB,QCF, A Or B
+
+
+
+Kaioken Super Assault 2 -   QCF,QCB, X Or Y 
+
+
+
+Kamehameha Blast        -   QCF X 2  X Or Y
+
+
+  
+
+=======================================================================
+------------------|Level 2 supers|---------------------------------
+=======================================================================
+GenkiDama               -   QCF,QCB, X + Y 
+
+Kamehameha Beam         -   QCF X2   Y
+
+=====================================================================================
+-------------------|Credits--------------------------------------------------
+=====================================================================================
+Cyanide           -   TONS of help and a mean and insightful teaching person thanks!
+Chrono Strife     -   Loads of help and being exited about goku which makes me a happy guy Also Some codes I snagged from
+                      18 (air dashes and the throw code) Beta Testing
+NeoTokyo          -   Some sprites (pce khh's is fucking win), inspiration, and because he looks hawt in a red shirt :3
+Jedi              -   for being epic and trolling me...asshole =p
+Roken             -   Because  he's smexy,and some sprite usage (and I somewhat ripped off your piccolo intro =p)
+Warusaki3         -   for the awesome CVS2 hitsparks
+Majita            -   sounds,feedback,amazing stories of how to ruin relationships XD
+Toad              -   fx 
+Ryon              -   FX thanks bro!
+Jesuszilla        -   Feedback and my main hoster now thanks a bunch (I'll be whoring you later for more people :D )
+MV                -   Because he cant be as smexy as me, but bless his heart for trying :) Wub u!
+Vans              -   Helped me with the kikou\ki fling move thanks!
+Nachonal          -   Motivation and ideas,Beta testing 
+PotS              -   Beta Testing And Superb feedback! thx! 
+Jarek             -   Motivation and ideas,Beta testing
+Pextin            -   being so damn awesome with that spiderman mask
+Elecybyte         -   if I have to say so your dumbzy
+Akira Toriyama    -   for the dbz series 
+Bandai            -   for the horrid games that were only good to get sprites from :)
+
+
+
+On to full power! *hint* *hint*
+
+

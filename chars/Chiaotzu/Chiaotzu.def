@@ -1,0 +1,26 @@
+
+[Info]
+name ="PexChiaotzu"
+displayname ="Chiaotzu"
+versiondate =09,16,2007
+author ="Pextin" 
+pal.defaults =10   
+mugenversion=
+pal.defaults=1,2
+
+[Files]
+cmd     =chiaotzu.cmd
+cns     =chiaotzu.cns
+st      =chiaotzu.cns
+stcommon =common1.cns
+sprite  =chiaotzunew.sff
+anim    =chiaotzu.air
+sound   =chiaotzu.snd
+pal1=1.act
+st1=AI.cns
+
+
+; Arcade mode
+[Arcade]
+intro.storyboard =
+ending.storyboard =

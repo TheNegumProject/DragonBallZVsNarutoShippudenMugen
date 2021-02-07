@@ -1,0 +1,22 @@
+[Info]
+name = "Tobi Rinnegan"
+displayname = "Tobi Rinnegan"
+versiondate = 01/09/10
+mugenversion = 
+author = "Gabrieldra6"
+pal.defaults = 1,2,3,4,5
+
+[Files]
+sprite = jtobi_johnlrc.sff
+anim = jtobi_johnlrc.air
+sound = jtobi_johnlrc.snd
+cmd = jtobi_johnlrc.cmd
+cns = jtobi_johnlrc.cns
+stcommon = CNS.cns
+st = jtobi_johnlrc.cns
+pal1 = intro.act
+pal2 = jtobi_johnlrc.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,49 @@
+Majjin Vegeta 98% do Hyper Dimension por OverMind
+M.U.G.E.N OverMind - http://overmindbr.cjb.net ou http://overmindbr.hypermart.net
+-------------------------------------------------------------------------------
+Golpes Basicos:
+
+A - Soco Fraco
+B - Soco 
+C - Chute Fraco
+D - Chute
+/F+B - Agarrão
+Y+X - Zanzoken
+A+B - Voa
+Start - Carregamento
+-------------------------------------------------------------------------------
+Golpes Especiais:
+
+Magia Mão Esquerda - (/,A) Baixo,Frente A 
+Magia Mão Direita - (/,B) Baixo,Frente B  (+ forte e + rapida)
+Joelhada - (Fwd,/,Y) Frente,Baixo,Frente Y 
+Magia Pro Alto - (\,X) Baixo,Tras X 
+Bakuhatsu Ha - (\,Y) Baixo,Tras Y 
+Rasteira - (/,X) Baixo,Frente X 
+Ki Release - (\,B) Baixo, Tras B
+-------------------------------------------------------------------------------
+Supers:
+
+Final Flash - (/,X+Y) Baixo,Frente  X+Y - Level 2 de Super
+Gyarric Gun Fire - (/,A+B) Baixo,Frente  A+B - Level 2 de Super
+Big Bang Attack - (\,A+B) Baixo,Tras  A+B - Level 1 de Super (Ar)
+---------------------------------------------------------------------------------
+Sugestões??? Bugs???  : overmind@brfree.com.br
+---------------------------------------------------------------------------------
+Links:
+M.U.G.E.N OverMind - http://overmindbr.cjb.net ou http://overmindbr.hypermart.net
+M.U.G.E.N Games - http://www.mugengames.com
+M.U.G.E.N World - http://www.mugenworld.com
+M.U.G.E.N DbZ   - http://mugendbz.virtualave.net/
+    MugeNow     - http://mugenow.cjb.net
+----------------------------------------------------------------------      
+Agradecimentos:
+ElecByte - Por criar esse ótimo engine de luta que é o M.u.g.e.n. :)
+Bandai - Por ter criado esse ótimo jogo de luta que é o Dbz Hyper Dimension.
+Ssonic - Por ter me ensinado, um monte coisas. :)
+Dayerat - Dar ideias e testador. :)
+-----------------------------------------------------------------------
+Desejo a vc uma boa diversão! :)
+-----------------------------------------------------------------------
+Se vc não gostou! Dane-se!!!!!! :þ
+-----------------------------------------------------------------------

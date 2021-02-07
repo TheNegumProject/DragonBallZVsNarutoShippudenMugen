@@ -1,0 +1,23 @@
+[Info]
+name="[FlowaGirl's] Piccolo"
+displayname="Super piccolo"
+versiondate=01,03,2003
+mugenversion=04,14,2002
+author="FlowaGirl"
+pal.defaults=
+[Files]
+sprite=PiccoloSFF.sff
+sound=PiccoloSND.snd
+anim=PiccoloAIR.air
+cmd=PiccoloCMD.cmd
+cns=PiccoloCNS.cns
+st=PiccoloCNS.cns
+stcommon=PiccoloCNS.cns
+pal1=Piccolo01.act
+pal2=gv
+pal3=cx
+pal3=xc
+pal5=Piccolo02
+[Arcade]
+intro.storyboard=
+ending.storyboard=

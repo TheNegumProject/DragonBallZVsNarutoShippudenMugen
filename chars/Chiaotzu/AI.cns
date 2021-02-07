@@ -1,0 +1,1098 @@
+;Programming by Goten88
+
+[Statedef -2]
+
+[State -2: DisplayToClipBoard]
+type = DisplayToClipBoard
+trigger1 = 1
+text = "Variable 5: %d, Y Vel: %d"
+params = Var(5),vel y
+
+[State -2]
+type = SuperPause
+trigger1 = P1name != "PexChiaotzu"
+time = 100000000000000000000
+
+;Swirl Remove
+[state -2]
+type = removeexplod
+trigger1 = numexplod(8026) > 0
+trigger1 = stateno != 111
+id = 8026
+
+[state -2]
+type = removeexplod
+triggerall = numexplod(8027) > 0
+trigger1 = stateno != 111
+trigger1 = stateno != 112
+id = 8027
+
+; AI Power Gain
+[State -2]
+type = PowerAdd
+triggerall = Var(4) = 1
+triggerall = 1
+trigger1 = ctrl = 1
+trigger2 = stateno = 1500
+trigger3 = Movetype = A
+value = 1
+
+; AI Zanzoken
+[State -2]
+type = ChangeState
+value = 2001
+triggerall = command = "c"
+triggerall = command != "holddown"
+triggerall = var(4) = 1
+triggerall = random < 30
+trigger1 = statetype = S
+trigger1 = ctrl = 1
+trigger2 = stateno = 1500
+trigger3 = statetype = A
+trigger3 = ctrl = 1
+
+; AI Tien Dodonpa
+[State -2]
+type = ChangeState
+value = 222
+triggerall = stateno != 222
+triggerall = var(4) = 1
+triggerall = numpartner = 1
+triggerall = P3name = "Goten88's Tien"
+triggerall = partner, stateno = 2000
+trigger1 = statetype = S
+trigger1 = ctrl = 1
+trigger2 = stateno = 1500
+trigger3 = stateno = 1314 && movecontact
+trigger4 = stateno = 999 && movecontact
+trigger5 = stateno = 200 && movecontact
+trigger6 = stateno = 201 && movecontact
+trigger7 = stateno = 202 && movecontact
+trigger8 = stateno = 210 && movecontact
+trigger9 = stateno = 211 && movecontact
+trigger10 = stateno = 112
+trigger11 = stateno = 750 && movecontact
+trigger12 = stateno = 1112 && time > 30
+ignorehitpause = 1
+
+; Fly Stuff --------------------------------------------------------------------
+[State -2]
+type = changestate
+trigger1 = (stateno = 0)||(stateno = [10,12])||(stateno = 20)||(stateno = [50,51])
+trigger1 = Pos Y < 0 && ctrl && Var(15) = 1500
+v = 15
+value = 1500
+
+[State -2]
+type = Varset
+trigger1 = Pos Y >= 0 && Var(15) != 0
+v = 15
+value = 0
+
+[State -2]
+type = Velset
+trigger1 = Var(15) = 1500
+trigger1 = (stateno = 130) || (stateno = 131) || (stateno = 132)
+y = 0
+
+;AI Come Down
+[State -2]
+type = ChangeState
+trigger1 = Stateno = 1500
+trigger1 = Var(4) >= 1
+trigger1 = P2BodyDist Y >= 150
+value = 15100
+;-----------------------------------------------------------------------------------
+; AI Guarding
+[State -2]
+type = ChangeState
+value = 120
+triggerall = !win
+triggerall = p2movetype = A
+triggerall = Var(4) = 1
+triggerall = Random <= 449
+trigger1 = ctrl
+
+; Play Dying Sound
+[State -2]
+type = PlaySnd
+trigger1 = LoseKO
+trigger1 = time = 1
+trigger1 = var(9) = 0
+value = 5000,0
+
+; Sound Not Repeated
+[State -2]
+type = varset
+trigger1 = LoseKO
+trigger1 = time = 1
+var(9) = 1
+
+; Ouch Sound
+[State -2]
+type = PlaySnd
+trigger1 = var(10) = 0
+trigger1 = GetHitVar(fall) = 1
+trigger1 = GetHitVar(hitcount) < 2
+trigger1 = time = 0
+trigger1 = alive = 1
+value = 5000,0
+
+; Ouch Sound 2
+[State -2]
+type = varset
+trigger1 = GetHitVar(fall) = 1
+trigger1 = time = 1
+trigger1 = alive = 1
+var(10) = 1
+
+; Ouch Sound 3
+[State -2]
+type = varset
+trigger1 = stateno < 5000
+trigger1 = time = 1
+trigger1 = alive = 1
+var(10) = 0
+
+;Suicide Var
+[State -2]
+type = varset
+trigger1 = roundstate = 1
+trigger1 = life > 2500
+var(5) = 1
+
+[State -2]
+type = StopSnd
+Trigger1 = stateno != 222
+value = 1900,3
+channel = 3
+
+;Suicide Var
+[State -2]
+type = varset
+trigger1 = roundstate = 1
+trigger1 = life < 2500
+var(5) = 2
+;-------------------------------------------------------------
+;AI Special/Super Moveset
+
+;---------------------------------------------------------------------------
+;Stand Punch
+[State -2]
+type = ChangeState
+value = 200
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 201 && movecontact
+trigger2 = stateno = 210 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Stand Uppercut
+[State -2]
+type = ChangeState
+value = 212
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 201 && movecontact
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 210 && movecontact
+trigger4 = stateno = 211 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Stand Kick
+[State -2]
+type = ChangeState
+value = 210
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 201
+trigger1 = movecontact
+ignorehitpause = 1
+;--------------------------------------------------------------------------
+;Stand Kick
+[State -2]
+type = ChangeState
+value = 211
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 201 && movecontact
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 210 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Crouch Punch
+[State -2]
+type = ChangeState
+value = 400
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 201 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Crouch Punch
+[State -2]
+type = ChangeState
+value = 401
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 201 && movecontact
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 400 && movecontact
+trigger4 = stateno = 410 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Crouch Punch
+[State -2]
+type = ChangeState
+value = 402
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 201 && movecontact
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 400 && movecontact
+trigger4 = stateno = 410 && movecontact
+trigger5 = stateno = 401 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Crouch Kick
+[State -2]
+type = ChangeState
+value = 410
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 210 && movecontact
+trigger2 = stateno = 400 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Crouch Kick
+[State -2]
+type = ChangeState
+value = 411
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 210 && movecontact
+trigger2 = stateno = 211 && movecontact
+trigger3 = stateno = 410 && movecontact
+trigger4 = stateno = 400 && movecontact
+trigger5 = stateno = 401 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Jump Punch
+[State -2]
+type = ChangeState
+value = 601
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 600 && movecontact
+trigger2 = stateno = 610 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Jump Punch
+[State -2]
+type = ChangeState
+value = 602
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 600 && movecontact
+trigger2 = stateno = 601 && movecontact
+trigger3 = stateno = 610 && movecontact
+trigger4 = stateno = 611 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Jump Kick
+[State -2]
+type = ChangeState
+value = 610
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 600 && movecontact
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+;Jump Kick
+[State -2]
+type = ChangeState
+value = 611
+triggerall = Var(4) = 1
+triggerall = random <= 99
+trigger1 = stateno = 600 && movecontact
+trigger2 = stateno = 601 && movecontact
+trigger3 = stateno = 610 && movecontact
+ignorehitpause = 1
+
+;DoDonPa
+[State -2]
+type = ChangeState
+value = 222
+triggerall = Var(4) = 1
+triggerall = random <= 2
+triggerall = power >= 1000
+trigger1 = random <= 49
+trigger1 = stateno = 1314 && movecontact
+trigger2 = stateno = 999 && movecontact
+trigger3 = stateno = 200 && movecontact
+trigger4 = stateno = 201 && movecontact
+trigger5 = stateno = 202 && movecontact
+trigger6 = stateno = 210 && movecontact
+trigger7 = stateno = 211 && movecontact
+trigger8 = stateno = 112
+trigger9 = stateno = 750 && movecontact
+trigger10 = stateno = 1112 && time > 30
+ignorehitpause = 1
+
+;Self Destruct
+[State -2]
+type = ChangeState
+value = 444
+triggerall = Var(4) = 1
+triggerall = random <= 10
+triggerall = power >= 3000
+triggerall = pos y > -10
+trigger1 = random <= 49
+trigger1 = stateno = 1314 && movecontact
+trigger2 = stateno = 999 && movecontact
+trigger3 = stateno = 200 && movecontact
+trigger4 = stateno = 201 && movecontact
+trigger5 = stateno = 202 && movecontact
+trigger6 = stateno = 210 && movecontact
+trigger7 = stateno = 211 && movecontact
+trigger8 = stateno = 750 && movecontact && pos y > -10
+ignorehitpause = 1
+
+;Psychic Operations Team Mode
+[State -2]
+type = ChangeState
+value = 3500
+triggerall = Var(4) = 1
+triggerall = enemynear, teammode = simul
+triggerall = random <= 10
+triggerall = power >= 3000
+triggerall = pos y > -10
+trigger1 = random <= 49
+trigger1 = stateno = 1314 && movecontact
+trigger2 = stateno = 999 && movecontact
+trigger3 = stateno = 200 && movecontact
+trigger4= stateno = 201 && movecontact
+trigger5 = stateno = 202 && movecontact
+trigger6 = stateno = 210 && movecontact
+trigger7 = stateno = 211 && movecontact
+trigger8 = stateno = 750 && movecontact && pos y > -10
+ignorehitpause = 1
+
+;Psychic Operations
+[State -2]
+type = ChangeState
+value = 3300
+triggerall = Var(4) = 1
+triggerall = enemynear, teammode = single
+triggerall = teammode = single
+triggerall = random <= 10
+triggerall = power >= 3000
+triggerall = pos y > -10
+trigger1 = random <= 49
+trigger1 = stateno = 1314 && movecontact
+trigger2 = stateno = 999 && movecontact
+trigger3 = stateno = 200 && movecontact
+trigger4 = stateno = 201 && movecontact
+trigger5 = stateno = 202 && movecontact
+trigger6 = stateno = 210 && movecontact
+trigger7 = stateno = 211 && movecontact
+trigger8 = stateno = 750 && movecontact && pos y > -10
+ignorehitpause = 1
+
+;Psychic Push
+[State -2]
+type = ChangeState
+value = 3100
+triggerall = Var(4) = 1
+triggerall = random <= 2
+triggerall = power >= 1000
+trigger1 = stateno = 999 && movecontact
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 201 && movecontact
+trigger4 = stateno = 202 && movecontact
+trigger5 = stateno = 210 && movecontact
+trigger6 = stateno = 211 && movecontact
+trigger7 = stateno = 112
+trigger8 = stateno = 750 && movecontact
+trigger9 = stateno = 1112 && time > 40
+trigger10 = random <= 49
+trigger10 = stateno = 1314 && movecontact
+ignorehitpause = 1
+
+;Psychic Smash
+[State -2]
+type = ChangeState
+value = 555
+triggerall = Var(4) = 1
+triggerall = random <= 5
+triggerall = Pos Y > -10
+triggerall = power >= 2000
+trigger1 = stateno = 200 && movecontact
+trigger2 = stateno = 201 && movecontact
+trigger3 = stateno = 202 && movecontact
+trigger4 = stateno = 210 && movecontact
+trigger5 = stateno = 211 && movecontact
+trigger6 = stateno = 999 && movecontact
+trigger7 = stateno = 750 && movecontact && pos y > -10
+ignorehitpause = 1
+
+;Psi Clone Combo
+[State -2]
+type = ChangeState
+value = 1111
+triggerall = Var(4) = 1
+triggerall = random <= 49
+trigger1 = stateno = 200 && movecontact
+trigger2 = stateno = 201 && movecontact
+trigger3 = stateno = 202 && movecontact
+trigger4 = stateno = 210 && movecontact
+trigger5 = stateno = 211 && movecontact
+trigger6 = stateno = 411 && movecontact
+trigger7 = stateno = 410 && movecontact
+trigger8 = stateno = 400 && movecontact
+trigger9 = stateno = 401 && movecontact
+ignorehitpause = 1
+
+;Trip
+[State -2]
+type = ChangeState
+value = 1313
+triggerall = Var(4) = 1
+triggerall = random <= 49
+trigger1 = stateno = 200 && movecontact
+trigger2 = stateno = 201 && movecontact
+trigger3 = stateno = 202 && movecontact
+trigger4 = stateno = 210 && movecontact
+trigger5 = stateno = 211 && movecontact
+trigger6 = stateno = 411 && movecontact
+trigger7 = stateno = 410 && movecontact
+trigger8 = stateno = 400 && movecontact
+trigger9 = stateno = 401 && movecontact
+ignorehitpause = 1
+
+;Spinning Head Butt
+[State -2]
+type = ChangeState
+value = 111
+triggerall = Var(4) = 1
+triggerall = random <= 29
+trigger1 = stateno = 999 && movecontact
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 201 && movecontact
+trigger4 = stateno = 202 && movecontact
+trigger5 = stateno = 210 && movecontact
+trigger6 = stateno = 211 && movecontact
+trigger7 = stateno = 600 && movecontact
+trigger8 = stateno = 601 && movecontact
+trigger9 = stateno = 602 && movecontact
+trigger10 = stateno = 610 && movecontact
+trigger11 = stateno = 611 && movecontact
+trigger12 = stateno = 612 && movecontact
+trigger13 = stateno = 750 && movecontact
+trigger14 = stateno = 410 && movecontact
+trigger15 = stateno = 400 && movecontact
+trigger16 = stateno = 401 && movecontact
+trigger17 = stateno = 1314 && movecontact >= 23
+ignorehitpause = 1
+
+;Charge Punch
+[State -2]
+type = ChangeState
+value = 999
+triggerall = Var(4) = 1
+triggerall = random <= 49
+trigger1 = stateno = 200 && movecontact
+trigger2 = stateno = 201 && movecontact
+trigger3 = stateno = 202 && movecontact
+trigger4 = stateno = 210 && movecontact
+trigger5 = stateno = 211 && movecontact
+trigger6 = stateno = 410 && movecontact
+trigger7 = stateno = 400 && movecontact
+trigger8 = stateno = 401 && movecontact
+ignorehitpause = 1
+
+; Backround Jump 
+[State -1]
+type = ChangeState
+value = 750
+triggerall = Var(4) = 1
+triggerall = random <= 49
+trigger1 = random <= 49
+trigger1 = stateno = 1314 && movecontact
+trigger2 = stateno = 999 && movecontact
+trigger3 = stateno = 200 && movecontact
+trigger4 = stateno = 201 && movecontact
+trigger5 = stateno = 202 && movecontact
+trigger6 = stateno = 210 && movecontact
+trigger7 = stateno = 211 && movecontact
+trigger8 = stateno = 400 && movecontact
+trigger9 = stateno = 401 && movecontact
+trigger10 = stateno = 402 && movecontact
+trigger11 = stateno = 410 && movecontact
+ignorehitpause = 1
+
+;Psychic Seeking Ball
+[State -1]
+type = ChangeState
+value = 777
+triggerall = Var(4) = 1
+triggerall = random <= 49
+trigger1 = stateno = 999 && movecontact
+ignorehitpause = 1
+
+;Ki Shot
+[State -1]
+type = ChangeState
+value = 1000
+triggerall = Var(4) = 1
+triggerall = random <= 49
+triggerall = numproj <= 1
+trigger1 = stateno = 999 && movecontact
+trigger2 = stateno = 750 && movecontact
+ignorehitpause = 1
+
+;------------------------------------------------------------
+
+;Psychic Operations (Psi Ops) Team MODE
+[Statedef 3500]
+type     = S
+movetype = A
+physics  = S
+juggle = 1
+anim = 556
+ctrl = 0
+velset = 0,0
+poweradd = -3000
+
+[State 3300]
+type = NotHitBy
+trigger1 = Time > 0
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[state 3100]
+type = varset
+trigger1 = time = 0
+v = 34
+value = 0
+
+[state 3300]
+type = superpause
+trigger1 = time = 0
+time = 70
+movetime = 70
+darken = 1
+anim = -1
+
+[state 730,3]
+type = playsnd
+trigger1 = time = 10
+value = 8080,4
+
+[State 3300, Blue]
+type = PalFX
+trigger1 = Time > 10
+trigger1 = time < 70
+trigger1 = TimeMod = 6,0
+time = 4
+add = 0,0,255
+
+[state 3300]
+type = EnvShake
+trigger1 = time = 5
+time = 24
+ampl = -2
+freq = 100
+
+[state 3300, gwave]
+type = explod
+trigger1 = time = 10
+anim = 8102
+ID = 8102
+pos = -3,2
+scale = .6,.5
+postype = P1
+ownpal = 1
+removeongethit = 1
+removetime = 20
+sprpriority = -3
+bindtime = -1
+supermovetime = -1
+
+[state 3300]
+type = Varset
+trigger1 = Time = 24
+fv = 33
+value = 1
+
+[state 3300, clonegrow]
+type = explod
+trigger1 = time = 25
+trigger1 = p2bodydist x >= 30
+anim = 559
+ID = 559
+pos = 0,0
+scale = fvar(33),fvar(33)
+postype = P1
+ownpal = 1
+vel = .7,0
+removeongethit = 1
+removetime = 35
+sprpriority = 3
+supermovetime = -1
+
+[state 3300, clonegrow]
+type = explod
+trigger1 = time = 25
+trigger1 = p2bodydist x < 30
+anim = 559
+ID = 559
+pos = 0,0
+scale = fvar(33),fvar(33)
+postype = P1
+ownpal = 1
+vel = -.7,0
+removeongethit = 1
+removetime = 35
+sprpriority = 3
+supermovetime = -1
+
+[state 3300]
+type = Varadd
+trigger1 = Time >= 25
+trigger1 = time <= 60
+fv = 33
+value = .02 
+
+[state 3300, clonegrow]
+type = modifyexplod
+trigger1 = Time >= 25
+trigger1 = time <= 60
+ID = 559
+scale = fvar(33),fvar(33)
+
+[state 3300]
+type = PlaySnd
+trigger1 = Time = 0
+value = 10, 1
+volume = 255
+
+[state 3100]
+type = helper
+trigger1 = time = 60
+helpertype = normal
+name = "sclone"
+ID = 3504
+pos = 0,0;35,0
+postype = p1
+stateno = 3504
+keyctrl = 1
+ownpal = 1
+supermovetime = 1000
+
+[State 1113, 1]
+type = PlaySnd
+Trigger1 = time = 25
+value = 1111,0 
+volume = 255
+
+[State 1113, 1]
+type = Changestate
+Trigger1 = time = 60
+value = 3501
+ctrl = 0
+
+;Helper State
+[Statedef 3504]
+type   = S
+juggle = 1
+ctrl = 0
+velset = 0,0
+anim = 558
+
+[State 3504]
+type = NotHitBy
+trigger1 = time >= 0
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[state 3304]
+type = parentvarset
+trigger1 = time = 0
+v = 35
+value = floor(pos x)
+
+[State 555]
+type = changeanim
+trigger1 = anim != 2001
+trigger1 = parent,var(34) = 1
+value = 2001
+
+[State 2001, 8]
+type = PlaySnd
+trigger1 = anim = 2001
+Trigger1 = AnimElem = 1
+value = 2001,1
+
+[State 3300, Blue]
+type = PalFX
+trigger1 = Time > 0
+trigger1 = time < 10
+trigger1 = TimeMod = 6,0
+time = 4
+add = 0,0,255
+ignorehitpause = 1
+
+[state 3100]
+type = playsnd
+trigger1 = parent, stateno = 3306
+value = 180,0
+volume = 255
+
+[State 555]
+type = destroyself
+trigger1 = anim = 2001
+trigger1 = animtime = 0
+trigger2 = parent, stateno = 3306
+
+;Invis Player 1
+[Statedef 3501]
+type     = S
+movetype = A
+physics = S
+anim = 3303
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[state 3300]
+type = explod
+trigger1 = time = 0
+anim = 3301
+ID = 3301
+pos = 0,0
+scale = fvar(33),fvar(33)
+postype = P1
+ownpal = 0
+vel = 0,0
+removeongethit = 1
+removetime = -1
+sprpriority = 3
+supermovetime = -1
+bindtime = -1
+
+[State 556]
+type = Posadd
+trigger1 = Time = 0
+trigger1 = p2bodydist x >= 30
+x = 35
+
+[State 556]
+type = Posadd
+trigger1 = Time = 0
+trigger1 = p2bodydist x < 30
+x = -35
+
+[State 333]
+type = PlayerPush
+Trigger1 = time >= 0
+value = 0
+ignorehitpause = 1
+
+[State 1113, Blue]
+type = PalFX
+trigger1 = Time > 0
+trigger1 = TimeMod = 6,0
+time = 2
+add = 0,0,255
+ignorehitpause = 1
+
+[State 1112, 3]
+type = ScreenBound
+Trigger1 = Time >= 0
+value = 0
+movecamera = 0,0
+
+[State 3301]
+type = AssertSpecial
+trigger1 = time >= 0
+flag = noshadow 
+ignorehitpause = 1
+
+[State 333]
+type = veladd
+Trigger1 = time = 11
+x = 30
+
+[State 777]
+type = NotHitBy
+trigger1 = Time > 0
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 444, 3]
+type = HitDef
+trigger1 = time = 0
+animtype  = light
+attr = S, NA
+damage    = 0
+pausetime = 9,12
+hitonce = 1
+guardflag = MA
+guard.sparkno = S1905     
+sparkxy = -13,-27
+sparkno = -1
+priority = 7   
+sprpriority = 9999 
+hitsound   = S8,1
+guardsound = 6,0
+ground.type = Low            
+ground.slidetime = 10        
+ground.hittime  = 102         
+ground.velocity = 0            
+p2facing = 1
+p2stateno = 3503
+
+[State 333]
+type = velset
+trigger1 = movecontact = 1
+x = 0
+
+[state 3300]
+type = explod
+trigger1 = numexplod(3302) < 2
+trigger1 = movehit = 1
+anim = 8024
+ID = 3302
+pos = -27,0
+postype = P1
+ownpal = 0
+vel = 0,0
+removeongethit = 1
+removetime = -1
+sprpriority = 3
+supermovetime = -1
+bindtime = -1
+
+[state 3100]
+type = removeexplod
+trigger1 = movecontact = 1
+trigger2 = !movecontact
+trigger2 = time > 10
+trigger2 = vel x = 0
+id = 3301
+
+[State 3301]
+type = changeanim
+triggerall = anim != 124
+trigger1 = time = 2000
+trigger2 = movecontact
+trigger2 = movehit = 0
+trigger3 = time > 11
+trigger3 = vel x = 0
+value = 124
+
+[state 3100]
+type = posset
+trigger1 = !movecontact
+trigger1 = time > 10
+trigger1 = vel x = 0
+trigger2 = movecontact
+trigger2 = movehit = 0
+x = var(35)
+
+[state 3100]
+type = changestate
+trigger1 = !movecontact
+trigger1 = time > 10
+trigger1 = vel x = 0
+trigger2 = movecontact
+trigger2 = movehit = 0
+trigger3 = time = 2000
+value = 3306
+
+[State 556]
+type = Posset
+trigger1 = movehit = 1
+y = -50
+
+[State 556]
+type = Statetypeset
+trigger1 = movehit = 1
+physics = N
+
+[State 556]
+type = velset
+trigger1 = movehit = 10
+x = 3
+y = -3
+
+[State 556]
+type = velset
+trigger1 = movehit = 50
+x = 3
+y = 0
+
+[State 556]
+type = velset
+trigger1 = movehit = 60
+x = -3
+y = 0
+
+[State 556]
+type = velset
+trigger1 = movehit = 70
+x = -3
+y = 3
+
+[State 556]
+type = velset
+trigger1 = movehit = 80
+x = 3
+y = 3
+
+[State 556]
+type = velset
+trigger1 = movehit = 90
+x = 3
+y = 0
+
+[State 556]
+type = velset
+trigger1 = movehit = 120
+x = -3
+y = -3
+
+[State 556]
+type = velset
+trigger1 = movehit = 140
+x = -15
+y = 0
+
+[State 444, 3]
+type = HitDef
+triggerall = time > 10
+trigger1 = vel x < -10
+trigger1 = backedgedist < 1
+animtype  = light
+attr = S, NA
+damage    = 400
+pausetime = 9,12
+guardflag = MA
+guard.sparkno = S1905     
+sparkxy = 0, 0
+sparkno = S228
+priority = 7   
+sprpriority = 9999 
+hitsound   = S7,1
+guardsound = 6,0
+ground.type = trip            
+ground.slidetime = 10        
+ground.hittime  = 102         
+ground.velocity = -3, -8
+p1stateno = 3305
+
+;P2 State
+[Statedef 3503]
+type   = S
+juggle = 1
+ctrl = 0
+velset = 0,0
+
+[State 556, Blue]
+type = PalFX
+trigger1 = Time > 0
+trigger1 = TimeMod = 6,0
+time = 4
+add = 0,0,255
+
+[State 3303]
+type = PlayerPush
+Trigger1 = time >= 0
+value = 0
+ignorehitpause = 1
+
+[State 777]
+type = NotHitBy
+trigger1 = time >= 0
+trigger1 = vel x < 15
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[state 556]
+type = explod
+trigger1 = time = 0
+anim = F61
+pos = 0,50
+postype = p1
+ownpal = 1
+sprpriority = -1
+removetime = 12
+
+[State 556]
+type = Posset
+trigger1 = Time = 0
+y = -50
+
+[State 556]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 555
+
+[State 1112, 3]
+type = ScreenBound
+Trigger1 = Time >= 0
+value = 0
+movecamera = 1,1
+
+[State 556]
+type = velset
+trigger1 = time = 17
+x = -3
+y = -3
+
+[State 556]
+type = velset
+trigger1 = time = 57
+x = -3
+y = 0
+
+[State 556]
+type = velset
+trigger1 = time = 67
+x = 3
+y = 0
+
+[State 556]
+type = velset
+trigger1 = time = 77
+x = 3
+y = 3
+
+[State 556]
+type = velset
+trigger1 = time = 87
+x = -3
+y = 3
+
+[State 556]
+type = velset
+trigger1 = time = 97
+x = -3
+y = 0
+
+[State 556]
+type = velset
+trigger1 = time = 127
+x = 3
+y = -3
+
+[State 556]
+type = velset
+trigger1 = time = 147
+x = 15
+y = 0

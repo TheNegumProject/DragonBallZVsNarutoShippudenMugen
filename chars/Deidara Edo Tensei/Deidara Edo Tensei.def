@@ -1,0 +1,20 @@
+[Info]
+name="Deidara Edo Tensei"
+displayname="Deidara Edo Tensei"
+versiondate=
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=1,2,3,4
+
+[Files]
+sprite=Er'Deidara.sff
+sound=Er'Deidara.snd
+anim=Er'Deidara.air
+cmd=Er'Deidara.cmd
+cns=Er'Deidara.cns
+st=Er'Deidara.cns
+stcommon=common1.cns
+pal1=Er'Deidara.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Trunkz 1.5"
+displayname ="Trunks"
+versiondate =2007,12,24
+mugenversion =2003,06,14
+author ="Chrono_Strife and LoneWolf"
+pal.defaults =1,2,3,4,5,6
+
+[Files]
+sprite =TrunkzSFF.sff
+anim =TrunkzAIR.air
+sound =TrunkzSND.snd
+cmd =TrunkzCMD.cmd
+cns =TrunkzCNS.cns
+stcommon =commonCNS.cns
+st =TrunkzCNS.cns
+pal1=TrunkzBlack.act
+
+
+
+
+[Arcade]
+;intro.storyboard = story\intro.def
+ending.storyboard =story\ending.def
+intro.storyboard=

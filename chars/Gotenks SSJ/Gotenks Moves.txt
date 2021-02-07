@@ -1,0 +1,62 @@
+|-Gotenks's Moves---------------------------------------------------------------
+Version - 1.0
+Character made by Pextin a.k.a Goten88 http://goten88.shorturl.com
+|-Basics------------------------------------------------------------------------
+
+x   = Light Punch
+y   = Hard Punch
+a   = Light Kick
+b   = Hard Kick
+
+Fly                 - Zanzoken + up (Main Control Nullified)
+Land                - a+x
+Charge Ki           - b+y
+Zanzoken            - c+z - (Hold it and press any direction)
+
+|-Specials----------------------------------------------------------------------
+
+Flip Kick                   - D,DF,F, a or b
+Dynamite Kick*              - D,DF,F, a or b
+Spinning Donkey Kick        - D,DB,B, a or b
+Super Duper Uppercut        - D,DF,F, x or y
+Ki Shot                     - D,DB,B, x or y
+Leap Frog                   - F,DF,D, x or y (Nullified Because Most chars don't 
+                                              have properly defined Heights)
+|-Supers----------------------------------------------------------------------
+Galactic Donut              - D,DF,F,D,DF,F, x  (Power >= 2000)
+Kamehameha                  - D,DF,F,D,DF,F, y  (Power >= 3000)
+Cosmic Scream               - B,DB,D,D,DF,F, y  (Power >= 1000)
+Kamikaze Ghost Attack       - D,DB,B,D,DB,B, a  (Power >= 500)
+Shine Shine Missile Renzoku - D,DB,B,D,DB,B, b
+
+|-Hypers------------------------------------------------------------------------
+KamiKaze Ghost Army- D,DF,F,D,DF,F,a+b (Good Luck Finding "WHEN" to use it :P)
+                   - This interesting move can give a command to each ghost
+                   - You can begin entering the commands as Gotenks sucks in air
+                   - A Command - Normal Homing Kamikaze
+                   - B Command - Kamehameha
+                   - X Command - Ground Tremor
+                   - Y Command - KI Combination Explode
+|-------------------------------------------------------------------------------
+ 
+* means only during Air(Jumping) or Flying
+ 
+Special thanks to:
+
+Akira Toriyama - For creating Dragonball Z
+
+Bandai - For the Gotenks sprites from Shin Butouden
+
+JediStarDust - For editing/cleaning all those damn sprites
+
+Toad - For some FX
+
+Roken - For testing, and ideas
+
+Sarah - For Beta Testing and ideas
+
+Strife - For still being sexy
+
+Neo - For testing, some FX, and ideas
+
+and anyone else I can't think of who helped me.

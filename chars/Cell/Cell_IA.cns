@@ -1,0 +1,1073 @@
+; Inteligencia Artificial - Inicio
+
+[Statedef 9999]
+anim = 9999
+ctrl = 0
+
+[State 9999, 0]
+type = Turn
+trigger1 = facing != parent, facing
+
+[State 9999, 1]
+type = Varset
+trigger1 = 1
+var(9) = parent, var(9)
+
+[State 9999, 2]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+trigger1 = parent, command = "x"
+trigger2 = parent, command = "y"
+trigger3 = parent, command = "z"
+trigger4 = parent, command = "a"
+trigger5 = parent, command = "holdfwd"
+trigger6 = parent, command = "holdback"
+trigger7 = parent, command = "holdup"
+trigger8 = parent, command = "holddown"
+var(9) = 1
+
+[State 9999, 3]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+trigger1 = (command = "x" && parent, command = "x")
+trigger2 = (command = "y" && parent, command = "y")
+trigger3 = (command = "z" && parent, command = "z")
+trigger4 = (command = "a" && parent, command = "a")
+trigger5 = (command = "holdfwd" && parent, command = "holdfwd")
+trigger6 = (command = "holdback" && parent, command = "holdback")
+trigger7 = (command = "holdup" && parent, command = "holdup")
+trigger8 = (command = "holddown" && parent, command = "holddown")
+var(9) = -1
+
+[State 9999, 4]
+type = varset
+trigger1 = var(9) != parent, var(9)
+V = 47
+value = 0
+
+[State 9999, 5]
+type = VarAdd
+trigger1 = var(9) = parent, var(9)
+V = 47
+value = 1
+
+[State 9999, 6]
+type = Destroyself
+trigger1 = parent, var(9) = -1
+trigger1 = var(47) >= 23
+trigger2 = parent, var(9) = 2
+trigger2 = var(47) >= 23
+trigger3 = RoundState = 3
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+;---------------------------------------------------------------------------
+;WinKO Finish
+
+[State -2:		Helper]
+type			= Helper
+trigger1		= (WinKO) && (NumHelper(11010) = 0)
+helpertype		= Normal
+name			= "WinKO"
+id			= 11010
+pos			= 0,0
+postype		= p1
+facing		= 0
+stateno		= 11010
+keyctrl		= 0
+ownpal		= 1
+supermovetime	= 1000
+pausemovetime	= 1000
+ignorehitpause	= 1
+
+[State 2004, end0]
+type = RemoveExplod
+trigger1 = command != "holdx"
+trigger2 = command != "holdy"
+trigger3 = stateno !=2200
+trigger4 = power = 0
+id = 731
+
+[State 2004, end0]
+type = RemoveExplod
+trigger1 = command != "holdx"
+trigger2 = command != "holdy"
+trigger3 = stateno !=2250
+trigger4 = power = 0
+id = 732
+
+;===================================================================================
+;---------------- Inteligencia Artificial  -----------------------------------------
+;===================================================================================
+[State -2, AI_Check] ; El ayudante siempre presente
+type = Helper ; Ayudante
+trigger1 = NumHelper(9999) = 0 ; No se repitira si esta presente ya
+trigger1 = var(9) = 0 ; Variable que actúa como interruptor
+trigger1 = RoundState = 2 ; Solo activado en combate
+name = "AI activada" ; Nombre de la AI
+id = 9999 ; Su identificador
+pos = 1000, 1000 ; posición en su nivel muy alta
+stateno = 9999 ; Te manda al stateno 9999
+helpertype = normal ; Helper tipo normal
+keyctrl = 1
+
+; Con esto le digo cuando está activada
+; en este caso, cuando la variable 9 es 1
+;[State -2, AI prueba]
+;type = VarSet ; Tipo variable
+;trigger1 = command ="AI Prueba" ; Nombre del cmd
+;var(9) = 1 ; Pone la variable a 9 a 1
+
+;Con esto veo si la IA esta activada en el Debug mode
+;[State -2,3]
+;type = DisplayToClipboard ; Pone el nombre en el debug
+;trigger1 = var(9)=1 ; Condición para que ponga el texto
+;text = "La Inteligencia Artificial funca" ; Nombre del texto
+
+
+; Con esto le digo cuando está desactivada
+; en este caso, cuando la variable 9 es 0
+;[State -2, AI desactivarlo]
+;type = VarSet ; Tipo variable
+;trigger1 = command ="AI desactivado" ; Nombre del cmd
+;var(9) = 0
+
+;Con esto veo si la IA esta desactivada en el Debug mode
+[State -2,3]
+type = DisplayToClipboard ; Pone el nombre en el debug
+trigger1 = var(9)=0 ; Condición para que ponga el texto
+text = "La Inteligencia Artificial desactivada" ; Nombre del texto
+
+;---------------------------------------------------------
+
+[State -2, terminación]
+type = VarAdd
+trigger1 =  p2life = 0
+v =  9
+value = 0
+
+
+; IA de Defensa
+[State -2, IA de Defensa]
+type = ChangeState
+value = 132
+triggerall = p2movetype = A || (enemy, NumProj >= 1) ;
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = statetype = A ; Activo unicamente si estas en el Aire
+triggerall = random <= 600 ; Aquí le ponemos un poco de aleteoriedad
+triggerall = var(9) = 1 ; La variable que activa la AI
+triggerall = ctrl
+triggerall = stateno != 132
+trigger1 = p2statetype = A
+trigger2 = (enemy, NumProj >= 1)
+
+[State -2, IA de Defensa]
+type = ChangeState
+value = 130
+triggerall = p2movetype = A || (enemy, NumProj >= 1)
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = random <= 400
+triggerall = statetype != A
+triggerall = var(9) = 1
+triggerall = ctrl
+triggerall = stateno != 120
+trigger1 = p2statetype = S
+trigger2 = (enemy, NumProj >= 1)
+
+;----------------------------------
+;combos normales
+[State -2, IA puño devil 1 ]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+value = 200
+triggerall = P2bodydist X <= 20
+triggerall = random = [600,700]
+triggerall = statetype != A
+triggerall = var(9) = 1
+triggerall = ctrl
+trigger1 = p2statetype = S
+
+;start using basics
+[State -2, puño devil doble]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1 ;&& roundstate = 2
+trigger1 = ctrl && statetype = S && p2dist X< 80 && random = [0,200]
+value = ifelse(random < 50,200,210)
+
+[State -2, patada devil\puño fuerte]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1  && statetype = S ;&& roundstate = 2
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [100,300]
+trigger2 = stateno = 200 && movecontact && random = [100,300]
+trigger3 = stateno = 210 && movecontact && random = [100,300]
+value = ifelse(random > 250, 225,215)
+
+[State -2, patada fuerte\patada command]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1 && statetype = S ;&& roundstate = 2
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [100,300]
+trigger2 = stateno = 200 && movecontact && random = [100,300]
+trigger3 = stateno = 210 && movecontact && random = [100,300]
+trigger4 = stateno = 225 && movecontact && random = [100,300]
+trigger5 = stateno = 215 && movecontact && random = [100,300]
+value = ifelse(random > 200, 230,221)
+
+[State -2, command patada]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1  && statetype = S ;&& roundstate = 2
+trigger1 = stateno = 200 && movecontact && random = [100,300]
+trigger2 = stateno = 210 && movecontact && random = [100,300]
+trigger3 = stateno = 225 && movecontact && random = [100,300]
+trigger4 = stateno = 215 && movecontact && random = [100,300]
+trigger5 = stateno = 230 && movecontact && random = [100,300]
+value = 220
+
+[State -2, puño abajo\patada abajo]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1  && statetype = S
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [100,200]
+trigger2 = stateno = 420 && movecontact && random = [100,300]
+trigger3 = stateno = 400 && movecontact && random = [100,300]
+trigger4 = stateno = 200 && movecontact && random = [100,300]
+trigger5 = stateno = 210 && movecontact && random = [100,300]
+trigger6 = stateno = 220 && movecontact && random = [100,300]
+value = ifelse(random < 150, 410,430)
+
+[State -2, codazo luego del gancho]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = stateno = 410 && (Movecontact = 1) && random = [10,50]
+value = 415
+
+[State -2, combos saltando - basicos]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1  && statetype = A
+trigger1 = ctrl && p2dist X< 60 && random = [100,200]
+trigger2 = stateno = 600 && movecontact && random = [100,300]
+trigger3 = stateno = 620 && movecontact && random = [100,300]
+value = ifelse(random < 150, 610,630)
+
+
+;----------------------------------------
+;----------------------------------------
+;Bakuretsu Kyaku
+[State -2, Bakuretsu Kyaku]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = stateno != 1005
+triggerall = stateno < 5000
+triggerall = var(9) = 1
+triggerall = pos y >= -10
+triggerall = ctrl && statetype = S
+trigger1 = P2bodydist X >= 50 && random = [500,800]
+trigger2 = stateno = 200 && movecontact && random = [100,300]
+trigger3 = stateno = 210 && movecontact && random = [100,300]
+trigger4 = stateno = 225 && movecontact && random = [100,300]
+trigger5 = stateno = 215 && movecontact && random = [100,300]
+trigger6 = stateno = 230 && movecontact && random = [100,300]
+trigger7 = stateno = 221 && movecontact && random = [100,200]
+value = ifelse(random > 150, 1020, 1030)
+
+[State -2, Geshiki Naraku Otoshi Largo]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ;Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = stateno < 5000
+triggerall = var(9) = 1
+triggerall = pos y >= -10
+triggerall = ctrl
+trigger1 = P2bodydist X >= 75 && random = [500,600]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger8 = stateno = 410 && movecontact && random = [10,50]
+trigger9 = stateno = 430 && movecontact && random = [10,50]
+trigger10 = stateno = 415 && movecontact && random = [10,50]
+trigger11 = stateno = 2000 && (time >= 10) && random = [100,200]
+trigger12 = (stateno = 1031)  && (time >= 20) && random = [20,35]
+value = 1040
+
+
+
+[State -2, Geshiki Naraku Otoshi - alto]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = stateno < 5000
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = pos y >= -10
+triggerall = ctrl
+trigger1 = P2bodydist Y <= -50 && random = [500,600]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger8 = stateno = 410 && movecontact && random = [10,50]
+trigger9 = stateno = 430 && movecontact && random = [10,50]
+trigger10 = stateno = 415 && movecontact && random = [10,50]
+trigger11 = stateno = 2000 && (time >= 10) && random = [100,200]
+trigger12 = (stateno = 1020)  && (time >= 20) && random = [20,35]
+trigger13 = (stateno = 1012)  && (time >= 20) && random = [20,35]
+trigger14 = (stateno = 1050)  && (time >= 20) && random = [20,35]
+trigger15 = (stateno = 1055)  && (time >= 20) && random = [20,35]
+trigger16 = (stateno = 1030)  && (time >= 20) && random = [20,35]
+value = 1045
+
+
+
+[State -2, Rushing Suki Combo - Start]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+trigger1 = random = [300,500]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger8 = stateno = 410 && movecontact && random = [10,50]
+trigger9 = stateno = 430 && movecontact && random = [10,50]
+trigger10 = stateno = 415 && movecontact && random = [10,50]
+value = 1010
+
+[State -2, Rushing Suki Combo - hit 1]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = stateno = 1010 && (Movecontact = 1)
+value = 1011
+
+[State -2, Rushing Suki Combo - hit 2]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = stateno = 1011 && (Movecontact = 1)
+value = ifelse(random < 50, 1012,1013)
+
+[State -2, Rushing Suki Combo - hit 3]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = stateno = 1013 && (Movecontact = 1)
+value = 1014
+
+[State -2, Rushing Suki Combo - hit 4]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = stateno = 1014 && (Movecontact = 1)
+value = 1015
+
+[State -2, Earthquake]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+trigger1 = random = [800,900]
+trigger2 = stateno = 410 && movecontact && random = [10,50]
+trigger3 = stateno = 430 && movecontact && random = [10,50]
+trigger4 = stateno = 415 && movecontact && random = [10,50]
+trigger5 = stateno = 2000 && (time >= 10) && random = [100,200]
+trigger6 = (stateno = 1020)  && (time >= 20) && random = [20,35]
+trigger7 = (stateno = 1012)  && (time >= 20) && random = [20,35]
+trigger6 = (stateno = 1030)  && (time >= 20) && random = [20,35]
+value = ifelse(P2bodydist X >= 35, 1055,1050)
+
+[State -2, Absorver]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+trigger1 = P2bodydist X <= 50 && random = [800,900]
+trigger2 = P2bodydist X <= 150 && life < 500 && random = [100,200]
+trigger3 = stateno = 410 && movecontact && random = [10,50]
+trigger4 = stateno = 430 && movecontact && random = [10,50]
+trigger5 = stateno = 415 && movecontact && random = [10,50]
+trigger6 = stateno = 2000 && (time >= 10) && random = [100,200]
+trigger7 = (stateno = 1020)  && (time >= 20) && random = [20,35]
+trigger8 = (stateno = 1012)  && (time >= 20) && random = [20,35]
+trigger9 = (stateno = 1030)  && (time >= 20) && random = [20,35]
+value = 1080
+
+
+
+;-----------------------------------------------
+;Speciales de ki
+
+[State -2, Ki barrier]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+triggerall = power >= 200
+trigger1 = P2bodydist X <= 50 && random = [300,900]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger8 = (stateno = 1020)  && (time >= 20) && random = [20,35]
+trigger9 = (stateno = 1012)  && (time >= 20) && random = [20,35]
+trigger10 = (stateno = 1050)  && (time >= 20) && random = [20,35]
+trigger11 = (stateno = 1055)  && (time >= 20) && random = [20,35]
+value = 2000
+
+[State -2, Renzokou Kikou Ha]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+triggerall = power >= 400
+trigger1 = P2bodydist x >= 100 && random = [300,800]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger7 = stateno = 410 && movecontact && random = [60,150]
+trigger8 = stateno = 430 && movecontact && random = [60,150]
+value = 1060
+
+[State -2, Jishin Ha]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+triggerall = power >= 200
+trigger1 = P2bodydist X <= 50 && random = [300,900]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger8 = (stateno = 1020)  && (time >= 20) && random = [20,35]
+trigger9 = (stateno = 1012)  && (time >= 20) && random = [20,35]
+trigger10 = (stateno = 1050)  && (time >= 20) && random = [20,35]
+trigger11 = (stateno = 1055)  && (time >= 20) && random = [20,35]
+value = 2100
+
+
+[State -2, RR Shield]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl
+triggerall = power >= 200
+trigger1 = (enemy, NumProj >= 1) && random = [100,900]
+trigger2 = (enemy, numhelper >= 1) && random = [100,900]
+value = 2200
+
+[State -2, Taiyoken]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl
+triggerall = power >= 400
+trigger1 = random = [600,900]
+value = 2200
+
+;nanoatake
+[state -2]
+type = changestate
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1 && power >= 400
+triggerall = random = [900,999]
+triggerall = ctrl
+triggerall = pos y >= -2
+triggerall = statetype != A
+trigger1 = P2bodydist X >= 50
+value = ifelse(numhelper(2552) = 1, 2501, ifelse(numhelper(2551)=1,2502, ifelse(numhelper(2550)=1,2501+(random%2), 2500)))
+
+;fireball
+[state -2]
+type = changestate
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1 && power >= 100
+triggerall = random = [900,999]
+triggerall = ctrl
+triggerall = pos y >= -2
+triggerall = statetype != A
+trigger1 = P2bodydist X >= 50
+value = 900
+;fireball  2
+[state -2]
+type = changestate
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1 && power >= 100
+triggerall = statetype != A
+trigger1 = stateno = 900 && time > 15 && random = [100,200]
+value = 901
+
+;fireball
+[state -2]
+type = changestate
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1 && power >= 100
+triggerall = random = [900,999]
+triggerall = ctrl
+triggerall = statetype = A
+trigger1 = P2bodydist X >= 50
+value = 920
+;fireball  2
+[state -2]
+type = changestate
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1 && power >= 100
+triggerall = statetype = A
+trigger1 = stateno = 920 && time > 15 && random = [100,200]
+value = 921
+
+;----------------------------------------
+;Supers
+
+[State -2, Makakosampo]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+triggerall = power >= 1000
+trigger1 = P2bodydist x >= 100 && random = [50,150]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger8 = (stateno = 1020)  && (time >= 20) && random = [20,35]
+trigger9 = (stateno = 1012)  && (time >= 20) && random = [20,35]
+trigger10 = (stateno = 1050)  && (time >= 20) && random = [20,35]
+trigger11 = (stateno = 1055)  && (time >= 20) && random = [20,35]
+value = 3000
+
+[State -2, Bigbang + Dairetzusan]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype = A
+triggerall = power >= 1000
+trigger1 = Stateno = 991 && random = [50,150]
+trigger2 = stateno = 610 && movecontact && random = [60,150]
+trigger3 = stateno = 630 && movecontact && random = [60,150]
+trigger4 = stateno = 510 && movecontact && random = [60,150]
+trigger5 = stateno = 530 && movecontact && random = [60,150]
+value = 3100
+
+[State -2, Super Kamehameha]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2100 || stateno != 2300 ; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = stateno < 5000
+triggerall = var(9) = 1
+triggerall = ctrl
+triggerall = power > 2000
+trigger1 = P2bodydist x >= 150 && random = [50,150]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger8 = stateno = 410 && movecontact && random = [10,50]
+trigger9 = stateno = 430 && movecontact && random = [10,50]
+trigger10 = stateno = 415 && movecontact && random = [10,50]
+trigger11 = stateno = 2000 && (time >= 10) && random = [100,200]
+trigger12 = (stateno = 1020)  && (time >= 20) && random = [20,35]
+trigger13 = (stateno = 1012)  && (time >= 20) && random = [20,35]
+trigger14 = (stateno = 1050)  && (time >= 20) && random = [20,35]
+trigger15 = (stateno = 1055)  && (time >= 20) && random = [20,35]
+trigger16 = (stateno = 1030)  && (time >= 20) && random = [20,35]
+value = 3200
+
+[State -2, Giga Cell]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+triggerall = power >= 3000
+trigger1 = random = [50,150]
+trigger2 = stateno = 200 && movecontact && random = [10,25]
+trigger3 = stateno = 210 && movecontact && random = [10,25]
+trigger4 = stateno = 225 && movecontact && random = [10,25]
+trigger5 = stateno = 215 && movecontact && random = [10,25]
+trigger6 = stateno = 230 && movecontact && random = [10,25]
+trigger7 = stateno = 221 && movecontact && random = [10,25]
+trigger8 = stateno = 410 && movecontact && random = [10,50]
+trigger9 = stateno = 430 && movecontact && random = [10,50]
+trigger10 = stateno = 415 && movecontact && random = [10,50]
+value = 3500
+
+[State -2, Torvellino Infernal]
+type = ChangeState
+triggerall = stateno != 3000 || stateno != 3005 ; Makakosampo ; esto es para que no corte los supers
+triggerall = stateno != 3100 ; Bigbang + Dairetzusan
+triggerall = stateno != 3200 || stateno != 3205 || stateno != 3207 ; Kamehameha
+triggerall = stateno != 3300 || stateno != 3305 || stateno != 3307 ; Kamehameha en el aire
+triggerall = stateno != 3500 || stateno != 3510 || stateno != 3520 || stateno != 3530 || stateno != 3540 ; Giga CELL
+triggerall = stateno != 3600 || stateno != 3605 || stateno != 3606 || stateno != 3607 || stateno != 3610 || stateno != 3615 || stateno != 3620 ; Torvellino Infernal
+triggerall = stateno != 3700 || stateno != 3705 || stateno != 3706  ; Torvellino Infernal (esclavo)
+triggerall = stateno != 2400 || stateno != 2401 || stateno != 2402 || stateno != 2403 || stateno != 2404 || stateno != 2410; Soki + Kienzan
+triggerall = stateno != 2000 || stateno != 2100 || stateno != 2300 ; Ki barrier; Jishin Ha; Taiyoken
+triggerall = stateno != 2200 || stateno != 2201 || stateno != 2250 || stateno != 2251 ; Escudo
+triggerall = stateno != 1010 || stateno != 1011 || stateno != 1012 || stateno != 1013 || stateno != 1014 || stateno != 1015;Rushing Suki Combo 1 - start
+triggerall = stateno != 1020 || stateno != 1030  ;Bakuretsu Kyaku
+triggerall = stateno != 1040 || stateno != 1045  ;Geshiki Naraku Otoshi
+triggerall = stateno != 1050 || stateno != 1055  ;Earthquake
+triggerall = stateno != 1060 ;Renzokou Kikou Ha
+triggerall = p2life > 0
+triggerall = var(9) = 1
+triggerall = ctrl && statetype = A
+triggerall = power >= 2000
+triggerall = p3name = "Freezer 4th Form OS"
+trigger1 = random = [50,150]
+trigger2 = ((StateType != A) && (Ctrl))
+value = 3600
+
+[State -2, salir de volar]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = p2life > 0
+trigger1 = stateno = 991
+value = ifelse((random = [100, 900]), 107, ifelse((random = [100, 900]), 108, ifelse((random = [100, 900]),920,1090)))
+
+
+
+;-------------------------------- Inteligencia Artificial --------------------------------------------
+;Run Forward
+;[State -3:		ChangeState]
+;type = ChangeState
+;triggerall = (Var(9) = 1) && (StateType != A) && (StateNo != [100,101]) && (P2MoveType != A) && (EnemyNear, NumProj = 0) && (StateNo != [3000,3400])
+;triggerall = random = [300,400]
+;trigger1 = (P2BodyDist X > 75) && (EnemyNear, Pos Y = 0) && (EnemyNear, Anim = 5300) && (P2MoveType != A)
+;trigger2 = ((P2Dist X > 150) || ((P2Dist X > 75) && (P2StateNo = 105)))
+;value = 100
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+;===============================================================================
+[Statedef -3]
+;===============================================================================
+
+[State -3, Null]
+type = Null
+;triggerall = (PalNo = [7,12])
+trigger1 = (RoundState = 2) && ((Command = "AI2") || (Command = "AI3") || (Command = "AI4") || (Command = "AI5"))
+trigger1 = (var(9) := 1)
+trigger2 = (RoundState = 2) && ((Command = "AI6") || (Command = "AI7") || (Command = "AI8") || (Command = "AI9") || (Command = "AI10"))
+trigger2 = (Var(9) := 1)
+trigger3 = ((!Time) * (TicksPerSecond)) && (IsHomeTeam) && (NumEnemy = 1) && (!NumPartner) && (TeamSide = 2) && (Alive)
+trigger3 = (Var(9) := 1)
+trigger4 = (RoundState = 2) && ((Command = "AI11") || (Command = "AI12") || (Command = "AI13") || (Command = "AI14"))
+trigger4 = (Var(9) := 1)
+
+
+
+
+

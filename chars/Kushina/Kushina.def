@@ -1,0 +1,23 @@
+[Info]
+name = "Kushina Uzumaki"
+displayname = "Kushina"
+versiondate = 31/01/2011
+mugenversion = 
+author = "Gabrieldra6"
+pal.defaults = 1
+
+[Files]
+sprite = Kushina.sff
+anim = Kushina.air
+sound = kushina.snd
+cmd = Kushina.cmd
+cns = Kushina.cns
+stcommon = common1.cns
+st = Kushina.cns
+st1 = bushin.cns
+st2 = minato.cns
+pal1 = kushina.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

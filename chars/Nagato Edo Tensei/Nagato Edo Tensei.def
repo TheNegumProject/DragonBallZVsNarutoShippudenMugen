@@ -1,0 +1,20 @@
+[Info]
+name="Nagato Edo Tensei"
+displayname="Nagato Edo Tensei"
+versiondate=
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=1,2,3,4
+
+[Files]
+sprite=Nagato.sff
+sound=Nagato.snd
+anim=Nagato.air
+cmd=Nagato.cmd
+cns=Nagato.cns
+st=Nagato.cns
+stcommon=common1.cns
+pal1=Nagato.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

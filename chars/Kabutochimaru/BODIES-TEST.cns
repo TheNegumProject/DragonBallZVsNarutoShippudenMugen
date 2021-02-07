@@ -1,0 +1,2061 @@
+;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$;
+;---------------------------------------------------------------------------;
+;---------------------------------------------------------------------------;
+;----------------------------;CLIFF-Kabutomaru-Cliff_A;---------------------;
+;------------------------------;<----------------->-------------------------;
+;---------------------------------------------------------------------------;
+;---------------------------------------------------------------------------;
+;------------------------------------|cns file|-----------------------------;
+;--------------------------------<------------>-----------------------------;
+;---------------------------------------------------------------------------;
+;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$(=CSMUGEN.UCOZ.COM=)$$$$$$$$$$$$$$$$$$$$$$$$$$;
+;---------------------------------------------------------------------------;
+;---------------------------------------------------------------------------;
+;------------------------------------------------------------------------
+
+
+[Statedef -2]
+
+[State -2, Kabuto high tail it out during madaras shit attack(chibaki Tensie) VarSet]
+type = VarSet
+triggerall = !isHelper
+TRIGGERALL = STATENO != 999996666
+trigger1 = p2stateno = 6669119
+v = 47    ;fv = 10
+value = 1
+
+[State -2, Kabuto high tail it out during madaras shit attack(chibaki Tensie) ChangeState]
+type = ChangeState
+triggerall = !isHelper
+TRIGGERALL = STATENO != 999996666
+trigger1 = Var(47) = 1
+value = 999996666
+ctrl = 1
+
+[State -2,Mugetsu blue flash]
+type = palfx
+trigger1 = (timemod = 6,0)&&(var(29) > 0)
+trigger1 = (var(29) < 755)
+add = 0,50,255
+sinadd = 0,-50,-255,60
+time = 6
+ignorehitpause = 1
+
+[State -2,Mugetsu NotHitBy]
+type = NotHitBy
+trigger1 = (var(29) > 0)
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+ignorehitpause = 1
+
+[State -2,Mugetsu Varadd]
+type = VarAdd
+trigger1 = (var(29) > 0)
+v = 29
+value = 1
+
+[State -2,Mugetsu VarSet]
+type = VarSet
+trigger1 = (var(29) = 755)
+v = 29
+value = 0
+
+[State -2,Limited edo tensie Explod]
+type = Explod
+triggerall = numexplod(45645555) = 0
+triggerall = anim = 77788991 || anim = 1077788991
+trigger1 = 1
+anim =45645555
+ID =45645555
+pos = 125,-24
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -1
+supermovetime = -1
+pausemovetime = -1
+scale = 1,1
+ontop = 1
+sprpriority = 3
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State -2,Limited edo tensie RemoveExplod]
+type = RemoveExplod
+triggerall = anim != 77788991
+triggerall = anim != 1077788991
+trigger1 = 1
+id = 45645555
+
+[State -2,Edo tensie  Explod]
+type = Explod
+triggerall = facing = 1
+triggerall = command = "y"
+triggerALL = anim = 77788991
+trigger1 = numhelper >= 11
+anim =2462244
+ID =2462244
+pos = 40,10
+postype = left
+facing = 1
+bindtime = -1
+supermovetime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State -2,Edo tensie  Explod]
+type = Explod
+triggerall = facing = -1
+triggerall = command = "y"
+triggerALL = anim = 77788991
+trigger1 = numhelper >= 11
+anim =2462244
+ID =2462244
+pos = 174,10
+postype = front
+facing = 1
+bindtime = -1
+supermovetime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State -2,Edo tensie  PlaySnd]
+type = PlaySnd
+triggerall = command = "y"
+triggerALL = anim = 77788991
+trigger1 = numhelper >= 11
+value = S0,34
+volume = 9999999999999999999999999999999999999999999999999999999999999999999999
+channel = 11
+persistent = 0
+
+[State -2,Edo tensie StopSnd Remover limit]
+type = StopSnd
+triggerall = command = "y"
+triggerALL = anim = 77788991
+trigger1 = numhelper >= 11
+channel = 0
+
+[State -2,Edo tensie PlaySnd Remover limit]
+type = PlaySnd
+triggerall = command = "y"
+triggerALL = anim = 77788991
+trigger1 = numhelper >= 11
+value = S435634,435634
+volume = 99999999999999999999999999999999999999999999999999999999999999999999999
+channel = 1
+persistent = 0
+
+[State -2,Edo tensie PlaySnd Remover limit]
+type = PlaySnd
+triggerall = command = "y"
+triggerALL = anim = 77788991
+trigger1 = numhelper >= 11
+value = S0,222
+volume = 99999999999999999999999999999999999999999999999999999999999999999999999
+channel = 2
+persistent = 0
+
+[State -2,Edo tensie PlaySnd Remover limit]
+type = PlaySnd
+triggerall = command = "y"
+triggerALL = anim = 77788991
+trigger1 = numhelper >= 11
+value = S0,223
+volume = 99999999999999999999999999999999999999999999999999999999999999999999999
+channel = 3
+persistent = 0
+
+[State -2,Edo tensie limit count ChangeState]
+type = ChangeState
+triggerall = command = "y"
+triggerALL = anim = 77788991
+trigger1 = numhelper >= 11
+value = 0
+ctrl = 1
+
+[State -2,Edo tensie limit count ChangeState]
+type = ChangeState
+triggerall = command = "y"
+triggerALL = anim = 1077788991
+trigger1 = numhelper >= 7
+value = 0
+ctrl = 1
+
+[State -2,Edo tensie PlaySnd Remover limit]
+type = PlaySnd
+triggerall = command = "y"
+triggerALL = anim = 1077788991
+trigger1 = numhelper >= 6
+value = S435634,435634
+volume = 99999999999999999999999999999999999999999999999999999999999999999999999
+channel = 1
+persistent = 0
+
+[State -2,Muu Invisibility On AssertSpecial]
+type = AssertSpecial
+trigger1 = var(31) = 1
+flag = invisible
+
+[State -2,Edo tensie walk PlaySnd]
+type = PlaySnd
+triggerall = timemod = 20,0
+triggerall = Time >= 1
+trigger1 = anim = 2002
+trigger2 = anim = 32002
+trigger3 = anim = 42002
+trigger4 = anim = 52002
+trigger5 = anim = 62002
+trigger6 = anim = 72002
+trigger7 = anim = 82002
+trigger8 = anim = 92002
+trigger9 = anim = 102002
+trigger10 = anim = 122002
+trigger11 = anim = 202002
+trigger12 = anim = 302002
+trigger13 = anim = 402002
+trigger14 = anim = 502002
+trigger15 = anim = 66602001
+trigger16 = anim = 66602002
+trigger17 = anim = 66602003
+trigger18 = anim = 66602004
+trigger19 = anim = 66602005
+trigger20 = anim = 66602006
+trigger21 = anim = 266602006
+trigger22 = anim = 366602006
+trigger23 = anim = 466602006
+trigger24 = anim = 556602006
+trigger25 = anim = 666602006
+trigger26 = anim = 766602006
+trigger27 = anim = 866602006
+trigger28 = anim = 966602006
+trigger29 = anim = 956602001
+trigger30 = anim = 956602002
+value = S0, 31
+volume = 999999
+channel = 70
+persistent = 0
+
+[State -2,Edo tensie walk PlaySnd]
+type = PlaySnd
+triggerall = timemod = 20,0
+triggerall = Time >= 1
+trigger1 = anim = 956602004
+trigger2 = anim = 956602005
+trigger3 = anim = 956602006
+trigger4 = anim = 956602007
+trigger5 = anim = 956602008
+trigger6 = anim = 956602009
+trigger7 = anim = 60000973
+value = S0, 31
+volume = 999999
+channel = 71
+persistent = 0
+
+;---------------------------akatsuki----------------------------------------
+
+[State -2, itachi]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(32) > 0
+anim =34455
+ID =9999
+pos = 85,48
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, itachi]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(32) > 0
+anim =34455
+ID =9999
+pos = 219,48
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, nagato]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(33) > 0
+anim =34455
+ID =9999
+pos = 85,65
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, nagato]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(33) > 0
+anim =34455
+ID =9999
+pos = 219,65
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, kakuza]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(34) > 0
+anim =34455
+ID =9999
+pos = 85,84
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, kakuza]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(34) > 0
+anim =34455
+ID =9999
+pos = 219,84
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, sasori]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(35) > 0
+anim =34455
+ID =9999
+pos = 85,103
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, sasori]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(35) > 0
+anim =34455
+ID =9999
+pos = 219,103
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+supermovetime = -1
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, dieadra]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(36) > 0
+anim =34455
+ID =9999
+pos = 85,123
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, dieadra]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(36) > 0
+anim =34455
+ID =9999
+pos = 219,123
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+;---------------------------tail jinchurikis----------------------------------------
+
+[State -2, HAN]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(41) > 0
+anim =34455
+ID =9991
+pos = 85,48
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, HAN]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(41) > 0
+anim =34455
+ID =9991
+pos = 219,48
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, yugito]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(42) > 0
+anim =34455
+ID =9991
+pos = 85,62
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, yugito]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(42) > 0
+anim =34455
+ID =9991
+pos = 219,62
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, yagura]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(43) > 0
+anim =34455
+ID =9991
+pos = 85,79
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, yagura]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(43) > 0
+anim =34455
+ID =9991
+pos = 219,79
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, roshi]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(44) > 0
+anim =34455
+ID =9991
+pos = 85,94
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, roshi]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(44) > 0
+anim =34455
+ID =9991
+pos = 219,94
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, fuu]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(45) > 0
+anim =34455
+ID =9991
+pos = 85,109
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, fuu]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(45) > 0
+anim =34455
+ID =9991
+pos = 219,109
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, ukataka]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(46) > 0
+anim =34455
+ID =9991
+pos = 85,124
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, ukataka]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(46) > 0
+anim =34455
+ID =9991
+pos = 219,124
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+;---------------------------bloodline----------------------------------------
+
+[State -2, TORUNE]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(51) > 0
+anim =34455
+ID =9992
+pos = 85,45
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, TORUNE]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(51) > 0
+anim =34455
+ID =9992
+pos = 219,45
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, shin]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(52) > 0
+anim =34455
+ID =9992
+pos = 85,59
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, shin]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(52) > 0
+anim =34455
+ID =9992
+pos = 219,59
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+
+[State -2, pakura]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(53) > 0
+anim =34455
+ID =9992
+pos = 85,75
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+supermovetime = -1
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, pakura]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(53) > 0
+anim =34455
+ID =9992
+pos = 219,75
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, gari]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(54) > 0
+anim =34455
+ID =9992
+pos = 85,92
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, gari]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(54) > 0
+anim =34455
+ID =9992
+pos = 219,92
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, kumo]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(55) > 0
+anim =34455
+ID =9992
+pos = 85,108
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, kumo]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(55) > 0
+anim =34455
+ID =9992
+pos = 219,108
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, chu]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(56) > 0
+anim =34455
+ID =9992
+pos = 85,126
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+supermovetime = -1
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, chu]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(56) > 0
+anim =34455
+ID =9992
+pos = 219,126
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+;---------------------------kages epic ninjas----------------------------------------
+
+[State -2, raikage]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(21) > 0
+anim =34455
+ID =9993
+pos = 85,46
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, raikage]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(21) > 0
+anim =34455
+ID =9993
+pos = 219,46
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+
+[State -2, mizukage]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(22) > 0
+anim =34455
+ID =9993
+pos = 85,62
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, mizukage]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(22) > 0
+anim =34455
+ID =9993
+pos = 219,62
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, tsuchikage]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(23) > 0
+anim =34455
+ID =9993
+pos = 85,78
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2,tsuchikage]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(23) > 0
+anim =34455
+ID =9993
+pos = 219,78
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, kazekage]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(24) > 0
+anim =34455
+ID =9993
+pos = 85,95
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2,kazekage]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(24) > 0
+anim =34455
+ID =9993
+pos = 219,95
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, ginkaku]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(25) > 0
+anim =34455
+ID =9993
+pos = 85,111
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2,ginkaku]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(25) > 0
+anim =34455
+ID =9993
+pos = 219,111
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+supermovetime = -1
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal =0
+
+[State -2, kinkaku]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(26) > 0
+anim =34455
+ID =9993
+pos = 85,126
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2,kinkaku]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(26) > 0
+anim =34455
+ID =9993
+pos = 219,126
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+;---------------------------leat ninjas----------------------------------------
+
+[State -2, kimimaru]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(13) > 0
+anim =34455
+ID =9994
+pos = 85,46
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, kimimaru]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(13) > 0
+anim =34455
+ID =9994
+pos = 219,46
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, haku]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(14) > 0
+anim =34455
+ID =9994
+pos = 85,60
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal =0
+removeongethit = 0
+
+[State -2, haku]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(14) > 0
+anim =34455
+ID =9994
+pos = 219,60
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, dan]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(15) > 0
+anim =34455
+ID =9994
+pos = 85,73
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, dan]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(15) > 0
+anim =34455
+ID =9994
+pos = 219,73
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+
+[State -2, Hizashi]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(16) > 0
+anim =34455
+ID =9994
+pos = 85,86
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, Hizashi]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(16) > 0
+anim =34455
+ID =9994
+pos = 219,86
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, chiyo]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(17) > 0
+anim =34455
+ID =9994
+pos = 85,99
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, chiyo]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(17) > 0
+anim =34455
+ID =9994
+pos = 219,99
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+
+[State -2, hanzo]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(18) > 0
+anim =34455
+ID =9994
+pos = 85,112
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, hanzo]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(18) > 0
+anim =34455
+ID =9994
+pos = 219,112
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2,asuma]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(19) > 0
+anim =34455
+ID =9994
+pos = 85,125
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal =0
+removeongethit = 0
+
+[State -2, asuma]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(19) > 0
+anim =34455
+ID =9994
+pos = 219,125
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+;---------------------------swordsman----------------------------------------
+
+[State -2, jinin]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(4) > 0
+anim =34455
+ID =9995
+pos = 85,44
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, jinin]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(4) > 0
+anim =34455
+ID =9995
+pos = 219,44
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+supermovetime = -1
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, Fuguki Suikazan]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(5) > 0
+anim =34455
+ID =9995
+pos = 85,59
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, Fuguki Suikazan]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(5) > 0
+anim =34455
+ID =9995
+pos = 219,59
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, Jinpachi Munashi]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(6) > 0
+anim =34455
+ID =9995
+pos = 85,73
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, Jinpachi Munashi]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(6) > 0
+anim =34455
+ID =9995
+pos = 219,73
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+
+[State -2, Mangetsu ]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(7) > 0
+anim =34455
+ID =9995
+pos = 85,86
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, Mangetsu ]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(7) > 0
+anim =34455
+ID =9995
+pos = 219,86
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2, zabuza]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(8) > 0
+anim =34455
+ID =9995
+pos = 85,100
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal =0
+removeongethit = 0
+
+[State -2, zabuza]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(8) > 0
+anim =34455
+ID =9995
+pos = 219,100
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+
+[State -2, Kushimaru Kuriarare]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(9) > 0
+anim =34455
+ID =9995
+pos = 85,114
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, Kushimaru Kuriarare]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(9) > 0
+anim =34455
+ID =9995
+pos = 219,114
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State -2,Ameyuri Ringo]
+type = Explod
+triggerall = facing = 1
+trigger1 = var(11) > 0
+anim =34455
+ID =9995
+pos = 85,128
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State -2, Ameyuri Ringo]
+type = Explod
+triggerall = facing = -1
+trigger1 = var(11) > 0
+anim =34455
+ID =9995
+pos = 219,128
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+supermovetime = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+;---------------------------------------------------------------------------;
+;---------------------------------------------------------------------------;
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+triggerall = anim != 77788991
+triggerALL = anim != 1077788991
+trigger1 = 1
+id =22662221
+;ignorehitpause =
+;persistent =
+
+
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+triggerall = anim != 77788991
+triggerall = anim != 77788992
+triggerall = anim != 77788993
+triggerall = anim != 77788994
+triggerall = anim != 77788995
+triggerALL = anim != 1077788991
+trigger1 = 1
+id =9999
+;ignorehitpause =
+;persistent =
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+triggerall = anim != 77788991
+triggerALL = anim != 1077788991
+trigger1 = 1
+id =9991
+;ignorehitpause =
+;persistent =
+
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+triggerall = anim != 77788991
+triggerALL = anim != 1077788991
+trigger1 = 1
+id =9992
+;ignorehitpause =
+;persistent =
+
+
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+triggerall = anim != 77788991
+triggerALL = anim != 1077788991
+trigger1 = 1
+id =9993
+;ignorehitpause =
+;persistent =
+
+
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+triggerall = anim != 77788991
+triggerALL = anim != 1077788991
+trigger1 = 1
+id =9994
+;ignorehitpause =
+;persistent =
+
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+triggerall = anim != 77788991
+triggerALL = anim != 1077788991
+trigger1 = 1
+id =9995
+
+;---------------------------------------------------------------------------;
+;---------------------------------------------------------------------------;
+
+[State -2, SCROLL VANTAGE]
+type = Helper
+triggerall = anim = 77788991
+TRIGGERALL = NUMHELPER(667) = 0
+trigger1 = 1
+helpertype = normal
+ID = 667
+stateno = 667
+pos = 30,1
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 999999999999999999999999999999999999999999999999999999999999
+pausemovetime = 999999999999999999999999999999999999999999999999999999999999
+
+[StateDef 667]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 667
+poweradd = 0
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 20,0
+trigger1 = TIME >= 0
+value = S0,33
+volume = -252
+channel = 0
+
+[State 0, SCROLL VANTAGE]
+type = Helper
+triggerALL = anim != 77788991
+triggerALL = numHELPER(666731) = 0
+trigger1 = TIMEMOD = 1,0
+trigger1 = TIME >= 0
+helpertype = normal
+ID =666731
+stateno = 666731
+pos = 0,15
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 999999999999999999999999999999999999999999999999999999999999
+pausemovetime = 999999999999999999999999999999999999999999999999999999999999
+size.xscale = .8
+size.yscale = .8
+
+
+[State 0, SCROLL VANTAGE]
+type = Helper
+triggerALL = anim != 77788991
+triggerALL = numHELPER(666732) = 0
+trigger1 = TIMEMOD = 1,0
+trigger1 = TIME >= 0
+helpertype = normal
+ID =666732
+stateno = 666732
+pos = 0,15
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 999999999999999999999999999999999999999999999999999999999999
+pausemovetime = 999999999999999999999999999999999999999999999999999999999999
+size.xscale = .3
+size.yscale = .3
+
+
+[State 0, SCROLL VANTAGE]
+type = Helper
+triggerALL = anim != 77788991
+triggerALL = numHELPER(666733) = 0
+trigger1 = TIMEMOD = 1,0
+trigger1 = TIME >= 0
+helpertype = normal
+ID =666733
+stateno = 666733
+pos = 0,15
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 999999999999999999999999999999999999999999999999999999999999
+pausemovetime = 999999999999999999999999999999999999999999999999999999999999
+size.xscale = 1
+size.yscale = 1
+
+[State 999666, ChangeState]
+type = ChangeState
+trigger1= parent, command = "c"
+value = 666
+ctrl = 1
+
+[State 999666, ChangeState]
+type = ChangeState
+triggerall= parent, command = "y"
+trigger1 = numhelper >= 11
+value = 666
+ctrl = 1
+
+[StateDef 666]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 666
+poweradd = 0
+sprpriority = 2
+
+[State 0, bgpalfx]
+type = bgpalfx
+triggerall= parent, command = "y"
+trigger1 = numhelper >= 11
+trigger1 = time >= 0
+time = 1
+add = 101,-time*1,time*1
+
+[State -2, Explod]
+type = Explod
+triggerall= parent, command = "y"
+trigger1 = numhelper >= 11
+trigger1 = time >= 0
+anim = 34477344
+ID = 34477344
+pos = 8,-14
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+removetime = 48
+supermovetime = -1
+pausemovetime = -1
+scale = 1.4,1.4
+sprpriority = 2
+ontop = 1
+ownpal = 1
+
+[State -2, Explod]
+type = Explod
+triggerall= parent, command = "y"
+trigger1 = numhelper >= 11
+trigger1 = time >= 0
+anim = 2727
+ID = 2727
+pos = 18,-17
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+removetime = 30
+supermovetime = -1
+pausemovetime = -1
+scale = 4.4,4.4
+sprpriority = 1
+ontop = 1
+ownpal = 1
+
+
+[State -2,Edo tensie PlaySnd Remover limit]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S0,221
+volume = 1
+channel = -1
+persistent = 0
+
+
+[State 666, end]
+type = DESTROYSELF
+trigger1 = ANIMTIME = 0
+
+
+[StateDef 666731]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 668
+poweradd = 0
+sprpriority = 5
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 20,0
+trigger1 = TIME >= 0
+value = S0,33
+volume = -252
+channel = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 30,0
+trigger1 = TIME >= 0
+value = S0,32
+volume = -252
+channel = 0
+
+[State 666, end]
+type = DESTROYSELF
+trigger1 = ANIMTIME = 0
+
+[StateDef 666732]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 677
+poweradd = 0
+sprpriority = 5
+
+[State 666, end]
+type = DESTROYSELF
+trigger1 = ANIMTIME = 0
+;trigger1 = parent, stateno != 667
+
+[StateDef 666733]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3333
+poweradd = 0
+sprpriority = 5
+
+[State 666, end]
+type = DESTROYSELF
+trigger1 = ANIMTIME = 0
+;trigger1 = parent, stateno != 667
+

@@ -1,0 +1,19 @@
+[Info]
+name="Er'Kakuzu"
+displayname="Kakuzu Edo Tensei"
+versiondate=
+mugenversion=
+author="Ermac95"
+pal.defaults=1,2,3,4
+[Files]
+sprite=Er'Kakuzu.sff
+sound=Er'Kakuzu.snd
+anim=Er'Kakuzu.air
+cmd=Er'Kakuzu.cmd
+cns=Er'Kakuzu.cns
+st=Er'Kakuzu.cns
+stcommon=common1.cns
+pal1=Er'Kakuzu.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,21 @@
+[Info]
+name="Temari teen"
+displayname="Temari teen"
+versiondate=
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=1,2
+
+[Files]
+sprite=DTemari.sff
+sound=DTemari.snd
+anim=DTemari.air
+cmd=DTemari.cmd
+cns=DTemari.cns
+st=DTemari.cns
+stcommon=common1.cns
+pal1=DTemari.act
+pal2=DTemari.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

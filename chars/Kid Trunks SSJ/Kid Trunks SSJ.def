@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="TrunksHB"
+displayname ="Kid Trunks SSJ"
+versiondate =30/01/2012
+mugenversion =1.0
+author ="The_Heartbreaker"
+pal.defaults =1,2
+
+[Files]
+sprite =Ctrunks.sff
+anim =Ctrunks.air
+sound =Ctrunks.snd
+cmd =Ctrunks.cmd
+cns =Ctrunks.cns
+stcommon =common1.cns
+st =Ctrunks.cns
+pal1=Trunks.act
+pal2=1.act
+st1=Helpers
+st2=Supers.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

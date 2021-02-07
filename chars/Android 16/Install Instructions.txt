@@ -1,0 +1,27 @@
+1. Copy 16_CStrife folder to your "mugen/chars" directory.
+2. Open your "mugen/data/select.def"
+
+**Mugen 1.1 users**
+3.In the list of characters add the following line:
+16_CStrife/16_CStrife.def
+-OR-
+16_CStrife
+
+**Mugen 1.0 users**
+3.In the list of characters add the following line:
+16_CStrife/16_CStrife1_0.def
+
+**WinMugen users**
+3.In the list of characters add the following line:
+16_CStrife/16_CStrifeWinMugen.def
+--WinMugen version is untested!
+
+**LinMugen users*
+3. I know you don't actually exist, but you'll need to tweak the file paths in the "16_CStrifeWinMugen.def". 
+Not like I need to explain that though, if you are using Linux chances are you already knew you'd need to do that before hand!
+
+**DosMugen users**
+3.Upgrade to a newer version Mugen.
+
+
+4. Make sure you have "16_EnSND.snd" or "16_JpSND.snd" included in this characters audio folder. They are both available for seperate download on my site (see ReadMe.html)

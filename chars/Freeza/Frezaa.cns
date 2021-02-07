@@ -1,0 +1,183 @@
+;*=*=*=*=*=*=
+;Frezaa
+;*=*=*=*=*=*=
+
+;*-*-*-*-*-*-*-
+;Autor:	Alien SSJ
+;*-*-*-*-*-*-*-
+;=============================================================
+[Data]
+life                = 1100
+power               = 3000
+attack              = 110
+defence             = 100
+fall.defence_up     = 50
+liedown.time        = 50
+airjuggle           = 35
+sparkno             = -1
+guard.sparkno       = 2
+KO.echo             = 0
+volume              = 0
+IntPersistIndex     = 0
+FloatPersistIndex   = 0
+
+[Size]
+xscale              = 1
+yscale              = 1
+ground.back         = 12
+ground.front        = 16
+air.back            = 12
+air.front           = 12
+height              = 100
+attack.dist         = 160
+proj.attack.dist    = 90
+proj.doscale        = 0
+head.pos            = 9, -71
+mid.pos             = 9, -53
+shadowoffset        = 1
+draw.offset         = 0,1
+
+[Velocity]
+walk.fwd            = 2
+walk.back           = -2
+run.fwd             = 8, 0
+run.back            = -7, 0
+jump.neu            = 0,-10
+jump.back           = -3.5
+jump.fwd            = 3.5
+runjump.back        = -2.55,13
+runjump.fwd         = 5,-13
+airjump.neu         = 0,-12
+airjump.back        = -2.55
+airjump.fwd         = 2.5
+
+[Movement]
+airjump.num         = 2
+airjump.height      = 0
+yaccel              = .54
+stand.friction      = .85
+crouch.friction     = .82
+
+;---------------------------------------------------------------------------
+; Format:
+;[Statedef 0]
+;type = 
+;movetype = 
+;physics = 
+;anim = 
+;velset = 0,0,0
+;ctrl = 0
+;poweradd = 0
+;juggle = 0
+;facep2 = 1
+;hitdefpersist = 0
+;movehitpersist = 0
+;hitcountpersist = 0
+;sprpriority = 0
+
+;---------------------------------------------------------------------------
+Lose by Time Over
+CNS difficulty: basic
+
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170+(10000*var(1))
+velset = 0,0
+
+[State 170: 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+;--------------------------------------------------------
+; Win state decider
+[Statedef 180]
+type = S
+
+[State 180, VarRandom]
+type = VarRandom
+trigger1 = time = 0
+v = 6
+range = 0,2
+
+[State 180, GoToTired]
+type = ChangeState
+triggerall = Life <= 250
+trigger1 = Time = 0
+value = 184
+
+[State 180, Random3]
+type = ChangeState
+trigger1 = 1
+value = 195
+
+;---------------------------------------------------------------------------
+; Win pose 3 - Lol
+[Statedef 195]
+type = S
+ctrl = 0
+velset = 0, 0
+
+[State 195, anim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 185
+
+[State 195, PlaySND]
+type = PlaySnd
+trigger1 = Time = 1
+value = 12, 1
+
+[State 195, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;----------------------------
+; Win pose 4 - Lol
+[Statedef 7602]
+type = S
+ctrl = 0
+velset = 0, 0
+
+[State 7602, anim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 7602
+
+[State 195, PlaySND]
+type = PlaySnd
+trigger1 = Time = 1
+value = 12, 1
+
+[State 7602, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+; Win pose 4 - Tired
+[Statedef 184]
+type = S
+ctrl = 0
+velset = 0, 0
+anim = 5300
+
+[State 183, PlaySND]
+type = PlaySnd
+trigger1 = Time = 1
+value = 6, 0
+
+[State 182, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+

@@ -1,0 +1,41 @@
+; Definition file for Android 16 by Chrono_Strife and Benhazard
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "16"                                       ;Name of character
+displayname = "Android 16"                        ;Name of character to display
+versiondate = 13,07,2009                          ;Version date of character
+mugenversion = 1.1;14,06,2003                     ;Version of M.U.G.E.N character works on
+author = "Chrono_Strife and BenHazard"            ;Character author name
+pal.defaults =         	                          ;Default palettes in order of preference
+localcoord = 320, 240                             ;Character Coords
+
+; Files for the player
+[Files]
+cmd      = coding/16CMD.cmd                       ;Command set
+cns      = coding/16CNS.cns                       ;Constants
+st       = coding/16CNS.cns                       ;States
+st2      = coding/helperCNS.cns                   ;Helper States
+stcommon = coding/commonCNS.cns                   ;Common states
+sprite   = graphical/16SFF.sff                    ;Sprite
+anim     = coding/16AIR.air                       ;Animation
+sound    = audio/16_JpSND.snd                     ;Sound
+;pal1     = graphical/16ACT.act                   ;Standard 16
+;pal2     = graphical/16bACT.act                  ;Alternate 16
+;pal3     = graphical/16cACT.act                  ;Dark Green 16
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+x = 4
+y = 5
+z = 6
+a = 1
+b = 2
+c = 3
+x2 = 10
+y2 = 11
+z2 = 12
+a2 = 7
+b2 = 8
+c2 = 9

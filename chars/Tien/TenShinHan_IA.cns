@@ -1,0 +1,482 @@
+; Inteligencia Artificial - Inicio
+
+[Statedef 9999]
+anim = 9999
+ctrl = 0
+
+[State 9999, 0]
+type = Turn
+trigger1 = facing != parent, facing
+
+[State 9999, 1]
+type = Varset
+trigger1 = 1
+var(9) = parent, var(9)
+
+[State 9999, 2]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+trigger1 = parent, command = "x"
+trigger2 = parent, command = "y"
+trigger3 = parent, command = "z"
+trigger4 = parent, command = "a"
+trigger5 = parent, command = "holdfwd"
+trigger6 = parent, command = "holdback"
+trigger7 = parent, command = "holdup"
+trigger8 = parent, command = "holddown"
+var(9) = 1
+
+[State 9999, 3]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+trigger1 = (command = "x" && parent, command = "x")
+trigger2 = (command = "y" && parent, command = "y")
+trigger3 = (command = "z" && parent, command = "z")
+trigger4 = (command = "a" && parent, command = "a")
+trigger5 = (command = "holdfwd" && parent, command = "holdfwd")
+trigger6 = (command = "holdback" && parent, command = "holdback")
+trigger7 = (command = "holdup" && parent, command = "holdup")
+trigger8 = (command = "holddown" && parent, command = "holddown")
+var(9) = -1
+
+[State 9999, 4]
+type = varset
+trigger1 = var(9) != parent, var(9)
+V = 47
+value = 0
+
+[State 9999, 5]
+type = VarAdd
+trigger1 = var(9) = parent, var(9)
+V = 47
+value = 1
+
+[State 9999, 6]
+type = Destroyself
+trigger1 = parent, var(9) = -1
+trigger1 = var(47) >= 23
+trigger2 = parent, var(9) = 2
+trigger2 = var(47) >= 23
+trigger3 = RoundState = 3
+
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+
+;===================================================================================
+;---------------- Inteligencia Artificial  -----------------------------------------
+;===================================================================================
+[State -2, AI_Check] ; El ayudante siempre presente
+type = Helper ; Ayudante
+trigger1 = NumHelper(9999) = 0 ; No se repitira si esta presente ya
+trigger1 = var(9) = 0 ; Variable que actúa como interruptor
+trigger1 = RoundState = 2 ; Solo activado en combate
+name = "AI activada" ; Nombre de la AI
+id = 9999 ; Su identificador
+pos = 1000, 1000 ; posición en su nivel muy alta
+stateno = 9999 ; Te manda al stateno 9999
+helpertype = normal ; Helper tipo normal
+keyctrl = 1
+
+
+
+;Con esto pruebo si la IA anda
+[State -2,3]
+type = DisplayToClipboard ; Pone el nombre en el debug
+trigger1 = var(9)=1 ; Condición para que ponga el texto
+text = "La Inteligencia Artificial funca" ; Nombre del texto
+
+; Con esto le digo cuando está activada
+; en este caso, cuando la variable 9 es 1
+;[State -2, AI prueba]
+;type = VarSet ; Tipo variable
+;trigger1 = command ="AI Prueba" ; Nombre del cmd
+;var(9) = 1 ; Pone la variable a 9 a 1
+
+
+; Con esto le digo cuando está desactivada
+; en este caso, cuando la variable 9 es 0
+;[State -2, AI desactivarlo]
+;type = VarSet ; Tipo variable
+;trigger1 = command ="AI desactivado" ; Nombre del cmd
+;var(9) = 0
+
+; IA de Defensa
+[State -2, IA de Defensa]
+type = ChangeState
+value = 132
+triggerall = p2movetype = A || (enemy, NumProj >= 1) ;
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = statetype = A ; Activo unicamente si estas en el Aire
+triggerall = random <= 600 ; Aquí le ponemos un poco de aleteoriedad
+triggerall = var(9) = 1 ; La variable que activa la AI
+triggerall = ctrl
+triggerall = stateno != 132
+trigger1 = p2statetype = A
+trigger2 = (enemy, NumProj >= 1)
+
+[State -2, IA de Defensa]
+type = ChangeState
+value = 130
+triggerall = p2movetype = A || (enemy, NumProj >= 1)
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = random <= 400
+triggerall = statetype != A
+triggerall = var(9) = 1
+triggerall = ctrl
+triggerall = stateno != 120
+trigger1 = p2statetype = S
+trigger2 = (enemy, NumProj >= 1)
+
+;----------------------------------------
+[State -2, IA puño devil 1 ]
+type = ChangeState
+value = 200
+triggerall = P2bodydist X <= 20
+triggerall = random = [400,500]
+triggerall = statetype != A
+triggerall = var(9) = 1
+triggerall = ctrl
+trigger1 = p2statetype = S
+
+;start using basics
+[State -2, puño devil doble]
+type = ChangeState
+triggerall = var(9) = 1 ;&& roundstate = 2
+trigger1 = ctrl && statetype = S && p2dist X< 80 && random = [0,100]
+value = ifelse(random < 500,200,201)
+
+[State -2, patada devil\puño fuerte]
+type = ChangeState
+triggerall = var(9) = 1  && statetype = S ;&& roundstate = 2
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 201 && movecontact && random = [200,300]
+trigger4 = stateno = 240 && movecontact && random = [200,300]
+trigger5 = stateno = 330 && movecontact && random = [200,300]
+value = ifelse(random < 500, 230,210)
+
+[State -2, patadas]
+type = ChangeState
+triggerall = var(9) = 1 && statetype = S ;&& roundstate = 2
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 201 && movecontact && random = [200,300]
+trigger4 = stateno = 330 && movecontact && random = [200,300]
+value = ifelse(random < 500, 230,240)
+
+[State -2, puño abajo\Patada Arriba]
+type = ChangeState
+triggerall = var(9) = 1  && statetype = S
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 201 && movecontact && random = [200,300]
+trigger4 = stateno = 230 && movecontact && random = [200,300]
+trigger5 = stateno = 240 && movecontact && random = [200,300]
+value = ifelse(random < 500, 410,330)
+
+[State -2, Puño Fuerte\Palmas dobles]
+type = ChangeState
+triggerall = var(9) = 1  && statetype = S
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 201 && movecontact && random = [200,300]
+trigger4 = stateno = 230 && movecontact && random = [200,300]
+trigger5 = stateno = 240 && movecontact && random = [200,300]
+value = ifelse(random < 500, 210,310)
+
+[State -2, combos saltando - basicos]
+type = ChangeState
+triggerall = var(9) = 1  && statetype = A
+trigger1 = ctrl && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 600 && movecontact && random = [200,300]
+trigger3 = stateno = 630 && movecontact && random = [200,300]
+value = ifelse(random < 500, 610,640)
+
+[State -2, Combos volando - specials]
+type = ChangeState
+triggerall = var(9) = 1  && statetype = A
+trigger1 = ctrl && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 610 && movecontact && random = [200,300]
+trigger3 = stateno = 640 && movecontact && random = [200,300]
+trigger4 = stateno = 1725 && random = [200,300]
+value = ifelse(random < 200, 1750, 2700)
+
+[State -2, combos volando - basicos]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = ctrl && stateno = 1500 && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 500 && movecontact && random = [200,300]
+trigger3 = stateno = 530 && movecontact && random = [200,300]
+value = ifelse(random < 500, 510,540)
+
+[State -2, Combos volando - specials]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = stateno = 1500 && random = [200,300]
+trigger2 = stateno = 510 && movecontact && random = [200,300]
+trigger3 = stateno = 540 && movecontact && random = [200,300]
+trigger4 = stateno = 1725 && random = [200,300]
+value = ifelse(random < 200, 2700,1750)
+
+
+
+[State -2, palma 1]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = pos y >= -10
+trigger1 = ctrl && statetype = S && P2bodydist X >= 40 && P2bodydist X <= 100 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 201 && movecontact && random = [200,300]
+trigger4 = stateno = 230 && movecontact && random = [200,300]
+trigger5 = stateno = 240 && movecontact && random = [200,300]
+trigger6 = stateno = 310 && movecontact && random = [200,300]
+value = 1600
+
+[State -2, palma 2/palmas dobles special]
+type = ChangeState
+;triggerall = random = [10,50]
+triggerall = var(9) = 1
+triggerall = pos y >= -50
+trigger1 = stateno = 1600 && movecontact && random = [20,50]
+value = ifelse(random < 500, 1670,1601)
+
+[State -2, palma 2/palmas dobles special]
+type = ChangeState
+;triggerall = random = [10,50]
+triggerall = var(9) = 1
+triggerall = pos y >= -50
+trigger1 = stateno = 1600 && movecontact && random = [20,50]
+value = ifelse(random < 500, 1601,1670)
+
+[State -2, palmas rush/palma 3]
+type = ChangeState
+;triggerall = random = [10,50]
+triggerall = var(9) = 1
+triggerall = pos y >= -50
+trigger1 = stateno = 1601 && movecontact && random = [20,40]
+value = ifelse(random < 500, 1680,1602)
+
+[State -2, palma 3/palmas rush]
+type = ChangeState
+;triggerall = random = [10,50]
+triggerall = var(9) = 1
+triggerall = pos y >= -50
+trigger1 = stateno = 1601 && movecontact && random = [200,400]
+value = ifelse(random < 500, 1602,1680)
+
+
+[State -2, palmas dobles special/palmas rush]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = ctrl && statetype = S && P2bodydist X >= 40 && P2bodydist X <= 100 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 201 && movecontact && random = [200,300]
+trigger4 = stateno = 230 && movecontact && random = [200,300]
+trigger5 = stateno = 240 && movecontact && random = [200,300]
+trigger6 = stateno = 330 && movecontact && random = [200,300]
+value = ifelse(random < 600, 1670,1680)
+
+[State -2, torpedo abajo]
+type = ChangeState
+triggerall = random = [900,999]
+triggerall = statetype != A
+triggerall = var(9) = 1
+triggerall = ctrl
+trigger1 = P2bodydist X >= 100
+value = 1700
+
+[State -2, torpedo arriba]
+type = ChangeState
+triggerall = var(9) = 1  && statetype != C ;&& roundstate = 2
+trigger1 = ctrl && statetype = S && P2bodydist X >= 100 && random = [900,999]
+trigger2 = stateno = 1602 && movecontact && random = [800,900]
+trigger3 = stateno = 1670 && movecontact && random = [800,900]
+value = 1720
+
+;fireball
+[state -2]
+type = changestate
+triggerall = var(9) = 1 && power >= 100
+triggerall = random = [900,999]
+triggerall = ctrl
+triggerall = statetype = S
+trigger1 = P2bodydist X >= 200
+value = 1000
+;fireball  2
+[state -2]
+type = changestate
+triggerall = var(9) = 1 && power >= 100
+trigger1 = stateno = 1000 && random = [400,500]
+value = 1001
+;fireball  3
+[state -2]
+type = changestate
+triggerall = var(9) = 1  && power >= 100
+trigger1 = stateno = 1001 && random = [400,500]
+value = 1002
+
+[State -2, salto definitivo]
+type = ChangeState
+triggerall = var(9) = 1  && statetype = S ;&& roundstate = 2
+trigger1 = ctrl && statetype = S && P2bodydist X >= 100 && random = [900,999]
+trigger2 = stateno = 1602 && movecontact && random = [800,900]
+value = ifelse(random < 500, 1800,1801)
+;rodillazo definitivo/Agarre de piernas
+[state -2]
+type = changestate
+triggerall = var(9) = 1
+trigger1 =  stateno = 1802 && random = [50,100]
+trigger2 = stateno = 1725 && random = [200,300]
+value = ifelse(random < 200, 1810,1850)
+;Torpedo en el aire/dodonpa
+[state -2]
+type = changestate
+triggerall = var(9) = 1
+trigger1 =  stateno = 1802 && random = [50,100]
+trigger2 = stateno = 1725 && random = [200,300]
+value = ifelse(random < 500, 1750,2700)
+
+[State -2, tayoken]
+type = ChangeState
+triggerall = var(9) = 1 && statetype = S && pos Y > -50 && power >= 500
+trigger1 = ctrl && statetype = S && p2dist X > 150 && random = [700,800]
+value = ifelse(random < 200, 3200, 3000)
+
+
+[State -2, Kikoho]
+type = ChangeState
+triggerall = var(9) = 1 && statetype = S && power >= 1000
+trigger1 = ctrl && statetype = S && p2dist X > 150 && random = [700,800]
+trigger2 = stateno = 310 && movecontact && random = [700,800]
+trigger3 = stateno = 330 && movecontact && random = [700,800]
+trigger4 = stateno = 240 && movecontact && random = [700,800]
+trigger5 = stateno = 1602 && movecontact && random = [400,500]
+trigger6 = stateno = 1670 && movecontact && random = [500,600]
+value = ifelse(random < 200, 3200, 3000)
+
+[State -2, ataque de sombras]
+type = ChangeState
+triggerall = var(9) = 1 && statetype = S && power >= 1000
+trigger1 = ctrl && statetype = S && p2dist X > 150 && random = [700,800]
+trigger2 = stateno = 310 && movecontact && random = [700,800]
+trigger3 = stateno = 330 && movecontact && random = [700,800]
+trigger4 = stateno = 240 && movecontact && random = [700,800]
+trigger5 = stateno = 1602 && movecontact && random = [400,500]
+trigger6 = stateno = 1670 && movecontact && random = [500,600]
+value = ifelse(random < 200, 3000, 3200)
+
+[State -2, Rekka Kosoku Ken / dodonpa]
+type = ChangeState
+triggerall = var(9) = 1 && statetype = S && power >= 2000
+trigger1 = ctrl && P2bodydist X >= 100 && P2bodydist X <= 200 && random = [700,800]
+trigger2 = stateno = 310 && movecontact && random = [700,800]
+trigger3 = stateno = 330 && movecontact && random = [700,800]
+trigger4 = stateno = 240 && movecontact && random = [700,800]
+value = ifelse(random < 500, 2500, 3400)
+
+[State -2, Nuevo Kikoho/Dodonpa]
+type = ChangeState
+triggerall = var(9) = 1 && power >= 3000
+trigger1 = ctrl && pos Y <= -60 && random = [800,900]
+trigger2 = stateno = 1500 && random = [800,900]
+trigger3 = stateno = 50 && random = [500,600]
+trigger4 = stateno = 60 && random = [500,600]
+trigger5 = stateno = 1725 && random = [500,600]
+value = ifelse(random < 200, 2700,3600)
+
+[State -2, Nuevo Kikoho/Dodonpa]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = stateno = 3602 && random = [900,999]
+value = ifelse(random < 200, 2700,3603)
+
+
+[State -2, terminación]
+type = VarAdd
+trigger1 =  p2life = 0
+v =  9
+value = 0
+;ignorehitpause =
+;persistent =
+
+
+
+
+
+;---------------------------------------------------------------------------
+; Para que haya sombras y no se cruce con las sombras del Ataques de Sombras
+;---------------------------------------------------------------------------
+[State -2, corte a las sombras]
+type = AfterImageTime
+trigger1 = StateNo != 100
+trigger1 = StateNo != 105
+trigger1 = StateNo != 1500
+trigger1 = StateNo != 1050
+trigger1 = StateNo != 1051
+trigger1 = StateNo != 1052
+trigger1 = StateNo != 1700
+trigger1 = StateNo != 1720
+trigger1 = StateNo != 1750
+trigger1 = StateNo != 1851
+trigger1 = StateNo != 2653
+trigger1 = StateNo != 3650
+trigger1 = StateNo != 3655
+trigger1 = var(5) < 1
+time = 0
+
+[State -2, Corte al tiempo de los Helpers Sombras]
+type = varadd
+trigger1 = var(4) = 1
+trigger1 = Time >= 1
+var(5) = -1
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+
+[Statedef -3]
+
+;This controller plays a sound everytime KFM lands from a jump, or
+;from his back-dash.
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 ;Jump land
+trigger2 = stateno = 106 ;Run-back land
+value = 40, 0
+
+[State -3]
+type = varset
+trigger1 = movetype = H
+v = 5
+value = 0
+
+[State -3]
+type = varset
+trigger1 = var(5) = 0
+v = 4
+value = 0
+
+[State -3]
+type = AssertSpecial
+trigger1 = var(5) > 0
+flag = nojugglecheck
+
+;-------------------------------- Inteligencia Artificial --------------------------------------------
+;Run Forward
+;[State -3:		ChangeState]
+;type = ChangeState
+;triggerall = (Var(9) = 1) && (StateType != A) && (StateNo != [100,101]) && (P2MoveType != A) && (EnemyNear, NumProj = 0) && (StateNo != [3000,3400])
+;triggerall = random = [300,400]
+;trigger1 = (P2BodyDist X > 75) && (EnemyNear, Pos Y = 0) && (EnemyNear, Anim = 5300) && (P2MoveType != A)
+;trigger2 = ((P2Dist X > 150) || ((P2Dist X > 75) && (P2StateNo = 105)))
+;value = 100
+
+
+
+

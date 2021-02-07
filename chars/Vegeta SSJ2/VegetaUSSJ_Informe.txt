@@ -1,0 +1,152 @@
+Super Vegeta  Ver. 2.0 By Team OS && Midnight Fighters Team y todos los que juegan mugen...
+----------------------------------------------------------------
+Code:Emiliano 01/02
+Sprites:Sasuke
+Sprites Customs: Tapion, Augusto.Cesar, Juanga, :BOSS:, Gabe555
+Sounds: Rips of MajinVegetto and Majita.
+Fxs: Classic OpenSource, Sawady, Cervantes, POTS.
+=============================================================================================================================
+Esta es mi segunda version de mi primer personaje, SuperVegeta, ya que sinceramente lo quiero terminar antes de recibir mi
+jubilacion anticipada. Y ademas comienzo a sentir un extrano sentimiento de odio y rencor de niveles estratosfericos
+hacia este personaje incompleto. Como ya se ha terminado, ahora he alcanzado el nirvana, hasta que comienze con otro proyecto
+o decida lanzar una version 3.0.
+=============================================================================================================================
+_______________________________________
+	Comentarios y Derechos del char|
+---------------------------------------
+Bueno vamos a hacerla corta, el char es en su totalidad Open Source, cada pixel o caracter puede ser 
+usado libremente sin necesidad de pedir permiso a nadie, tratando de que en lo posible el trabajo resultante
+de este personaje sea Open Source (Siendo esto un requerimiento no necesario).
+
+============================================================================================================================
+Implementaciones y otras cosas
+Parry.
+3 Intros.
+3 Win Poses.
+3 Big Portraits.
+Portraits para AlphaStorm y Screenpack DBZ.
+Voces originales, en "ponja" para los no entendidos.
+2 "modos": SSJ y USSJ.
+5 Supers y 1 Hyper.
+Choque de poderes (Big Bang y Final Flash terrestres).
+Choque de golpes (al golpearse al mismo tiempo 2 ataques normales).
+Counter y Zanzoken-Counter
+=============================================================================================================================
+							LISTA DE MOVIMIENTOS
+=============================================================================================================================
+Level 3
+Berserker Fury(ki -3000)
+D,DF,F,B,c
+=============================================================================================================================
+Level 2
+Resplandor Final (ki -2000)
+(Mantenga pulsado x/y si lo desea, puede realizarse en el aire)
+D,DF,F,B,x+y
+
+Renzoku Energy Dan (ki -2000)
+(Pulsadlo como un desquiciado mental para continuar lanzando)
+D,DB,B,D,DB,B,c
+=============================================================================================================================
+Level 1
+"Amaaazing Fire" (ki -1000)
+D,DF,F,D,DF,F,x/y
+
+Onda de Radiactiva Galick (ki -1000)
+(Puede hacerse en el aire, protege ante fireballs enemigos)
+D,DF,F,D,DF,F,a/b
+
+Ataque del Big Bang (ki -1000)
+(Mantenga pulsado c si lo desea)
+D,DB,B,F,c
+=============================================================================================================================
+Especiales de ki
+Fireball (ki -150)
+(Puede hacerse en el aire, presione hacia abajo en el aire para atacar hacia el suelo)
+c
+Crazy Fireballs (ki -100)
+(Siga pulsando c para seguir lanzando)
+D,c
+Infernal Execution
+(Provoca que las fireballs anteriores persiguen al oponente)
+B,DB,D,DF,F,c
+Shyougeki Ha (ki -400)
+(mantenga pulsado c para aumentar la distancia de efectiva del ataque)
+D,DB,B,c
+Atomic Cannon (ki -400)
+(en el aire)
+D,DB,B,c
+Photon Bomber (ki -400)
+(en el aire)
+D,DF,F,c
+Atomic Blast (ki -400)
+(mantenga pulsado c si lo desea)
+D,DF,F,c
+=============================================================================================================================
+Especiales EX
+Burn-Knuckle (ki -500)
+D,DB,B,x+y
+EX-ShoryuKen (ki -500)
+D,F,DF,x+y
+EX-RKick Smash (ki -500)
+D,DB,B,,a+b
+EX-Raigeku-Shuu (ki -500)
+F,DF,D,a+b
+=============================================================================================================================
+Especiales de melE
+
+Pique en velocidad
+D,DB,B,x
+Codazo Inverso
+D,DB,B,y
+========>
+	Reversal Punch
+	D,DB,B,x
+	Air-Attack
+	D,DB,B,y
+================>
+		Remate
+		D,DB,B,x
+		Upperside Punch
+		D,DB,B,y
+ShoryuKen
+D,F,DF,x/y
+Knee/Kick Smash
+D,DB,B,a/b
+Raigeki-Shuu
+(en el aire)
+F,DF,D,a/b
+;============================================================================================================================
+System
+Zanzoken (ki-250)
+(Durante los primeros tics, si es golpeado contraataca)
+z
+Cargar ki
+b+y
+Zero-Counter(ki -500)
+(Durante la guardia)
+b+y
+Transform into USSJ(ki -1000)
+c+z
+Back to SSJ
+c+z
+Launcher
+a+x
+Burla
+S
+Agarre(pegado al oponente)
+x+y 
+________________________________________________________________
+			AGRADECIMIENTOS	DE MUGEN		|
+----------------------------------------------------------------
+1)En primer lugar, a Sasuke por el fenomenal sheet open que hizo
+2)A todo el Team OS y al reciente MFT Midnight Fighters Team (Vieja_Del_Agua, Frann, Wenchu, Intoxicados, Tapion, Gabe555).
+Por la buena onda y toda la ayuda recibida (sprites, codes, betatests)
+3)POTS, Sawady, MGMNZX y Cervantes por FX'S
+4)Sawady otra vez por resolver problemas de programación
+5)Chrono_Strife por sus buenas ideas y ciertos FX.
+6)Crazy_Logic por consejos sobre gameplay.
+7)MV por los rips, MUGENGOD por ciertas voces, BOSS por ciertos sprites y MugenHero por lo mismo xD.
+-------------------------------------------------------------------------------------------------------
+Cualquier tipo de duda, pregunta, reclamo, sugerencia, elogio, injuria, calumnia, insulto, puteada, amenaza,
+deseo escrito de muerte, confesion, deseo o cualquier tipo de idea no expresada. Puede remitirmela en el foro
+www.mugengenerations.foroactivo.info/forum a mi usuario Emiliano 01/02.

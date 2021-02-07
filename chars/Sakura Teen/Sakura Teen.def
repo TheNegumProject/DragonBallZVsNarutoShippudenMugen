@@ -1,0 +1,23 @@
+[Info]
+name = "Sakura teen"
+displayname = "Sakura Teen"
+versiondate = 08,11,2008
+mugenversion = 
+author = "Gabrieldra6"
+pal.defaults = 1,2
+
+[Files]
+sprite = BTSSakura.sff
+anim = BTSSakura.air
+sound = BTSSakura.snd
+cmd = BTSSakura.cmd
+cns = BTSSakura.cns
+stcommon = common1.cns
+st = BTSSakura.cns
+st1 = AI.cns
+pal1 = BTSSakura.act
+pal2 = BTSSakura.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

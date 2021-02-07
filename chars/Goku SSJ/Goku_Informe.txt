@@ -1,0 +1,241 @@
+Goku Reamke Versión 1.0 By Team OS y todos los que juegan mugen|
+----------------------------------------------------------------
+
+
+
+________________________
+	Comentarios	|
+------------------------
+
+
+Bueno, también quiero decir que en los chars que elijo para hacer trato de que sean chars que todavía no estén hechos o que, 
+si lo están, tienen una jugabilidad que poco se acerca a la clásica del Super Butoden, que es la que más me gusta. 
+Así elijo mis proyectos de acuerdo con lo que me apasione y a lo que no esté hecho (o no muy parecido a los Butoden).
+
+
+Se trata de jugabilidades distintas y de formas distintas de ver, entender, y sentir la pasión por Dragon Ball. No por esta 
+diferencia se está compitiendo, sino, simplmenete, aportando algo distinto tratando de hacerlo lo mejor posible, para 
+disfrute y crecimiento de toda la comunidad MUGEN.
+
+este es mi primer char y espero que más fans de Dragon Ball se entusiasmen en la programación MUGEN.
+el trabajo de cada uno de nosotros es de los demás también. Enrriquecamosnos del esfuerzo de todos. Si alguien hace sprites
+de calidad para el uso de todos, cualquier persona que quiera hacer un char no tiene que empezar desde cero, y por lo tanto 
+le resulta más fácil comenzar y terminar un proyecto de calidad. 
+
+Si por el contrario se le ponen restrcciones a los chars, cada persona que quiera adentrarse en la creción de chars tiene 
+el costo previo del "permiso de autor" (siempre y cuando lo obtenga), para publicar su char. Es obvio que cada persona puede
+cambiar, editar, transformar y borrar la información que tenga en su PC.... pero en algunos sites y foros se impone esta
+restricción ("llamado permiso de autor") para publicar obras deribadas de producciones con código abierto. 
+
+La argumentación que se usa para exigir este "premiso/autorización  de autor" es: "Hay que respetar a los autores 
+porque si sienten que no se los repeta, dejarán de hacer chars y nos prejudicamos nosotros mismos". Es un argumento muy 
+discutible. 
+
+En principio este argumento junta la idea de "respeto" con la delegación de autoridad a la persona que haya hecho tal o cual
+char. Es decir que, según tal argumento, los llamados "creadores" (como si fueran marcianos superdotados, o que otras 
+personas no pueden aprender a programar) tienen el poder de decición para decir qué se usa y qué no... algo que
+tecnológicamente es ridículo, porque en nuestras PCs podemos cambiar lo que queramos, mas allá si alguien quiere o no. Por
+lo tanto, sólo queda el obstáculo social-discursivo para que cualquier persona pueda producir y publicar libremente
+sus personajes MUGEN que haga. Esta restricción sólo puede aplicarse a la publicación (porque la producción ya se encuentra
+posibilitada por el código abierto de los chars) y habitualente se impone en los foros o sites, vía los administradores
+de tales webs. Esta es la idea restrictiva del "respeto": entendida como autoridad.
+
+Si en cambio, entendemos al respeto como el reconocimiento al trabajo de otros, entonces es otra cosa. Dar una palmada en la 
+espalda y decir "che, muy buen laburo" es lo mejor que podemos hacer para reconocer el esfuerzo de otros. Si se pudiera 
+hacer en persona (cara a cara), yo mismo lo haría. Pero vía Internet, se bien que una "cyber palmada" puede resultar un poco 
+fría.... deberemos acostumbrarnos a eso o hacer encuentros personales de gente que programa o quiere aprender a programar 
+chars MUGEN, si de generar relaciones más fraternas es lo que se trata de hacer. Bajo ningún punto de vista imponer autoridad
+sobre otros (como decir "esos cuantos pixeles son míos y no los presto") nos puede llevar a generar lazos más fraternos, si
+no todo lo contrario.
+ 
+
+
+ahora se detallan los movimientos y luego paso a los agradecimientos más formalmente.
+
+__________________________________
+
+
+
+________________________________________________________________
+		LISTA DE MOVIMIENTOS				|
+----------------------------------------------------------------
+
+;-| Super Motions |--------------------------------------------------------
+
+"Puño del Dragon" D, DF, F, D, DF, F, a+b
+[Ki = -3000]
+
+"Genkidama" = D, DF, F, D, DF, F, x+y
+[Ki = -2000]
+
+"Chou KameHameHa" = D, DB, B, F, c
+[Ki = -2000]
+(se puede mantener el boton "c" apretado para que haga más daño, pero gasta más ki)
+
+"KameHameHa" = D, DF, F, D, DF, F, c
+[Ki = -1000]
+(según para donde mantenga apretado es para donde dispara)
+(se puede hacer en el aire)
+
+
+;-| Special Ki Motions |------------------------------------------------------
+"Taiyoken" = F, B, F, c
+[Ki = -400]
+(paraliza a rival momentáneamente)
+
+"Teleport Adelante" = B, D, DB, x/y
+[Ki = -400]
+(con el boton "x", se teletransporta adelante de rival)
+(con el boton "y", se teletransporta atras de rival)
+
+"Torpedos" = D, DB, B, c
+[Ki = -200] (por cada torpedo)
+(se pueden invocar hasta 4 torpedos)
+(tambien se pueden hacer en el aire)
+
+"Torpedos Lanzamiento" = D, DF, F, c
+(se pueden lanzar durante cualquier movimiento)
+
+(Para el que se pregunte de donde sale este movimiento, es uno que le hace Gokú a Freezer, al principio de la batalla)
+
+"Estupidoo!!" = F, D, DF, c
+[Ki = -600]
+(se tiene que hacer en el aire)
+
+"Me estorban!!" = (15tics)D, U, c
+[Ki = -300]
+
+
+
+;-| Special Motions |------------------------------------------------------
+
+"Agarre Giratorio" = F, DF, D, DB, B, x/y
+
+"Tetsuzan Kou" = D, DF, F, x
+
+"Zesshou Hohou" = D, DF, F, y
+
+"Rodillazo" = F, D, DF, a/b
+(con el boton "a", sale mas bajo, lo cual permite combear desde el suelo)
+(con el boton "b", sale mas alto)
+
+"Abise Geri" = D, DB, B, a/b
+(con el boton "a", sale mas alto, pero más corto)
+(con el boton "b", sale mas bajo, pero más largo)
+
+"Raigeki Shuu" = F, DF, D, a/b
+(con el boton "a", atrabiesa al rival, para continuar el combeando en el piso)
+(con el boton "b", revota en el rival al impactar)
+
+"Combo Patadas" = D, DF, F, a/b
+(para continuar el combo hay que seguir ejecutando la misma secuencia indistintamente si es con el boton "a" o con el "b")
+la combinación mas larga es de 5 hits: 
+-D, DF, F, b
+-D, DF, F, a
+-D, DF, F, a
+-D, DF, F, b
+-D, DF, F, b
+
+
+________________________________________________________________
+			AGRADECIMIENTOS				|
+----------------------------------------------------------------
+
+Ahora sí, paso a los agradecimientos. 
+
+A Electbyte, por haber inventado esta maravilla llamada MUGEN. Gracias a ello ahora los fans, podemos aprovechar lo hecho por
+las companías de juegos de peleas (ya sean SNK, CAPCOM, BANDAI, etc) para producir de forma libre los chars que nos gusten, 
+como queramos, sin competencia entre nosotros los fans, y (mejor que nada) sin rendirles cuentas a los interesados en fines
+de lucro.
+
+Las ya mencionados compañías, hoy resultan burladas por las vías de internet, el trabajo compartido, y la unión libre y 
+fraterna... de más está decir que por esta "burla a las compañías" (por así decirlo) no se terminaron los juegos de peleas, 
+ni Dragon Ball, ni nada parecido.... muy por el contrario ahora tenemos ese furuto desarrollo en nuestras manos y lo podemos 
+llevar a nuestro gusto libremente elegido, en vez de estar esperando año a año los nuevos lanzamientos comerciales.
+
+El futuro de los juegos de peleas ahora está en nuestras manos. GRACIAS  M U G E N  POR ELLO!!!!
+
+respecto de este char en particular, le agradezco mas que nada a Necromancer y Flowagril que hicieron el char que he tomado 
+como base para rehacerlo. En mi opinión, ellos dos iniciaron en al año 2002, la producción de chars Mugen DBZ más seriamente
+y con estilo SB. Sus cuatro chars (Gokú, Piccolo, Cell, y Broly) son para mi los mejores en de cada uno de esos personajes 
+por la proligidad y calidad de efectoqs que tienen. 
+Es porque admiro sus trabajo que he elegido como base a su Gokú para reacherlo.... megustaría rehacer tambiien a Piccolo
+y a Cell, pero no creo que lo haga porque estoy muy atareado con otros proyectos. 
+En el archivo de descarga pueden encontrar el char original para que pueda comparar el remake con el char de Necromancer
+(Goku_Necromancer.rar)
+
+Otra de las personas a la que le agradezco mucho es a Juanga, que me ayudó a hacer sprites customs, y a pensar ideas para el 
+char. Sin su ayuda, sin dudas esto me uhubiera llevado mucho más tiempo.   
+
+Tambien le agradezco a Sawady por haberme pasado su FX de la Genkidama. Ese efecto es cencillamente el mejor porque está
+todo lo que tiene que estar y no le sobra nada. Es decir, perfecto. A Sawady le pido disculpas por no haber usado el fondo
+que él especialmente me hizo para el Puño del Dragón... no lo usé porque ya de por sí ese movimiento tiene una sobrecarga
+importante de efectos, y si le agrego uno mas, ya no se aprecia bien el dragón, y ademas se puede trabar un poco el mugen
+si la PC no es muy muy buena. 
+
+
+
+
+
+________________________
+	Derechos	|
+------------------------
+
+
+de más está decir, que por la forma en la que entiendo el respeto (como reconocimiento y no como autoridad), cada línea 
+de código y cada pixel de este char, es de TOTAL LIBRE USO, lo diga yo o no lo diga.
+
+respecto de que el char ha sido realizado por el Team OS, simplmente resta decir que este equipo simplmente se encargará
+de garantizar la distribución del char, pero no de provirle a otros que lo copien, pegen, hosteen, o inclusio hagan una 
+reversión del char. Bajo ningún punto de vista este el Team OS buscará reservarse para sí soberanía alguna sobre el char. 
+simplmente se encargará de garantizar (y no de reservarse) la distribución, y proteger el derecho Open SOURSE con el 
+que el char ha sido producido.
+
+desde luego que si se usa este char para otra obra, se les agradecería la mension al Team OS, nada más. 
+
+______________________________________________
+	Reflexiones sobre la idea de "autor"  |
+----------------------------------------------
+
+si se preguntan quién soy o por qué en de este char no figura un "autor", es por el simple hecho de que no creo que sea 
+democrática la idea de proclamarse "autor" (como el "creador") de algo. La producción de conocimiento y de obras culturales 
+(que aunque alguien no lo quiera aceptar, MUGEN es también parte de la cultura) es algo en lo que contribuye toda la 
+sociedad, y en este caso toda la comunidad MUGEN, desde el que postéa una opinión en un foro, hasta el que hace un char pixel
+por pixel... 
+incluso tambien las compañias SNK, CAPCOM, BANDAI y tantas otras han contribuido en este char (con la simple diferencia de
+que estas últimas pretendian cobrar dinero para que uno accediera a sus producciones), a través de los movimientos y 
+gráficos que imagino a partir de las experiencias de jugar sus juegos de peleas.
+
+por lo tanto cada vivencia que he tenido en los juegos de pelea han contribuido al char, también cada parsona con la que 
+hablé de ello, y cada cosa que leí y vi al respecto... es decir que este char no es más que el resultado social de mis 
+vivencias en torno a los juegos de peleas. 
+
+si se está de acuerdo con esto que digo, la simple idea de proclamarse "autor", no puede entenderse más que como un "robo"
+a todas esas distintas producciones de otras personas y de la sociedad toda, que han influido en lo que nosotros produzcamos.
+Es decir que proclamarse "autor" (como el "creador" de algo), es simplemente poner nuestra producción por sobre todas las
+demás, sin contar que la nuestra sería imposible sin todas las demás. Algo muy despótico si se hace intencionadamente, aunque
+la mayoría de las veces no sea intencionado y es una inercia a hacer lo que los demás hacen el hecho de proclamarse autor. En
+este último caso que (reitero que es la mayoría), sería bueno que revieramos nuestros actos, en caso de que estemos deacuerdo
+con lo que opino respecto de que lo que hacemos es producto de lo que hacen otras personas. 
+
+desde luego que esto no quita el fraterno acto de agradecer a las personas que estuvieron cerca de uno en el proyecto. Tampoco
+implica que sean "déspotas" todos los que se proclamen autores, dado que esa idea es algo que nos acostumbramos a usar y a 
+pensar en función de ello, ya que extiste previamente a nosotros. Por otra parte, si considero correcto llamar déspota, a quien
+utilice tal autoproclamción de "autor", para intentar impedir que otros produzcan chars o usen materiales.  
+
+
+dicho esto, no me queda más que decir que es una expresión de deseos que las personas que tomen algo de este char tengan
+la misma actitud que yo tengo: que sus obras deribadas de este char sean de libre uso.
+no puedo ponerlo como condición restrictiva... si lo quieren usar para alimentar su ego propio (autopoclmádose "autor"
+sin ver el trabajo de los demás), yo no puedo hacer nada, ni quiero imponerle a nadie nada. Que haga eso el que quiera 
+y si puede dormir tranquilo con eso no será más que una persona miserable.
+
+
+Muchas gracias para el que haya leido esto y como siempre digo, un saluo.
+
+
+-------------------------------------------------------------------------------------------------------
+cualquier comentario, agradecimiento, reporte de bugs, insulto, puteadas y demáses agravios, pueden ser hechos publicamente
+en http://mugen-elysium.activoforo.com, lugar donde reside este el Team OS. 
+o descargar nuestros chars desde http://pixel-creations.org/os/index.html.
+desde Elysum No Mugen tambien puede bajar los chars xDDD!!!

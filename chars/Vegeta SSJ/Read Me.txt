@@ -1,0 +1,144 @@
+==========================================================================================
+Dragon Ball Allstars - Vegeta beta 0.5? or something
+==========================================================================================
+
+
+Coding  -  Neocide,Majita,Roken
+
+Sprites -  Roken,Neocide
+==========================================================================================
+Basics
+==========================================================================================
+------------------------------------------------------------------------------------------
+Standing
+------------------------------------------------------------------------------------------
+a         - Power
+b         - Ki (Tap b rapidly for renzoku)
+x         - Light Attack
+y         - Heavy Attack
+Z         - Launcher
+C         - Teleport
+Fwd x 2   - Dash
+Back x 2  - Dash back
+------------------------------------------------------------------------------------------
+Crouching
+------------------------------------------------------------------------------------------
+x = Light Attack
+y = Heavy Attack
+z = Launcher 
+
+------------------------------------------------------------------------------------------
+Air
+------------------------------------------------------------------------------------------
+X       = Light Attack
+Y       = Heavy Attack
+Z       = Launcher down
+Fwd Fwd = Dash Fwd
+Bck Bck = flip Bck
+
+-------------------------------------------------------------------------------------------
+Whats new :
+-------------------------------------------------------------------------------------------
+-All Specials
+===========================================================================================
+Things Left
+===========================================================================================
+- Supers
+- Allstar
+- Sound tweaks
+- Ussj Mode (Maybe? meh I guess...)
+- Swap out normal sprites for ssj
+- Fix additonal palettes
+- New Damage Values
+===========================================================================================
+Things Known to fix
+===========================================================================================
+- Add sound to Sayajin Charge
+- change crouch anim (done)
+- Jump is slow 
+- Punt kick vels needs to be fixed
+- kill the extra jumps
+- remove ball anim in sayajin charge
+
+===========================================================================================
+Things thinking of changing
+===========================================================================================
+- Hit pauses on all hits
+- Make chains harder
+- Sayajin Dive Entirely
+- Ki Frenzy (For Sure.) 
+
+------------------------------------------------------------------------------------------
+Additional basics
+------------------------------------------------------------------------------------------
+Charge            - A
+Burst Evade       - X + A (Can be done in the air, and chained with basic attacks cost 1000 power)
+Burst Attack      - Z (After Burst Evade)
+Pursuit           - Z (After Burst Attack, can be done up to 3 times)
+Zanzoken Attack   - QCF,c (QCB,c optional after original hit. Can be done up to 3 times)
+Super Jump        - Down,Up
+
+
+
+==========================================================================================
+Specials
+==========================================================================================
+Sayajin Strike(High)                  -          B,QCB, x
+	
+Sayajin Strike(Low)                   -          B,QCB, y
+
+Sayajin Strike(Launch)                -          B,QCB, z
+
+Gut Check                             -          QCB, x,y or z
+ Rib Crusher                          -          QCB,x, y or z
+  Dirt Eater                          -          QCB,x,y.or z
+
+Sayajin Beatdown (High)               -          QCF, x
+
+Sayajin Beatdown (Low)                -          QCF, y
+
+Sayajin Beatdown (Launch)             -          QCF, z
+
+
+Air Raid                              -          Charge Down,The up, Attack
+
+==========================================================================================
+Level 1 Supers
+==========================================================================================
+
+Galick Ho            -         QCF,x 2 b (can be done in the air)
+
+
+
+==========================================================================================
+Level 2 Supers
+==========================================================================================
+
+
+
+                                - Not Implemented Yet -
+
+
+==========================================================================================
+Credits
+==========================================================================================
+Cyanide           -   for coding help. and not cringing too much at playing with another dbz character. 
+Majita            -   For the intial base, and all the awesome stuff in here.
+Roken             -   For the original sheets of normal ssj and ussj. Plus the pursuit code
+Tsukuyomi Ryuku   -   Sprites.
+Chrono Strife     -   cheese,wub and sexy 18 flashyness :D
+Jesuszilla        -   Beta testing,feedback, Coding help etc etc.
+Cybaster          -   Beta testing, Ideas, keeping me motivated!
+Kamekaze          -   Beta testing,Coding help
+Vans              -   Coding help 
+Balthazaar        -   Beta Testing,Ideas, keeping me motivated!
+Iced              -   Beta Testing,Ideas, other stuff
+LW                -   Because he's the fucking man, nuff said bitches.
+Neotokyo          -   because Neo's are the coolest thing on the planet
+Elecybyte         -   if I have to say so your dumbzy
+Akira Toriyama    -   for the dbz series 
+Bandai            -   for the horrid games that were only good to get sprites from :)
+DBZPD             -   For the only sb sprite I still use from my original sheet the punt kick
+Jedi              -   because he's epic, at alot of things and I miss my bro!
+
+

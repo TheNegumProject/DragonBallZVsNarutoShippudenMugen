@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Andriode Nº 18"
+displayname = "Andriode 18"
+versiondate = 03,16,2008
+mugenversion = 14,06,2003
+author = "Chrono_Strife, Jedi & Tapion"
+pal.defaults = 1,2
+
+[Files]
+sprite = graphical\18SFF.sff
+anim = coding\18AIR.air
+sound = audio\18SND.snd
+cmd = coding\18CMD.cmd
+cns = coding\18CNS.cns
+stcommon = coding\commonCNS.cns
+st = coding\18CNS.cns
+pal1 = graphical\18.act
+pal2 = graphical\18vegetrunks.act
+pal3 = graphical\18Bura.act
+pal4 = graphical\1817.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

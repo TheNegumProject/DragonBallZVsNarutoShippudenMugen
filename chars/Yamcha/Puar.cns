@@ -1,0 +1,314 @@
+;---------------------------------------------------------------------------
+;-===========================Puar Helper===================================-
+;---------------------------------------------------------------------------
+;Stand(Smile Still)
+[Statedef 6000]
+type    = S
+movetype= A
+physics = S
+anim = 6000
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6000, End]
+type = ChangeState
+trigger1 = animtime = 1
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+;Fly(Casual)
+[Statedef 6001]
+type    = S
+movetype= A
+physics = S
+anim = 6001
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6001, End]
+type = ChangeState
+trigger1 = animtime = 1
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+;Fly(Crying)
+[Statedef 6002]
+type    = S
+movetype= A
+physics = S
+anim = 6002
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6002, End]
+type = ChangeState
+trigger1 = animtime = 1
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+;Fly(Happy)
+[Statedef 6003]
+type    = S
+movetype= A
+physics = S
+anim = 6003
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6003, End]
+type = ChangeState
+trigger1 = animtime = 1
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+;Intro(Start)
+[Statedef 6180]
+type    = S
+movetype= A
+physics = S
+anim = 6180
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6180, End]
+type = ChangeState
+trigger1 = animtime = 1
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+;Intro(Normal)
+[Statedef 6181]
+type    = S
+movetype= A
+physics = S
+anim = 6181
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6181, VelSet01]
+type = VelSet
+trigger1 = Time = [113,120]
+x = -0.5
+
+[State 6181, VelSet03]
+type = VelSet
+trigger1 = Time = [121,128]
+x = -1
+
+[State 6181, VelSet05]
+type = VelSet
+trigger1 = Time = [129,140]
+x = -1.5
+
+[State 6181, VelSet05]
+type = VelSet
+trigger1 = Time = [141,200]
+x = -2.0
+
+[State 6181, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 200
+
+;[State 6181, End]
+;type = ChangeState
+;trigger1 = animtime = 1
+;value = 6999
+;ctrl = 1
+;---------------------------------------------------------------------------
+;Intro(Toad's Broli)
+[Statedef 6182]
+type    = S
+movetype= A
+physics = S
+anim = 6182
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6182, VelSet01]
+type = VelSet
+trigger1 = Time = [286,325]
+x = -0.4
+
+[State 6182, VelSet02]
+type = VelSet
+trigger1 = Time = [326,331]
+x = -0.2
+
+[State 6182, VelSet03]
+type = VelSet
+trigger1 = Time = [332,340]
+x = -0.5
+
+[State 6182, VelSet04]
+type = VelSet
+trigger1 = Time = [341,376]
+x = -2.5
+
+[State 6182, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 377
+
+;---------------------------------------------------------------------------
+;Intro(Flowa's/Necro's Broli)
+[Statedef 6183]
+type    = S
+movetype= A
+physics = S
+anim = 6183
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6183, VelSet01]
+type = VelSet
+trigger1 = Time = [422,460]
+x = -0.4
+
+[State 6183, VelSet02]
+type = VelSet
+trigger1 = Time = [461,467]
+x = -0.2
+
+[State 6183, VelSet03]
+type = VelSet
+trigger1 = Time = [468,476]
+x = -0.5
+
+[State 6183, VelSet04]
+type = VelSet
+trigger1 = Time = [477,512]
+x = -2.5
+
+[State 6183, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 513
+;---------------------------------------------------------------------------
+;Win(Cheer)
+[Statedef 6190]
+type    = S
+movetype= A
+physics = S
+anim = 6190
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6190, End]
+type = ChangeState
+trigger1 = animtime = 1
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+;Win(Huggles-Fly In)
+[Statedef 6191]
+type    = S
+movetype= A
+physics = S
+anim = 6191
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6191, VelSet01]
+type = VelSet
+trigger1 = Time >= 0
+x = 6
+
+[State 6191, End]
+type = ChangeState
+trigger1 = time = 60
+value = 6192
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Win(Huggles-Fly In)
+[Statedef 6192]
+type    = S
+movetype= A
+physics = S
+anim = 6192
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 6192, VelSet01]
+type = VelSet
+trigger1 = Time = 0
+x = 0
+;---------------------------------------------------------------------------
+;Win(Yamcha Tired-Fly In/Concerned)
+[Statedef 6193]
+type    = S
+movetype= A
+physics = S
+anim = 6193
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6193, VelSet01]
+type = VelSet
+trigger1 = Time = [0, 55]
+x = 5
+
+[State 6193, End]
+type = ChangeState
+trigger1 = time = 55
+value = 6194
+ctrl = 1
+;---------------------------------------------------------------------------
+;Win(Yamcha Tired-Fly In/Concerned)
+[Statedef 6194]
+type    = S
+movetype= A
+physics = S
+anim = 6194
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6194, VelSet01]
+type = VelSet
+trigger1 = Time = [0, 5]
+x = 4
+
+[State 6194, VelSet02]
+type = VelSet
+trigger1 = Time = [6, 10]
+x = 3
+
+[State 6194, VelSet03]
+type = VelSet
+trigger1 = Time = [11, 15]
+x = 2
+
+[State 6194, VelSet04]
+type = VelSet
+trigger1 = Time = [16, 20]
+x = 1
+
+[State 6194, VelSet05]
+type = VelSet
+trigger1 = Time >= 21
+x = 0
+;---------------------------------------------------------------------------
+;DestroySelf
+[Statedef 6999]
+type    = S
+movetype= A
+physics = S
+anim = 9999
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+
+[State 6999, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 0

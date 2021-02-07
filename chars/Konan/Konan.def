@@ -1,0 +1,21 @@
+[Info]
+name="Konan "
+displayname="Konan"
+versiondate=17/05/2008
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=1,2
+
+[Files]
+sprite=konan.sff
+sound=konan.snd
+anim=konan.air
+cmd=konan.cmd
+cns=konan.cns
+st=konan.cns
+stcommon=common1.cns
+pal1=kon.act
+pal2=kon.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,76 @@
+=================================GOKU SSJ3 Beta 0.9 BY GANGSTI===================================
+
+
+========================================= Movements =============================================
+
+
+=Basic Moves=
+
+a - punch 1
+b - punch 2
+c - fire ball's
+x - kick 1
+y - kick 2
+z - teleport
+s - Instant Transmission
+
+
+=Others=
+
+D,F,a
+D,F,y
+F,F+x Only Run
+D,F,x Only Air
+D,F,y Only Air
+
+
+=Basic Combos=
+
+a,a,a
+b,b,b
+x,x,x
+y,y,y
+
+or...
+a,b,x,y,b,b,a,x,x... etc =]
+
+
+
+=Air Combos=
+
+D,B,a
+D,B,b only air
+D,B,x
+D,B,y only air
+
+or
+
+/D,B,a/D,B,x/D,B,y/D,B,b/ etc...
+
+
+
+=Specjal Moves=
+
+B,F,a - Taiyoken
+B,f,b - Kienzan
+B,f,x - Ki Punch
+D,B,F,a - Ki wind
+
+
+=Hyper Moves=
+
+D,B,F,b - Ki Beam.
+D,B,F,c - Stand Kameha LV 1,2,3 when you will holding "c" kameha goes to lv 2,3.
+D,B,F,c - Air Kameha LV 1,2,3   /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+D,F,D,B,c - Genki Dama, Only when you have life fewer than 600 and max energy,
+when you will holding "c" Goku trans to SSJ... :P
+
+
+
+
+
+
+
+
+
+

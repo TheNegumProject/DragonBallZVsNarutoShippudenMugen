@@ -1,0 +1,185 @@
+;Extra special thanks to the creator of the Legends codes from Mystic-Gohan BYR2 base for the reference(JrSSj, I believe)...
+;-=Normal Yamcha Face Variable=-
+;Face Left
+[State -2, Left] 
+type = VarSet
+triggerall = Var(10) != 2
+trigger1 = Facing = 1
+v = 10
+value = 1
+
+;Face Right
+[State -2, Right] 
+type = VarSet
+triggerall = Var(10) != 1
+trigger1 = Facing = -1
+v = 10
+value = 2
+
+;---------------------------------------------------------
+;Faces- Spikey Hair- Yamcha
+;---------------------------------------------------------
+-=Sexified by Strife...=-
+
+;Normal Left
+[State -2 , Normal.Face]
+type = Explod
+triggerall = Var(10) = 1
+trigger1 = MoveType != A && MoveType != H && MoveType = I && NumExplod(20000) = 0 && StateNo != 1701 
+anim = 20000
+id = 20000
+postype = left
+pos = 0,240
+ownpal = 1
+ontop = 1
+bindtime = -1
+removetime = -1
+
+[State -2 , Remove]
+type = RemoveExplod
+triggerall = NumExplod(20000) != 0 && MoveType != I || StateNo = 1701 
+trigger1 = MoveType = A || MoveType = H || StateNo = 1701 
+Id = 20000
+
+;Normal Right
+[State -2 , Normal.Face]
+type = Explod
+triggerall = Var(10) = 2
+trigger1 = MoveType != A && MoveType != H && MoveType = I && NumExplod(20010) = 0 && StateNo != 1701 
+anim = 20010
+id = 20010
+postype = right
+pos = 0,240
+ownpal = 1
+ontop = 1
+bindtime = -1
+removetime = -1
+
+[State -2 , Remove]
+type = RemoveExplod
+triggerall = NumExplod(20010) != 0  && MoveType != I || StateNo = 1701 
+trigger1 = MoveType = A || MoveType = H || StateNo = 1701 
+Id = 20010
+
+;Attack Left
+[State -2 , Attack.Face]
+type = Explod
+triggerall = Var(10) = 1 
+trigger1 = MoveType != I && MoveType != H && MoveType = A && NumExplod(20001) = 0 
+anim = 20001
+id = 20001
+postype = left
+pos = 0,240
+ownpal = 1
+ontop = 1
+bindtime = -1
+removetime = -1
+
+[State -2 , Remove]
+type = RemoveExplod
+triggerall = NumExplod(20001) != 0 && MoveType != A
+trigger1 = MoveType = H || MoveType = I
+Id = 20001
+
+;Attack Right
+[State -2 , Face]
+type = Explod
+triggerall = Var(10) = 2
+trigger1 = MoveType != I && MoveType != H && MoveType = A && NumExplod(20011) = 0
+anim = 20011
+id = 20011
+postype = right
+pos = 0,240
+ownpal = 1
+ontop = 1
+bindtime = -1
+removetime = -1
+
+[State -2 , Remove]
+type = RemoveExplod
+triggerall = NumExplod(20011) != 0 && MoveType != A
+trigger1 = MoveType = H || MoveType = I
+Id = 20011
+
+;GetHit Left
+[State -2 , Hit.Face]
+type = Explod
+triggerall = Var(10) = 1
+trigger1 = MoveType != A && MoveType != I && MoveType = H && NumExplod(20002) = 0 
+anim = 20002
+id = 20002
+postype = left
+pos = 0,240
+ownpal = 1
+ontop = 1
+bindtime = -1
+removetime = -1
+
+[State -2 , Remove]
+type = RemoveExplod
+triggerall = NumExplod(20002) != 0 && MoveType != H
+trigger1 = MoveType = A || MoveType = I
+Id = 20002
+
+;GetHit Right
+[State -2 , Hit.Face]
+type = Explod
+triggerall = Var(10) = 2
+trigger1 = MoveType != A && MoveType != I && MoveType = H && NumExplod(20012) = 0 
+anim = 20012
+id = 20012
+postype = right
+pos = 0,240
+ownpal = 1
+ontop = 1
+bindtime = -1
+removetime = -1
+
+[State -2 , Remove]
+type = RemoveExplod
+triggerall = NumExplod(20012) != 0 && MoveType != H
+trigger1 = MoveType = A || MoveType = I
+Id = 20012
+
+;---------------------------------------------
+;State Specific Faces...
+;-=ORGY!=-
+;Attack Left
+[State -2 , Attack.Face]
+type = Explod
+triggerall = Var(10) = 1 
+trigger1 = StateNo = 1701 && NumExplod(20001) = 0 
+anim = 20001
+id = 20001
+postype = left
+pos = 0,240
+ownpal = 1
+ontop = 1
+bindtime = -1
+removetime = -1
+
+[State -2 , Remove]
+type = RemoveExplod
+triggerall = NumExplod(20001) != 0 && StateNo != 1701 
+trigger1 = MoveType = H && StateNo != 1701 || MoveType = I && StateNo != 1701
+Id = 20001
+
+;Attack Right
+[State -2 , Face]
+type = Explod
+triggerall = Var(10) = 2
+trigger1 = StateNo = 1701 && NumExplod(20011) = 0
+anim = 20011
+id = 20011
+postype = right
+pos = 0,240
+ownpal = 1
+ontop = 1
+bindtime = -1
+removetime = -1
+
+[State -2 , Remove]
+type = RemoveExplod
+triggerall = NumExplod(20011) != 0 && StateNo != 1701 
+trigger1 = MoveType = H && StateNo != 1701 || MoveType = I && StateNo != 1701 
+Id = 20011

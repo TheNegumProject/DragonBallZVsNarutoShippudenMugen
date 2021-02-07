@@ -1,0 +1,19 @@
+[Info]
+name="8 Tails - Killerbee by MG"
+displayname="Killer Bee"
+versiondate=
+mugenversion=
+author="MGSSJ2"
+pal.defaults=1
+[Files]
+sprite=Killerbee.sff
+sound=Killerbee.snd
+anim=Killerbee.air
+cmd=Killerbee.cmd
+cns=Killerbee.cns
+st=Killerbee.cns
+stcommon=common1.cns
+pal1=Killerbee.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

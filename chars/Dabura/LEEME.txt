@@ -1,0 +1,92 @@
+DABURA BY DGZ
+1.0
+
+GENERACION MUGEN
+http://caballerosz.metropoliglobal.com/phpBB2/index.php
+
+SOLO EL MODO PASIVE:
+
+Programación      : Francynaldo, SaWWeN, Jabi, Mugenfan2005
+Sprites           : Nachonal 
+Dialogos          : Francynaldo. SaWWeN
+Fx                : Varios ^^
+Version           : 1.0
+
+
+////////////////////////////////////////////////////////////////////////////
+
+GOLPES NORMALES:
+
+A boton      : puño debil
+B boton      : patada media
+C boton      : bolas de fuego (c en el aire bolas de fuego aereas)
+X boton      : rodillazo
+Y boton      : codazo
+Z boton      : patada alta
+
+adelante      : caminar adelante
+atras         : caminar adelante
+arriba        : saltar
+abajo         : agacharse
+
+Start button  : jajaja :P
+
+
+////////////////////////////////////////////////////////////////////////////
+
+-------|Basicos|---------------------------------------------------
+
+Correr hacia adelante: adelante x2
+Correr hacia atras:    atras x2
+Cargar Ki:             a+x
+Vuelo:                 b+y 
+Teletransportacion:    c+z
+Super Salto:           D, U
+
+Correr + a, b, x o y = barridas
+
++ Manual combos basicos...
+
+
+-------|Especiales|------------------------------------------------
+
+
+Patadaerea (solo saltando) D, F, z
+
+Piso de Fuego              D, F, x
+
+Rafagas de viento          D, F, y
+
+Ataque de Rocas            D, B, x
+
+Codazo Rapido              D, B, y
+
+Soplo de Fuego             D, B, a
+
+Lanza                      D, B, b
+
+Escupitajo                 D, F, a
+
+Tele+espadazo              D, F, b
+
+
+-------|Supers|------------------------------------------------
+
+INfierno                   DB, F, b     (SI QUEDA ESTE SUPER SE VERA)
+
+
+---------------------------------------------------------------
+
+
+Gracias Especiales:
+
+Jabi: Por hacerme caso(yo nachonal), y empezar ha programar este char.
+Next2: Por unos fx, seguro que nunca verás este char xD
+Machacador3: Por unos sprites de espada.
+.::UG::. Por hacer unos sprites y Fxs.
+Nadimix: Por hacer la intro y unos sprites.
+Vieja Del Agua: Por hacer unos sprites y testear.
+Bardock: Por la stand y ayudar en algunos bugs. siempre con dispocisión ;)
+SaWWeN: Por cooperar con algunos codecs y poner dialogos.
+Deathmask: Por testear.
+

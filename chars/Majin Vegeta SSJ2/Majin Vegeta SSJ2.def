@@ -1,0 +1,76 @@
+;==============
+;Sûpâ Saiya-jin 2 Bejiita
+;==============
+
+;------------------------------------------------------
+;Base:	Cyanide
+;Progging:	Sabre,Kratos,Neocide
+;Sprites:	Neocide
+;------------------------------------------------------
+
+
+;=============================================================
+
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name ="Supa Saiyajin Tsu Bejiita"        
+displayname ="Majin Vegeta SSJ2" 
+versiondate =01.18.2005   
+;mugenversion =11,01,2001   
+author ="TeamSpoon"         
+pal.defaults =1,2
+mugenversion=
+
+
+;---------------------
+;Character Files
+;---------------------
+
+;=====================
+[Files]
+;=====================
+
+;---------------------
+;Command Set
+;---------------------
+cmd		=Bejiita.cmd
+
+;---------------------
+;State Files
+;---------------------
+cns     	=Bejiita.cns
+st      	=Bejiita.cns
+
+stcommon 	=common1.cns
+
+;---------------------
+;Sprite/Sound
+;---------------------
+sprite  	=Bejiita.sff
+anim    	=Bejiita.air
+sound   	=Bejiita.snd
+pal1=1.act
+pal2=Movie.act
+st1=basic.cns
+st2=helpers.cns
+st3=specials.cns
+st4=gethits.cns
+st5=supers.cns
+
+
+;---------------------
+;Palletes
+;---------------------
+
+;Arcade mode
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
+
+;----------------------------------
+pierrothefast@hotmail.com
+;----------------------------------

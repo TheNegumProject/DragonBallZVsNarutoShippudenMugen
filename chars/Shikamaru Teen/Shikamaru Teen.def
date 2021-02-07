@@ -1,0 +1,21 @@
+[Info]
+name = "Shikamaru teen"
+displayname = "Shikamaru Teen"
+versiondate = 
+mugenversion = 
+author = "Gabrieldra6"
+pal.defaults = 1,2
+
+[Files]
+sprite = Shika.sff
+anim = Shika.air
+sound = Shika.snd
+cmd = Shika.cmd
+cns = Shika.cns
+stcommon = common1.cns
+st = Shika.cns
+pal1 = Shika.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

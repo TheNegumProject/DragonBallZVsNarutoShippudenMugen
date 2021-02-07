@@ -1,0 +1,38 @@
+;---------------------------------------------------------------------;
+;$$$$$$$$$$$$$$$$$$$$$$ (=CSMUGEN.UCOZ.COM=) $$$$$$$$$$$$$$$$$$$$$$$$$;
+;---------------------------------------------------------------------;
+;---------------------------------------------------------------------;
+;$$$$$$$$$$$$$$$$ (=Created in Fighter Factory Ultimate=) $$$$$$$$$$$$;
+;---------------------------------------------------------------------;
+;---------------------------------------------------------------------;
+;$$$$$$$$$$$$$$$$$$$$$$ (=CSMUGEN.UCOZ.COM=) $$$$$$$$$$$$$$$$$$$$$$$$$;
+;---------------------------------------------------------------------;
+
+[Info]
+name="Naruto-Rikudo"
+displayname="Naruto Biju"
+versiondate=10/17/11
+mugenversion=
+author="CLIFF-A"
+pal.defaults=1,2,3,4,5
+
+[Files]
+cmd=CLIFF-Naruto-Rikudo.cmd
+cns=CLIFF-Naruto-Rikudo.cns
+st=CLIFF-Naruto-Rikudo.cns
+stcommon=CLIFF-CNS.cns
+sprite=CLIFF-Naruto-Rikudo.sff
+anim=CLIFF-Naruto-Rikudo.air  
+sound=CLIFF-Naruto-Rikudo.snd
+pal1=CLIFF-Naruto-Rikudo.act
+st1=P2-STATENO.cns
+st2=Rikudo-Mode.cns
+st3=Bunchin.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+
+;---------------------------------------------------------------------;
+;$$$$$$$$$$$$$$$$$$$$$$ (=CSMUGEN.UCOZ.COM=) $$$$$$$$$$$$$$$$$$$$$$$$$;
+;---------------------------------------------------------------------;

@@ -1,0 +1,31 @@
+;...........................................................................................
+[Info]
+name ="great saiyaman by Franciynaldo"
+displayname ="Saiyaman"
+versiondate =25,12,2007
+mugenversion =06,14,2003
+author =""D-GENERACIONZ - Team""
+pal.defaults =1,2
+
+; Files for the player
+[Files]
+cmd     =saiyaman.cmd
+cns     =saiyaman.cns
+st      =saiyaman.cns
+stcommon =common1.cns
+sprite  =saiyaman.sff
+anim    =saiyaman.air
+sound   =saiyaman.snd
+pal1=1.act
+pal2=4.act
+
+; Arcade mode
+[Arcade]
+intro.storyboard =
+ending.storyboard=final/final.def
+;...........................................................................................
+
+                                ; Feito no Brasil           
+;                              Autor: equipe D-GENERACIONZ - Team
+
+;[[[[[[[[[[[[[[[[[[[[[[E-mail& msn: superkakarotto@hotmail.com]]]]]]]]]]]]]]]]]]]]]]]]]]]]]

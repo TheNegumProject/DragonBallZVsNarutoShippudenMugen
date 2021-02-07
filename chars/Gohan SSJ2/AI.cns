@@ -1,0 +1,382 @@
+[statedef -3]
+
+[State -3, Null]
+type = Null
+trigger1 = (RoundState = 2) && ((Command = "AI2") || (Command = "AI3") || (Command = "AI4") || (Command = "AI5"))
+trigger1 = (Var(59) := 1)
+trigger2 = (RoundState = 2) && ((Command = "AI6") || (Command = "AI7") || (Command = "AI8") || (Command = "AI9") || (Command = "AI10"))
+trigger2 = (Var(59) := 1)
+trigger3 = ((!Time) * (TicksPerSecond)) && (IsHomeTeam) && (NumEnemy = 1) && (!NumPartner) && (TeamSide = 2) && (Alive)
+trigger3 = (Var(59) := 1)
+trigger4 = (RoundState = 2) && ((Command = "AI11") || (Command = "AI12") || (Command = "AI13") || (Command = "AI14"))
+trigger4 = (Var(59) := 1)
+
+
+
+[statedef -2]
+
+;Combo delimiter for light basics
+
+[state -2]
+type = varset
+trigger1 = movetype != A && var(50) > 0
+v = 50
+value = 0
+
+[state -2, AI is on]
+type = displaytoclipboard
+trigger1 = 1
+params = var(59)
+text = "AI is %d"
+
+;debugging set var(30) when on ground
+[state -2]
+type = varset
+trigger1 = pos Y= 0
+v = 30
+value = 0
+
+
+[State -2, StopAI]
+type = VarSet
+triggerall = var(58) > 0 && !IsHelper
+trigger1 = RoundState != 2
+trigger2 = !Alive
+var(58) = -2
+IgnoreHitPause = 1
+
+
+
+
+[State -2:      StopSND] ;Stop Powerup Sound
+type                    = StopSnd
+trigger1                = (StateNo != 805)
+channel		            = 19
+
+[State -2:      StopSND] ;Stop Rumble Sound
+type                    = StopSnd
+trigger1                = (StateNo != 805)
+channel		            = 20
+
+[State -2:      StopSND] ;Stop Wind Sound
+type                    = StopSnd
+trigger1                = (StateNo != 805)
+channel		            = 21
+
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 =  stateno=!192
+channel = 7
+;ignorehitpause =
+;persistent =
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 =  stateno=!193
+channel = 6
+;ignorehitpause =
+;persistent =
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = Roundstate = 2
+channel = 1
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = Roundstate = 2
+channel = 2
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = Roundstate = 2
+channel = 3
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 =  Roundstate = 2
+channel = 4
+
+
+[state -2]
+type = varadd
+trigger1 = var(18)=1
+v = 19
+value = 1
+
+[state -2]
+type = varset
+trigger1 = var(19)=10
+v = 18
+value	= 0
+
+[state -2]
+type = varset
+trigger1 = var(18)=0
+v = 19
+value = 0
+
+
+;debugging set var(30) when on ground
+[state -2]
+type = varset
+trigger1 = pos Y= 0
+v = 30
+value = 0
+
+;Combo delimiter for light basics
+[state -2]
+type = varset
+trigger1 = movetype != A && var(50) > 0
+v = 50
+value = 0
+
+;stop aura and noise from punt kick blast
+[state -2]
+type	= removeexplod
+trigger1 = (stateno != 1611)
+id			= 6160
+
+[state -2]
+type = stopSND
+trigger1 = (stateno != 1611)
+channel	= 8
+
+
+[State 0, ResetTC]
+type = VarSet
+triggerall = Var(3) != 0 && stateno != [2100,2104]
+trigger1 = !NumTarget
+trigger2 = NumTarget
+trigger2 = Target, movetype != H
+v = 3
+value = 0
+
+
+;Combo delimiter for light basics
+[state -2]
+type = varset
+trigger1 = movetype != A && var(50) > 0
+v = 50
+value = 0
+
+
+;==================================================================
+;Ai after this
+;==================================================================
+
+;U. Sayajin
+[state -2]
+type =  changestate
+triggerall = var(59) = 1 && roundstate = 2 && power >= 2000 && pos Y>= 0
+trigger1 = prevstateno != 2300
+trigger1 = p2dist X > 50
+value = 2600
+
+
+
+;use Super khh
+[state -2,1]
+type = changestate
+triggerall = var(59) = 1 && roundstate = 2 && power >= 1000
+trigger1 = p2dist X > 120 && statetype = S && random > 800 && ctrl
+trigger2 = stateno = 300 && movecontact && hitcount >= 2
+trigger3 = stateno = 200 && movecontact && hitcount >= 2
+trigger4 = stateno = 220 && movecontact && hitcount >= 2
+trigger5 = stateno = 320 && movecontact && hitcount >= 2
+trigger6 = stateno = 210 && movecontact && (prevstateno != 230 && prevstateno != 210) && hitcount >= 2
+trigger7 = stateno = 230 && movecontact && (prevstateno != 230 && prevstateno != 210) && hitcount >= 2
+trigger8 = stateno = 213 && movecontact && animelem = 2
+trigger9 = stateno = 235 && movecontact && animelem = 2
+trigger10 = stateno = 265 && movecontact && animelem = 2
+trigger11 = stateno = 275 && movecontact && animelem = 2
+value = 2300
+
+
+;Masenko
+[state -2,2]
+type = changestate
+triggerall = var(59) = 1 && roundstate = 2 && power >= 1000 && statetype = S
+trigger1 = p2dist X < 90 && p2dist Y>= -60 && ctrl && random = [500,900]
+trigger1 = stateno != [2600,2609]
+trigger2 = stateno = 300 && movecontact && hitcount >= 3
+trigger3 = stateno = 320 && movecontact && hitcount >= 3
+trigger4 = stateno = 200 && movecontact && hitcount >= 3
+trigger5 = stateno = 210 && movecontact && hitcount >= 3
+trigger6 = stateno = 220 && movecontact && hitcount >= 3
+trigger7 = stateno = 230 && movecontact && hitcount >= 3
+trigger8 = stateno = 265 && movecontact && hitcount >= 3
+trigger9 = stateno = 275 && movecontact && hitcount >= 3
+trigger10 = stateno = 2300 && movecontact && hitcount >= 5  && random = [400,600]
+trigger11 = command = "AI1"
+trigger12 = command = "AI2"
+trigger13 = command = "AI3"
+trigger14 = command = "AI4"
+trigger15 = command = "AI5"
+value = 2400
+
+;pin missle
+[state -2,3]
+type = changestate
+triggerall = var(59) = 1 && roundstate = 2 && pos Y= 0
+trigger1 = statetype = S && ctrl && p2dist X< 120 && p2dist X> 20 && random = [400,550]
+trigger2 = stateno = 300 && movecontact && hitcount >= 2
+trigger3 = stateno = 200 && movecontact && hitcount >= 2
+trigger4 = stateno = 220 && movecontact && hitcount >= 2
+trigger5 = stateno = 320 && movecontact && hitcount >= 2
+trigger6 = stateno = 210 && movecontact && (prevstateno != 230 && prevstateno != 210) && hitcount >= 2
+trigger7 = stateno = 230 && movecontact && (prevstateno != 230 && prevstateno != 210) && hitcount >= 2
+trigger8 = stateno = 213 && movecontact && animelem = 2
+trigger9 = stateno = 235 && movecontact && animelem = 2
+trigger10 = stateno = 265 && movecontact && animelem = 2
+trigger11 = stateno = 275 && movecontact && animelem = 2
+value = ifelse(random < 500, 261,271)
+
+;flying bat
+[state -2,4]
+type = changestate
+triggerall = var(59) = 1 && roundstate = 2 && pos Y= 0
+trigger1 = ctrl && random > 500 && p2dist X< 20 && p2dist Y>= -40
+trigger2 = stateno = 300 && movecontact && hitcount >= 2
+trigger3 = stateno = 200 && movecontact && hitcount >= 2
+trigger4 = stateno = 220 && movecontact && hitcount >= 2
+trigger5 = stateno = 320 && movecontact && hitcount >= 2
+trigger6 = stateno = 210 && movecontact && (prevstateno != 230 && prevstateno != 210) && hitcount >= 2
+trigger7 = stateno = 230 && movecontact && (prevstateno != 230 && prevstateno != 210) && hitcount >= 2
+trigger8 = stateno = 213 && movecontact && animelem = 2
+trigger9 = stateno = 235 && movecontact && animelem = 2
+trigger10 = stateno = 265 && movecontact && animelem = 2
+trigger11 = stateno = 275 && movecontact && animelem = 2
+trigger11 = command = "AI1"
+trigger12 = command = "AI2"
+trigger13 = command = "AI3"
+trigger14 = command = "AI4"
+trigger15 = command = "AI5"
+value = ifelse(random < 300, 7500,7501)
+
+
+
+
+
+[state -2,8]
+type = changestate
+triggerall = var(59) = 1 && roundstate = 2
+trigger1 = ctrl && random > 500 && p2dist X< 20 && p2dist Y>= -40
+trigger2 = command = "AI1"
+trigger3 = command = "AI2"
+trigger4 = command = "AI3"
+trigger5 = command = "AI4"
+trigger6 = command = "AI5"
+value =  468
+
+
+;start using basics
+[State -2,light punch]
+type = ChangeState
+triggerall = var(59) = 1 && roundstate = 2
+trigger1 = ctrl && statetype = S && p2dist X< 80 && random = [0,100]
+trigger2 = stateno = 200 && movecontact && var(50) = 0 && random = [0,100]
+trigger3 = stateno = 220 && movecontact && var(50) = 0 && random = [0,100]
+trigger4 = stateno = 300 && movecontact && random = [0,100]
+trigger5 = stateno = 320 && movecontact && random = [0,100]
+value = ifelse(random < 500,200,213)
+
+[State -2,Med\hard punch]
+type = ChangeState
+triggerall = var(59) = 1 && roundstate = 2 && statetype = S
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 220 && movecontact && random = [200,300]
+trigger4 = stateno = 300 && movecontact && random = [200,300]
+trigger5 = stateno = 320 && movecontact && random = [200,300]
+trigger6 = stateno = 230 && movecontact && (prevstateno != 230 && prevstateno != 210) && random = [200,300]
+value = ifelse(random < 200, 210,214)
+
+[State -2,hard kicks]
+type = ChangeState
+triggerall = var(59) = 1 && roundstate = 2 && statetype = S
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 220 && movecontact && random = [200,300]
+trigger4 = stateno = 300 && movecontact && random = [200,300]
+trigger5 = stateno = 320 && movecontact && random = [200,300]
+trigger6 = stateno = 230 && movecontact && (prevstateno != 230 && prevstateno != 210) && random = [200,300]
+value = ifelse(random < 200, 230,235)
+
+[State -2,light kick\uppercut]
+type = ChangeState
+triggerall = var(59) = 1 && roundstate = 2 && statetype = S
+trigger1 = ctrl && statetype = S && p2dist X< 60 && random = [200,300]
+trigger2 = stateno = 200 && movecontact && random = [200,300]
+trigger3 = stateno = 220 && movecontact && random = [200,300]
+trigger4 = stateno = 300 && movecontact && random = [200,300]
+trigger5 = stateno = 320 && movecontact && random = [200,300]
+trigger6 = stateno = 230 && movecontact && (prevstateno != 230 && prevstateno != 210) && random = [200,300]
+value = ifelse(random < 200, 220,310)
+
+[State -2, SWP]
+type = ChangeState
+triggerall = var(59) = 1 && roundstate = 2 && statetype = A && stateno != 1900
+trigger1 = ctrl && p2dist X< 60 && p2dist Y<= 30 && p2dist Y> -30 && random = [600,800]
+trigger2 = stateno = 420 && movecontact
+trigger3 = stateno = 430 && movecontact
+value = 400
+
+[State -2, SWP]
+type = ChangeState
+triggerall = var(59) = 1 && roundstate = 2 && statetype = A && stateno != 1900
+trigger1 = ctrl && p2dist X< 60 && p2dist Y<= 30 && p2dist Y> -30 && random = [600,800]
+trigger2 = stateno = 410 && movecontact
+trigger3 = stateno = 400 && movecontact
+value = 430
+
+[State -2, SWP]
+type = ChangeState
+triggerall = var(59) = 1 && roundstate = 2 && statetype = A && stateno != 1900
+trigger1 = ctrl && p2dist X< 60 && p2dist Y<= 30 && p2dist Y> -30 && random = [600,800]
+trigger2 = stateno = 430 && movecontact
+trigger3 = stateno = 400 && movecontact
+value = 410
+
+
+
+[state -2,13]
+type = changestate
+triggerall = var(59) = 1 && roundstate = 2 && pos Y= 0
+trigger1 = p2dist X< 5 && ctrl && random = [400,800]
+trigger1 = random = [100,700]
+value =  749
+
+
+;leave charge
+[state -2,11]
+type = changestate
+triggerall = var(59) = 1
+trigger1 = stateno = 800&& p2dist X< 50 && p2stateno != 5120
+trigger1 = random = [200,900]
+value = 805
+
+
+;guarding, stand
+[state -2]
+type = changestate
+triggerall = var(59) = 1 && (inguarddist) && statetype = S && ctrl
+trigger1 = enemy, statetype = S || enemy, statetype = A
+trigger1 = p2movetype = A && random > 400
+value = 130
+
+[state -2]
+type = changestate
+triggerall = var(59) = 1 && (inguarddist) && (statetype = S || statetype = C)
+trigger1 = enemy, statetype = C && ctrl
+trigger1 = p2movetype = A && random > 300
+value = 131
+
+[state -2]
+type = changestate
+triggerall = var(59) = 1 && (inguarddist) && statetype = A && ctrl
+trigger1 = enemy, statetype = A || enemy, statetype = S
+trigger1 = p2movetype = A && random > 300
+value = 132
+

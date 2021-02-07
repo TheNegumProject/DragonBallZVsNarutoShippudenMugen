@@ -1,0 +1,7099 @@
+[Data]
+life = 1000			;Amount of life to start with
+power = 3000		;Amount of maximum power
+attack = 100		;attack power (more is stronger)
+defence = 100		;defensive power (more is stronger)
+fall.defence_up = 50	;Percentage to increase defense everytime player is knocked down
+liedown.time = 60		;Time which player lies down for, before getting up
+airjuggle = 20		;Number of points for juggling
+sparkno = 2			;Default hit spark number for HitDefs
+guard.sparkno = 40	;Default guard spark number
+KO.echo = 0			;1 to enable echo on KO
+volume = 0			;Volume offset (negative for softer)
+IntPersistIndex = 60	;Variables with this index and above will not have their values
+FloatPersistIndex = 40  ;reset to 0 between rounds or matches. There are 60 int variables,
+  				;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+
+[Size]
+xscale = 1			;Horizontal scaling factor.
+yscale = 1			;Vertical scaling factor.
+ground.back = 15		;Player width (back, ground)
+ground.front = 16		;Player width (front, ground)
+air.back = 12		;Player width (back, air)
+air.front = 12		;Player width (front, air)
+height = 60			;Height of player (for opponent to jump over)
+attack.dist = 160		;Default attack distance
+proj.attack.dist = 90	;Default attack distance for projectiles
+proj.doscale = 0		;Set to 1 to scale projectiles too
+head.pos = -5, -90	;Approximate position of head
+mid.pos = -5, -60		;Approximate position of midsection
+shadowoffset = 0		;Number of pixels to vertically offset the shadow
+draw.offset = 0,0		;Player drawing offset in pixels (x, y)
+
+[Velocity]
+walk.fwd  = 2.4		;Walk forward
+walk.back = -2.4		;Walk backward
+run.fwd  = 7, 0		;Run forward (x, y)
+run.back = -7,-3.8	;Hop backward (x, y)
+jump.neu = 0,-10		;Neutral jumping velocity (x, y)
+jump.back = -3.5		;Jump back Speed (x, y)
+jump.fwd = 3.5		;Jump forward Speed (x, y)
+runjump.back = -8,-8.1;Running jump speeds (opt)
+runjump.fwd = 8,-8.1	;.
+airjump.neu = 0,-8.1	;.
+airjump.back = -2.55	;Air jump speeds (opt)
+airjump.fwd = 2.5		;.
+
+[Movement]
+airjump.num = 1		;Number of air jumps allowed (opt)
+airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
+yaccel = .44		;Vertical acceleration
+stand.friction = .85	;Friction coefficient when standing
+crouch.friction = .82	;Friction coefficient when crouching  [Statedef 100]
+type = S
+physics = S
+anim = 0
+
+; CNS difficulty: basic
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = S0, 53
+volume = 1000
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+;-------------------------------------------------------------------------------
+[Statedef 180]
+type = S
+
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 1
+value = 180
+
+[StateDef 443]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 443
+poweradd = 0
+sprpriority = 2
+
+[State 443, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S, NA
+damage = 130
+animtype = hard
+hitflag = MAF
+priority = 3, Hit
+pausetime = 20, 30
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+p2stateno = 6133
+
+[State 0, TargetVelSet]
+type = TargetVelSet
+trigger1 = animelem = 3
+x = -12
+y = 0
+ID = -1
+;ignorehitpause =
+;persistent =
+
+[State 443, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 1147]
+type = A
+movetype= A
+physics = A
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1147
+poweradd = 0
+sprpriority = 2
+
+[State 1146, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 3
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 15
+sparkno = s1844
+sparkxy = -15,-40
+guardsound = 6, 0
+fall = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = movehit = 1
+anim = 3100
+ID = 3100
+pos = 0,-40
+postype =  p2  ;p2,front,back,left,right
+vel = 0,0
+accel = 0,0
+random = 0,0
+scale = 1,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S72958,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S1853,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = movehit = 1
+time = 60
+freq = 30
+ampl = -13
+phase = 900
+;ignorehitpause =
+;persistent =
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit = 1
+postype = back
+time = 10
+id = -1
+pos = 150,170
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = movecontact = 1
+trigger1 = timemod = 10,0
+anim = 4444
+ID = 4444
+pos = 30,-40
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.6,0.6
+sprpriority = 0
+ontop = 2
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+
+[State 1147, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 1146]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1146
+poweradd = 0
+sprpriority = 2
+
+[State 1146, 1]
+type = HitDef
+trigger1 = timemod = 2,0
+attr = S, NA
+damage = 3
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 28
+sparkno = 11
+sparkxy = -15,-30
+guardsound = 6, 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S8326,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S626,1
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = movecontact = 1
+anim = 4443
+ID = 4444
+pos = 30,-40
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.6,0.6
+sprpriority = 0
+ontop = 2
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+
+[State 1146, 2]
+type = PosAdd
+trigger1 = animelem = 2
+x = (P2BodyDist X + 60)
+
+[State 505, 3]
+type = Turn
+trigger1 = time = 7
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit = 1
+time = 30
+id = -1
+postype = p1
+pos = 30,0
+;ignorehitpause =
+;persistent =
+
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = 1
+trigger1 = time>30
+statetype = A       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = A         ;A,C,S,N
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = movehit = 1
+x = 0
+y = -0.78
+;ignorehitpause =
+;persistent =
+
+
+[State 1146, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1148
+ctrl = 1
+
+[StateDef 1148]
+type = A
+movetype= A
+physics = A
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1148
+poweradd = 0
+sprpriority = 2
+
+[State 1146, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 144]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 144
+poweradd = 0
+sprpriority = 2
+
+[State 144, 1]
+type = HitDef
+trigger1 = AnimElem = 7
+trigger2 = AnimElem = 5
+attr = S, NA
+damage = 40
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 25
+sparkno = s1844
+sparkxy = -15,-40
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S626,1
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = movecontact = 1
+anim = 4444
+ID = 4444
+pos = 30,-40
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.6,0.6
+sprpriority = 0
+ontop = 2
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S8326,0
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = time = 11
+time = 10
+id = -1
+postype = p2
+pos = 20,0
+;ignorehitpause =
+;persistent =
+
+
+[State 555, 2]
+type = PosAdd
+trigger1 = animelem = 2
+x = (P2BodyDist X + 50)
+
+[State 505, 3]
+type = Turn
+trigger1 = time = 7
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem = 4
+x = 10
+y = 0
+;ignorehitpause =
+;persistent =
+
+
+[State 144, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+[StateDef 145]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 6,0
+ctrl = 0
+anim = 145
+poweradd = 40
+sprpriority = 2
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 1876
+ID = 18535
+pos = -50,9
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 145, 1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 100
+animtype = heavy
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 26
+sparkno = s4443
+sparkxy = -25,-45
+guardsound = 6, 0
+hitsound = S5436,0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S40,0
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 145, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+[Statedef 850]
+type = S
+movetype = I
+physics = S
+anim = 850
+velset = 0,0
+sprpriority = 1
+poweradd = 0
+ctrl = 0
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = timemod = 20,0
+anim = 854
+ID =  854
+pos = 0,6
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+pausemovetime = 0
+scale = 0.7,0.7
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = power > 6000
+trigger1 = timemod = 70,0
+value = S8005,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S556,0
+volume = 2000
+channel = 23
+freqmul = .95
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 40,0
+value = S6998,0
+volume = 200
+channel = 0
+loop = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = power > 6000
+trigger1 = time = 1
+trigger2 = power = 6000
+value = S8005,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 30,0
+trigger1 = power > 6000
+value = S2964,0
+volume = 200
+channel = 0
+loop = 0
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = command != "hold_s"
+channel = 0
+
+
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = 1
+value = 20
+
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = timemod = 7,0
+value = 1
+kill = 1
+absolute = 0
+;ignorehitpause =
+;persistent =
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = power > 6000
+trigger1 = timemod = 100,0
+time = 100
+freq = 60
+ampl = -2
+phase = 90
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = timemod = 30, 0 ;the katon anomation will start on anomation 5
+helpertype = normal
+name ="explode"
+ID = 2010
+stateno = 2010  ;stateno need to crate a new state
+pos = 0,-40 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = power = 10000
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+value2 = S,NA
+time = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, EnvColor]
+type = EnvColor
+trigger1 = power > 6000
+trigger1 = time = 1
+trigger2 = power > 6000
+trigger2 = power < 6050
+value = 255,255,255
+time = 12
+under = 0
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = timemod = 54, 0 ;the katon anomation will start on anomation 5
+trigger1 = power > 6000
+helpertype = normal
+name ="thunder"
+ID = 856
+stateno = 856  ;stateno need to crate a new state
+size.xscale = 0.5
+size.yscale = 0.7
+pos = -58,-5 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+ontop = 1
+;size.xscale (float)
+;size.yscale (float)
+
+[State 0, Helper]
+type = Helper
+trigger1 = timemod = 50, 0 ;the katon anomation will start on anomation 5
+trigger1 = power > 6000
+helpertype = normal
+name ="thunder"
+ID = 856
+stateno = 856  ;stateno need to crate a new state
+size.xscale = 0.7
+size.yscale = 0.7
+pos = 10,10 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+ontop = 1
+;size.xscale (float)
+;size.yscale (float)
+
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command != "hold_s"
+value = 0
+ctrl = 1
+
+[StateDef 856]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 856
+poweradd = 0
+sprpriority = 2
+
+[State 2010, 1]
+type = HitDef
+trigger1 = timemod = 10,0
+attr = S, NA
+damage = 1
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[StateDef 2010]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 876
+poweradd = 0
+sprpriority = 2
+
+[State 2010, 1]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = S, NA
+damage = 10
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[Statedef 240]
+type = S
+movetype = A
+physics = S
+anim = 240
+velset = 6,0
+sprpriority = 1
+juggle = 3
+ctrl = 0
+
+[State Hit]
+type = HitDef
+trigger1 = animelem =2
+attr = S,NA
+damage = 40,20
+ground.type = High
+air.type = High
+hitsound = S6,2
+guardsound = F6,0
+guardflag = MA
+pausetime = 0,27
+ground.hittime = 10
+air.hittime = 10
+ground.velocity = 0,-2
+air.velocity = 0,-2
+sparkno = 0987090
+sparkxy = -15,-30
+fall = 0
+fall.recover = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = movehit = 1
+anim = 4441
+ID = 4441
+pos = 0,-40
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S7654,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S879789,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State Change]
+type = ChangeState
+trigger1 = command = "b"
+trigger1 = time > 6
+trigger2 = var(51) = 1
+trigger2 = time = 12
+value = 860
+ctrl = 0
+
+[State Change]
+type = ChangeState
+trigger1 = time > 6
+trigger1 = command = "a"
+value = 260
+ctrl = 0
+
+[State Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = IfElse(pos y < 0,50,0)
+ctrl = 1
+[statedef 300]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 300
+poweradd =20
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,5
+volume = 200
+channel = -1
+
+[State 1640, X]
+Type = VarSet
+Trigger1 = time = 0
+fvar(13) = (EnemyNear(0), Pos X - Pos X) * Facing ;Adjust the direction towards player facing
+
+[State 1640, Y]
+Type = VarSet
+trigger1 = time = 0
+fvar(14) = (EnemyNear(0), pos Y - Pos Y)
+
+[State 1640, Vector Length]
+Type = VarSet
+trigger1 = 1
+fvar(15) = Exp(0.5*ln((fvar(13) * fvar(13))+(fvar(14) * fvar(14))))
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=2;the katon anomation will start on anomation 5
+helpertype = normal
+name ="churiken"
+ID = 301
+velset = 0 , 0
+stateno = 301  ;stateno need to crate a new state
+pos = -6,-40 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 300, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[statedef 432]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 300
+poweradd =20
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,5
+volume = 200
+channel = -1
+
+[State 1640, X]
+Type = VarSet
+Trigger1 = time = 0
+fvar(13) = (EnemyNear(0), Pos X - Pos X) * Facing ;Adjust the direction towards player facing
+
+[State 1640, Y]
+Type = VarSet
+trigger1 = time = 0
+fvar(14) = (EnemyNear(0), pos Y - Pos Y)
+
+[State 1640, Vector Length]
+Type = VarSet
+trigger1 = 1
+fvar(15) = Exp(0.5*ln((fvar(13) * fvar(13))+(fvar(14) * fvar(14))))
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=2;the katon anomation will start on anomation 5
+helpertype = normal
+name ="churiken"
+ID = 434
+velset = 0 , 0
+stateno = 434  ;stateno need to crate a new state
+pos = -6,-40 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 432, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[statedef 433]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 300
+poweradd =20
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,5
+volume = 200
+channel = -1
+
+[State 1640, X]
+Type = VarSet
+Trigger1 = time = 0
+fvar(13) = (EnemyNear(0), Pos X - Pos X) * Facing ;Adjust the direction towards player facing
+
+[State 1640, Y]
+Type = VarSet
+trigger1 = time = 0
+fvar(14) = (EnemyNear(0), pos Y - Pos Y)
+
+[State 1640, Vector Length]
+Type = VarSet
+trigger1 = 1
+fvar(15) = Exp(0.5*ln((fvar(13) * fvar(13))+(fvar(14) * fvar(14))))
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=2;the katon anomation will start on anomation 5
+helpertype = normal
+name ="churiken"
+ID = 435
+velset = 0 , 0
+stateno = 435  ;stateno need to crate a new state
+pos = -6,-40 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 433, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[StateDef 555]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 555
+poweradd = -2000
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 5
+trigger2 = animelem = 7
+trigger3 = animelem = 9
+value = S18836,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=13;the katon anomation will start on anomation 5
+helpertype = normal
+name ="katon"
+ID = 556
+velset = 0 , 0
+stateno = 556  ;stateno need to crate a new state
+pos = 33,21 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[State 555, 2]
+type = PosAdd
+trigger1 = animelem = 2
+x = (P2BodyDist X - 90)
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S626,1
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = AnimElem = 1
+time = 20
+anim = 1
+sound = S10,0
+pos = 0,0
+move = 0
+movetime =0
+darken = 100
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 13
+value = S500,2
+volume = 200
+channel = -1
+
+
+
+[State 555, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 301]
+type = S
+movetype = A
+physics = S
+anim = 301
+sprpriority = 1
+ctrl = 0
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = animelem = 1;time to reaat the damge
+attr = S, NA
+damage = 40,20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = (parent, fvar(13)/parent, fvar(15)) * 9.0
+y = (parent, fVar(14)/parent, fvar(15)) * 9.0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = time*50
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = !time
+time = -1
+length = 10
+palcolor = 256
+palinvertall = 0
+palbright = 30,30,30
+palcontrast = 120,120,220
+palpostbright = 0,0,0
+paladd = 10,10,25
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add ;"none","add1","sub"
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S4537,6
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = moveguarded = 1
+value = S7647,0
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger2 = movehit = 1
+trigger1 = animtime=0
+
+
+[Statedef 556]
+type = S
+movetype = A
+physics = S
+anim = 556
+sprpriority = 1
+ctrl = 0
+
+[State 201, 1]
+type = HitDef
+trigger1 = timemod=1,0;time to reaat the damge
+attr = S, NA
+damage = 6
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 0
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+
+
+[Statedef 165]
+type = S
+movetype = A
+physics = S
+anim = 165
+sprpriority = 1
+ctrl = 0
+poweradd = -100
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=4;the katon anomation will start on anomation 5
+helpertype = normal
+name ="fuuton"
+ID = 166
+velset = 0 , 0
+stateno = 166  ;stateno need to crate a new state
+pos = 67,0 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 4
+value = S765765,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 40
+anim = 165
+sound = S10,0
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, HitFallSet]
+type = HitFallSet
+trigger1 = animelem = 4
+value = -1
+xvel = 10
+;yvel =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 166]
+type = S
+movetype = A
+physics = S
+anim = 166
+sprpriority = 1
+ctrl = 0
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = animelem = 1;time to reaat the damge
+attr = S, NA
+damage = 100,50
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -3
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.9
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+
+[State 0, TargetVelSet]
+type = TargetVelSet
+trigger1 = 1
+x = 0
+y = -10
+ID = -1
+;ignorehitpause =
+;persistent =
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = !time
+time = -1
+length = 10
+palcolor = 256
+palinvertall = 0
+palbright = 30,30,30
+palcontrast = 120,120,220
+palpostbright = 0,0,0
+paladd = 10,10,25
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add ;"none","add1","sub"
+;ignorehitpause =
+;persistent =
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = 1
+x = 1.2
+y = 0
+;ignorehitpause =
+;persistent =
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+
+
+
+[StateDef 840]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 5,0
+ctrl = 0
+anim = 840
+poweradd = -40
+sprpriority = 2
+
+[State 840, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S, NA
+damage = 30
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 31
+hitsound = S7654,0
+sparkno = s4441
+sparkxy = -25, -40
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+
+[State 840, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 860]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 860
+poweradd = 0
+sprpriority = 2
+
+[State 860, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 6
+attr = S, NA
+damage = 30
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 5, 20
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, Explod]
+type = Explod
+trigger1 = movehit = 1
+anim = 4444
+ID = 4444
+pos = -15,-40
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.4,0.4
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S5643,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 860, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+[StateDef 260]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 260
+poweradd = 30
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem= 2
+helpertype = normal
+name ="FAN2"
+ID = 261
+stateno = 261  ;stateno need to crate a new state
+pos = -33,12 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+[State 260, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+[Statedef 261]
+type = S
+movetype = A
+physics = S
+anim = 261
+sprpriority = 1
+ctrl = 0
+
+[State 201, 1]
+type = HitDef
+trigger1 = timemod = 8,0;time to reaat the damge
+attr = S, NA
+damage = 20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 5
+sparkno = -1
+sparkxy = 11, -12
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -6
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = movehit = 1
+anim = 4444
+ID = 4444
+pos = -15,-40
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.4,0.4
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = ANIMELEM = 2
+value = S0,3
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[Statedef 602]
+type    = A
+movetype= A
+physics = A
+juggle  = 2
+poweradd= -100
+ctrl = 0
+anim = 602
+sprpriority = 2
+
+[State 602,2]
+type = helper
+trigger1 = AnimElem = 1
+name = "katon air1"
+id = 603
+pos = 37,- 40
+postype = p1
+stateno = 603
+helpertype = normal
+ownpal = 0
+keyctrl = 0
+
+
+[State 602, 1]
+type = Velset
+trigger1 = AnimElem = 1
+y = -3
+
+[State 602, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 51
+ctrl = 1
+
+;Fireball air (The fireball)
+[Statedef 603]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 603
+sprpriority = 8
+
+[state 603, 1]
+type = playsnd
+trigger1 = animelem = 1
+value = 500,2
+volume = 200
+
+
+[State 603, 1]
+type = VelAdd
+Trigger1 = 1
+x = 3.3
+y = 3.7
+
+[State 603, 4]
+type = SprPriority
+trigger1 = 1
+value = 4
+
+[State 603, 3]
+type = ScreenBound
+trigger1 = 1
+value =  0
+
+[State 603, ***]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 603,***]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NP
+damage = 200
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 8, 10
+sparkno = 0
+sparkxy = -10, -30
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 20
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 603, 3]
+type = destroyself
+trigger1 = movecontact
+trigger2 = frontedgedist < -50
+
+
+
+
+[Statedef 3100]
+type = S
+movetype = A
+physics = S
+anim = 3100
+sprpriority = 1
+ctrl = 0
+
+[State 3100, 1]
+type = HitDef
+trigger1 = timemod=6,0;time to reaat the damge
+attr = S, NA
+damage = 70
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 0
+sparkno = -1
+sparkxy = -10, -350
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+;-------------------------------------------------------------------------------
+[Statedef 6133]
+type = S
+movetype= H
+physics = N
+juggle  = 3
+ctrl = 0
+sprpriority =0
+
+
+[State Hit]
+type = HitDef
+trigger1 = !movecontact
+attr = S,NA
+affectteam = F
+damage = 50,50
+hitsound = S0,59
+ground.type = Low
+air.type = Low
+guardsound = 6,0
+pausetime = 0,0
+ground.hittime = 20
+air.hittime = 20
+ground.velocity = 3,-3
+air.velocity = 3,-3
+sparkno = -1
+sparkxy = -15,-30
+fall = 1
+fall.recover = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = backedgedist <= 0
+value = S0,59
+
+[State 0, Angleset]
+type = Angleset
+trigger1 = 1
+value = -20
+
+[State 0, Explod]
+type = Explod
+trigger1 = backedgedist <= 0
+anim = F72
+ID = 72
+pos = -30,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !time
+value = 5301
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist > 0
+x = -20
+y = -6
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist <= 0
+x = 4
+y = -6
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = backedgedist <= 0
+time = 21
+freq = 85
+ampl = -3
+persistent = 0
+
+[State 0, SelfState]
+type = SelfState
+trigger1 = backedgedist <= 0
+value = 5050
+
+
+[StateDef 760]
+type = A , S
+movetype= A , S
+physics = A , S
+juggle  = 1
+velset = 2,2
+ctrl = 0
+anim = 760
+poweradd = 0
+sprpriority = 1
+
+[State 760, 1]
+type = HitDef
+trigger1 = timemod = 3,0
+attr = S, NA
+damage = 130
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 3, 20
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+
+
+[StateDef 720]
+type = A
+movetype= A
+physics = A
+juggle  = 1
+velset = 5,0
+ctrl = 0
+anim = 720
+poweradd = 0
+sprpriority = 2
+
+[State 720, 1]
+type = HitDef
+trigger1 = timemod = 4,0
+attr = S, NA
+damage = 60
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 3, 20
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[StateDef 440]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 440
+poweradd = 0
+sprpriority = 2
+
+[State 440, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 1
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 2, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+
+[State 0, TargetVelAdd]
+type = TargetVelAdd
+trigger1 = movehit = 1
+x = -9
+y = 0
+ID = -1
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = movehit = 1
+anim = 4444
+ID = 4444
+pos = -15,-40
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.4,0.4
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem = 3
+trigger2 = animelem = 4
+trigger3 = animelem = 5
+trigger4 = animelem = 6
+x = 7
+y = 0
+;ignorehitpause =
+;persistent =
+
+
+[State 440, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 360]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 360
+sprpriority = 2
+
+[State 360, 1]
+type = HitDef
+trigger1 = AnimElem = 4
+attr = S, NA
+damage = 30
+animtype = Light
+sparkno = s4441
+sparkxy = -20,-40
+hitsound = S7654,0
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 14
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit = 1
+time = 1
+id = -1
+postype = p1
+pos = 30,0
+;ignorehitpause =
+;persistent =
+
+
+
+
+
+[State 360, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 330]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 6,0
+ctrl = 0
+anim = 330
+sprpriority = 2
+
+[State 330, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S, NA
+damage = 30
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0,14
+sparkno = s1844
+sparkxy = 0,0
+hitsound = 5, 0
+guardsound = 6, 0
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 1876
+ID = 18535
+pos = -50,9
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = movehit = 1
+anim = 4443
+ID = 4443
+pos = -15,-45
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S5436,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S76756,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 330, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+
+[StateDef 1416]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1416
+poweradd = 0
+sprpriority = 2
+
+[State 1416, 1]
+type = HitDef
+trigger1 = animelem = 7
+attr = S, NA
+damage = 30
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 5,14
+sparkno = s1844
+sparkxy = 0,0
+hitsound = 5, 0
+guardsound = 6, 0
+fall=1
+
+
+
+[State 0, TargetVelSet]
+type = TargetVelSet
+trigger1 = 1
+trigger1 = time > 30
+trigger1 = time < 45
+x = 0
+y = -10
+ID = -1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 6
+anim = 1418
+ID = 1418
+pos = 0,5
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S626,1
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 1146, 2]
+type = PosAdd
+trigger1 = animelem = 6
+x = (P2BodyDist X - 10 )
+
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time > 25
+trigger1 = timemod = 1,0
+trigger1 = time < 40
+x = 0
+y = -10
+;ignorehitpause =
+;persistent =
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 =  animelem = 8
+statetype = A       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = A         ;A,C,S,N
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = movehit = 1
+anim = 4443
+ID = 4443
+pos = -15,-45
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S5436,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S76756,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 1416, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 1417]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1417
+sprpriority = 2
+
+[State 1417, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S, NA
+damage = 30
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0,30
+sparkno = s1844
+sparkxy = 0,0
+hitsound = 5, 0
+guardsound = 6, 0
+p2stateno = 6133
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S626,1
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 1146, 2]
+type = PosAdd
+trigger1 = animelem = 2
+x = (P2BodyDist X + 80)
+
+[State 505, 3]
+type = Turn
+trigger1 = time = 4
+
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = movehit = 1
+anim = 4443
+ID = 4443
+pos = -15,-45
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S5436,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S76756,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 1417, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 700]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+poweradd= 100
+ctrl = 0
+velset = 0,0
+anim = 0
+sprpriority = 2
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = time = 0
+value = var(11)
+
+[State 700]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+stateno = 701
+ownpal = 1
+
+[State 700]
+type = PosAdd
+trigger1 = time = 0
+x = (P2BodyDist X + 100)
+
+[State 700]
+type = Turn
+trigger1 = time = 0
+
+[State 700]
+type = ChangeState
+trigger1 = Time = 0
+value = 50
+ctrl = 1
+
+[Statedef 701]
+type = S
+movetype = I
+physics = N
+juggle = 0
+poweradd = 0
+ctrl = 0
+velset = 0,0
+anim = 700
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S700,0
+volume =255
+channel= 10
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 9
+value = S1000,1
+volume =255
+channel= 11
+
+[State 701]
+type = Explod
+trigger1 =time = 20
+anim = 15000
+pos = 0,0
+postype = p1
+removetime = 12
+sprpriority = 0
+ontop = 1
+ownpal = 1
+
+[State 505, 1]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[StateDef 1445]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1448
+poweradd = - 4000
+sprpriority = 2
+
+
+
+[State 1445, 1]
+type = hitdef
+trigger1 = animelem = 2
+attr = S, NA                     ;Attribute: Standing, Normal Attack
+damage = 400, 400                  ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 7, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 30 , 30          ;Time attacker pauses, time opponent shakes
+;Y-offset for the spark rel. to p1
+sparkno = 0                      ;Spark anim no (Def: set above)
+sparkxy = 0,0
+hitsound = 0,0                  ;Sound to play on hit
+guardsound = 0,0                ;Sound to play on guard
+ground.type = High               ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 5             ;Time that the opponent slides back
+ground.hittime  = 10             ;Time opponent is in hit state
+ground.velocity = -4             ;Velocity at which opponent is pushed
+airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -1.4,-3           ;X-velocity at which opponent is pushed,
+;Y-velocity at which opponent is pushed
+air.hittime = 12
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 50
+anim = 8756875
+sound = S10,0
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+
+[State 1445, Helper]
+type = Helper
+trigger1 = animelem=3;the katon anomation will start on anomation 5
+helpertype = normal
+name ="rinenngan eye"
+ID = 1446
+stateno = 1446  ;stateno need to crate a new state
+pos = 60,-68 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+[State 1445, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 1446]
+type = S
+movetype = A
+physics = S
+anim = 1446
+sprpriority = 1
+ctrl = 0
+
+[State 204, 1]
+type = hitdef
+trigger1 = timemod = 5,0
+attr = S, NA                     ;Attribute: Standing, Normal Attack
+damage = 0, 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 7, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 1400                 ;Time attacker pauses, time opponent shakes
+;Y-offset for the spark rel. to p1
+sparkno = 0                      ;Spark anim no (Def: set above)
+sparkxy = 0,0
+hitsound = 0,0                  ;Sound to play on hit
+guardsound = 0,0                ;Sound to play on guard
+ground.type = High               ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 5             ;Time that the opponent slides back
+ground.hittime  = 10             ;Time opponent is in hit state
+ground.velocity = -4             ;Velocity at which opponent is pushed
+airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -1.4,-3           ;X-velocity at which opponent is pushed,
+;Y-velocity at which opponent is pushed
+air.hittime = 12
+
+
+[State 204, PowerAdd]
+type = PowerAdd
+trigger1 = timemod = 5,0
+value = -100
+;ignorehitpause =
+;persistent =
+
+[State 1446, Helper]
+type = Helper
+trigger1 = animelem=1;the katon anomation will start on anomation 5
+helpertype = normal
+name ="rinenngan eye"
+ID = 1447
+stateno = 1447  ;stateno need to crate a new state
+pos = 0,-38 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = power <10
+trigger2 = animtime = 0
+
+[Statedef 1447]
+type = S
+movetype = A
+physics = S
+anim = 1447
+sprpriority = 1
+ctrl = 0
+
+[State 204, 1]
+type = hitdef
+trigger1 = timemod = 5,0
+attr = S, NA                     ;Attribute: Standing, Normal Attack
+damage = 0, 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 7, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 1400                 ;Time attacker pauses, time opponent shakes
+;Y-offset for the spark rel. to p1
+sparkno = 0                      ;Spark anim no (Def: set above)
+sparkxy = 0,0
+hitsound = 0,0                  ;Sound to play on hit
+guardsound = 0,0                ;Sound to play on guard
+ground.type = High               ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 5             ;Time that the opponent slides back
+ground.hittime  = 10             ;Time opponent is in hit state
+ground.velocity = -4             ;Velocity at which opponent is pushed
+airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -1.4,-3           ;X-velocity at which opponent is pushed,
+;Y-velocity at which opponent is pushed
+air.hittime = 12
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = power <10
+trigger2 = animtime = 0
+
+[Statedef 434]
+type = S
+movetype = A
+physics = S
+anim = 432
+sprpriority = 1
+ctrl = 0
+
+
+[State 434, 1]
+type = HitDef
+trigger1 = animelem = 1;time to reaat the damge
+attr = S, NA
+damage = 40,20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = (parent, fvar(13)/parent, fvar(15)) * 9.0
+y = (parent, fVar(14)/parent, fvar(15)) * 9.0
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = !time
+time = -1
+length = 10
+palcolor = 256
+palinvertall = 0
+palbright = 30,30,30
+palcontrast = 120,120,220
+palpostbright = 0,0,0
+paladd = 10,10,25
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add ;"none","add1","sub"
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S4537,6
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = moveguarded = 1
+value = S7647,0
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger2 = movehit = 1
+trigger1 = animtime=0
+
+[Statedef 435]
+type = S
+movetype = A
+physics = S
+anim = 433
+sprpriority = 1
+ctrl = 0
+
+
+[State 435, 1]
+type = HitDef
+trigger1 = animelem = 1;time to reaat the damge
+attr = S, NA
+damage = 40,20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -5
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = (parent, fvar(13)/parent, fvar(15)) * 9.0
+y = (parent, fVar(14)/parent, fvar(15)) * 9.0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = time*50
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = !time
+time = -1
+length = 10
+palcolor = 256
+palinvertall = 0
+palbright = 30,30,30
+palcontrast = 120,120,220
+palpostbright = 0,0,0
+paladd = 10,10,25
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add ;"none","add1","sub"
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movehit = 1
+value = S4537,6
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = moveguarded = 1
+value = S7647,0
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger2 = movehit = 1
+trigger1 = animtime=0
+
+[StateDef 1031]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 2007
+poweradd = -2000
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S99,0
+volume = 200
+channel = -1
+
+
+[State 2007, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+[StateDef 5998]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 10,0
+ctrl = 0
+anim = 67487846
+poweradd = 0
+sprpriority = 2
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = 1
+time = 10000
+id = -1
+postype = p1
+pos = -70,0
+;ignorehitpause =
+;persistent =
+
+
+
+[State 5998, 1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 50
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 3000
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+p2stateno = 9001
+p1stateno = 5999
+
+[State 5998, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+
+[StateDef 5999]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1523
+poweradd = -8000
+sprpriority = 2
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=4;the katon anomation will start on anomation 5
+helpertype = normal
+name ="shinra tensei1"
+ID = 6000
+stateno = 6000  ;stateno need to crate a new state
+pos = 0,0 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 40
+anim = 200
+sound = S10,0
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S998,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, EnvColor]
+type = EnvColor
+trigger1 = animelem = 1
+value = 0,0,0
+time = 840
+under = 1
+;ignorehitpause =
+;persistent =
+
+[State 5999, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 6000]
+type = S
+movetype = A
+physics = S
+anim = 6000
+sprpriority = 1
+ctrl = 0
+
+
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 58
+helpertype = normal ;player
+ID = 2008
+stateno = 2008
+pos = 41,-146
+postype = p1    ;p2,front,back,left,right
+size.xscale = 5
+size.yscale = 5
+ontop =
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=58;the katon anomation will start on anomation 5
+helpertype = normal
+name ="earth"
+ID = 3100
+stateno = 3100  ;stateno need to crate a new state
+pos = 41,0 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+ontop = 1
+;size.xscale (float)
+;size.yscale (float)
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+
+[Statedef 2008]
+type = S
+movetype = A
+physics = S
+anim = 735
+sprpriority = 5
+ctrl = 0
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 100,100
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 2,2
+sparkno = -2
+sparkxy = -10, -76
+hitsound = s543,5000
+guardsound = s0,500
+ground.type = low
+ground.slidetime = 0
+ground.hittime  = 10
+ground.velocity = -14,-16
+ground.cornerpush.veloff = 0
+airguard.velocity = -14,-16
+air.type = High
+air.velocity = -14,-16
+air.hittime = 10
+fall = 1
+p2stateno = 6133
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+time = 200
+scale = .1+time*0.01,.1+time*0.01
+
+[State 0, Trans]
+type = trans
+trigger1 = 1
+trans = addalpha ;none, add, addalpha, add1, sub
+alpha = 256 , 256
+;alpha = 256,256
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 20
+anim = 200
+sound = S10,0
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S99,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S71234,0
+volume = 2000
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 1
+time = 50
+freq = 60
+ampl = -4
+phase = 90
+;ignorehitpause =
+;persistent =
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+
+[Statedef 880]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 443
+poweradd = -400
+sprpriority = 2
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 8756875
+pos = 20,-80
+postype = p1  ;p2,front,back,left,right
+scale = .8,.8
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S0,8
+volume = 0
+
+[State 240, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S, NA
+damage = 0
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -5, -5
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 5
+ground.velocity = 11,-6
+airguard.velocity = 0
+air.type = High
+air.velocity = 4,-3
+air.hittime = 5
+fall = 1
+fall.damage = 75
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 2
+x = 4
+
+[State 443, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;project : chibaku tensei
+
+
+
+
+
+
+
+[StateDef 7009]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 10,0
+ctrl = 0
+anim = 67487846
+poweradd = 0
+sprpriority = 2
+
+
+
+[State 7009, 1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 50
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 3000
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+p2stateno = 9001
+p1stateno = 7010
+
+[State 7009, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+[StateDef 7010]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 7010
+poweradd = -9000
+sprpriority = 2
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=5;the katon anomation will start on anomation 5
+helpertype = normal
+name ="apear"
+ID = 7100
+stateno = 7100  ;stateno need to crate a new state
+pos = 150,0 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[State 0, Poweradd]
+type = PowerAdd
+triggerall = var(10) = 2
+trigger1 = ((GameTime%1) = 0)
+value = 1
+
+
+[State 7010, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+
+
+
+;statedef
+
+
+
+
+[Statedef 7100]
+type = S
+movetype = A
+physics = S
+anim = 7100
+sprpriority = 1
+ctrl = 0
+
+[State 0, Poweradd]
+type = PowerAdd
+triggerall = var(10) = 2
+trigger1 = ((GameTime%1) = 0)
+value = 1
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=12;the katon anomation will start on anomation 5
+helpertype = normal
+name ="apear"
+ID = 7300
+stateno = 7300  ;stateno need to crate a new state
+pos = 102,-33 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+
+;statedef
+
+[StateDef 7300]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 7300
+
+
+[State 0, Poweradd]
+type = PowerAdd
+triggerall = var(10) = 2
+trigger1 = ((GameTime%1) = 0)
+value = 1
+
+
+[State 450, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 61
+value = 2,1
+volume= 190
+
+
+
+
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = animelem = 84
+channel = -8
+;ignorehitpause =
+;persistent =
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = animelem = 83
+trigger2 = animelem = 84
+trigger3 = animelem = 85
+time = 1000
+id = -1
+pos = -115,-70
+;ignorehitpause =
+;persistent =
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 82
+trigger2 = animelem = 83
+trigger3 = animelem = 84
+time = 50
+freq = 160
+ampl = -4
+phase = 90
+;ignorehitpause =
+;persistent =
+
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=62;the katon anomation will start on anomation 5
+helpertype = normal
+name ="background"
+ID = 7400
+stateno = 7400  ;stateno need to crate a new state
+pos = 0,10 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+ontop = 1
+;size.xscale (float)
+;size.yscale (float)
+
+
+[State 7300, 1]
+type = HitDef
+trigger1 = animelem= 84
+trigger2 = animelem= 85
+attr = S, NA
+damage = 30000
+animtype = Hard
+hitflag = MAF
+priority = 0, Hit
+pausetime = 0,0
+sparkno = 0
+sparkxy = -500, -500
+hitsound = S5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 0,-5
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = 0,-5
+air.hittime = 12
+fall = 1
+p2stateno = 8966
+
+
+[Statedef 8966]
+type    = A
+movetype= H
+physics = N
+sprpriority = -14
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time = 100
+;----------------------
+
+[Statedef 167]
+type    = A
+movetype= H
+physics = N
+sprpriority = 0
+
+
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+postype = p2
+x = 0
+y = -1
+;ignorehitpause =
+;persistent =
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+postype = p2
+x = -70
+y = 0
+;ignorehitpause =
+;persistent =
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time = 100
+
+[Statedef 168]
+type    = S
+movetype= a
+physics = s
+sprpriority = 0
+velset = 0,-50
+
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time = 100
+
+[StateDef 7400]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 7400
+poweradd = 0
+sprpriority = 5
+
+[State 7500, 1]
+type = HitDef
+trigger1 = timemod = 70,0
+attr = S, NA
+damage = 0
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10000
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 0
+ground.hittime  = 0
+ground.velocity = -0
+airguard.velocity = -0.0,-.0
+air.type = High
+air.velocity = -0.0,-0
+air.hittime = 12
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=1;the katon anomation will start on anomation 5
+helpertype = normal
+name ="background"
+ID = 7500
+stateno = 7500  ;stateno need to crate a new state
+pos = 0,0 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+
+[StateDef 7500]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 7500
+poweradd = 0
+sprpriority = 2
+
+[State 7500, 1]
+type = HitDef
+trigger1 = timemod = 70,0
+attr = S, NA
+damage = 1
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10000
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 0
+ground.hittime  = 0
+ground.velocity = -0
+airguard.velocity = -0.0,-.0
+air.type = High
+air.velocity = -0.0,-0
+air.hittime = 12
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 30 , 0
+value = S7654567,0
+volume = 2000
+channel = -8
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, TargetVelSet]
+type = TargetVelSet
+trigger1 = animelem = 81
+postype = p2
+x = 0
+y = -1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[StateDef 635]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 635
+poweradd = -2500
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=5;the katon anomation will start on anomation 5
+helpertype = normal
+name ="katon"
+ID = 636
+stateno = 636  ;stateno need to crate a new state
+pos = -5,-35 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S2,5
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = AnimElem = 1
+time = 20
+anim = 1
+sound = S10,0
+pos = 0,0
+move = 0
+movetime =0
+darken = 100
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+
+
+[State 635, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 636]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 636
+poweradd = 0
+sprpriority = 2
+
+[State 636, 1]
+type = HitDef
+trigger1 = timemod = 7,0
+attr = S, NA
+damage = 20,20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0,10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 0
+ground.hittime  = 0
+ground.velocity = -0
+airguard.velocity = -0.0,-.0
+air.type = High
+air.velocity = -0.0,-0
+air.hittime = 12
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 70,0
+value = S2,7
+volume = 0
+channel = -8
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;ignorehitpause =
+;persistent =
+
+
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=96;the katon anomation will start on anomation 5
+helpertype = normal
+name ="katon"
+ID = 637
+stateno = 637  ;stateno need to crate a new state
+pos = -5,-35 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[StateDef 637]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 637
+poweradd = 0
+sprpriority = 2
+
+[State 637, 1]
+type = HitDef
+trigger1 = timemod = 7,0
+attr = S, NA
+damage = 10,6
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0,10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 0
+ground.hittime  = 0
+ground.velocity = -0
+airguard.velocity = -0.0,-.0
+air.type = High
+air.velocity = -0.0,-0
+air.hittime = 12
+fall = 1
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[StateDef 765]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 765
+poweradd = -3000
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=4;the katon anomation will start on anomation 5
+helpertype = normal
+name ="shinra tensei"
+ID = 766
+stateno = 766  ;stateno need to crate a new state
+pos = 0,-30 ; x pos and y pos of hlper
+size.xscale = 5
+size.yscale = 5
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S2,5
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = AnimElem = 1
+time = 20
+anim = 1
+sound = S10,0
+pos = 0,0
+move = 0
+movetime =0
+darken = 100
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+
+
+[State 765, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 766]
+type = S
+movetype = A
+physics = S
+anim = 735
+sprpriority = 1
+ctrl = 0
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 50,50
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 2,2
+sparkno = -2
+sparkxy = -10, -76
+hitsound = s543,5000
+guardsound = s0,500
+ground.type = low
+ground.slidetime = 0
+ground.hittime  = 10
+ground.velocity = -14,-16
+ground.cornerpush.veloff = 0
+airguard.velocity = -14,-16
+air.type = High
+air.velocity = -14,-16
+air.hittime = 10
+fall = 1
+p2stateno = 6133
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+time = 200
+scale = .1+time*0.01,.1+time*0.01
+
+[State 0, Trans]
+type = trans
+trigger1 = 1
+trans = addalpha ;none, add, addalpha, add1, sub
+alpha = 256 , 256
+;alpha = 256,256
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 20
+anim = 200
+sound = S10,0
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S99,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S71234,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 1
+time = 50
+freq = 60
+ampl = -4
+phase = 90
+;ignorehitpause =
+;persistent =
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[Statedef 313]
+type = S
+movetype = I
+physics = S
+anim = 313
+velset = 0,0
+sprpriority = 1
+poweradd = 0
+ctrl = 0
+
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = 1
+value = -5
+
+
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = power <10
+trigger2 = command != "hold_x"
+value = 0
+ctrl = 1
+
+
+[statedef 9001]
+type     = S
+movetype = H
+physics  = S
+sprpriority = 2
+ctrl     = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = time = 9999
+value = 5007
+
+
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+postype = p1
+x = 0
+y = 0
+
+[State 0, PosSet]
+type     = PosSet
+trigger1 = time = 999
+y = 0
+
+[State 0, SelfState]
+type     = SelfState
+trigger1 = time = 70999
+value    = 0
+ctrl     = 1
+
+[Statedef 1800]
+type = A
+movetype = A
+physics = A
+juggle = 0
+velset = 0, -8, 0
+ctrl = 0
+anim = 1800
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = TIMEMOD=5,0
+time = 20
+
+freq = 35
+ampl = -1
+phase = 45
+
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =1
+flag = noshadow
+flag = globalnoshadow
+
+[State 410, 2]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 458456,458456
+
+[State 410, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1900
+ctrl = 1
+
+[Statedef 1900]
+type = A
+movetype = A
+physics = N
+ctrl = 0
+anim = 1900
+velset = 0,0
+
+
+
+
+
+[State 105, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 15
+length = 15
+palbright = 0,0,0
+palcontrast = 150,150,150
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 1,1,1
+trans = add1
+
+
+
+
+
+
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =1
+flag = noshadow
+flag = globalnoshadow
+
+
+
+[State 1900, para1]
+type = VelSet
+trigger1 = command != "holdfwd"
+trigger1 = command != "holdback"
+trigger1 = command != "holdup"
+trigger1 = command != "holddown"
+trigger1 = Var(2) = 0
+trigger2 = Pos Y < -405
+x = 0
+y = 0
+
+[State 1900, para2]
+type = ChangeAnim
+trigger1 = command != "holdup"
+trigger1 = command != "holddown"
+trigger1 = Anim != 1900
+value = 1900
+
+[State 1900,fuwaVar(1)]
+type = VarSet
+trigger1 = command != "holdfwd"
+trigger1 = command != "holdback"
+trigger1 = command != "holdup"
+trigger1 = command != "holddown"
+trigger1 = var(2) != 2
+trigger2 = var(2) = 2
+trigger2 = Vel Y >= 1.4
+v = 2
+value = 1
+
+[State 1900,fuwaVar(2)]
+type = VarSet
+trigger1 = Var(2) = 1
+trigger1 = Vel Y <= -1.4
+trigger2 = P2BodyDist Y > 405
+trigger2 = Vel Y < 0
+v = 2
+value = 2
+
+[State 1900,fuwaUp]
+type = VelAdd
+trigger1 = Var(2) = 1
+y = -0.2
+
+[State 1900,fuwaDown]
+type = VelAdd
+trigger1 = Var(2) = 2
+y = 0.2
+
+[State 1900,fuwaEnd]
+type = VelSet
+triggerall = Var(2) != 0
+trigger1 = command = "holdfwd"
+trigger2 = command = "holdback"
+trigger3 = command = "holdup"
+trigger4 = command = "holddown"
+y = 0
+
+[State 1900,fuwaEndVar]
+type = VarSet
+trigger1 = command = "holdfwd"
+trigger2 = command = "holdback"
+trigger3 = command = "holdup"
+trigger4 = command = "holddown"
+v = 2
+value = 0
+
+[State 1900, UpBorder]
+type = PosSet
+trigger1 = Pos Y < -405
+y = -405
+
+[State 1500, UpBorder2a]
+type = PosAdd
+trigger1 = P2BodyDist Y > 405
+trigger1 = Vel Y < 0
+y = 1
+
+[State 1500, UpBorder2b]
+type = VelSet
+trigger1 = P2BodyDist Y > 405
+trigger1 = Vel Y < 0
+y = 0
+
+[State 1900, GoDown1]
+type = VelAdd
+trigger1 = command = "holddown"
+y = 0.3
+
+[State 1900,GoDown2]
+type = VelSet
+trigger1 = command = "holddown"
+trigger1 = Vel Y < 0
+y = 0
+
+[State 1900, GoUpAnim]
+type = ChangeAnim
+trigger1 = Anim != 1900
+trigger1 = command = "holddown"
+value = 1900
+
+[State 1900, GoUp1]
+type = VelAdd
+trigger1 = command = "holdup"
+y = -0.3
+
+[State 1900,GoUp2]
+type = VelSet
+trigger1 = command = "holdup"
+trigger1 = Vel Y > 0
+y = 0
+
+[State 1900, GoUpAnim]
+type = ChangeAnim
+trigger1 = Anim != 1900
+trigger1 = command = "holdup"
+value = 1900
+
+[State 1900, GoBack1]
+type = VelAdd
+trigger1 = command = "holdback"
+x = -0.3
+
+[State 1900,GoBack2]
+type = VelSet
+trigger1 = command = "holdback"
+trigger1 = Vel X > 0
+x = 0
+[State 1900, GoBackAnim]
+type = ChangeAnim
+triggerall = Anim != 1900
+trigger1 = command = "holdback"
+;trigger2 = command = "holddown"
+value = 1900
+
+[State 1900, GoFwd1]
+type = VelAdd
+trigger1 = command = "holdfwd"
+x = 0.3
+
+[State 1900,GoFwd2]
+type = VelSet
+trigger1 = command = "holdfwd"
+trigger1 = Vel X < 0
+x = 0
+
+[State 1900, GoFwdAnim]
+type = ChangeAnim
+trigger1 = Anim != 1900
+trigger1 = command = "holdfwd"
+value = 1900
+
+[State 1900,Turn]
+type = Turn
+trigger1 = P2dist X < 0
+
+[State 1900,Land]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 50
+ctrl = 1
+
+[State 0, shinra tensei]
+type = ChangeState
+triggerall = power>= 3000
+trigger1 = command = "b"
+value = 9300
+ctrl = 0
+
+[State 0, charge]
+type = ChangeState
+value = 10850
+trigger1 = command = "hold_c"
+ctrl = 0
+
+[State 0, Air katon]
+type = ChangeState
+value = 886
+triggerall = power >= 100
+trigger1 = command = "y"
+ctrl = 0
+
+[State 0, Air shuriken]
+type = ChangeState
+value = 10300
+triggerall = power >= 0
+trigger1 = command = "z"
+ctrl = 0
+
+
+[State 2000,WinALose]
+type = ChangeState
+trigger1 = Win = 1
+trigger2 = Lose = 1
+TRIGGER3=DRAWGAME
+value = 50
+
+[Statedef 9300]
+type = A
+movetype = A
+physics = S
+anim = 9300
+sprpriority = 1
+poweradd = -3000
+ctrl = 0
+velset = 0 , -0.5
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 2
+helpertype = normal ;player
+ID = 9301
+stateno = 9301
+pos = 0,-30
+postype = p1    ;p2,front,back,left,right
+size.xscale = 5
+size.yscale = 5
+ontop = 1
+
+
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S6,1652
+volume = 1
+channel=-1
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = time = 50
+value = 1900
+ctrl = 0
+
+
+
+
+
+
+[Statedef 9301]
+type = A
+movetype = A
+physics = S
+anim = 9301
+sprpriority = 1
+ctrl = 0
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 70,70
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 2,2
+sparkno = -2
+sparkxy = -10, -76
+hitsound = s543,5000
+guardsound = s0,500
+ground.type = low
+ground.slidetime = 0
+ground.hittime  = 10
+ground.velocity = -14,-16
+ground.cornerpush.veloff = 0
+airguard.velocity = -14,-16
+air.type = High
+air.velocity = -14,-16
+air.hittime = 10
+fall = 1
+p2stateno = 6133
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = movehit = 1
+value = -50
+;ignorehitpause =
+;persistent =
+
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+time = 200
+scale = .1+time*0.06,.1+time*0.06
+
+[State 0, Trans]
+type = trans
+trigger1 = 1
+trans = addalpha ;none, add, addalpha, add1, sub
+alpha = 256 , 256
+;alpha = 256,256
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 40
+sound = S10,0
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S99,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S71234,0
+volume = 2000
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 1
+time = 50
+freq = 60
+ampl = -4
+phase = 90
+;ignorehitpause =
+;persistent =
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[Statedef 886]
+type    = A
+movetype= A
+physics = A
+juggle  = 2
+poweradd= -100
+ctrl = 0
+anim = 602
+velset = 0 , -2
+sprpriority = 2
+
+[State 602,2]
+type = helper
+trigger1 = AnimElem = 1
+name = "katon air1"
+id = 603
+pos = 37,- 40
+postype = p1
+stateno = 603
+helpertype = normal
+ownpal = 0
+keyctrl = 0
+
+[State 555, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1900
+ctrl = 1
+
+
+
+[Statedef 10850]
+type = A
+movetype = I
+physics = A
+anim = 1900
+velset = 0,0
+sprpriority = 1
+poweradd = 0
+ctrl = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 0
+y = -0.1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S556,0
+volume = 2000
+channel = 23
+freqmul = .95
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 1
+value = S456,0
+volume = 200
+channel = 0
+loop = 1
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = command != "hold_c"
+channel = 0
+
+
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = 1
+value = 20
+
+
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = 1
+value = 1
+kill = 1
+absolute = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, Helper]
+type = Helper
+trigger1 = timemod = 30, 0 ;the katon anomation will start on anomation 5
+helpertype = normal
+name ="explode"
+ID = 2010
+stateno = 2010  ;stateno need to crate a new state
+pos = 0,-40 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command != "hold_c"
+value = 1900
+ctrl = 1
+
+
+
+[Statedef 8000]
+type = S
+movetype = I
+physics = S
+anim = 8000
+juggle = 1
+sprpriority = 2
+velset = 0,0
+ctrl = 0
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 60
+sound = S2,9
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S21,1
+volume = 200
+channel = 1
+
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 25
+v = 10    ;fv = 10
+value = 2
+
+[State 8000, end]
+type = ChangeState
+trigger1 = Time = 30
+value = 0
+ctrl = 1
+
+
+
+[statedef -2]
+
+
+[State 0, Poweradd]
+type = PowerAdd
+triggerall = var(10) = 2
+trigger1 = ((GameTime%1) = 0)
+value = -1
+
+[State -3, Explod]
+type = Explod
+trigger1 = var(10) > 0
+anim = 1109
+ID = 1109
+pos = 200,50
+postype = left  ;p2,front,back,left,right
+scale = 0.5,0.5
+sprpriority = 5
+ontop = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(10) = 2 && power <= 1
+v = 10    ;fv = 10
+value = 0
+
+[State -3, BGPalFX]
+type = BGPalFX
+trigger1 = var(10) > 0
+time = 2
+add = 0,0,0
+palbright = -256,-12,-12
+mul = 100,100,100
+;sinadd = 0,0,0,10
+;invertall = 0
+;color = 256
+ignorehitpause = 1
+persistent =  1
+
+
+;---------------------------------------------------------------------------
+;remove sharingan
+[StateDef 90031]
+type = S
+movetype= A
+physics = S
+ctrl = 0
+poweradd = 0
+anim = 8000
+
+
+[State 90031, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA
+time = 60
+
+
+
+[State 90031, VarSet]
+type = VarSet
+trigger1 = AnimElem = 1
+v = 10    ;fv = 10
+value = 0
+;ignorehitpause =
+;persistent =
+
+
+[State 90031, end]
+type = ChangeState
+trigger1 = Time = 30
+value = 0
+ctrl = 1
+
+
+[Statedef 9900]
+type = S
+movetype = I
+physics = S
+anim = 8000
+juggle = 1
+sprpriority = 2
+velset = 0,0
+ctrl = 0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 60
+sound = S2,9
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S21,1
+volume = 200
+channel = 1
+
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 25
+v = 20    ;fv = 10
+value = 3
+
+[State 9900, end]
+type = ChangeState
+trigger1 = Time = 30
+value = 0
+ctrl = 1
+
+
+
+[statedef -3]
+
+
+[State -3, Poweradd]
+type = PowerAdd
+triggerall = var(20) = 3
+trigger1 = ((GameTime%1) = 0)
+value = -4
+
+[State -3, Explod]
+type = Explod
+trigger1 = var(20) > 0
+anim = 2000
+ID = 2000
+pos = 180,80
+postype = left  ;p2,front,back,left,right
+scale = 0.5,0.5
+sprpriority = 5
+ontop = 1
+
+
+[State -3, VarSet]
+type = VarSet
+trigger1 = var(20) = 3 && power <= 1
+trigger2 = var(20) = 3 && time > 2500
+v = 20    ;fv = 10
+value = 0
+
+[State -3, BGPalFX]
+type = BGPalFX
+trigger1 = var(20) > 0
+time = 2
+add = 0,0,0
+palbright = -256,-12,-12
+mul = 255,100,100
+;sinadd = 0,0,0,10
+;invertall = 0
+;color = 256
+ignorehitpause = 1
+persistent =  1
+
+
+
+;---------------------------------------------------------------------------
+;remove sharingan
+[StateDef 90310]
+type = S
+movetype= A
+physics = S
+ctrl = 0
+poweradd = 0
+anim = 8100
+
+
+
+[State 9031, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA
+time = 60
+
+
+
+[State 9031, VarSet]
+type = VarSet
+trigger1 = AnimElem = 1
+v = 20    ;fv = 10
+value = 0
+;ignorehitpause =
+;persistent =
+
+
+[State 9031, end]
+type = ChangeState
+trigger1 = Time = 30
+value = 0
+ctrl = 1
+
+
+[StateDef 7656]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 7656
+poweradd = 0
+sprpriority = 2
+
+[State 443, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 6
+trigger5 = AnimElem = 7
+trigger6 = AnimElem = 8
+trigger7 = AnimElem = 9
+trigger8 = AnimElem = 10
+attr = S, NA
+damage = 130
+animtype = hard
+hitflag = MAF
+priority = 3, Hit
+pausetime = 20, 30
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+p2stateno = 6133
+
+
+[State 443, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+[StateDef 675746]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 675746
+poweradd = 0
+sprpriority = 2
+
+[State 443, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 6
+trigger5 = AnimElem = 7
+trigger6 = AnimElem = 8
+trigger7 = AnimElem = 9
+trigger8 = AnimElem = 10
+attr = S, NA
+damage = 130
+animtype = hard
+hitflag = MAF
+priority = 3, Hit
+pausetime = 20, 30
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+p2stateno = 6133
+
+
+[State 443, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[statedef 5462]
+type = s
+movetype = A
+physics = s
+velset = 0 ,0
+ctrl = 1
+anim = 5462
+poweradd = 120
+sprpriority = 2
+
+[State 5462, 1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 150
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -70
+airguard.velocity = -1.9,-.8
+ground.cornerpush.veloff = 0
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+p1stateno = 5463
+p2stateno = 9002
+
+[state 5462, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[statedef 5463]
+type = s
+movetype = A
+physics = s
+velset = 0 ,0
+ctrl = 0
+anim = 5463
+poweradd = 120
+sprpriority = 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=1;the katon anomation will start on anomation 5
+helpertype = normal
+name ="rinenngedo"
+ID = 5464
+velset = 0 , 0
+stateno = 5464  ;stateno need to crate a new state
+pos = -114,0 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[State 5463, 1]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = S, NA
+damage = 150
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -70
+airguard.velocity = -1.9,-.8
+ground.cornerpush.veloff = 0
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+p2stateno = 6133
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = animelem = 1
+time = 200
+pos = 27,-9
+;ignorehitpause =
+;persistent =
+
+
+
+[state 5463, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[statedef 9003]
+type     = S
+movetype = H
+physics  = S
+sprpriority = 2
+ctrl     = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = time = 200
+value = 5007
+
+
+
+[State 0, SelfState]
+type     = SelfState
+trigger1 = time = 180
+value    = 0
+ctrl     = 1
+
+[statedef 9002]
+type     = S
+movetype = H
+physics  = S
+sprpriority = 2
+ctrl     = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = time = 500
+value = 5007
+
+
+
+[State 0, SelfState]
+type     = SelfState
+trigger1 = time = 500
+value    = 0
+ctrl     = 1
+
+[Statedef 5464]
+type = S
+movetype = A
+physics = S
+anim = 5464
+ground.cornerpush.veloff = 0
+poweradd = -4000
+
+sprpriority = 1
+ctrl = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=1;the katon anomation will start on anomation 5
+helpertype = normal
+name ="earth"
+ID = 3100
+stateno = 3100  ;stateno need to crate a new state
+pos = 0,0 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+ontop = 0
+;size.xscale (float)
+;size.yscale (float)
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=1;the katon anomation will start on anomation 5
+helpertype = normal
+name ="arm"
+ID = 7657
+stateno = 7657  ;stateno need to crate a new state
+pos = 66,-41 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+ontop = 1
+;size.xscale (float)
+;size.yscale (float)
+
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = timemod=5,0;time to reaat the damge
+attr = S, NA
+damage = 40
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 0
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[Statedef 7657]
+type = S
+movetype = A
+physics = S
+anim = 7657
+juggle = 4
+sprpriority = 1
+ontop = 2
+ctrl = 0
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 7
+animtype = hard
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 0
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+p2stateno = 9003
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+
+
+[Statedef 505]
+type = S
+movetype= A
+physics = S
+juggle = 5
+poweradd= -450
+ctrl = 0
+velset = 0,0
+anim = 434
+sprpriority = 2
+
+[State 505, 1]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+stateno = 506
+ownpal = 1
+
+
+[State 505, 2]
+type = PosAdd
+trigger1 = time = 0
+x = (P2BodyDist X + 90)
+
+[State 505, 3]
+type = Turn
+trigger1 = time = 0
+
+[State 505, 4]
+type = ChangeState
+trigger1 = Time = 0
+value = 201122
+ctrl = 1
+
+[StateDef 201122]
+type = S
+movetype= A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 435
+poweradd = -20
+sprpriority = 2
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 1
+x = -555555
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 2022, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Reflexes (smoke)
+[Statedef 506]
+type = S
+movetype = A
+physics = N
+juggle = 0
+poweradd = 0
+ctrl = 0
+velset = 0,0
+anim = 8678756
+sprpriority = 1
+
+[State 506, 1]
+type = HitDef
+trigger1 = timemod=30,0;time to reaat the damge
+attr = S, NA
+damage = 50
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 0
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+
+[State 505, 1]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[statedef 10300]
+
+type = A
+movetype = A
+physics = A
+juggle = 1
+velset = 0,-3
+ctrl = 0
+anim = 1900
+poweradd =20
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,5
+volume = 200
+channel = -1
+
+[State 1640, X]
+Type = VarSet
+Trigger1 = time = 0
+fvar(13) = (EnemyNear(0), Pos X - Pos X) * Facing ;Adjust the direction towards player facing
+
+[State 1640, Y]
+Type = VarSet
+trigger1 = time = 0
+fvar(14) = (EnemyNear(0), pos Y - Pos Y)
+
+[State 1640, Vector Length]
+Type = VarSet
+trigger1 = 1
+fvar(15) = Exp(0.5*ln((fvar(13) * fvar(13))+(fvar(14) * fvar(14))))
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=2;the katon anomation will start on anomation 5
+helpertype = normal
+name ="churiken"
+ID = 301
+velset = 0 , 0
+stateno = 301  ;stateno need to crate a new state
+pos = 30,-35 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 300, end]
+type = changestate
+trigger1 = animtime = 0
+value = 1900
+ctrl = 1
+
+[statedef 10301]
+
+type = A
+movetype = A
+physics = A
+juggle = 1
+velset = 0,-3
+ctrl = 0
+anim = 40
+poweradd =20
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,5
+volume = 200
+channel = -1
+
+[State 1640, X]
+Type = VarSet
+Trigger1 = time = 0
+fvar(13) = (EnemyNear(0), Pos X - Pos X) * Facing ;Adjust the direction towards player facing
+
+[State 1640, Y]
+Type = VarSet
+trigger1 = time = 0
+fvar(14) = (EnemyNear(0), pos Y - Pos Y)
+
+[State 1640, Vector Length]
+Type = VarSet
+trigger1 = 1
+fvar(15) = Exp(0.5*ln((fvar(13) * fvar(13))+(fvar(14) * fvar(14))))
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=1;the katon anomation will start on anomation 5
+helpertype = normal
+name ="churiken"
+ID = 301
+velset = 0 , 0
+stateno = 301  ;stateno need to crate a new state
+pos = 30,-35 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 300, end]
+type = Velset
+trigger1 = time = 0
+y = -3
+
+[StateDef 7955]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 6757
+poweradd = -100
+sprpriority = 2
+
+
+[State 7955, 1]
+type = HitDef
+trigger1 = animelem = 3
+attr = S, NA
+damage = 100
+animtype = hard
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 0
+ground.hittime  = 0
+ground.velocity = 0
+airguard.velocity = 0,0
+air.type = High
+air.velocity = 0,0
+air.hittime = 120
+fall=1
+
+[State 0, TargetVelSet]
+type = TargetVelSet
+trigger1 = 1
+x = 0
+y = -10
+ID = -1
+;ignorehitpause =
+;persistent =
+
+
+
+[State 7655, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[statedef 4123]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 4123
+poweradd = -1500
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,5
+volume = 200
+channel = -1
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=3;the katon anomation will start on anomation 5
+helpertype = normal
+name ="amaterasu"
+ID = 4124
+velset = 0 , 0
+stateno = 4124  ;stateno need to crate a new state
+pos = 0,5 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 4123, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+
+
+[Statedef 4124]
+type = S
+movetype = A
+physics = S
+anim = 1500
+sprpriority = 1
+ctrl = 0
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = timemod = 3,0
+attr = S, NA
+damage = 1,1
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 50,0
+value = S500,2
+volume = 200
+channel = -3
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+triggerall = var(20) = 0
+
+[statedef 4143]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 4143
+poweradd = -3000
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,5
+volume = 200
+channel = -1
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 2
+time = 60
+anim = 4476
+sound = S2,5
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem =4
+value = S667,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=4;the katon anomation will start on anomation 5
+helpertype = normal
+name ="amaterasu"
+ID = 4144
+velset = 0 , 0
+stateno = 4144  ;stateno need to crate a new state
+pos = 0,5 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 3
+anim = 4146
+ID = 4146
+pos = -90,0
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+pausemovetime = 0
+scale = 1.16,1.16
+sprpriority = 0
+ontop = 1
+
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=3;the katon anomation will start on anomation 5
+helpertype = normal
+name ="amaterasu helper"
+ID = 4145
+velset = 0 , 0
+stateno = 4145  ;stateno need to crate a new state
+pos = -90,0 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 4143, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 4144]
+type = S
+movetype = A
+physics = S
+anim = 4144
+sprpriority = 1
+ctrl = 0
+
+
+[State 4414, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 8,5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall=1
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 50,0
+value = S500,2
+volume = 200
+channel = -3
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[Statedef 4145]
+type = S
+movetype = A
+physics = S
+anim = 4145
+sprpriority = 1
+ctrl = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S7476,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+[statedef 4267]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 4267
+poweradd = -4000
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=2;the katon anomation will start on anomation 5
+helpertype = normal
+name ="susanoo"
+ID = 4268
+velset = 0 , 0
+stateno = 4268  ;stateno need to crate a new state
+pos = 0,0 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 4267, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 4268]
+type = S
+movetype = A
+physics = S
+anim = 4268
+sprpriority = 1
+ctrl = 0
+
+[State 4268, 1]
+type = HitDef
+trigger1 = timemod = 30,0
+attr = S, NA
+damage = 5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall=1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+facing = 0
+pos = 0,0
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Turn]
+type = Turn
+trigger1 = p2dist x < 0
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+trigger2 = power <= 1
+
+[statedef 6136]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 6136
+poweradd = -4000
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 6,0
+trigger1 = time <36
+value = S18836,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 12
+time = 50
+anim = 90986
+sound = S2,5
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=12;the katon anomation will start on anomation 5
+helpertype = normal
+name ="gedo hand"
+ID = 6137
+velset = 0 , 0
+stateno = 6137  ;stateno need to crate a new state
+pos = 90,3 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+ontop = 1
+;size.xscale (float)
+;size.yscale (float)
+
+[state 6136, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 6137]
+type = S
+movetype = A
+physics = S
+anim = 6137
+sprpriority = 1
+ctrl = 0
+
+[State 6137, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 0
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=3;the katon anomation will start on anomation 5
+helpertype = normal
+name ="gedo mazo"
+ID = 6138
+velset = 0 , 0
+stateno = 6138  ;stateno need to crate a new state
+pos = 60,3 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+ontop = 0
+;size.xscale (float)
+;size.yscale (float)
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[Statedef 6138]
+type = S
+movetype = A
+physics = S
+anim = 6138
+sprpriority = 1
+ctrl = 0
+
+[State 6138, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 1
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall=1
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 4
+value = S76589,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S390126,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S2557,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 6938
+ID = 6938
+pos = 60,0
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[statedef 1654]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1654
+poweradd = -1000
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 6,0
+trigger1 = time <36
+value = S18836,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=10;the katon anomation will start on anomation 5
+helpertype = normal
+name ="rock"
+ID = 2654
+velset = 0 , 0
+stateno = 2654  ;stateno need to crate a new state
+pos = 0,0 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 1654, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 2654]
+type = S
+movetype = A
+physics = S
+anim = 2654
+sprpriority = 1
+ctrl = 0
+
+[State 2654, 1]
+type = HitDef
+trigger1 = timemod = 3,0
+attr = S, NA
+damage = 1
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall=1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 30,0
+value = S3756,0
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[statedef 1655]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1655
+poweradd = -500
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 6,0
+value = S18836,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=12;the katon anomation will start on anomation 5
+helpertype = normal
+name ="rock"
+ID = 2655
+velset = 0 , 0
+stateno = 2655  ;stateno need to crate a new state
+pos = 0,10 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 1655, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 2655]
+type = S
+movetype = A
+physics = S
+anim = 2655
+sprpriority = 1
+ctrl = 0
+
+[State 2654, 1]
+type = HitDef
+trigger1 = timemod = 3,0
+attr = S, NA
+damage = 2
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = 0,-17
+air.hittime = 12
+fall=1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 10,0
+value = S2,2
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 3655
+ID = 2655
+pos = 0,20
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.7,0.7
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+
+[statedef 1656]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1655
+poweradd = -1500
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 6,0
+value = S18836,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=12;the katon anomation will start on anomation 5
+helpertype = normal
+name ="lava"
+ID = 2656
+velset = 0 , 0
+stateno = 2656  ;stateno need to crate a new state
+pos = 14,0 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 1656, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 2656]
+type = S
+movetype = A
+physics = S
+anim = 2656
+sprpriority = 1
+ctrl = 0
+
+[State 2656, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 15
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -6.9,-.9
+air.type = High
+air.velocity = -1.4,-1
+air.hittime = 12
+fall=1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = timemod = 7,0
+x = 3.2
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 50,0
+value = S2557,0
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[statedef 2757]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1655
+poweradd = -700
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 6,0
+value = S18836,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=12;the katon anomation will start on anomation 5
+helpertype = normal
+name ="earth dragon small"
+ID = 2758
+velset = 0 , 0
+stateno = 2758  ;stateno need to crate a new state
+pos = 14,15 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 2757, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 2758]
+type = S
+movetype = A
+physics = S
+anim = 2758
+sprpriority = 1
+ctrl = 0
+
+[State 2758, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 7
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -6.9,-.9
+air.type = High
+air.velocity = -1.4,-1
+air.hittime = 12
+fall=1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = timemod = 6,0
+x = 3.2
+y = 0
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 50,0
+value = S2557,1
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[statedef 2759]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1655
+poweradd = -1500
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 6,0
+value = S18836,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=12;the katon anomation will start on anomation 5
+helpertype = normal
+name ="earth dragon big"
+ID = 2760
+velset = 0 , 0
+stateno = 2760  ;stateno need to crate a new state
+pos = 14,15 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 2759, end]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[Statedef 2760]
+type = S
+movetype = A
+physics = S
+anim = 2760
+sprpriority = 1
+ctrl = 0
+
+[State 2760, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 3
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -6.9,-.9
+air.type = High
+air.velocity = -1.4,-1
+air.hittime = 12
+fall=1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 50,0
+value = S2557,0
+volume = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = timemod = 7,0
+x = 3.2
+y = 0
+;ignorehitpause =
+;persistent =
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[statedef 194]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+poweradd = -1500
+ctrl = 0
+anim = 194
+unhittable = 1
+
+
+[State 0, Turn]
+type = Turn
+trigger1 = P2bodyDIST X < 0
+;ignorehitpause =
+;persistent =
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 2
+time = 30
+anim = 300134
+sound = S10,0
+pos = 0,0
+move = 0
+movetime = 0
+darken = 1
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+;ignorehitpause =
+;persistent =
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = timemod = 15,0
+trigger1 = time > 30
+helpertype = normal
+name ="amaterasu hand"
+ID = 195
+velset = 0 , 0
+stateno = 196  ;stateno need to crate a new state
+pos = 38,-48 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = timemod = 40,0
+trigger1 = time > 40
+helpertype = normal
+name ="bird"
+ID = 195
+velset = 0 , 0
+stateno = 195  ;stateno need to crate a new state
+pos = 44,-40 ; x pos and y pos of hlper
+postype = p1    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+[state 194, end]
+type = changestate
+trigger1 = animtime = 0
+trigger2 =  var(20) = 0
+value = 0
+ctrl = 1
+
+[Statedef 195]
+type = S
+movetype = A
+physics = S
+anim = 195
+sprpriority = 1
+ctrl = 0
+
+[State 2760, 1]
+type = HitDef
+trigger1 = timemod = 1,0
+attr = S, NA
+damage = 1
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 160,0
+value = S3897,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+[State 0, Helper]
+type = Helper
+trigger1 = movecontact = 1;the katon anomation will start on anomation 5
+helpertype = normal
+name ="amaterasu bird"
+ID = 797
+velset = 0 , 0
+stateno = 797  ;stateno need to crate a new state
+pos = -12,-40 ; x pos and y pos of hlper
+postype = p2    ;p2,front,back,left,right
+;size.xscale (float)
+;size.yscale (float)
+
+
+
+[State 0, Turn]
+type = Turn
+trigger1 = P2bodyDIST X < 0
+;ignorehitpause =
+;persistent =
+
+[State 20020, 1]
+type = VelSet
+trigger1 = time >= 10 & random <= 300 & p2bodydist x >= 0.4
+x = const(velocity.walk.fwd.x) + 0.1
+
+[State 20020, 1]
+type = VelSet
+trigger1 = time >= 10 & random <= 300 & p2bodydist x <= 0.4
+x = const(velocity.walk.back.x) - 0.1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = movehit = 1
+
+
+[Statedef 797]
+type = S
+movetype = A
+physics = S
+anim = 797
+sprpriority = 1
+ctrl = 0
+
+[State 2760, 1]
+type = HitDef
+trigger1 = timemod = 7,0
+attr = S, NA
+damage = 8
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -6.9,-.9
+air.type = High
+air.velocity = 1.4,1
+air.hittime = 12
+fall=1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 20,0
+value = S765478,0
+volume = 200
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan =
+;ignorehitpause =
+;persistent =
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[Statedef 196]
+type = S
+movetype = A
+physics = S
+anim = 196
+sprpriority = 1
+ctrl = 0
+
+[State 2760, 1]
+type = HitDef
+trigger1 = timemod = 7,0
+attr = S, NA
+damage = 8
+animtype = Light
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 10
+sparkno = -1
+sparkxy = -10, -35
+hitsound = -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 1
+ground.hittime  = 12
+ground.velocity = -1
+ground.cornerpush.veloff = 0
+airguard.velocity = -6.9,-.9
+air.type = High
+air.velocity = 1.4,1
+air.hittime = 12
+fall=1
+p2stateno = 6133
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+
+
+
+
+
+

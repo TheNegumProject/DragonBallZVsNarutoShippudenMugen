@@ -1,0 +1,41 @@
+;================================
+;"Broli", from Super Boutuden 2
+;================================
+
+;----------------------------------------
+;Author:	The Necromancer;editedc por grafo_maxi
+;		
+;		
+;----------------------------------------
+
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name			="[Necromancer's] Broli"
+displayname		="Broly LSSJ"
+versiondate		=08,12,2006
+mugenversion	=11,14,2002
+author		="The Necromancer"
+pal.defaults	=1,2
+
+;---------------
+;Character Files 
+;---------------
+[Files]
+cmd			=BroliCMD.cmd
+cns			=BroliCNS.cns
+st			=BroliCNS.cns
+stcommon		=BroliCNS.cns
+sprite		=BroliSFF.sff
+anim			=BroliAIR.air
+sound			=BroliSND.snd
+pal1=Broli2.act
+pal2=Broli1.act
+
+;[Arcade]
+;intro.storyboard = BroliIntro.def
+;ending.storyboard = BroliEnding.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

@@ -1,0 +1,108 @@
+;{Shakaku}
+[Statedef 264]
+type = S
+ctrl = 0
+anim = 264
+sprpriority = 5
+
+[State 192, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 265
+
+;Stand
+[Statedef 265]
+movetype = a
+type = S
+physics = S
+velset = 0,0
+sprpriority = 5
+anim = 265
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = 1
+attr = S,NA        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAF        ;HLAFD+-
+guardflag = MA         ;HLA
+getpower = 0,0
+givepower = 0,0
+animtype = light          ;light,medium,hard,back,up,diagup
+air.animtype = light
+priority = 1,Hit   ;Hit,Miss,Dodge
+damage = 0
+pausetime = 0,0
+sparkno = 0
+guard.sparkno = 0
+hitsound = 0,0
+guardsound = 0,0
+ground.type = High      ;Low,Trip,None
+ground.slide = 0
+ground.hit = 0
+air.hittime = 20
+ground.velocity = -10,-2
+air.velocity = -10,-2
+sprpriority = -1
+p1getp2facing = 0
+fall = 0
+fall.yvelocity = -4.5
+fall.recover = 1
+fall.recovertime = 4
+fall.damage = 0
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = 1
+value = -5
+
+[State 4000, Turn]
+type = Turn
+trigger1 = animelem = 1 && p2bodydist x < -1
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = time = 0
+attr = SCA,NT,ST,HT,NA,SA,HA,NP,SP,HP
+slot = 1
+stateno = 268
+time = -1
+forceair = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = power = 0
+trigger2 = time  = 190
+value = 267
+ctrl = 1
+;---------------------------------------------------------------------------
+;Get Hit
+[Statedef 268]
+movetype = I
+type = S
+physics = S
+sprpriority = 5
+anim = 266
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 265
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = random  = 3
+value = 267
+ctrl = 1
+;---------------------------------------------------------------------------
+;Dead
+[Statedef 267]
+movetype = I
+type = S
+physics = S
+sprpriority = 5
+anim = 267
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0

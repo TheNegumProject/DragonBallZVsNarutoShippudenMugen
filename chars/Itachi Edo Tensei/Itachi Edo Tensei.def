@@ -1,0 +1,22 @@
+[Info]
+name ="Itachi Edo Tensei"
+displayname ="Itachi Edo Tensei"
+versiondate =22/06/12
+mugenversion = 
+author ="Gabrieldra6"
+pal.defaults =1
+
+[Files]
+sprite =Itachiedo.sff
+anim =Itachiedo.air
+sound =Itachiedo.snd
+cmd =Itachiedo.cmd
+cns =Itachiedo.cns
+stcommon =common1.cns
+st =Itachiedo.cns
+pal1=Itachiedo.act
+st1=Susanoo.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

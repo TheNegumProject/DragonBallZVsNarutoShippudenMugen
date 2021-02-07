@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Sage Naruto by MG"
+displayname = "Naruto Teen"
+versiondate = 2010/04/01
+mugenversion = 
+author = "MGSSJ2"
+pal.defaults = 1
+
+[Files]
+sprite = n.sff
+anim = n.air
+sound = n.snd
+cmd = n.cmd
+cns = n.cns
+stcommon = common1.cns
+st = n.cns
+pal1 = n.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

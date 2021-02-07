@@ -1,0 +1,127 @@
+==========================================================================================
+Vegeta 1.0
+==========================================================================================
+
+
+Coding  -  Sabre,Kratos,NeOcIdE
+
+Sprites -  Ne0cIdE
+==========================================================================================
+Basics
+==========================================================================================
+------------------------------------------------------------------------------------------
+Standing
+------------------------------------------------------------------------------------------
+a = Light kick
+b = Med kick
+x = Light punch
+y = Med punch*
+*y = Med punch push back
+------------------------------------------------------------------------------------------
+Crouching
+------------------------------------------------------------------------------------------
+a = Light kick
+b = Sweep kick
+x = Light punch
+y = Med punch
+------------------------------------------------------------------------------------------
+Air
+------------------------------------------------------------------------------------------
+a       = Light kick
+b       = Knockdown kick
+x       = Light punch
+y       = Knockdown punch
+Fwd Fwd = Dash Fwd
+Bck Bck = Dash Bck
+-------------------------------------------------------------------------------------------
+Known Bugs
+-------------------------------------------------------------------------------------------
+-On vegeta's BBA, the ball does not always deal damage to certian 
+opponents. This is due to the way their liedown and getup anim times 
+are.And there is no work around. But this bug does not occur 90% 
+of the time. 
+
+==========================================================================================
+Things Left
+==========================================================================================
+-nothing, cuz hes the best in the fucking world  =D
+
+
+-maybe another super and more win poses\intro on another release
+sometime down the road
+
+
+--------------------------------------------------
+Additional basics
+
+
+Hold DF, y = Heavy launcher
+a+x = Charge up
+b+y = Guard counter
+
+
+==========================================================================================
+Specials
+==========================================================================================
+Air Raid              -          Holddown, Up, Punch 
+	
+Gut Buster            -          QCB, Punch
+ Rib Buster                      QCB, Punch
+  Dirt Eater                     QCB, Punch
+
+Sayajin Beatdown      -          HCB, Punch
+
+Sayajin Force         -          HCB, Kick
+
+
+
+
+Punt Kick             -          DB,B, Kick 
+
+Sayajin Spike         -          F,DF,F,  Kick	
+
+--------------------------------------------------
+Supers
+
+Barikuhama            -         QCB x2 Kick (hold down kick for more damage
+                                will drain super bar)
+
+
+Final Flash           -         QCF,QCB Punch (hold down punch for more damage
+                                will drain super bar)
+
+-----------------------------------------------------
+Hyper
+
+Big Bang Attack       -          QCB,QCF light punch + Hard punch (takes two power stocks to do)
+                                  
+
+
+
+
+
+
+==========================================================================================
+Credits
+==========================================================================================
+Cyanide           -   for enduring so much damn nonsense from me and making my base thank youz
+DBZPD             -   For GREAT feedback and the Vegeta Base sheet thanks :)
+Jedi              -   (Ring Ring OMG I WILL kill you! :p)
+Kratos            -   while he's up top for coding creds I would like to give him mega thanks for helping me release this
+Majita            -   sounds,feedback,Coding help,screenshots I converted
+Wasaby            -   orignal base\beta testing
+Roken             -   for showing me the style I use in most of my dbz sheets.
+Warusuki3         -   for the awesome CVS2 hitsparks
+MV                -   For the awesome small po, and sprites
+LW                -   Because he's the fucking man, nuff said bitches.
+Neotokyo          -because Neo's are the coolest thing on the planet
+Doom              -   For the Big potriat
+Toad              -   fx 
+Chrono Strife     -   cheese is good
+Elecybyte         -   if I have to say so your dumbzy
+Akira Toriyama    -   for the dbz series 
+Annubis           -   beta testing and something else I think? (maybe sounds?)
+WD                -   My site pwns :D
+Bandai            -   for the horrid games that were only good to get sprites from :)
+
+

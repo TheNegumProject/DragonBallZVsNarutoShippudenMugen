@@ -1,0 +1,46 @@
+;==============================
+;"Goku", from Super Boutuden 2
+;==============================
+
+;----------------------------------------
+;Author:	The Necromancer
+;		flowergirl@cutey.com
+;----------------------------------------
+
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name="[Necromancer's] Goku"
+displayname="Goku SSJ"
+versiondate=07,27,2002
+mugenversion=04,14,2002
+author="The Necromancer"
+pal.defaults=1,2,3,4,5,6
+
+;---------------
+;Character Files 
+;---------------
+[Files]
+cmd=GokuCMD.cmd
+cns=GokuCNS.cns
+st=GokuCNS.cns
+stcommon=GokuCNS.cns
+sprite=GokuSFF.sff
+anim=GokuAIR.air
+sound=GokuSND.snd
+pal1=Goku01.act
+pal2=Goku02.act
+pal3=Goku03.act
+pal4=Goku05.act
+pal5=Goku04.act
+pal6=Goku06.act
+st1=Goku_IA.cns
+
+;[Arcade]
+;intro.storyboard=GokuIntro.def
+;ending.storyboard=GokuEnding.def
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

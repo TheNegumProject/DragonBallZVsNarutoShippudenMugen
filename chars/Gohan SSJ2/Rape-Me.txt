@@ -1,0 +1,143 @@
+==========================================================================================
+Teen Gohan 2.0 
+==========================================================================================
+
+Coding  -  NeoCide, HaVoC
+
+Sprites -  NeoCide
+==========================================================================================
+Basics
+==========================================================================================
+------------------------------------------------------------------------------------------
+Standing
+------------------------------------------------------------------------------------------
+a = Light kick
+b = Med kick
+x = Light punch
+y = Med punch*
+*y = Med punch push back
+------------------------------------------------------------------------------------------
+Crouching
+------------------------------------------------------------------------------------------
+a = Light kick
+b = Hard  kick
+x = Light punch
+y = uppercut
+------------------------------------------------------------------------------------------
+Air
+------------------------------------------------------------------------------------------
+a       =  Light kick
+b =     =  Knockdown kick
+x =     =  Light punch
+y =     =  Knockdown punch
+fwd fwd =  teleport fwd
+bck bck =  teleport back 
+
+==========================================================================================
+jap translation (I dont remember them all)
+==========================================================================================
+ssj2 gohan intro                          -"I'll fight you"
+Maximum sayajin intro                     - "I...Will defeat you"
+win pose power down(cell games\movie 9)   - "your finished"
+win pose 2                                - "Huh....I won?"
+messy hair gohan win pose 2               - "was that...ok?"
+
+==========================================================================================
+Things Left
+==========================================================================================
+Nothing..... Maybe AI. and some bug fixes if needed.
+========================================================================
+Known Bugs
+========================================================================
+fixes etc....
+=========================================================================
+-pin missle cmd changed (doesnt work right with such a long charge back
+as it cant really chain
+-super jump chain fixed
+-maximum sayajin cmd and sequence changed,gohan talks during superpause
+(I couldnt find any state 5200's in him so I have no idea how to fix it
+as he works fine agaisnt mostly everyone I play, only hit that has a 
+prob is the double punch down as some players go too far passed his range)
+-masenko blast slowed down (blast looks kinda bleh now imo)
+-rocket needle made to type A
+-longer charge back times for charged moves (45 ticks now)
+-khh charge fallrecovertime fixed
+-power up now goes passed 3000 :)
+-Ki missle Added (special)
+-cho Kamehameha goku ghost added (super)
+-Super 2 counter removed
+-Flying bat tweaked (no longer charge back)
+-3rd hit added to needle rocket\rocket needle (Pin needle)
+
+I think thats it....
+--------------------------------------------------
+Additional basics
+
+Hold DF, y = Heavy launcher
+b+y = Charge up
+Foward + y = grab
+
+==========================================================================================
+Specials
+==========================================================================================
+Pin Missle            -          F,QCF,punch
+
+Flying bat            -          F,QCF,kick
+ 
+
+Sonic Kick            -          Charge down, then up, kick
+ (in air)             -          QCB, Kick
+
+Needle Rocket         -          Charge back, then Foward, Kick
+ Rocket Needle        -           QCF, Kick (after N-R) 
+
+
+
+Sonic Charge          -          QCB, Punch
+ Kamehameha           -          QCB, Punch (after sonic charge)
+
+
+Ki Missle             -          B,QCB punch
+
+                
+========================================================================
+Level 1 Supers
+========================================================================
+
+
+Kamehameha (1000)      -         QCF,X2 Punch
+
+
+
+Masenko (1000)         -         QCF, QCB,Punch
+
+
+=======================================================================
+Level 2 supers (2000 power stock needed)
+=======================================================================
+Maximum Sayajin         -       QCF,x2 x2 Kick
+
+Cho Kamehameha          -       QCB,QCF, x2 Punch
+
+==========================================================================================
+Credits
+==========================================================================================
+Cyanide           -   Loads of coding help 
+NeoTokyo          -   Some sprites, inspiration, and because he looks hawt in a red shirt   
+Roken             -   Total smexness head fix, and some code help (gohan's cho khh inspired by 2k gohan's)
+Chrono Strife     -   MV9 is dedicated to him feedback,help and I wub U thisssss much!
+Jedi              -   Total Epicness
+Warusaki3         -   for the awesome CVS2 hitsparks
+Majita            -   sounds,feedback,amazing stories of how to ruin relationships XD
+Wasaby            -   I miss him :( <3
+Toad              -   fx 
+Jesuszilla        -   Feedback and my main hoster now thanks a bunch (I'll be whoring you later for more people :D )
+MV                -   Because he cant be as smexy as me, but bless his heart for trying :) And for hosting Wub u!
+Pextin            -   being so damn awesome with that spiderman mask
+Elecybyte         -   if I have to say so your dumbzy
+P.o.t.s.          -   for the excellent feedback on mugenguild
+Akira Toriyama    -   for the dbz series 
+WD                -   My site pwns :D
+Bandai            -   for the horrid games that were only good to get sprites from :)
+
+

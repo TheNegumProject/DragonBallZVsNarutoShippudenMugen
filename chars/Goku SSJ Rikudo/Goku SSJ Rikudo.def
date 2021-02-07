@@ -1,0 +1,30 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Goku"
+displayname ="Goku Rikudo"
+versiondate =09,03,2008
+mugenversion =04,14,2002
+author ="DGZ"
+pal.defaults =1,2
+
+; Files for the player
+[Files]
+cmd =gokuleg.cmd
+cns =gokuleg.cns
+st =Basico.cns
+stcommon =common1.cns
+sprite =gokuleg.sff
+anim =gokuleg.air
+sound =gokuleg.snd
+pal1=Rikudo.act
+st1=Helpers.cns
+st2=Moves.cns
+st3=Specials.cns
+
+; Arcade mode
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =..\data\final.def

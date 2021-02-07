@@ -1,0 +1,158 @@
+Introduccion
+
+Bueno, hola a a todos, este es mi nuevo y ultimo char, como tu sabras, puedes reconocerme como: Akamura, Meteonyker, Hyo, ya se, he cambiado de nombre muchas veces, pero, ahora soy CM Punk, por que?, bueno, lo explicare luego, bien, el nuevo proyecto es CM-Madara, o Ak-MadaraV2, cualquiera de los dos nombres, para mi CM-Madara esta bien, este nuevo char tiene muchas nuevas cosas que mi primer Madara, nuevos jutsus y nuevo Susanoo, bueno, paremos de hablar sobre mi y mi otro proyecto, vamos ahora con el movelist:
+
+NOTA: Los Tsukuyomi requieren que el P2 este en el suelo
+
+Movimientos basicos
+
+Combo 1: A+A+A
+Combo 2: B+B+B
+Combo 3: X+X+X < Puedes terminar este movimiento con un especial, presionando S o A+B, pero tienes que ser rapido.
+Chakra Charge: Hold S
+Hoz: Down X
+Fan: Down Y
+Teleport: Down Z
+
+Movimientos especiales
+
+Katones:
+
+Katon Goukakyu no Jutsu: DownForward A			Requiere de poder= 2000
+Katon Housenka no Jutsu: DownBack A			Requiere de poder= 1500
+Katon Ryuuka no Jutsu: DownForward B			Requiere de poder= 3000
+Katon Chirasu Mitsu: DownBack B				Requiere de poder= 2000
+Katon Hijin Heki: DownForward C				Requiere de poder= 4000
+Katon Kanningu Daichi: DownBack C			Requiere de poder= 3000
+Katon Sen Tatakau Hi: DownForward X			Requiere de poder= 4000
+Katon Gouka Mekkyaku: DownBack X			Requiere de poder= 5000
+Katon Kouka Messhitsu: DownForward Y			Requiere de poder= 4000
+Katon Goukakyu no Jutsu Air: X				Requiere de poder= 2000
+Katon Housenka no Jutsu Air: Y				Requiere de poder= 1500
+Katon Kouka Messhitsu Air: Z				Requiere de poder= 4000
+
+Tecnicas normales
+
+Wind of Madness: Down Y					Requiere de poder= 1000
+Doton Blocks: Down A					Requiere de poder= 1000
+Roots: Down B						Requiere de poder= 1000
+Overwhelming: DownBack Y				Requiere de poder= 4000
+Activar Sharingan: DownBack Z				Requiere de poder= 2000
+Activar Rinnengan: DownForward Z			Requiere de poder= 2000
+
+Modo Rinnengan
+
+Movimientos basicos
+
+Combo 1: A+A+A
+Combo 2: B+B+B
+Combo 3: X+X+X < Puedes terminar este movimiento con un especial, presionando S o A+B, pero tienes que ser rapido.
+Chakra Charge: Hold S
+Fan: Down Y
+Teleport: Down Z
+Desactivar Rinnengan: DownForward Z
+
+Tecnicas especiales
+
+Shinra Tensei: DownForward C				Requiere de poder= 3000
+Chibaku Tensei: DownBack C				Requiere de poder= 4000
+Katon Goukakyu no Jutsu: DownForward A			Requiere de poder= 2000
+Katon Housenka no Jutsu: DownBack A			Requiere de poder= 1500
+Katon Ryuuka no Jutsu: DownForward B			Requiere de poder= 3000
+Katon Chirasu Mitsu: DownBack B				Requiere de poder= 2000
+Katon Goukakyu no Jutsu Air: X				Requiere de poder= 2000
+Katon Housenka no Jutsu Air: Y				Requiere de poder= 1500
+Katon Kouka Messhitsu Air: Z				Requiere de poder= 4000
+Activar Sharingan: DownBack Z				Requiere de poder= 2000
+
+Modo Sharingan
+
+Basic Moves
+
+Combo 1: A+A+A
+Combo 2: B+B+B
+Combo 3: X+X+X < Puedes terminar este movimiento con un especial, presionando S o A+B, pero tienes que ser rapido.
+Chakra Charge: Hold S
+Desactivar Sharingan: DownBack Z
+
+Special Moves
+
+Katon Goukakyu no Jutsu Air: A				Requiere de poder= 2000
+Katon Housenka no Jutsu Air: B				Requiere de poder= 1500
+Katon Kouka Messhitsu Air: X				Requiere de poder= 4000
+Summon Kyuubi: DownForward C				Requiere de poder= 8000
+Amaterasu 1: DownBack C					Requiere de poder= 2000
+Amaterasu 2: Down X					Requiere de poder= 4000
+-Debil: A						 
+-Medio: B						
+-Fuerte: C						
+-Regresar a la normalidad: Z
+Amaterasu 3: Down Y					Requiere de poder= 4000
+Amaterasu 4: Down z					Requiere de poder= 4000
+Tsukuyomi 1: Down A					Requiere de poder= 2000
+Tsukuyomi 2: Down B					Requiere de poder= 3000
+Tsukuyomi 3: Down C					Requiere de poder= 3000
+Rinnengan: DownForward Z				Requiere de poder= 2000
+Susanoo Kokkaku: DownForward Y				Requiere de poder= 8000
+Susanoo Lv 1: DownBack Y				Requiere de poder= 5000
+
+Modo Susanoo Kokkaku
+
+Movimientos basicos
+
+Combo 1: X+X+X < Puedes terminar este movimiento con un especial, presionando S o A+B, pero tienes que ser rapido.
+Chakra Charge: Hold S
+Susanoo Punch: A
+Susanoo Ground Punch: B
+Susanoo Triture: C
+Susanoo Burner: Y
+Susanoo Transformation Lv 1: S				Requiere de poder= 5000
+Susanoo Dissapear: Z
+
+Movimientos especiales
+
+Katon Goukakyu no Jutsu Air: X				Requiere de poder= 2000
+Katon Housenka no Jutsu Air: Y				Requiere de poder= 1500
+Katon Kouka Messhitsu Air: Z				Requiere de poder= 4000
+Summon Kyuubi: DownForward C				Requiere de poder= 8000
+Amaterasu 1: DownBack C					Requiere de poder= 2000
+Amaterasu 2: Down Y					Requiere de poder= 4000
+Amaterasu 3: Down z					Requiere de poder= 4000
+Tsukuyomi 1: Down A					Requiere de poder= 2000
+Tsukuyomi 2: Down B					Requiere de poder= 3000
+Tsukuyomi 3: Down C					Requiere de poder= 3000
+
+Modo Susanoo Lv 1
+
+Sword Attack 1: A
+Sword Attack 2: B
+Magatama Throw: C
+Sonic Wave: X
+Katon Gouka Mekkyaku: Y					Requiere de poder= 2000
+Dissapear: Z
+
+Creditos a todos los spriters y creadores de los SFX, Susanoo Lv 1 hecho por mi.
+
+Bueno, eso es todo, ahora la razon por lo de mi nuevo nombre, este es permanente, algunos años atras, yo era un noob, descubri el MUGEN en un foro, pero no pude añadir un char porque no le entendi bien xD, cuando jugaba los juegos del DS de Naruto, yo queria usar a los Akatsukis, entonces dije: "MUGEN, voy a intentar de nuevo", y si, esta vez si añadi un char pero con trabajo xD, bueno, me descargue muchos chars de muchos juegos, y yo quize "los chars perfectos", me referia a los que yo queria con las tecnicas que queria, por eso me quize enseñar a codear, bueno, llegue a Mugen Power, un foro latino, conoci al staff, eran buenas personas y digamos que fue mi hogar ese foro, hable con muchos de ellos y me dijeron: "lee los tutoriales", lo intente y nada, no entendia nada, despues conoci a un user llamado Blenardb, (gracias por haberme enseñado a codear si lees esto, aunque me odies por lo de la caida de Mugen power, aunque no haya hecho nada), el me enseño a codear, mi primer char fue AK-Sasori, y despues, estube aprendiendo mas y mas, per aun era un coding noob, cuando Mugen Power cayo,  me quede solo en el coding, nadie me queria enseñar porque creian que tuve que ver con la caida, y por eso de todas maneras me enseñe solo a codear hasta llegar a este nivel, y entonces, llegue a Kyubi Mugen, buenas personas en aquel tiempo, el tiempo paso y paso, y tuve amigos, y un dia, MGSSJ2 llego, con su char MSasukeV2, lo acepto, tuve envidia de el, era mejor que yo, pero con el tiempo, se hizo mi amigo, lo que me gusto de el fue que no le importo que tuviera envidia de el, el aun asi queria ser mi amigo, eso era actitud, eso me gusto, el tiempo paso, y el staff de Kyubi Mugen cambio, no se porque, pero consideraron a MG como un dios, no tenia envidia, MG cambio mucho, el se transformo a una persona egocentrica, egoista y superficial, cambiando tambien al resto de las personas y amigos del foro, incluyendo al staff, yo siempre quize darles a saber que es lo que sucedia con el y con todos, pero tenian los oidos tapados y no me escuchaban, solo decian, no hay problema, bueno, yo lo pase por alto eso, pero con el tiempo, ocurrio de nuevo, lo intente dar a saber de nuevo y lo mismo paso, y a la tercera vez me arte, el foro cambio al maximo, el staff no enseñaban en las escuelas de mugen, al contrario, les decian a las personas nuevas, "eres un noob... tu apestas... tu coding es una mierda... tu spriting es malo", nadie nace sabiendo, y no lo digo por la gente que quiere que el maestro le haga las cosas, no, lo digo por todo aquel que comienza y quiere enseñarse bien, eso lo quize dar a saber en el foro, y que resulta... me banearon solo por expresarme, bueno, fui al fb y etiquete a todos los mugeneros que conocia, aaahhh, ahi si me escucharon, y el admin dijo: "no puede ser que hasta en el fb tambien, tu no tienes vida blablabla",  si lo hize en el fb, pero porque me banearon en el foro y habia dicho que si me baneaban, era para silenciarme, y hay otro camino para expresarme?, no, bueno ese dia todos los del foro me dijeron, tienes envidia de MG, no, no la tengo, y yo lo dije, y tampoco tendria porque envidiar a un amigo, y dije tambien, no quiero problemas contigo contigo ni contigo, esto es entre mi, el admin y MG, luego MG dijo: "KM no es jardin de infantes", ok, con el tiempo se fueron olvidando de lo del fb, pero en ese tiempo tambien, MG se fue de KM, no recuerdo porque, pero se fue, bueno, un dia visite el foro, y todos estaban felices, diciendo, finalmente se fue MG, ya no hay mas putos en el foro, y un user me dijo: "vuelve a km, Mg ya no estara aqui nunca", y dije que no, porque yo les quize mostrar por mucho tiempo que es lo que pasaba y no me escuchaban, y si el admin quiere pedir paces, no las acepto, por esa misma razon, bueno, un user me dijo varias cosas, y me lanzo un reto, lo acepte, pero con el tiempo pense y pense, y siempre no lo tome, porque me dejaria ver como si un simple juego me interesara mucho, bien me fui ese dia, y otro dia visite de nuevo el foro, i que veo... no me querian en el foro, me pateaban del xat, uno de mis amigos se puso en mi contra, y claramente habia dicho antes: "no quiero problemas con ustedes, es entre mi el admin y MG", y el tiempo paso cuando me dijeron que MG volvio a KM, despues de todo lo que hizo, que sin vergüenza..., bueno, la verdadera razon de mi nombre por todo esto fue porque me pareci a CM Punk, exprese lo que pensaba, termine odiado por km, intentar expresar lo que pensaba y me silenciaron, pero de otra manera logre expresarme, algunas personas creyeron en mi.
+
+Gracias a estas personas, que creyeron en mi y fueron mi motivacion par ahacer este char:
+
+Odin
+Alfran
+NaNoXaN
+Nandita
+Rayzen
+Santa-Uzu-Flow (Uzumaki96)
+Quiza Mitzuki-Nara XD
+Especialmente.... una persona en mi vida, gracias por creer en mi y por el primer aniversario, esperemos tener mas, y el haberme dicho: "Entraste como forajido, pero saliste como leyenda", me dio animo.
+
+Ok, usuarios de KM que me odian, y tu tambien MG, si leen esto, espero que cambien, no estoy enojado ni nada, y nunca tuve envidia, solo al principio que MG llego pero nomas,  pero cuando fue mi amigo, tuve respeto de el, y si quieren hablarme de nuevo, adelante, ese orgullo de mi de decir: "no acepto las paces, porque yo intente decirles y no me escucharon", eso fue una estupidez, pero nunca es tarde par ahacer lo correcto, solamente no puedo creer la estupidez que hicieron, lo de decirles mucho tiempo que pasaba y al final... "era cierto...", bueno, la vieja escuela, los viejos users, ese fue un buen tiempo, y como ya me habian dicho ustedes, no se puede regresar el tiempo ni volver a tener esos tiempos ahora, lo se, pero talvez si lo intentan, podran obtener una parte de aquello, como dije, nunca es tarde para hacer lo correcto, y MG, talvez digan muchos que no, pero la verdad cambiaste mucho, los cambios son buenos mientras sean positivos, pero MG, cuando al principio querias hacerte mi amigo, que no te interesaba que tuviera envidia de ti y te tratara como cualquier cosa, eso me agrado, ese es MG, que ha pasado con ese muchacho?, pero bueno, pero si quieren continuar esto, haganlo, de todas maneras si quieren continuar:
+
+Digan adios a la vieja escuela.
+Digan adios a los buenos tiempos.
+Y digan adios a CM Punk.
+
+ADIOS MUGEN.
+
+In Punk We Trust..
+El recuerdo permanece.

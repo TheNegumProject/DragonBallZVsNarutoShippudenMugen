@@ -1,0 +1,20 @@
+[Info]
+name="Madara Susano'o"
+displayname="Madara Susano'o"
+versiondate=
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=
+
+[Files]
+sprite=m.sff
+sound=m.snd
+anim=m.air
+cmd=m.cmd
+cns=m.cns
+st=m.cns
+stcommon=common1.cns
+pal1=m.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

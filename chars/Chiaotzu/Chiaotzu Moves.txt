@@ -1,0 +1,77 @@
+|-Chiaotzu's Moves------------------------------------------------------------------
+Version 4.0
+Character made by Pextin a.k.a. Goten88 www.goten88.shorturl.com
+|-Basics----------------------------------------------------------------------------
+
+x      = Light Punch
+y      = Med Punch
+z      = Hard Uppercut
+a      = Light Kick
+b      = Hard Kick
+c      = Zanzoken(Hold it and press any direction.)
+
+D, x   = Crouch Light Punch
+D, y   = Crouch Med Punch
+D, z   = Crouch Hard Punch
+D, a   = Crouch Light Kick
+D, b   = Crouch Hard Kick
+
+U, x   = Air Light Punch
+U, y   = Air Med Punch
+U, z   = Air Hard Punch
+U, a   = Air Light Kick
+U, b   = Air Hard Kick
+
+|-Specials--------------------------------------------------------------------------
+
+Fly or Land        - a+x or just hold U
+Charge Ki          - x+y
+Deflection         - c+z  (P2 Dist must be at least 50 away)
+Super Jump         - D, U
+Super Jump FW      - D, UF
+Super Jump BACK    - D, UB
+
+Spinning HeadButt  - D,DF,F, x (Need 1000 Power)
+Backround Jump     - D,DB,B, x
+Trip               - D,DF,F, y
+Dashing Punch      - D,DB,B, z
+Ki Blast           - D,DF,F, x
+Psychic Seek Ball  - D,DF,F, y
+Psi Clone Combo    - D,DF,F, b
+
+|-Supers Moves---------------------------------------------------------------------
+
+Dodonpa            - D,DF,F,D,DF,F, x or y  (Need 1000 Power)
+Self Destruct      - D,DB,B,D,DB,B, x or y  (Need 3000 Power)
+Psychic Push       - D,DF,F,D,DF,F, a or b  (Need 1000 Power)
+Psychic Smash      - D,DB,B,D,DB,B, a or b  (Need 1000 Power)
+Psi-Ops            - D,DB,B,D,DF,F, a and b (Need 3000 Power)  
+(Psychic Operations)
+(Move Opponent around and hold a direction and press any 
+button to have the opponent fly to their crash)
+(1 VS 1 Battle Only)
+
+
+Special thanks to:
+
+Akira Toriyama - For creating Dragonball Z
+
+Bandai - For the Cell Jr sprites from Super Butouden 2 that I edited into Chiaotzu
+
+Elecbyte - For making Mugen
+
+Roken - My Inspiration, tester, and .act giver
+
+Detah - For past help
+
+Majita - For my sound archive
+
+Neo - For fx
+
+Toad - For fx
+
+FinalBlast - For BT2 Sounds!!!
+
+3Libras - For sweet sounds
+
+and anyone else I can't think of who helped me.

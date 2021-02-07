@@ -1,0 +1,21 @@
+[Info]
+name = "Chouji teen"
+displayname = "Chouji Teen"
+versiondate = 12/25/09
+mugenversion = 
+author = "Gabrieldra6"
+pal.defaults = 1,2,3,4
+
+[Files]
+sprite = CLIFF-F-Chouji.sff
+anim = CLIFF-F-Chouji.air
+sound = CLIFF-F-Chouji.snd
+cmd = CLIFF-F-Chouji.cmd
+cns = CLIFF-F-Chouji.cns
+stcommon = common1.cns
+st = CLIFF-F-Chouji.cns
+pal1 = CLIFF-F-Chouji.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,333 @@
+;---------------------------------------------------------
+;AI code
+[Statedef -3]
+
+[State -3, AI ON]
+type = VarSet
+triggerall = var(50) != 1
+trigger1 = command = "AI1"
+trigger2 = command = "AI2"
+trigger3 = command = "AI3"
+trigger4 = command = "AI4"
+trigger5 = command = "AI5"
+trigger6 = command = "AI6"
+trigger7 = command = "AI7"
+trigger8 = command = "AI8"
+trigger9 = command = "AI9"
+trigger10 = command = "AI10"
+trigger11 = command = "AI11"
+trigger12 = command = "AI12"
+trigger13 = command = "AI13"
+trigger14 = command = "AI14"
+trigger15 = command = "AI15"
+trigger16 = command = "AI16"
+trigger17 = command = "AI17"
+trigger18 = command = "AI18"
+trigger19 = command = "AI19"
+trigger20 = command = "AI20"
+trigger21 = command = "AI21"
+trigger22 = command = "AI22"
+trigger23 = command = "AI23"
+trigger24 = command = "AI24"
+trigger25 = command = "AI25"
+trigger26 = command = "AI26"
+trigger27 = command = "AI27"
+trigger28 = command = "AI28"
+trigger29 = command = "AI29"
+trigger30 = command = "AI30"
+v = 50
+value = 1
+
+[State -3, AI ON]
+type = VarSet
+triggerall = var(50) != 1
+trigger1 = command = "AI31"
+trigger2 = command = "AI32"
+trigger3 = command = "AI33"
+trigger4 = command = "AI34"
+trigger5 = command = "AI35"
+trigger6 = command = "AI36"
+trigger7 = command = "AI37"
+trigger8 = command = "AI38"
+trigger9 = command = "AI39"
+trigger10 = command = "AI40"
+trigger11 = command = "AI41"
+trigger12 = command = "AI42"
+trigger13 = command = "AI43"
+trigger14 = command = "AI44"
+trigger15 = command = "AI45"
+trigger16 = command = "AI46"
+trigger17 = command = "AI47"
+trigger18 = command = "AI48"
+trigger19 = command = "AI49"
+trigger20 = command = "AI50"
+v = 50
+value = 1
+
+;punch
+[State -3]
+type = ChangeState
+;triggerall = random<300
+triggerall = var(50) = 1
+triggerall = StateType = S & Movetype != H
+triggerall = p2Life > 0
+trigger1 = p2bodydist x<=5 & p2bodydist x>=-4
+trigger2 = p2bodydist x<=14 & p2bodydist x>=-4
+triggerall = ctrl = 1
+triggerall = time>=8
+value = 200
+
+;punch2
+[State -3]
+type = ChangeState
+triggerall = var(50) = 1
+triggerall = StateType = S & Movetype != H
+triggerall = p2Life > 0
+trigger1 = stateno = 200
+trigger1 = time >= 14
+value = 201
+
+;punch3
+[State -3]
+type = ChangeState
+triggerall = var(50) = 1
+triggerall = StateType = S & Movetype != H
+triggerall = p2Life > 0
+trigger1 = stateno = 201
+trigger1 = time >= 14
+value = 202
+
+;run attack
+[State -3]
+type = ChangeState
+triggerall = random<20
+triggerall = var(50) = 1
+triggerall = StateType = S & Movetype != H
+triggerall = p2Life > 0
+trigger1 = p2bodydist x<34 & p2bodydist x>=-4
+trigger2 = p2bodydist x<2 & p2bodydist x>=-4
+trigger3 = p2bodydist x<10 & p2bodydist x>=-4
+triggerall = ctrl = 1
+value = 204
+
+;run
+[State -3]
+type = ChangeState
+triggerall = var(50) = 1
+triggerall = StateType = S & Movetype != H
+triggerall = p2Life > 0
+triggerall = p2bodydist x<270 & p2bodydist x>=34
+trigger1 = ctrl = 1
+trigger1 = var(6) = 0
+value = 100
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(50) = 1
+trigger1 =time = 0
+v = 6    ;fv = 10
+value = 0
+
+;kunai throw
+[State -3]
+type = ChangeState
+triggerall = random<=10
+triggerall = var(50) = 1
+triggerall = StateType != A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = p2bodydist x>=34
+triggerall = P2bodydist X<=270
+trigger1 = ctrl = 1
+value = 206
+
+;explode kunai throw
+[State -3]
+type = ChangeState
+triggerall = power>=500
+triggerall = random <20
+triggerall = var(50) = 1
+triggerall = StateType = S
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = p2bodydist x>=40 & P2bodydist X<270
+trigger1 = ctrl = 1
+value = 219
+
+;kunai throw air
+[State -3]
+type = ChangeState
+triggerall = random <20
+triggerall = var(50) = 1
+triggerall = StateType = A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = p2bodydist x>=40 & P2bodydist X<270
+trigger1 = ctrl = 1
+value = 208
+
+;explode kunai throw air
+[State -3]
+type = ChangeState
+triggerall = power>=500
+triggerall = random <20
+triggerall = var(50) = 1
+triggerall = StateType = A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = p2bodydist x>=40 & P2bodydist X<100
+trigger1 = ctrl = 1
+value = 218
+
+;air attack
+[State -3]
+type = ChangeState
+triggerall = random<=400
+triggerall = var(50) = 1
+triggerall = StateType = A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = p2bodydist x>=-4
+triggerall = P2bodydist X<=34
+trigger1 = p2bodydist y>= -12
+trigger2 = p2bodydist y>= pos y
+trigger3 = p2bodydist y<= pos y
+triggerall = ctrl = 1
+value = 205
+
+;jump
+[State -3]
+type = ChangeState
+triggerall = random<10
+triggerall = var(50) = 1
+triggerall = StateType !=A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = P2bodydist X<=40 & P2bodydist X>=0
+triggerall = p2bodydist y>=-7
+trigger1 = ctrl = 1
+value = 40
+
+;DWNpunch
+[State -3]
+type = ChangeState
+triggerall = random<5
+triggerall = var(50) = 1
+triggerall = StateType !=A & Movetype != H
+triggerall = p2Life > 0
+triggerall = p2bodydist x<=34
+trigger1 = ctrl = 1
+value = 203
+
+;jump
+[State -3]
+type = ChangeState
+triggerall = random<10
+triggerall = var(50) = 1
+triggerall = StateType !=A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = P2bodydist X<=34 & P2bodydist X>=0
+trigger1 = stateno = 203 & time>= 12
+value = 40
+
+;SmashySmashyNoJutsu
+[State -3]
+type = ChangeState
+triggerall = power>=500
+triggerall = random<5
+triggerall = var(50) = 1
+triggerall = StateType = S
+triggerall = Movetype != H
+triggerall = P2Life > 0
+trigger1 = P2bodydist X<=80 & P2bodydist X>=-1
+trigger3 = p2bodydist x<10 & p2bodydist x>=-1
+trigger2 = p2bodydist x<2 & p2bodydist x>=-1
+triggerall = ctrl = 1
+value = 211
+
+;Shanarro
+[State -3]
+type = ChangeState
+triggerall = power>=500
+triggerall = random<5
+triggerall = var(50) = 1
+triggerall = StateType = S
+triggerall = Movetype != H
+triggerall = P2Life > 0
+trigger1 = p2bodydist x<20 & p2bodydist x>=-4
+trigger2 = p2bodydist x<2 & p2bodydist x>=-4
+triggerall = ctrl = 1
+value = 209
+
+;InnerSakura
+[State -3]
+type = ChangeState
+triggerall = power>=500
+triggerall = random<15
+triggerall = var(50) = 1
+triggerall = StateType = S
+triggerall = Movetype != H
+triggerall = P2Life > 0
+trigger1 = p2bodydist x<20 & p2bodydist x>=-4
+trigger2 = p2bodydist x<10 & p2bodydist x>=-4
+triggerall = ctrl = 1
+value = 214
+
+;Kwarari
+[State -3]
+type = ChangeState
+triggerall = var(50) = 1
+;triggerall = StateType = S
+triggerall = Movetype = H
+triggerall = P2Life > 0
+triggerall = p2movetype = a
+triggerall = time>= 8
+triggerall = power>= 250
+triggerall = stateno != 217
+triggerall = stateno != 222
+trigger1 = stateno = 5030
+trigger2 = stateno = 5035
+trigger3 = stateno = 1026
+trigger4 = stateno = 1027
+trigger5 = stateno = 1028
+value = 1030
+
+;chakra charge
+[State -3]
+type = ChangeState
+triggerall = power <1000
+triggerall = random <= 30
+triggerall = var(50) = 1
+triggerall = StateType != A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = P2bodydist X < 999
+triggerall = P2bodydist X >= 45
+trigger1 = ctrl = 1
+value = 217
+
+;Special: "Shanarro"
+[State -3]
+type = ChangeState
+triggerall = power>=2000
+triggerall = random<300
+triggerall = var(50) = 1
+triggerall = StateType = S
+triggerall = Movetype != H
+triggerall = P2Life > 0
+trigger1 = p2bodydist y<=-4
+triggerall = ctrl = 1
+value = 222
+
+;run_Back
+[State -3]
+type = ChangeState
+triggerall = random <30
+triggerall = var(50) = 1
+triggerall = StateType != A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = P2bodydist X <30
+trigger1 = ctrl = 1
+value = 105

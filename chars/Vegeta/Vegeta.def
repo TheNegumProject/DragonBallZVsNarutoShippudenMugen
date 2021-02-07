@@ -1,0 +1,29 @@
+; Definition file for Player
+; Contains all the filenames needed for the character
+
+
+; Character information
+[Info]
+name="Vegeta"
+displayname="Vegeta"
+versiondate=23,07,2006
+mugenversion=06,14,2003
+author="Mugenfan2005 D-GENERACIONZ - Team"
+
+pal.defaults=1,2
+
+; Files for the character
+[Files]
+cmd=vegeta.cmd
+cns=vegeta.cns
+st=vegeta.cns
+stcommon=Vegeta_DGZ_common1.cns
+sprite=vegeta.sff
+anim=vegeta.air
+sound=vegeta.snd
+pal1=azul.act
+pal2=azul.act
+; Arcade mode
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,40 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Vegeta"
+displayname ="Vegeta SSJ"
+versiondate =07,05,2011
+mugenversion =1.0
+author ="Neo & Maj'"
+pal.defaults =1,2,3,4,5,6,7,8,9
+
+[Files]
+sprite =Sprites\vegitaSFF.sff
+anim =Sprites\vegitaAIR.air
+sound =Sound\SOUNDS.snd
+cmd =Code\CMD.cmd
+cns =Code\CNS.cns
+stcommon =Code\Common.cns
+st =Code\Basic.st
+pal1=Palettes\Palette01.act
+pal2=Palettes\Palette02.act
+pal3=Palettes\Palette03.act
+pal4=Palettes\Palette04.act
+pal5=Palettes\Palette05.act
+pal6=palettes\palette06.act
+pal7=palettes\palette07.act
+st1=Code\Special.st
+st2=Code\Helper.st
+st3=Code\Super.st
+
+
+;Palettes
+
+
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

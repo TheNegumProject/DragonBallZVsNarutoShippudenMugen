@@ -1,0 +1,23 @@
+[Info]
+name="Gaara Kazekage"
+displayname="Gaara"
+versiondate=
+mugenversion=06,14,2003
+author="Gabrieldra6"
+pal.defaults=1,2,3,4
+
+[Files]
+sprite=OL'Gaara'95.sff
+sound=OL'Gaara'95.snd
+anim=OL'Gaara'95.air
+cmd=OL'Gaara'95.cmd
+cns=OL'Gaara'95.cns
+st=OL'Gaara'95.cns
+stcommon=common1.cns
+pal1=OL'Gaara'95.act
+st1=Shukaku.cns
+st2=Bunshin.cns
+st3=Fly.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

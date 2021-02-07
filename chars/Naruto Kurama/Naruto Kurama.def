@@ -1,0 +1,19 @@
+[Info]
+name="Naruto Kurama"
+displayname="Naruto Kurama"
+versiondate=29/01/2012
+mugenversion=1.0
+author="Juubi"
+pal.defaults=1,2,3,4
+[Files]
+sprite=Sprites.sff
+sound=Sounds.snd
+anim=Animações.air
+cmd=Comandos.cmd
+cns=Constantes.cns
+st=Constantes.cns
+stcommon=common1.cns
+pal1=Palheta.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,33 @@
+; Definition file for 17 by Chrono_Strife and Neocide
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="17"
+displayname ="Android 17"
+versiondate =13,07,2009
+mugenversion =14,06,2003
+author ="Chrono_Strife and Neocide"
+pal.defaults =1,2,3
+
+; Files for the player
+[Files]
+cmd      =coding/17CMD.cmd
+cns      =coding/17CNS.cns
+st       =coding/17CNS.cns
+st2      = coding/helperCNS.cns   ;Helper States
+stcommon =coding/commonCNS.cns
+sprite   =graphical/17SFF.sff
+anim     =coding/17AIR.air
+sound    =audio/17ENG.snd
+pal1	 = graphical/17.act
+pal2     = graphical/17-2.act     ;Dark Blue (357 Revolver)
+pal3     = graphical/17-3.act     ;Red, White, and Black (9mm USP)
+pal4     = graphical/17-4.act     ;Red, Khakis (Hunting Rifle)
+pal5     = graphical/17-5.act     ;Black (Shotgun)
+pal6     = graphical/17-6.act     ;Trunks (SMG MP5)
+st1=coding/helperCNS.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard= ..\data\final.def

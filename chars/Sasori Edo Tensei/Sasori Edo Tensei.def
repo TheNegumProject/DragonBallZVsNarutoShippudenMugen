@@ -1,0 +1,20 @@
+[Info]
+name="Sasori Edo Tensei"
+displayname="Sasori Edo Tensei"
+versiondate=
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=1,2,3,4
+
+[Files]
+sprite=Er'Sasori.sff
+sound=Er'Sasori.snd
+anim=Er'Sasori.air
+cmd=Er'Sasori.cmd
+cns=Er'Sasori.cns
+st=Er'Sasori.cns
+stcommon=common1.cns
+pal1=Er'Sasori.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

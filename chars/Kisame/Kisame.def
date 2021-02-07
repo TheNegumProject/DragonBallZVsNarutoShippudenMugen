@@ -1,0 +1,26 @@
+[Info]
+name = "Kisame"
+displayname = "Kisame"
+versiondate = 04/05/11
+mugenversion = 
+author = "Gabriel"
+pal.defaults = 1,2,3,4,5
+
+[Files]
+sprite = CLIFF-Kisame-V3.sff
+anim = CLIFF-Kisame-V3.air
+sound = CLIFF-Kisame-V3.snd
+cmd = CLIFF-Kisame-V3.cmd
+cns = CLIFF-Kisame-V3.cns
+stcommon = CLIFFCNS.cns
+st = CLIFF-Kisame-V3.cns
+st1 = BUNCHIN-WATER-PRISON.CNS
+st2 = Kisame-V3-bunshin.cns
+st3 = Kisame-V3-Big-Sawada-bunshin.cns
+st4 = Kisame-V3-Shark-bunshin.cns
+pal1 = CLIFF-Kisame-V3.act
+pal2 = CLIFF-Kisame-V32.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

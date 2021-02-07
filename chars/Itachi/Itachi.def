@@ -1,0 +1,20 @@
+[Info]
+name="Akatsuki Itachi by MG"
+displayname="Itachi"
+versiondate=2010/01/10
+mugenversion=
+author="MGSSJ2"
+pal.defaults=1,2
+[Files]
+sprite=i.sff
+sound=i.snd
+anim=i.air
+cmd=i.cmd
+cns=i.cns
+st=i.cns
+stcommon=common1.cns
+pal1=i.act
+pal2=i.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

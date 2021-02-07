@@ -1,0 +1,119 @@
+Credits:
+
+Coding: A13
+Sprites: STORM
+
+Movelist:
+
+F: Foward
+B: Back
+D: Down
+U: Up
+
+Run foward:
+F, F
+
+Run Backward:
+
+B, B
+
+Jump:
+U
+U, U
+
+While jumping:
+
+b = jump attack
+
+y = special weapon through
+
+While jumping near the wall:
+
+F : Jump against the wall
+
+Keep F : Crouching on the wall
+
+Crouch:
+
+D
+
+Combo1:
+
+b, b
+
+Combo2:
+
+x, x, x
+
+Teleport:
+a
+a+F
+a+U
+a+B
+F, F+a
+U, a
+
+While crouching:
+
+x = crouch attack
+
+
+Shurikens:
+c (also while jumping).
+
+Explosive kunai:
+
+B+c
+
+Explosive mine:
+
+F+c
+
+While lied on the floor:
+
+x = desesperation kagemane attack.
+
+
+Specials:
+
+D, B + c = Kagenui no jutsu
+
+
+D, B + y = Super Kagenui no jutsu
+
+When special weapon on the floor:
+
+D+y: kagemane Shuriken no jutsu
+
+
+Kagemane no jutsu 1: 
+
+C
+
+While kagemane no jutsu 1:
+
+a = Temari summon
+b = Asuma summon
+c = Kakashi summon
+y = Choji summon
+x = Kagekubishibari no jutsu
+s = kagenui no jutsu (2)
+
+Kagemane no jutsu 2:
+
+s
+
+While kagemane no jutsu 2:
+
+x = kagekubishibari (2)
+y = shadow attack
+
+Hypers : 
+
+With 500 life poits or less:
+
+D, F + c = Kaggeashou no jutsu
+
+With 350 life points or less:
+
+D, F + z = Shikamarus Revenge

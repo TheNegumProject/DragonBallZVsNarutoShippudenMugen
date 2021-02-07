@@ -1,0 +1,635 @@
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+; Jump Start
+[Statedef 40]
+type    = S
+physics = S
+anim = 40
+ctrl = 0
+sprpriority = 1
+
+[State 40]
+Type=Changestate
+Triggerall=time=0
+Triggerall=var(59)>0
+Trigger1=random>var(50) ; Add your limiting condition to AI jumping here
+value=0 ; Change back to standing immediately when the AI would start a jump and it is not necessary.
+ctrl=1
+
+[State 40, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+
+[State 40, 2]
+type = VarSet
+trigger1 = command = "holdfwd"
+trigger1 = var(59)=0
+trigger2 = var(59)>0
+trigger2 = P2BodyDist X > 30 && P2BodyDist Y < -30
+sysvar(1) = 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = command = "holdback"
+trigger1 = var(59)=0
+trigger2 = var(59)>0
+trigger2 = P2BodyDist X < 30 && P2BodyDist Y < -30
+sysvar(1) = -1
+
+[State 40, 4]
+type = VelSet
+trigger1 = AnimTime = 0
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+y = const(velocity.jump.y)
+
+[State 40, 5]
+type = VelSet
+trigger1 = AnimTime = 0
+trigger1 = prevstateno = 100 ;RUN_FWD
+trigger1 = sysvar(1) = 1
+x = const(velocity.runjump.fwd.x)
+
+[State 40, 6]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Dash Forward
+[Statedef 100]
+type    = S
+physics = S
+anim = 100
+sprpriority = 1
+ctrl = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = 100,0
+
+[State 100, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 3
+x = 100
+
+[State 100, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = nowalk
+;flag2 = noautoturn
+
+[State 100, Explod]
+type = Explod
+trigger1 = !time
+anim = 17000
+ID = 17000
+pos = -15,-3
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 100, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Dash Backwards
+[Statedef 105]
+type    = S
+physics = S
+anim = 100
+sprpriority = 1
+ctrl = 0
+
+[State 105, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = 100,0
+
+[State 105, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 3
+x = -100
+
+[State 105, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = nowalk
+;flag2 = noautoturn
+
+[State 105, Explod]
+type = Explod
+trigger1 = !time
+anim = 17000
+ID = 17000
+pos = 17,-3
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 105, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; GUARD (start)
+[Statedef 120]
+type = U    ;Leave state type unchanged
+physics = U ;Leave physics unchanged
+
+[State 120]
+Type=CtrlSet
+Trigger1=var(59)>0
+value=0
+
+[State 120, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 120 + (statetype = C) + (statetype = A)*2
+
+[State 120, 2]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = S
+physics = S
+
+[State 120, 3]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = C
+physics = C
+
+[State 120, 4]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = A
+physics = A
+
+[State 120, Hi to Lo]
+type = StateTypeSet
+triggerall = statetype = S
+trigger1 = var(59)=0
+trigger1 = command = "holddown"
+trigger2 = var(59)>0
+trigger2 = (abs(P2Dist X)>120) || (P2MoveType=H) || (P2StateType=C)
+trigger2 = P2StateType!=A
+trigger2 = AILevel>=3
+statetype = C
+physics = C
+
+[State 120, Lo to Hi]
+type = StateTypeSet
+triggerall = statetype = C
+trigger1 = var(59)=0
+trigger1 = command != "holddown"
+trigger2 = Var(59) > 0
+trigger2 = p2statetype = A
+trigger2 = abs(P2BodyDist X)<50
+trigger2 = AILevel>=3
+statetype = S
+physics = S
+
+[State 120, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 130 + (statetype = C) + (statetype = A)*2
+
+[State 120, Stop Guarding]
+type = ChangeState
+trigger1 = command != "holdback"
+trigger1 = var(59)=0
+trigger2 = !inguarddist
+value = 140
+
+;---------------------------------------------------------------------------
+; Stand guard (guarding)
+[Statedef 130]
+type    = S
+physics = S
+
+[State 120]
+Type=CtrlSet
+Trigger1=var(59)>0
+value=0
+
+[State 130, 1]
+type = ChangeAnim
+trigger1 = Anim != 130
+value = 130
+
+[State 130, Hi to Lo]
+type = ChangeState
+trigger1 = command = "holddown"
+trigger1 = var(59)=0
+trigger2 = var(59)>0
+trigger2 = (abs(P2Dist X)>120) || (P2MoveType=H) || (P2StateType=C)
+trigger2 = P2StateType!=A
+trigger2 = AILevel>=3
+value = 131
+
+[State 130, Stop Guarding]
+type = ChangeState
+trigger1 = var(59)=0
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+
+;---------------------------------------------------------------------------
+; Crouch guard (guarding)
+[Statedef 131]
+type    = C
+physics = C
+
+[State 120]
+Type=CtrlSet
+Trigger1=var(59)>0
+value=0
+
+[State 131, 1]
+type = ChangeAnim
+trigger1 = Anim != 131
+value = 131
+
+[State 131, Lo to Hi]
+type = ChangeState
+trigger1 = command != "holddown"
+trigger1 = var(59)=0
+trigger2 = Var(59) > 0
+trigger2 = p2statetype = A
+trigger2 = abs(P2BodyDist X)<50
+trigger2 = AILevel>=3
+value = 130
+
+[State 131, Stop Guarding]
+type = ChangeState
+trigger1 = var(59)=0
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+
+;---------------------------------------------------------------------------
+; Air guard (guarding)
+[Statedef 132]
+type    = A
+physics = N
+
+[State 120]
+Type=CtrlSet
+Trigger1=var(59)>0
+value=0
+
+[State 132, 1]
+type = ChangeAnim
+trigger1 = Anim != 132
+value = 132
+
+[State 132, 2]
+type = VelAdd
+trigger1 = 1
+y = Const(movement.yaccel)
+
+[State 132, 3]
+type = VarSet
+trigger1 = 1
+sysvar(0) = (pos y >= 0) && (vel y > 0)
+
+[State 132, 4]
+type = VelSet
+trigger1 = sysvar(0)
+y = 0
+
+[State 132, 5]
+type = PosSet
+trigger1 = sysvar(0)
+y = 0
+
+[State 132, 6]
+type = ChangeState
+trigger1 = sysvar(0)
+trigger1 = command = "holdback" || (var(59)>0)
+trigger1 = inguarddist
+value = 130
+
+[State 132, 7]
+type = ChangeState
+trigger1 = sysvar(0)
+value = 52
+
+[State 132, Stop Guarding]
+type = ChangeState
+trigger1 = var(59)=0
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+
+
+;---------------------------------------------------------------------------
+; Stand guard hit (shaking)
+[Statedef 150]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+
+[State 150, 1]
+type = ChangeAnim
+trigger1 = 1
+value = 150
+
+[State 150, 2]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 151 + 2*(StateType=C)
+
+[State 120, Hi to Lo]
+type = StateTypeSet
+triggerall = statetype = S
+trigger1 = var(59)=0
+trigger1 = command = "holddown"
+trigger2 = var(59)>0
+trigger2 = (abs(P2Dist X)>120) || (P2MoveType=H) || (P2StateType=C)
+trigger2 = P2StateType!=A
+trigger2 = AILevel>=3
+statetype = C
+physics = C
+
+[State 120, Lo to Hi]
+type = StateTypeSet
+triggerall = statetype = C
+trigger1 = var(59)=0
+trigger1 = command != "holddown"
+trigger2 = Var(59) > 0
+trigger2 = p2statetype = A
+trigger2 = abs(P2BodyDist X)<50
+trigger2 = AILevel>=3
+statetype = S
+physics = S
+
+[State 150, 3]
+type = ForceFeedback
+trigger1 = time = 0
+waveform = square
+time = 3
+
+;---------------------------------------------------------------------------
+; Stand guard hit (knocked back)
+[Statedef 151]
+type    = S
+movetype= H
+physics = S
+anim = 150
+
+[State 151, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+
+[State 151, 2]
+type = VelSet
+trigger1 = Time = GetHitVar(slidetime)
+trigger2 = HitOver
+x = 0
+
+[State 151, 3]
+type = CtrlSet
+trigger1 = Time = GetHitVar(ctrltime)
+trigger1 = var(59)=0
+value = 1
+
+[State 120, Hi to Lo]
+type = StateTypeSet
+triggerall = statetype = S
+trigger1 = var(59)=0
+trigger1 = command = "holddown"
+trigger2 = var(59)>0
+trigger2 = (abs(P2Dist X)>120) || (P2MoveType=H) || (P2StateType=C)
+trigger2 = P2StateType!=A
+trigger2 = AILevel>=3
+statetype = C
+physics = C
+
+[State 120, Lo to Hi]
+type = StateTypeSet
+triggerall = statetype = C
+trigger1 = var(59)=0
+trigger1 = command != "holddown"
+trigger2 = Var(59) > 0
+trigger2 = p2statetype = A
+trigger2 = abs(P2BodyDist X)<50
+trigger2 = AILevel>=3
+statetype = S
+physics = S
+
+[State 151, 4]
+type = ChangeState
+trigger1 = HitOver
+value = 130
+ctrl = !var(59)
+
+;---------------------------------------------------------------------------
+; Crouch guard hit (shaking)
+[Statedef 152]
+type    = C
+movetype= H
+physics = N
+velset = 0,0
+
+[State 152, 1]
+type = ChangeAnim
+trigger1 = 1
+value = 151
+
+[State 152, 3]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 151 + 2*(StateType=C)
+
+[State 120, Hi to Lo]
+type = StateTypeSet
+triggerall = statetype = S
+trigger1 = var(59)=0
+trigger1 = command = "holddown"
+trigger2 = var(59)>0
+trigger2 = (abs(P2Dist X)>120) || (P2MoveType=H) || (P2StateType=C)
+trigger2 = P2StateType!=A
+trigger2 = AILevel>=3
+statetype = C
+physics = C
+
+[State 120, Lo to Hi]
+type = StateTypeSet
+triggerall = statetype = C
+trigger1 = var(59)=0
+trigger1 = command != "holddown"
+trigger2 = Var(59) > 0
+trigger2 = p2statetype = A
+trigger2 = abs(P2BodyDist X)<50
+trigger2 = AILevel>=3
+statetype = S
+physics = S
+
+[State 152, 4]
+type = ForceFeedback
+trigger1 = time = 0
+waveform = square
+time = 4
+
+;---------------------------------------------------------------------------
+; Crouch guard hit (knocked back)
+[Statedef 153]
+type    = C
+movetype= H
+physics = C
+anim = 151
+
+[State 153, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+
+[State 153, 2]
+type = VelSet
+trigger1 = Time = GetHitVar(slidetime)
+trigger2 = HitOver
+x = 0
+
+[State 151, 3]
+type = CtrlSet
+trigger1 = Time = GetHitVar(ctrltime)
+trigger1 = var(59)=0
+value = 1
+
+[State 120, Hi to Lo]
+type = StateTypeSet
+triggerall = statetype = S
+trigger1 = var(59)=0
+trigger1 = command = "holddown"
+trigger2 = var(59)>0
+trigger2 = (abs(P2Dist X)>120) || (P2MoveType=H) || (P2StateType=C)
+trigger2 = P2StateType!=A
+trigger2 = AILevel>=3
+statetype = C
+physics = C
+
+[State 120, Lo to Hi]
+type = StateTypeSet
+triggerall = statetype = C
+trigger1 = var(59)=0
+trigger1 = command != "holddown"
+trigger2 = Var(59) > 0
+trigger2 = p2statetype = A
+trigger2 = abs(P2BodyDist X)<50
+trigger2 = AILevel>=3
+statetype = S
+physics = S
+
+[State 153, 4]
+type = ChangeState
+trigger1 = HitOver
+value = 131
+ctrl = !var(59)
+
+;---------------------------------------------------------------------------
+; Air guard hit (shaking)
+[Statedef 154]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 154, 1]
+type = ChangeAnim
+trigger1 = 1
+value = 152
+
+[State 154, 2]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 155 ;AGUARDHIT2
+
+[State 154, 3]
+type = ForceFeedback
+trigger1 = time = 0
+waveform = square
+time = 4
+
+;---------------------------------------------------------------------------
+; Air guard hit (knocked away)
+[Statedef 155]
+type    = A
+movetype= H
+physics = N
+anim = 152
+
+[State 155, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 155, 2]
+type = VelAdd
+trigger1 = 1
+y = Const(movement.yaccel)
+
+[State 151, 3]
+type = CtrlSet
+trigger1 = Time = GetHitVar(ctrltime)
+trigger1 = var(59)=0
+value = 1
+
+[State 155, 4]
+type = VarSet
+trigger1 = 1
+sysvar(0) = (pos y >= 0) && (vel y > 0)
+
+[State 155, 5]
+type = VelSet
+trigger1 = sysvar(0)
+y = 0
+
+[State 155, 6]
+type = PosSet
+trigger1 = sysvar(0)
+y = 0
+
+[State 155, 6]
+type = ChangeState
+trigger1 = sysvar(0)
+trigger1 = command = "holdback" || var(59)>0
+trigger1 = inguarddist
+value = 130
+
+[State 155, 7]
+type = ChangeState
+trigger1 = sysvar(0)
+value = 52

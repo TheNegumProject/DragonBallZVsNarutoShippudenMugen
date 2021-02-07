@@ -1,0 +1,947 @@
+;---------------------------------------------------------------------------
+; Hyper Kamehameha
+[Statedef 3000]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+anim = 3000
+ctrl = 0
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S558,0
+
+[State 3000]
+type = Explod
+trigger1 = Time = 12
+anim = 2258
+ID = 3000
+pos = -20,2
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 207
+supermove = -1
+removeongethit = 0
+scale = 0.25,0.25
+sprpriority = 9
+supermovetime = -1
+
+[State 3000]
+type = Explod
+trigger1 = time = 220
+anim = 5698
+ID = 6021
+pos = 40,10
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 207
+supermove = -1
+removeongethit = 0
+scale = 0.5,0.5
+sprpriority = 9
+supermovetime = -1
+
+[State 3000]
+type = Explod
+trigger1 = Time = 12
+anim = 2258
+ID = 3000
+pos = 12,0
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 207
+supermove = -1
+removeongethit = 0
+scale = 0.25,0.25
+sprpriority = -9
+supermovetime = -1
+
+[State 3000]
+type = Explod
+trigger1 = Time = 12
+anim = 5587
+ID = 3000
+pos = 0,0
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 220
+supermove = -1
+removeongethit = 0
+scale = 1,1
+sprpriority = 9
+supermovetime = -1
+
+[State 3000]
+type = Explod
+trigger1 = Time = 12
+anim = 5587
+ID = 5587
+pos = 0,0
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 220
+supermove = -1
+removeongethit = 0
+scale = 1,1
+sprpriority = 9
+supermovetime = -1
+
+[State 3000, 1]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 7000, 5
+
+[State 3000, 2]
+type = PlaySnd
+trigger1 = time = 220
+value = 7000, 6
+
+[State 3000, 1]
+type = PlaySnd
+trigger1 = time = 220
+value = 7000, 10
+
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 200
+sound = S700,0
+pos = 0,0
+darken = 0
+p2defmul = 0
+poweradd = -1000
+unhittable = 1
+movetime = 200
+anim = -1
+
+[State 3000]
+type = Explod
+trigger1 = Time = 230
+anim = 5465
+ID = 6021
+pos = 35,-35
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 70
+supermove = -1
+removeongethit = 0
+scale = 0.2,0.2
+sprpriority = 9
+supermovetime = -1
+
+[State 3000, Blast]
+type = Projectile
+trigger1 = time = 220
+projanim = 6021
+projpriority = 4
+projhits = 17
+projheightbound = -240, 100
+projedgebound = 100
+projscreenbound = 100
+projshadow = 0
+projscale = .5,.5
+offset = 30,-35
+velocity = 0,0
+attr = S, HP
+damage   = 40
+animtype = Hard
+guardflag = MA
+hitflag = MAFDP
+pausetime = 10,10
+hitsound   = s70000,6
+sparkxy = 40,0
+guardsound = s7000,4
+ground.type = High
+ground.slidetime = 22
+ground.hittime  = 1
+ground.velocity = -18,-5
+air.animtype = Back
+air.velocity = -15,-8
+air.juggle = 3
+air.fall = 1
+down.velocity = -4,-6
+fall = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 365
+anim = 6022
+ID = 6021
+pos = 40,-65
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 301, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 3000, aura 1A]
+type = Explod
+trigger1 = time%5=2
+anim = 10000
+ID = 1000
+pos = -5,-10
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = -0.04,-0.03
+
+[State 3000, aura 1B]
+type = Explod
+trigger1 = time%5=2
+anim = 10000
+ID = 10000
+pos = 5,-10
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0.04,-0.03
+
+[State 3000, aura 2A]
+type = Explod
+trigger1 = time%5=0
+anim = 10001
+ID = 10000
+pos = -5,-6
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+random = 10,20
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = -0.05,0
+
+[State 3000, aura 2B]
+type = Explod
+trigger1 = time%5=0
+anim = 10001
+ID = 10000
+pos = 5,-6
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+random = 10,20
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0.05,0
+
+[State 3000, aura 3]
+type = Explod
+trigger1 = time%5=3
+anim = 10002
+ID = 10000
+pos = 0,-10
+postype = p1
+facing = ifelse(random>500,-1,1)
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0, -0.05
+
+[State 3000, aura 3A]
+type = Explod
+trigger1 = time%5=2
+anim = 10000
+ID = 1000
+pos = -5,-35
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = -0.04,-0.03
+
+[State 3000, aura 3B]
+type = Explod
+trigger1 = time%5=2
+anim = 10000
+ID = 10000
+pos = 5,-35
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0.04,-0.03
+
+[State 3000, aura 3]
+type = Explod
+trigger1 = time%5=3
+anim = 10002
+ID = 10000
+pos = 0,-30
+postype = p1
+facing = ifelse(random>500,-1,1)
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0, -0.05
+
+
+;---------------------------------------------------------------------------
+; Flame Kamehameha
+[Statedef 3400]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+anim = 3300
+ctrl = 0
+sprpriority = 2
+
+[State 3000]
+type = Explod
+trigger1 = Time = 12
+anim = 3331
+ID = 3331
+pos = -4,-27
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 210
+supermove = -1
+removeongethit = 0
+scale = .10,.10
+sprpriority = 9
+supermovetime = -1
+
+[State 3000]
+type = Explod
+trigger1 = Time = 220
+anim = 33301
+ID = 33301
+pos = 25,-32
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 210
+supermove = -1
+removeongethit = 0
+scale = .5,.5
+sprpriority = 9
+supermovetime = -1
+
+[State 3000, 1]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 7000, 5
+
+[State 3000, 2]
+type = PlaySnd
+trigger1 = time = 220
+value = 7000, 6
+
+[State 3000, 1]
+type = PlaySnd
+trigger1 = time = 220
+value = 7000, 10
+
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 200
+sound = S700,0
+pos = -30,-57
+darken = 0
+p2defmul = 0
+poweradd = -1000
+unhittable = 1
+movetime = 200
+anim = -1
+
+[State 3000, Blast]
+type = Projectile
+trigger1 = time = 220
+projanim = 3301
+projpriority = 4
+projhits = 17
+projheightbound = -240, 100
+projedgebound = 100
+projscreenbound = 100
+projshadow = 0
+projscale = .5,.5
+offset = 45,-34
+velocity = 0,0
+attr = S, HP
+damage   = 30
+animtype = Hard
+guardflag = MA
+hitflag = MAFDP
+pausetime = 10,10
+hitsound   = s70000,6
+sparkxy = 40,0
+guardsound = s7000,4
+ground.type = High
+ground.slidetime = 22
+ground.hittime  = 1
+ground.velocity = -18,-5
+air.animtype = Back
+air.velocity = -15,-8
+air.juggle = 3
+air.fall = 1
+down.velocity = -4,-6
+fall = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 365
+anim = 6022
+ID = 6021
+pos = 40,-65
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 301, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 3000, aura 1A]
+type = Explod
+trigger1 = time%5=2
+anim = 10000
+ID = 1000
+pos = -5,-10
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .2,.2
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = -0.04,-0.03
+
+[State 3000, aura 1B]
+type = Explod
+trigger1 = time%5=2
+anim = 10000
+ID = 10000
+pos = 5,-10
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0.04,-0.03
+
+[State 3000, aura 2A]
+type = Explod
+trigger1 = time%5=0
+anim = 10001
+ID = 10000
+pos = -5,-6
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+random = 10,20
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = -0.05,0
+
+[State 3000, aura 2B]
+type = Explod
+trigger1 = time%5=0
+anim = 10001
+ID = 10000
+pos = 5,-6
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+random = 10,20
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0.05,0
+
+[State 3000, aura 3]
+type = Explod
+trigger1 = time%5=3
+anim = 10002
+ID = 10000
+pos = 0,-10
+postype = p1
+facing = ifelse(random>500,-1,1)
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0, -0.05
+
+[State 3000, aura 3A]
+type = Explod
+trigger1 = time%5=2
+anim = 10000
+ID = 1000
+pos = -5,-35
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = -0.04,-0.03
+
+[State 3000, aura 3B]
+type = Explod
+trigger1 = time%5=2
+anim = 10000
+ID = 10000
+pos = 5,-35
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0.04,-0.03
+
+[State 3000, aura 3]
+type = Explod
+trigger1 = time%5=3
+anim = 10002
+ID = 10000
+pos = 0,-30
+postype = p1
+facing = ifelse(random>500,-1,1)
+vfacing = 1
+bindtime = 1
+random = 10,50
+supermove = 1
+scale = .1,.1
+sprpriority = ifelse(random<500,-3,3)
+ownpal = 1
+pausemovetime   = 1000
+accel = 0, -0.05
+
+;-------------------------------------------------------------------------------
+;Machine-Ki-Gun-Carga
+[Statedef 3300]
+type    = S
+movetype= I
+physics = S
+velset = 0,0
+juggle = 4
+ctrl = 0
+poweradd= -1000
+anim = 3400
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S558,0
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S545,1
+volume = 250
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+fv = 32    ;fv = 10
+value = 0.0035
+;ignorehitpause =
+;persistent =
+
+[State 1650]
+type = varset
+trigger1 = time = 0
+v = 13
+value = 1
+
+[State 1650]
+type = varadd
+trigger1 = time >= 0
+v = 13
+value = 1
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time = 10
+time = 45
+anim = -1
+sound = -1
+movetime = 45
+darken = 0
+p2defmul = 0
+poweradd = 0
+unhittable = 1
+
+[State 0]
+type = playsnd
+trigger1 = animelem = 1
+value = s3,16
+volume = 345
+channel = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 10
+anim = 3320
+ID = 3320
+pos = 13,-28
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 399
+vel = 0,0
+accel = 0,0
+random = 0,0
+supermove = 9999
+pausemove = 9999
+scale = 0.1,0.1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;persistent =
+
+[State 1650]
+type = modifyexplod
+trigger1 = time < 75
+id = 3320
+scale = 0.1+((fvar(32)*time)*2),0.1+((fvar(32)*time)*2)
+
+[State 3001, End]
+type = ChangeState
+trigger1 = time = 75
+value	= 3401
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Machine-Ki-Gun-Lanzamiento
+[Statedef 3401]
+type    = S
+movetype= A
+physics = S
+velset = 0,0
+juggle = 4
+ctrl = 0
+poweradd= 0
+anim = 3401
+sprpriority = 2
+facep2 = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1 || animelem = 2 || animelem = 3 || animelem = 4 || animelem = 5
+value = S7000,3
+volume = 345
+channel = -1
+
+[State 1000,Helper]
+type= Helper
+;triggerall = numhelper(2010) = 0
+trigger1= animelem = 1
+helpertype= Normal
+name= "Fire Ball"
+id= 3340
+pos= 13,-28
+postype	= p1
+facing	= 1
+stateno	= 3340;+var(18)
+keyctrl	= 0
+ownpal	= 1
+supermovetime= 0
+pausemovetime= 0
+size.xscale = 0.6
+size.yscale = 0.4
+
+[State 1000,Helper]
+type= Helper
+;triggerall = numhelper(2010) = 0
+trigger1= animelem = 2
+helpertype= Normal
+name= "Fire Ball"
+id= 3341
+pos= 13,-28
+postype	= p1
+facing	= 1
+stateno	= 3341;+var(18)
+keyctrl	= 0
+ownpal	= 1
+supermovetime= 0
+pausemovetime= 0
+size.xscale = 0.6
+size.yscale = 0.4
+
+[State 1000,Helper]
+type= Helper
+;triggerall = numhelper(2010) = 0
+trigger1= animelem = 3
+helpertype= Normal
+name= "Fire Ball"
+id= 3342
+pos= 13,-28
+postype	= p1
+facing	= 1
+stateno	= 3342;+var(18)
+keyctrl	= 0
+ownpal	= 1
+supermovetime= 0
+pausemovetime= 0
+size.xscale = 0.6
+size.yscale = 0.4
+
+[State 1000,Helper]
+type= Helper
+;triggerall = numhelper(2010) = 0
+trigger1= animelem = 4
+helpertype= Normal
+name= "Fire Ball"
+id= 3341
+pos= 13,-28
+postype	= p1
+facing	= 1
+stateno	= 3341;+var(18)
+keyctrl	= 0
+ownpal	= 1
+supermovetime= 0
+pausemovetime= 0
+size.xscale = 0.6
+size.yscale = 0.4
+
+[State 1000,Helper]
+type= Helper
+;triggerall = numhelper(2010) = 0
+trigger1= animelem = 5
+helpertype= Normal
+name= "Fire Ball"
+id= 3340
+pos= 13,-28
+postype	= p1
+facing	= 1
+stateno	= 3340;+var(18)
+keyctrl	= 0
+ownpal	= 1
+supermovetime= 0
+pausemovetime= 0
+size.xscale = 0.6
+size.yscale = 0.4
+
+
+[State 3001, End]
+type = ChangeState
+trigger1 = time = 75
+value	= 3402
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Machine-Ki-Gun-GreatBall
+[Statedef 3402]
+type    = S
+movetype= A
+physics = S
+velset = 0,0
+juggle = 4
+ctrl = 0
+poweradd= 0
+anim = 3401
+sprpriority = 2
+facep2 = 1
+
+[State 0]
+type = RemoveExplod
+trigger1 = time > 0
+;trigger1= time = 400
+id =  3320
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S2,10
+volume = 345
+channel = -1
+
+[State 0, Explod]
+type = Explod
+trigger1= (AnimElem = 1)
+anim = 2005
+ID = 2005
+pos = 5,-30
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 0.7,0.7
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+ignorehitpause =  1
+
+[State 1000,Helper]
+type= Helper
+;triggerall = numhelper(2010) = 0
+trigger1= animelem = 1
+helpertype= Normal
+name= "Fire Ball"
+id= 3350
+pos= 13,-28
+postype	= p1
+facing	= 1
+stateno	= 3350;+var(18)
+keyctrl	= 0
+ownpal	= 1
+supermovetime= 0
+pausemovetime= 0
+size.xscale = 0.7
+size.yscale = 0.7
+
+[State 3001, End]
+type = ChangeState
+trigger1 = time = 50
+value	= 3403
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Machine-Ki-Gun-End
+[Statedef 3403]
+type    = S
+movetype= A
+physics = S
+velset = 0,0
+juggle = 4
+ctrl = 0
+poweradd= 0
+anim = 3401
+sprpriority = 2
+facep2 = 1
+
+[State 3001, End]
+type = ChangeState
+trigger1 = time = 30
+value	= 0
+ctrl = 1
+
+

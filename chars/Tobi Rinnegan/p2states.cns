@@ -1,0 +1,608 @@
+[Statedef 6134]
+type = S
+movetype= H
+physics = N
+juggle  = 3
+ctrl = 0
+sprpriority =0
+
+
+[State Hit]
+type = HitDef
+trigger1 = !movecontact
+attr = S,NA
+affectteam = F
+damage = 50,50
+hitsound = S0,59
+ground.type = Low
+air.type = Low
+guardsound = 6,0
+pausetime = 0,0
+ground.hittime = 20
+air.hittime = 20
+ground.velocity = 3,-3
+air.velocity = 3,-3
+sparkno = -1
+sparkxy = -15,-30
+fall = 1
+fall.recover = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = backedgedist <= 0
+value = S0,59
+
+[State 0, Angleset]
+type = Angleset
+trigger1 = 1
+value = -20
+
+[State 0, Explod]
+type = Explod
+trigger1 = backedgedist <= 0
+anim = F72
+ID = 72
+pos = -30,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !time
+value = 5301
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist > 0
+x = 20
+y = -6
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist <= 0
+x = 4
+y = -6
+
+[State 0, Turn]
+type = Turn
+trigger1 = backedgedist <= 0
+;ignorehitpause =
+;persistent =
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = backedgedist <= 0
+time = 21
+freq = 85
+ampl = -3
+persistent = 0
+
+[State 0, SelfState]
+type = SelfState
+trigger1 = backedgedist <= 0
+value = 5050
+
+[Statedef 6133]
+type = S
+movetype= H
+physics = N
+juggle  = 3
+ctrl = 0
+sprpriority =0
+
+
+[State Hit]
+type = HitDef
+trigger1 = !movecontact
+attr = S,NA
+affectteam = F
+damage = 50,50
+hitsound = S0,59
+ground.type = Low
+air.type = Low
+guardsound = 6,0
+pausetime = 0,0
+ground.hittime = 20
+air.hittime = 20
+ground.velocity = 3,-3
+air.velocity = 3,-3
+sparkno = -1
+sparkxy = -15,-30
+fall = 1
+fall.recover = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = backedgedist <= 0
+value = S0,59
+
+[State 0, Angleset]
+type = Angleset
+trigger1 = 1
+value = -20
+
+[State 0, Explod]
+type = Explod
+trigger1 = backedgedist <= 0
+anim = F72
+ID = 72
+pos = -30,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !time
+value = 5301
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist > 0
+x = -20
+y = -6
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist <= 0
+x = 4
+y = -6
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = backedgedist <= 0
+time = 21
+freq = 85
+ampl = -3
+persistent = 0
+
+[State 0, SelfState]
+type = SelfState
+trigger1 = backedgedist <= 0
+value = 5050
+
+
+
+[Statedef 6132]
+type = S
+movetype= H
+physics = N
+juggle  = 3
+ctrl = 0
+sprpriority =0
+
+
+[State Hit]
+type = HitDef
+trigger1 = !movecontact
+attr = S,NA
+affectteam = F
+damage = 50,50
+hitsound = S0,59
+ground.type = Low
+air.type = Low
+guardsound = 6,0
+pausetime = 0,0
+ground.hittime = 20
+air.hittime = 20
+ground.velocity = 3,-3
+air.velocity = 3,-3
+sparkno = -1
+sparkxy = -15,-30
+fall = 1
+fall.recover = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = backedgedist <= 0
+value = S0,59
+
+[State 0, Angleset]
+type = Angleset
+trigger1 = 1
+value = -20
+
+[State 0, Explod]
+type = Explod
+trigger1 = backedgedist <= 0
+anim = F72
+ID = 72
+pos = -30,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !time
+value = 5301
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist > 0
+x = -20
+y = -6
+
+[State 1146, 3]
+type = Turn
+trigger1 = time = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist <= 0
+x = 4
+y = -6
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = backedgedist <= 0
+time = 21
+freq = 85
+ampl = -3
+persistent = 0
+
+[State 0, SelfState]
+type = SelfState
+trigger1 = backedgedist <= 0
+value = 5050
+
+
+[Statedef 6131]
+type = S
+movetype= H
+physics = N
+juggle  = 3
+ctrl = 0
+sprpriority =0
+
+
+[State Hit]
+type = HitDef
+trigger1 = !movecontact
+attr = S,NA
+affectteam = F
+damage = 50,50
+hitsound = S0,59
+ground.type = Low
+air.type = Low
+guardsound = 6,0
+pausetime = 0,0
+ground.hittime = 20
+air.hittime = 20
+ground.velocity = 3,-3
+air.velocity = 3,-3
+sparkno = -1
+sparkxy = -15,-30
+fall = 1
+fall.recover = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = backedgedist <= 0
+value = S0,59
+
+[State 0, Angleset]
+type = Angleset
+trigger1 = 1
+value = -20
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = backedgedist <= 0
+anim = F72
+ID = 72
+pos = -30,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !time
+value = 5301
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist > 0
+x = -20
+y = -9
+
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist <= 0
+x = 4
+y = -6
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = backedgedist <= 0
+time = 21
+freq = 85
+ampl = -3
+persistent = 0
+
+[State 0, SelfState]
+type = SelfState
+trigger1 = backedgedist <= 0
+value = 5050
+
+[Statedef 6130]
+type = S
+movetype= H
+physics = N
+juggle  = 3
+ctrl = 0
+sprpriority =0
+
+
+[State Hit]
+type = HitDef
+trigger1 = !movecontact
+attr = S,NA
+affectteam = F
+damage = 50,50
+hitsound = S0,59
+ground.type = Low
+air.type = Low
+guardsound = 6,0
+pausetime = 0,0
+ground.hittime = 20
+air.hittime = 20
+ground.velocity = 3,-3
+air.velocity = 3,-3
+sparkno = -1
+sparkxy = -15,-30
+fall = 1
+fall.recover = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = backedgedist <= 0
+value = S0,59
+
+[State 0, Angleset]
+type = Angleset
+trigger1 = 1
+value = -20
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = backedgedist <= 0
+anim = F72
+ID = 72
+pos = -30,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !time
+value = 5301
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist > 0
+x = -10
+y = -4
+
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = backedgedist <= 0
+x = 2
+y = -4
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = backedgedist <= 0
+time = 21
+freq = 85
+ampl = -3
+persistent = 0
+
+[State 0, SelfState]
+type = SelfState
+trigger1 = backedgedist <= 0
+value = 5050
+
+[Statedef 6200]
+type    = A
+movetype= H
+physics = N
+anim = 5000
+velset = 0,0
+sprpriority = 2
+ctrl = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+facing = 0
+pos = 0,0
+;ignorehitpause =
+;persistent =
+
+
+[State 0, selfstate]
+type = selfstate
+trigger1 = time = 100
+value = 0
+
+[Statedef 6201]
+type    = A
+movetype= H
+physics = N
+anim = 5000
+velset = 0,0
+sprpriority = 2
+ctrl = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+facing = 0
+pos = 0,0
+;ignorehitpause =
+;persistent =
+
+
+[State 0, selfstate]
+type = selfstate
+trigger1 = time = 50
+value = 5050
+
+[Statedef 6202]
+type    = A
+movetype= H
+physics = N
+anim = 5000
+velset = 0,0
+sprpriority = 2
+ctrl = 0
+
+
+[State 0, selfstate]
+type = selfstate
+trigger1 = time = 300
+value = 0
+
+

@@ -1,0 +1,22 @@
+
+[Info]
+name="Dabura by DZGTEAM"
+displayname="Dabura"
+versiondate=02,08,2007
+mugenversion=06,14,2003
+author="D-GENERACIONZ - Team"
+pal.defaults=1,2
+[Files]
+cmd=dabura.cmd
+cns=dabura.cns
+st=dabura.cns
+stcommon=Dabura_DGZ_common1.cns
+sprite=dabura.sff
+anim=dabura.air
+sound=dabura.snd
+pal1=dabura.act
+pal2=Dabura2.act
+
+[Arcade]
+intro.storyboard=
+ending.storyboard= ..\data\final.def

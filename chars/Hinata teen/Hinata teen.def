@@ -1,0 +1,22 @@
+[Info]
+name="Hinata teen"
+displayname="Hinata teen"
+versiondate=08.02.08
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=1,2
+
+[Files]
+sprite=EXFHinata.sff
+sound=EXFHinata.snd
+anim=EXFHinata.air
+cmd=EXFHinata.cmd
+cns=EXFHinata.cns
+st=EXFHinata.cns
+stcommon=common1.cns
+pal1=EXFHinata.act
+pal2=EXFHinata2.act
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,686 @@
+                      ;Kiodaija stand
+[Statedef 8003]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim = 8003
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = time=0
+value = 1994,0
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 =animelem=9
+time = 50
+freq = 60
+ampl = -50
+phase = 1000
+
+[State 0, 1]
+type = HitDef
+trigger1 =1
+attr = S, NA
+damage = 10
+animtype = heavy
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 0
+sparkno = S1111
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 0
+ground.hittime  = 0
+ground.velocity = -2,-4
+airguard.velocity = -2,-4
+air.type = High
+air.velocity = -2,-4
+air.hittime = 0
+;fall=1
+;fall.recover=0
+;fall.damage=1000
+
+[state 0, Turn]
+type = turn
+trigger1 = p2dist x <-135
+
+
+
+
+[State 230, 5]
+type = ChangeState
+;trigger1 =life>=500
+trigger1 =command="a"
+value =8004
+ctrl = 1
+[State 230, 5]
+type = ChangeState
+;trigger1 =life>=500
+trigger1 =command="holdfwd"
+value =8007
+ctrl = 1
+[State 230, 5]
+type = ChangeState
+;trigger1 =life>=500
+trigger1 =command="holdback"
+value =8008
+ctrl = 1
+[State 230, 5]
+type = ChangeState
+;trigger1 =life>=500
+trigger1 =command="holdup"
+value =8009
+ctrl = 1
+
+[State 230, 5]
+type = Changestate
+triggerall =var(1)=1
+;triggerall =power=0
+trigger1 =command="b"
+value =8005
+ctrl = 1
+
+[State 230, 5]
+type = ChangeState
+;trigger1 =power=0
+trigger1 =command="c"
+value =8012
+ctrl = 1
+
+[State 230, 5]
+type = ChangeState
+;trigger1 =life <=500
+
+trigger1 =command="s"
+value =80044
+ctrl = 1
+
+[State 230, 5]
+type = ChangeState
+trigger1 =power=0
+trigger2 =roundstate!=2
+value =8005
+ctrl = 1
+
+
+;---------------------------------------------------------------------------
+;Kyodaija atack01
+[Statedef 8004]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= -50
+ctrl = 0
+velset = 0,0
+anim = 8004
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =1
+flag = unguardable
+
+[State 200, 1]
+type = HitDef
+trigger1 =animelem=3
+trigger2 =animelem=4
+trigger3 =animelem=5
+trigger4 =animelem=6
+trigger5 =animelem=7
+attr = S, NA
+damage =100, 0
+animtype =Heavy
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0,10
+sparkno = 0
+sparkxy = -10, -35
+hitsound = s2000,6
+ground.type = Trip
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity =-10
+airguard.velocity =-20
+air.type = Trip
+air.velocity =-20
+air.hittime = 5
+;stateno=0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+
+[State 220, 5]
+type = ChangeState
+trigger1 =animelem=7
+value = 8003
+ctrl = 1
+;------------------------------------------------------------------------
+;Kyodaija atack01
+[Statedef 8012]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= -50
+ctrl = 0
+velset = 0,0
+anim = 58
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =3
+flag = unguardable
+
+[State 200, 1]
+type = HitDef
+trigger1 =animelem=3
+attr = S, NA
+damage =100, 0
+animtype =Heavy
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0,10
+sparkno = 0
+sparkxy = -10, -35
+hitsound = s2000,6
+ground.type = Trip
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity =-10
+airguard.velocity =-20
+air.type = Trip
+air.velocity =-20
+air.hittime = 5
+;stateno=0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+
+[State 220, 5]
+type = ChangeState
+trigger1 =animelem=4
+value = 8003
+ctrl = 1
+;__________________________________________________________________________
+;Kuchiyose no jutsu fim
+[Statedef 8005]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim =8001
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = time=0
+value = 1994,10
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+v = 1 ;fv = 10
+value = 0
+
+[State 230, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value =0
+ctrl =1
+;__________________________________________________________________________
+;Kuchiyose no jutsu fim
+[Statedef 80055]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 22
+ctrl = 0
+velset = 0,0
+anim =220
+
+[State 48,***]
+type = HitDef
+trigger1 =time=0
+attr = S, NA
+damage = 10, 20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0,0
+;p2stateno=6001
+hitsound = S19, 19
+guardsound = S19, 19
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 20
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+fall = 1
+
+[State 230, 5]
+type = ChangeState
+trigger1 =animtime=0
+value =0
+ctrl =1
+
+[State 230, 5]
+type = ChangeState
+triggerall =movecontact=1
+
+trigger1=p2stateno=[5000,5999]
+
+value =8006
+ctrl =1
+
+;__________________________
+;__________________________________________________________________________
+;Damage kyodaija
+[Statedef 8000]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim = 8003
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 =animtime=0
+value =-30
+kill = 1
+absolute = 0
+;ignorehitpause =
+;persistent =
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 1994, 4
+
+[State 230, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 8003
+ctrl =1
+;__________________________________________________________________________
+;Kuchiyose no jutsu
+[Statedef 8001]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim = 250
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+v = 1 ;fv = 10
+value = 1
+
+[State 802, HitSpark]
+type = Explod
+trigger1 =animelem=9
+anim = 8001
+ID =8001
+pos = 15,10
+postype = p1
+removetime = -2
+ontop = 1
+scale = 5,5
+ownpal = 1
+shadow = 0,0,0
+persistent = 6
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 1994, 4
+
+
+
+[State 2000, SuperPause]
+type = SuperPause
+trigger1 =animelem=7
+time = 100
+;anim = 100
+sound = S1994,3
+pos = 0, -35
+darken = 1
+p2defmul = 1
+unhittable = 1
+
+[State 230, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 8003
+ctrl =1
+;__________________________________________________________________________
+
+[Statedef 8007]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim = 8003
+
+[State 8007, 1]
+type = VelSet
+trigger1 = command = "holdfwd"
+x = const(velocity.walk.fwd.x)
+[State 8007, 3]
+type = ChangeAnim
+triggerall = vel x > 0
+trigger1 = Anim != 8007 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value =8007
+
+[State 8007, 3]
+type = ChangeAnim
+triggerall =command!="holdfwd"
+trigger1 = Anim != 8003 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value =8003
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 =command!="holdfwd"
+value = 8003
+ctrl = 0
+;anim =
+;ignorehitpause =
+;persistent =
+
+;Kuchiyose no jutsu
+[Statedef 8008]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim = 8008
+[State 8008, 1]
+type = VelSet
+trigger1 = command = "holdback"
+x = const(velocity.walk.back.x)
+[State 8008, 3]
+type = ChangeAnim
+triggerall = vel x > 0
+trigger1 = Anim != 8008 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value =8008
+[State 8008, 3]
+type = ChangeAnim
+triggerall =command!="holdback"
+trigger1 = Anim != 8003 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value =8003
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 =command!="holdback"
+value = 8003
+ctrl = 0
+;anim =
+;ignorehitpause =
+;persistent =
+;--------------------------------------------------------------------
+;---------------------------------------------------------------------------
+; Jump Start
+[Statedef 40]
+type    = S
+physics = S
+anim = 40
+ctrl = 0
+sprpriority = 1
+
+[State 40, 5]
+type = AfterImage
+trigger1 = AnimTime = 0
+trigger1 = prevstateno = 100
+trigger1 = sysvar(1) = 1
+time = 48
+length = 6
+palpostbright = 0,0,0
+framegap = 2
+persistent = 1
+ignorehitpause = 0
+
+[State 40, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+
+[State 40, 2]
+type = VarSet
+trigger1 = command = "holdfwd"
+sysvar(1) = 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = command = "holdback"
+sysvar(1) = -1
+
+[State 40, 4]
+type = VelSet
+trigger1 = AnimTime = 0
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+y = const(velocity.jump.y)
+
+[State 40, 5]
+type = VelSet
+trigger1 = AnimTime = 0
+trigger1 = prevstateno = 100 ;RUN_FWD
+trigger1 = sysvar(1) = 1
+x = const(velocity.runjump.fwd.x)
+
+[State 40, 6]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; AirJump Start
+[Statedef 8009]
+type    = A
+physics = N
+ctrl = 0
+velset = 0,0
+
+
+[State 8009, 5]
+type = AfterImage
+trigger1 = Time = 0
+time = 20
+length = 6
+palpostbright = 0,0,0
+framegap = 2
+persistent = 1
+ignorehitpause = 0
+
+[State -3, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 7, 0
+
+[State 8009, 1]
+type = ChangeAnim
+trigger1 = SelfAnimExist(44)
+value = 44
+
+[State 45, 2]
+type = ChangeAnim
+trigger1 = !SelfAnimExist(44)
+value = 41
+
+[State 8009, 3]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+
+[State 8009, 4]
+type = VarSet
+trigger1 = command = "holdfwd"
+sysvar(1) = 1
+
+[State 8009, 5]
+type = VarSet
+trigger1 = command = "holdback"
+sysvar(1) = -1
+
+[State 8009, 6]
+type = VelSet
+trigger1 = Time = 2
+x = ifelse(sysvar(1)=0, const(velocity.airjump.neu.x), ifelse(sysvar(1)=1, const(velocity.airjump.fwd.x), const(velocity.airjump.back.x)))
+y = const(velocity.airjump.y)
+
+[State 8009, 7]
+type = ChangeState
+trigger1 = Time = 2
+value = 501
+ctrl = 1
+; Jump Up
+[Statedef 501]
+type    = A
+physics = A
+
+[State -3,PlaySnd]
+type = PlaySnd
+triggerall = prevstateno = 45 || prevstateno = 100
+trigger1 = time = 0
+value = 40, 2
+volume = 800
+channel = -1
+
+[State -3,PlaySnd]
+type = PlaySnd
+triggerall = prevstateno != 45
+trigger1 = time = 0
+value = 40, 1
+volume = 800
+channel = -1
+
+[State 501, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+
+[State 501, 2]
+type = ChangeAnim
+trigger1 = Time = 0
+value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
+
+[State 501, 3]
+type = ChangeAnim
+trigger1 = Vel y > -2
+trigger1 = SelfAnimExist(anim + 3)
+persistent = 0
+value = Anim + 3
+
+;---------------------------------------------------------------------------
+; Jump Down (empty state for compatibility)
+[Statedef 51]
+type    = A
+physics = A
+
+[State 51, 1]
+type = Null
+trigger1 = 1
+
+;---------------------------------------------------------------------------
+; Jump Land
+[Statedef 52]
+type    = S
+physics = S
+ctrl = 0
+anim = 47
+velset = 0,0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+triggerall = prevstateno = 408
+trigger1 = 1
+flag = nobardisplay
+flag2 = noBG
+flag3 = noFG
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 4041
+ID = 4041
+pos = 0,10
+postype = p1  ;p2,front,back,left,right
+vel = 0,0
+removetime = -2
+scale = 1,1
+sprpriority = 10
+removeongethit = 0
+pausemovetime = -1
+ownpal = 1
+
+[State -3,PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 52, 1
+volume = 800
+channel = -1
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+
+
+;---------------------------------------------------------------------------
+
+
+
+
+
+

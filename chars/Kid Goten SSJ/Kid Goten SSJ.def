@@ -1,0 +1,32 @@
+; Definition file for Blank
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Goten"
+displayname ="Kid Goten SSJ"
+versiondate =04,15,2007
+mugenversion =06,14,2003
+author ="Teh Goku Squad"
+pal.defaults =1
+
+; Files for the player
+[Files]
+cmd     =ssjgoten.cmd
+cns     =ssjgoten.cns
+st      =ssjgoten.cns
+stcommon =ssjgotencommon.cns
+sprite  =ssjgoten.sff
+anim    =ssjgoten.air
+;sound   =   ;Sound
+sound=ssjgoten.snd
+pal1=ssjgoten.act
+pal2=ssjgoten2.act
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 
+[Arcade]
+intro.storyboard=
+ending.storyboard=

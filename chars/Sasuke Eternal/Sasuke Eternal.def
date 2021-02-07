@@ -1,0 +1,33 @@
+[Info]
+name ="Sasuke Eternal"
+displayname ="Sasuke Eternal"
+versiondate =2011/02/28
+mugenversion = 
+author ="Gabrieldra6"
+pal.defaults =1,2,3,4,5,6,7,8,9,10,11,12,13,14
+
+[Files]
+sprite =FG-MSasuke.sff
+anim =FG-MSasuke.air
+sound =FG-MSasuke.snd
+cmd =FG-MSasuke2.cmd
+cns =FG-MSasuke2.cns
+stcommon =common1.cns
+st =FG-MSasuke2.cns
+pal1=FG-MSasuke.act
+pal2=FG-MSasuke2.act
+pal3=FG-MSasuke3.act
+pal4=FG-MSasuke4.act
+pal5=FG-MSasuke5.act
+pal6=FG-MSasuke6.act
+pal7=FG-MSasuke7.act
+pal8=FG-MSasuke8.act
+pal9=FG-MSasuke9.act
+pal10=FG-MSasuke10.act
+pal11=FG-MSasuke11.act
+pal12=FG-MSasuke12.act
+st1=config.txt
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

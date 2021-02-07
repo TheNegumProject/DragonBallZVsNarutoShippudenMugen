@@ -1,0 +1,29 @@
+[Info]
+name ="Sai"
+displayname ="Sai"
+versiondate =05,23,2006
+mugenversion =04,14,2002
+author ="Gabrieldra6"
+pal.defaults =1,2
+
+[Files]
+cmd     =sai.cmd
+cns     =sai.cns
+st      =sai.cns
+stcommon =common.cns
+sprite  =sai.sff
+anim    =sai.air
+;sound   = .snd   ;Sound
+sound=sai.snd
+pal1=sai.act
+pal2=sai.act
+st1=lion.cns
+
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=

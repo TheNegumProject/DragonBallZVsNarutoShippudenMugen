@@ -1,0 +1,22 @@
+[Info]
+name = "Rock Lee teen"
+displayname = "Rock Lee Teen"
+versiondate = 
+mugenversion = 06,14,2003
+author = "Gabrieldra6"
+pal.defaults = 1,2
+
+[Files]
+sprite = RockLee.sff
+anim = RockLee.air
+sound = RockLee.snd
+cmd = RockLee.cmd
+cns = RockLee.cns
+stcommon = common1.cns
+st = RockLee.cns
+pal1 = RockLee.act
+pal2 = Blue.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

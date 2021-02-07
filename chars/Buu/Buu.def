@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************     http://virtualltek.mgbr.net     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Super Buu"
+displayname ="Super Buu"
+versiondate =10,18,2005
+mugenversion =06,14,2003
+author ="Team OS"
+pal.defaults =1,2
+
+[Files]
+sprite =Super_Buu.sff
+anim =Super_Buu.air
+sound =Super_Buu.snd
+cmd =Super_Buu.cmd
+cns =Super_Buu.cns
+stcommon =common1.cns
+st =Super_Buu.cns
+pal1=Super_Buu.act
+pal2=Super_Buu_05.act
+st1=Specials.cns
+st2=Ki.cns
+st3=Supers.cns
+st4=Super_Buu_IA.cns
+
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = ..\data\final.def

@@ -1,0 +1,59 @@
+;==============
+;Frezaa
+;==============
+
+;------------------------------------------------------
+;Autor:  //**Alien San**\\
+;------------------------------------------------------
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name ="Frieza"
+displayname ="Freeza"
+versiondate =21,09,2007
+mugenversion =11,01,2001
+author ="Alien San"
+pal.defaults =1,2
+
+
+;---------------------
+;Character Files
+;---------------------
+
+;=====================
+[Files]
+;=====================
+;---------------------
+;Command Set
+;---------------------
+cmd     =Frezaa.cmd
+
+;---------------------
+;State Files
+;---------------------
+cns     =Frezaa.cns
+st      =Frezaa.cns
+stcommon =common1.cns
+
+;---------------------
+;Sprite/Sound
+;---------------------
+sprite  =Frezaa.sff
+anim    =Frezaa.air
+sound   =Frieza.snd
+pal1=1.act
+pal2=1.act
+;---------------------
+;Palletes
+;---------------------
+
+;Arcade mode
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def
+
+
+;----------------------------------
+alienssj@hotmail.com
+;----------------------------------

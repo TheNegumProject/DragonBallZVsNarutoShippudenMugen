@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************     http://virtualltek.mgbr.net     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Son-Goku-SSJ3"
+displayname ="Goku SSJ3"
+versiondate =06.06.2011 
+mugenversion = 
+author ="Gangsti"
+pal.defaults =1
+
+[Files]
+sprite =Son-Goku-SSJ3.sff
+anim =Son-Goku-SSJ3.air
+sound =Son-Goku-SSJ3.snd
+cmd =Son-Goku-SSJ3.cmd
+cns =Son-Goku-SSJ3.cns
+stcommon =common1.cns
+st =Son-Goku-SSJ3.cns
+pal1=Son-Goku-SSJ3.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard =

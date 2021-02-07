@@ -1,0 +1,26 @@
+[Info]
+name ="Tendo"
+displayname ="Pain"
+versiondate = 
+mugenversion = 
+author ="Gabrieldra6"
+pal.defaults =1,2,3,4.
+
+[Files]
+sprite =Sphere-Pain.sff
+anim =Sphere-Pain.air
+sound =Sphere-Pain.snd
+cmd =Sphere-Pain.cmd
+cns =Sphere-God.cns
+stcommon =common1.cns
+st =Sphere-God.cns
+pal1=Sphere-Pain.act
+st1=Sphere-Animal.cns
+st2=Sphere-Human.cns
+st3=Sphere-Hell.cns
+st4=Sphere-Asura.cns
+st5=Sphere-Absorb.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

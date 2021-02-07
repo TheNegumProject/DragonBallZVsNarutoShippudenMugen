@@ -1,0 +1,73 @@
+Enjoy, BETA realeas
+
+-------------------------------------
+
+Command trigger(C)
+
+-air yellow flash = up,c
+
+-smash enemy = c
+
+-------------------------------------
+
+Command trigger(y)
+
+-air yellow flash = up,y
+
+-power charge = y
+
+-kyubi bomb = down,y (info)-->(it can clash try making him play as player 2 and do the same atk)
+
+-------------------------------------
+
+Command trigger(s)-(enter)
+
+-guard = (s)(enter)
+
+-------------------------------------
+
+Command trigger(a)
+
+-air kick dash down = up,a
+
+-combo = a,a,a
+
+-yellow flash kawimi = a (info)-->(command a)--> when you get hit)
+
+-rikudo rage combo = down,a
+
+-odama rasengan = down,left,a
+
+-double rasengan = down,right,a
+
+-------------------------------------
+
+Command trigger(b)
+
+-air kick dash straight = up,b
+
+-bunchin combo = b,b,b
+
+-2 bunchin = down,b
+
+-------------------------------------
+
+Command trigger(z)
+
+-yellow flash = z
+
+-long hand rasengan = down,left,z
+
+-grabbing rasengan = down,right,z
+
+
+-------------------------------------
+
+Command trigger(y)
+
+-air rasengan = up,y
+
+-rasengan charge = hold-y
+
+-vacum rasengan = down,a
+

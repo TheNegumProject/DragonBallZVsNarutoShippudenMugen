@@ -1,0 +1,36 @@
+[Statedef 5900]
+type = S
+[State 0, VarRangeSet]
+type = VarRangeSet
+trigger1 = roundsexisted = 0
+Value = 0
+[State 0, VarRangeSet]
+type = VarRangeSet
+trigger1 = roundsexisted = 0
+fvalue = 0
+[State 0, Configurating]
+type = Null
+trigger1 = var(40) := 0
+[State 0, Configurating]
+type = Null
+trigger1 = var(41) := 1
+[State 0, Configurating]
+type = Null
+trigger1 = var(42) := 1
+[State 0, Configurating]
+type = Null
+trigger1 = var(43) := 1
+[State 0, Configurating]
+type = Null
+trigger1 = var(44) := 1
+[State 0, Configurating]
+type = Null
+trigger1 = var(45) := 0
+[State 0, PowerSet]
+type = PowerSet
+trigger1 = Var(42) = 0
+Value = powermax
+[State 0 ChangeState]
+type = ChangeState
+trigger1 = roundno = 1
+Value = 190

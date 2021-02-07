@@ -1,0 +1,20 @@
+[Info]
+name="Sage Naruto by MG"
+displayname="Sage Naruto"
+versiondate=2010/04/01
+mugenversion=
+author="MGSSJ2"
+pal.defaults=1,2
+[Files]
+sprite=n.sff
+sound=n.snd
+anim=n.air
+cmd=n.cmd
+cns=n.cns
+st=n.cns
+stcommon=common1.cns
+pal1=n.act
+pal2=n.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

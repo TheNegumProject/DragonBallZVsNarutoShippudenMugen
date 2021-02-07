@@ -1,0 +1,20 @@
+[Info]
+name="Hawk Sasuke by MG"
+displayname="Sasuke Teen"
+versiondate=2010/01/10
+mugenversion=
+author="MGSSJ2"
+pal.defaults=1,2
+[Files]
+sprite=s.sff
+sound=s.snd
+anim=s.air
+cmd=s.cmd
+cns=s.cns
+st=s.cns
+stcommon=common1.cns
+pal1=s.act
+pal2=s.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,22 @@
+[Info]
+name="Jiraiya Sage"
+displayname="Jiraiya"
+versiondate=00-00-2012
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=1,2,3
+
+[Files]
+sprite=Jiraiya.sff
+sound=Jiraiya.snd
+anim=Jiraiya.air
+cmd=Jiraiya.cmd
+cns=Jiraiya.cns
+st=Jiraiya.cns
+stcommon=common1.cns
+pal1=Jiraiya.act
+st1=Bunshin.cns
+st2=H-Bunshin.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

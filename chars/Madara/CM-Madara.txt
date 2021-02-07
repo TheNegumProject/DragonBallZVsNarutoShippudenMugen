@@ -1,0 +1,19 @@
+;[Info]
+;name="CM-Madara"
+;displayname="Madara"
+;versiondate=
+;mugenversion=
+;author="CM Punk"
+;pal.defaults=
+;[Files]
+;sprite=m.sffv2
+;sound=m.snd
+;anim=m.air
+;cmd=m.cmd
+;cns=m.cns
+;st=m.cns
+;stcommon=common1.cns
+;pal1=m.act
+;[Arcade]
+;intro.storyboard=
+;ending.storyboard=

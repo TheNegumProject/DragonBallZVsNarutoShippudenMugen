@@ -1,0 +1,149 @@
+; Stand
+[Statedef 20005]
+type = S
+physics = S
+sprpriority = 0
+anim = 1184
+
+[State 1520]
+type = PowerAdd
+trigger1 = 1
+value = 10+(time/30)
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 =  1
+value = 1
+kill = 1
+absolute = 0
+;ignorehitpause =
+;persistent =
+
+[State 197, PowerAdd]
+type = PowerAdd
+trigger1 = time >= 0
+value = 12
+
+;[State 7000, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 1284
+ID = 1284
+pos = 0,0
+postype = p1 ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 999999999
+scale = 1,1
+ontop = 3
+supermove = 1
+
+;[State 7000, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 1284
+ID = 1284
+pos = -50,0
+postype = p1 ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 999999999
+scale = 1,1
+ontop = 3
+supermove = 1
+
+;[State 7000, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 1284
+ID = 1284
+pos = 50,0
+postype = p1 ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 999999999
+scale = 1,1
+ontop = 3
+supermove = 1
+
+
+[State 0, Die when win]
+type = Changestate
+trigger1 = p2life = 0
+value = 300005
+
+[State 0, Die when win]
+type = Changestate
+trigger1 = RoundState = 0
+value = 300005
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = abs(vel x) < 2
+trigger2 = Time = 4
+x = 0
+
+
+;[State 200005, 4]
+type = ChangeState
+trigger1 = random <=60 & time >= 50
+trigger2 = p2bodydist x <= 40 & random <=40
+value = 30000
+
+;[State 200004, 4]
+type = ChangeState
+trigger1 = random <=60 & time >= 50
+trigger2 = p2bodydist x >= 40 & random <=40
+value = 300005
+
+
+;-----------------------------------------------------------------------
+; CNS difficulty: easy
+[Statedef 30000]
+type = S
+ctrl = 0
+anim = 1184
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+
+
+[State 15012, end]
+type = changestate
+trigger1 = time = 45
+value = 20005
+ctrl = 1
+;----------------------------------------------------------------------
+[StateDef 300005]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1184
+poweradd = 0
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S80,6
+volume =255
+
+type = StateTypeSet
+trigger1 = Time = 0
+trigger1 = GetHitVar(yvel) != 0 || GetHitVar(fall)
+trigger2 = Pos Y != 0
+statetype = A
+
+[State 15208, end]
+type = destroyself
+trigger1 = animtime = 0
+;----------------------------------------------------------------------
+
+

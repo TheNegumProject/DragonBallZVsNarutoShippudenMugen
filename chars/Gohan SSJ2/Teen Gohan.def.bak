@@ -1,0 +1,37 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Super 2 Gohan"
+displayname ="Gohan"
+versiondate =01.18.2005
+mugenversion =11,01,2001
+author =" Neocide & Havoc "
+pal.defaults =1,2,3
+
+[Files]
+sprite =Gohan-cell.sff
+anim =Gohan.air
+sound =Gohan.snd
+cmd =Gohan.cmd
+cns =Gohan.cns
+stcommon =common.cns
+st =Gohan.cns
+pal1=gohan.act
+pal2=Manga.act
+pal3=SB2.act
+pal4=Dante.act
+pal5=Ken.act
+pal6=ryu.act
+st1=basic.cns
+st2=helpers.cns
+st3=specials.cns
+st4=gethits.cns
+st5=supers.cns
+st6=AI.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

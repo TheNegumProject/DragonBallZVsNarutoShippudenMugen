@@ -1,0 +1,58 @@
+; Stand
+[Statedef 0]
+type = S
+physics = S
+sprpriority = 0
+
+[State 0,voltar.pro.voa]
+type = Changestate
+trigger1 = time >= 0
+trigger1 = pos y < 0
+value = 1900
+
+[State 0, normal]
+type = ChangeAnim
+triggerall = Life > 900
+trigger1 = Anim != 0 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0 ;Turn anim over
+value = 0
+
+[State 0, cansando]
+type = ChangeAnim
+triggerall = Life <= 900
+trigger1 = Anim != 8 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 8
+
+[State 0, 2]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 0, 3] ;Stop moving if low velocity or 4 ticks pass
+type = VelSet
+trigger1 = abs(vel x) < 2
+trigger2 = Time = 4
+x = 0
+
+----------- --------------------------------
+
+;---------------------------------------------------------------------------
+; Crouching
+[Statedef 1100]
+type    = C
+physics = C
+anim = 1100
+sprpriority = 0
+
+[State 11,voltar.pro.voa]
+type = Changestate
+trigger1 = time >= 0
+trigger1 = pos y < 0
+value = 1900
+
+[State 11, 1] ;Change from turning animation
+type = ChangeAnim
+trigger1 = Anim = 6 && AnimTime = 0
+value = 1100
+

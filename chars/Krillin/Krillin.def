@@ -1,0 +1,42 @@
+; Definition file for Krillin_jb
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name =" "
+displayname ="Krillin"
+versiondate =04,08,2004
+mugenversion =04,14,2001
+author ="JABI (D.G.Z member)"
+pal.defaults =1,2
+
+; Files for the player
+[Files]
+cmd      =Krillin_jb.cmd
+cns      =Krillin_jb.cns
+
+stcommon =krillin_jb_common1.cns
+st       =Krillin_jb.cns
+
+sprite   =Krillin_jb.sff
+anim     =Krillin_jb.air
+sound    =Krillin_jb.snd
+pal1=krillinJB20.act
+pal2=krillinJB20.act
+st1=Combo_abcxyz.cns
+st2=AI.cns
+st3=Shunkanido_Kame-hame-ha.cns
+st4=Supers.cns
+st5=Specials.cns
+
+
+
+;pal2     = Krillin_jb_New.act
+;pal3     = Krillin_jb_NEXT.act
+;pal4     = Krillin_jb3.act 	;anaranjada cinto negro
+;pal5     = Krillin_jb4.act	;amarillento
+
+; Arcade mode
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

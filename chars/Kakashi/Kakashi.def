@@ -1,0 +1,22 @@
+[Info]
+name="Kakashi Sharingan"
+displayname="Kakashi"
+versiondate=
+mugenversion=
+author="Gabrieldra6"
+pal.defaults=1
+
+[Files]
+sprite=E'Kakashi'Y.sff
+sound=E'Kakashi'Y.snd
+anim=E'Kakashi'Y.air
+cmd=E'Kakashi'Y.cmd
+cns=E'Kakashi'Y.cns
+st=E'Kakashi'Y.cns
+stcommon=common1.cns
+pal1=E'Kakashi'Y.act
+st1=lotos.cns
+st2=specials.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

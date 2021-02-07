@@ -1,0 +1,27 @@
+; Definition file for Android 16 by Chrono_Strife and Benhazard
+; Contains all the filenames needed for the character
+; Unsupported WinMugen version. May or may not work at all
+
+; Player information
+[Info]
+name = "16"                                       ;Name of character
+displayname = "Android 16"                        ;Name of character to display
+versiondate = 13,07,2009                          ;Version date of character
+mugenversion = 14,06,2003                         ;Version of M.U.G.E.N character works on
+author = "Chrono_Strife and BenHazard"            ;Character author name
+pal.defaults = 1,2,3        	                  ;Default palettes in order of preference
+;localcoord = 320, 240                            ;Character Coords
+
+; Files for the player
+[Files]
+cmd      = coding/16CMD1_0.cmd                    ;Command set
+cns      = coding/16CNS1_0.cns                    ;Constants
+st       = coding/16CNS1_0.cns                    ;States
+st2      = coding/helperCNS1_0.cns                ;Helper States
+stcommon = coding/commonCNS.cns                   ;Common states
+sprite   = graphical/16SFF1_0.sff                 ;Sprite
+anim     = coding/16AIR.air                       ;Animation
+sound    = audio/16_JpSND.snd                     ;Sound
+pal1     = graphical/16ACT.act                    ;Standard 16
+pal2     = graphical/16bACT.act                   ;Alternate 16
+pal3     = graphical/16cACT.act                   ;Dark Green 16

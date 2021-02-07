@@ -1,0 +1,42 @@
+To all my Beta testers: 
+
+
+
+
+Pots:
+
++stance clsn2 jitter-fixed
++Damage Dampeners needed (not really fixed damages though!)-fixed
++needs more friction\accel? or lower vels,higher hitpauses(need to be specific for what)-fixed?
++Power charge sounds should be limited to one or two channels-(try spamming b+y for ex)-fixed
++Landing from a y dick kick plays the jump sound again,jump sound overused.-fixed
+-Zanzoken\dashes allow for time over?(not a big worry); air movement limit suggegested
++Ki toss projectile cel's could look nicer if used with veladd.-nicer? they turned nutty!
+-custom states make p2 use anims that arent required by mugen, fucking up people
+-sometimes p2 is left in custom states even when you send them back to idle states
+needs selftstate in more places-fixed (I think?)
+-Blocking GD has weird effects-Fixed
++A,x Attacks can be infinite-fixed
++B chain doesnt combo first two hits-fixed
++Jumping a also infinite when done close to the ground-fixed
++timing for chains can be more forgiving(we'll see)-fixed
++neutral zanzouken before landing from jump lets goku go below ground level-fixed
++clsn1 on throw mayb be too good(?)-fixed? I guess wtf
++jumping b seems abusive ;add movehit for the 2nd hit to occur-fixed
++Y chanin projectiles have huge clsn1-fixed
++Could make goku skip the beginning of the walk foward anim when walking after a foward dash-fixed
++State 105 plays a sound that is immediatley stopped by the negative states-fixed
+-kaiouken effects need removeongethit=1-fixed?
++jumping y pulling p2 after hitting looks weird-fixed
+-could make state 2505 go behind p2 before hitting-fixed?
+-supers let anything hit goku out of them they start-fixed
+-states 605 and 632 need playerpush off(no pp to begin with?) or higher possadd(gotta try this on big people)
+
+
+
+
+
+Pex
+
+
+-

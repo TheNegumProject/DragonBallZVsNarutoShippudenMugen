@@ -1,0 +1,47 @@
+TS Rock Lee by Shimori
+
+The credits go to:
+Hyperlon and me for Sprites
+Kong for ripping hitsparks and me for resize them
+Sounds by Haseo and Nightmare
+Virtualltek for Creating Fighter Factory
+
+Descrition:
+-SND5 Rock Lee as the base character sprites.  
+-Allmost all atacks are "combooable" except Specials and Supers
+-He dos not throw any kind of ninja weapons, because its not is style
+-The counter only works when close to the oponnent and take a lot of power so you people dont push it
+-THe AI is a bit too strong, but as i say the stronger the better *cough*
+
+MOVELIST:
+
+Basic:
+Light Punch: a
+Elbow Strike: b 
+Strong Punch: c
+Crounching Light Punch: down + a
+Crounching Medium Punch: down + b
+Crounching Luncher Kick: down + c
+Air Light Punch: a in air
+Air Leap: b in air
+Air Kick: c in air
+Teleport: x
+Air Teleport: x in Air
+Gather Chakra: y
+Dodge: a+b
+
+Specials:
+Counter: a+x (500 power)
+Stunner: down, forwards, x (200 power)
+Charged punch: down, backwards, x (150 power)
+Konoha Senpuu: down, backwards, a (200 power)
+Konoha Renpuu: down, backwards, b (300 power)
+Asakujaku Fist: down, forwards, a (100 power)
+Asakujaku Strike: down, forwards, b (100 power)
+Asakujaku Bomb: down, forwards, c (100 power)
+
+Supers:
+Super Kick: down, bacwards, down, bacwards, x (1000 power)
+Omote Renge: down, forwards, down, forwards, x (1500 power)
+Ultra Smash: down, bacwards, down, bacwards, a (2000 power)
+Ura Renge: down, forwards,down, forwards, a (3000 power)

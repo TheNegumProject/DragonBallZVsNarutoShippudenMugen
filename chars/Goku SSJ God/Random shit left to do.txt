@@ -1,0 +1,5 @@
+-remove additional animations in the air (ssj2 and ssj3 anims)-done
+-Fix spark setup for supers(specials)-done
+-remove unwanted fx-done
+-remove unwanted sounds-done
+-add guard sparks-done
