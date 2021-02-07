@@ -1,0 +1,1291 @@
+;STAGE BY TAHATTUS
+
+[info]
+name = "Namek destruction"
+
+; CAMERA!!!
+[camera]
+startx = 0
+starty = 0
+boundleft = -240
+boundright = 240
+boundhigh = -400
+boundlow = 0
+verticalfollow = 1
+floortension = 100
+tension = 50
+
+[playerinfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+topbound  = 0
+botbound  = 0
+
+[scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[bound]
+screenleft = 15
+screenright = 15
+
+[stageinfo]
+zoffset = 225
+zoffsetlink = 30
+autoturn = 1
+resetbg = 0
+
+[shadow]
+color = 30,30,30
+yscale = .2
+
+[Music]
+bgmusic = sound\Broken Home.mp3
+bgvolume = 255
+
+[StageInfo]
+zoffset = 0
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+
+[shadow]
+color = 2,2,2
+yscale = .1
+reflect = 0
+
+;---------------------
+
+; GRÁFICOS
+
+[bgdef]
+spr = stages/namekd.sff
+debugbg = 0
+
+
+;========================================
+;O tremor
+;========================================
+
+
+[BG Evshake] ;code by VIB
+type = dummy
+start = 0, 0
+id = 52
+
+[BGCtrlDef Evshake]
+looptime = 458;457 
+CtrlID = 52
+
+[BGCtrl Start Shake]
+type = Siny
+time = 4500 ;46
+value = 1,70,0   ;amplitude, frequenci, start position
+
+[BGCtrl Start Shake]
+type = Siny
+time = 7500 ;46
+value = 1,10,0   ;amplitude, frequenci, start position
+
+[BGCtrl Start Shake]
+type = Siny
+time = 8500 ;46
+value = 2,10,0   ;amplitude, frequenci, start position
+
+[BGCtrl Start Shake]
+type = Siny
+time = 10000 ;46
+value = 2,7,0   ;amplitude, frequenci, start position
+
+;========================================
+;O céu
+;========================================
+
+
+
+
+
+[bg ceu]
+type  = normal
+spriteno = 0,2
+start = 0,118
+delta = 1,0.9
+mask = 1
+trans = none
+layerno = 0
+tile = 1, 0
+id = 110
+
+[bgctrldef 1]
+ctrlid = 110
+
+[bgctrl 1]
+type = veladd
+time = 2000
+x = 0
+y = 0.05
+
+[bgctrl 1]
+type = veladd
+time = 11000
+x = 0
+y = -0.05
+
+
+
+;========================================
+;Lighnings
+;========================================
+
+
+[bg nuvem pqn 1 (alpha)]
+type=normal
+spriteno = 1,0
+start = 0, 120
+delta = 0.4, 0.9
+velocity = 0.03
+mask = 1
+layerno = 0
+tilespacing = 400
+tile = 1, 0
+trans = sub
+
+[bg nuvem pqn 2]
+type=normal
+spriteno = 1,1
+start = 260, 120
+delta = 0.4, 0.9
+velocity = 0.03
+mask = 1
+layerno = 0
+tilespacing = 300
+tile = 1, 0
+trans = sub 
+
+[bg nuvem pqn 3]
+type=normal
+spriteno = 1,1
+start = -300, 120
+delta = 0.4, 0.9
+velocity = 0.08
+mask = 1
+layerno = 0
+tilespacing = 300
+tile = 1, 0
+trans = sub 
+
+[bg nuvem pqn 3]
+type=normal
+spriteno = 1,0
+start = -150, 80
+delta = 0.4, 0.9
+velocity = 0.09
+mask = 1
+layerno = 0
+tilespacing = 300
+tile = 1, 0
+trans = sub 
+
+
+[bg nuvem pqn 3]
+type=normal
+spriteno = 1,0
+start = 150, 80
+delta = 0.4, 0.9
+velocity = 0.09
+mask = 1
+layerno = 0
+tilespacing = 320
+tile = 1, 0
+trans = sub 
+
+[bg nuvem pqn 4]
+type=normal
+spriteno = 1,0
+start = -200, -45
+delta = 0.4, 0.9
+velocity = 0.1
+mask = 1
+layerno = 0
+tilespacing = 300
+tile = 1, 0
+trans = sub 
+
+[bg nuvem media]
+type=normal
+spriteno = 1,3
+start = -100, 30
+delta = 0.4, 0.9
+velocity = 0.2
+mask = 1
+layerno = 0
+tilespacing = -90
+tile = 1, 0
+trans = sub 
+
+
+[bg nuvem media 2]
+type=normal
+spriteno = 1,3
+start = -300, -60
+delta = 0.4, 0.9
+velocity = 0.2
+mask = 1
+layerno = 0
+tilespacing = -90
+tile = 1, 0
+trans = sub 
+
+[bg nuvem gigante]
+type=normal
+spriteno = 1,2
+start = -100, -130
+delta = 0.4, 0.9
+velocity = 0.4
+mask = 1
+layerno = 0
+tilespacing = -90
+tile = 1, 0
+trans = sub 
+
+[bg relampago 1]
+type=anim
+start = 20, 80
+delta = 0.4, 0.9
+velocity = 0.03
+mask = 1
+layerno = 0
+tilespacing = 800
+tile = 1, 0
+actionno = 1
+[begin action 1]
+2,9, 0,0, 4400,,a
+Loopstart
+2,9, 0,0, 100,,a
+2,0, 0,0, 2,,a
+2,1, 0,0, 2,,a
+2,2, 0,0, 2,,a
+2,3, 0,0, 2,,a
+2,4, 0,0, 2,,a
+2,5, 0,0, 2,,a
+2,4, 0,0, 10,,a
+2,3, 0,0, 10,,a
+2,2, 0,0, 10,,a
+2,1, 0,0, 10,,a
+2,9, 0,0, 100,,a
+
+[bg raio 1]
+type=anim
+start = 20, 80
+delta = 0.4, 0.9
+velocity = 0.03
+mask = 1
+layerno = 0
+tilespacing = 800
+tile = 1, 0
+actionno = 10
+[begin action 10]
+2,9, 0,0, 4400,,a
+Loopstart
+2,9, 0,0, 108,,a
+6,0, 0,0, 2,,a
+2,9, 0,0, 2,,a
+6,0, 0,0, 5,,a
+2,9, 0,0, 135,,a
+2,9, 0,0, 108,,a
+6,1, 0,0, 2,,a
+2,9, 0,0, 2,,a
+6,1, 0,0, 5,,a
+2,9, 0,0, 135,,a
+
+
+[bg relampago 2]
+type=anim
+start = -440, 70
+delta = 0.4, 0.9
+velocity = 0.04
+mask = 1
+layerno = 0
+tilespacing = 800
+tile = 1, 0
+actionno = 2
+[begin action 2]
+2,9, 0,0, 4800,,a
+Loopstart
+2,9, 0,0, 130,,a
+2,0, 0,0, 2,,a
+2,1, 0,0, 2,,a
+2,2, 0,0, 2,,a
+2,3, 0,0, 2,,a
+2,4, 0,0, 2,,a
+2,5, 0,0, 2,,a
+2,4, 0,0, 10,,a
+2,3, 0,0, 10,,a
+2,2, 0,0, 10,,a
+2,1, 0,0, 10,,a
+2,9, 0,0, 70,,a
+
+[bg raio 2]
+type=anim
+start = -440, 70
+delta = 0.4, 0.9
+velocity = 0.04
+mask = 1
+layerno = 0
+tilespacing = 800
+tile = 1, 0
+actionno = 11
+[begin action 11]
+2,9, 0,0, 4800,,a
+Loopstart
+2,9, 0,0, 138,,a
+6,3, 0,0, 2,,a
+2,9, 0,0, 2,,a
+6,3, 0,0, 5,,a
+2,9, 0,0, 105,,a
+2,9, 0,0, 138,,a
+6,4, 0,0, 2,,a
+2,9, 0,0, 2,,a
+6,4, 0,0, 5,,a
+2,9, 0,0, 105,,a
+
+
+
+[bg relampago 4]
+type=anim
+start = -340, 00
+delta = 0.4, 0.9
+velocity = 0.07
+mask = 1
+layerno = 0
+tilespacing = 500
+tile = 1, 0
+actionno = 4
+[begin action 4]
+2,9, 0,0, 4600,,a
+Loopstart
+2,9, 0,0, 60,,a
+2,0, 0,0, 2,,a
+2,1, 0,0, 2,,a
+2,2, 0,0, 2,,a
+2,3, 0,0, 2,,a
+2,4, 0,0, 2,,a
+2,5, 0,0, 2,,a
+2,4, 0,0, 10,,a
+2,3, 0,0, 10,,a
+2,2, 0,0, 10,,a
+2,1, 0,0, 10,,a
+2,9, 0,0, 140,,a
+
+[bg raio 3]
+type=anim
+start = -340, 00
+delta = 0.4, 0.9
+velocity = 0.07
+mask = 1
+layerno = 0
+tilespacing = 500
+tile = 1, 0
+actionno = 12
+[begin action 12]
+2,9, 0,0, 4600,,a
+Loopstart
+2,9, 0,0, 68,,a
+6,2, 0,0, 2,,a
+2,9, 0,0, 2,,a
+6,2, 0,0, 5,,a
+2,9, 0,0, 175,,a
+2,9, 0,0, 68,,a
+6,0, 0,0, 2,,a
+2,9, 0,0, 2,,a
+6,0, 0,0, 5,,a
+2,9, 0,0, 175,,a
+
+
+[bg relampago 4]
+type=anim
+start = -340, -100
+delta = 0.4, 0.9
+velocity = 0.3
+mask = 1
+layerno = 0
+tilespacing = 600
+tile = 1, 0
+actionno = 5
+[begin action 5]
+2,9, 0,0, 5100,,a
+Loopstart
+2,9, 0,0, 70,,a
+2,0, 0,0, 2,,a
+2,1, 0,0, 2,,a
+2,2, 0,0, 2,,a
+2,3, 0,0, 2,,a
+2,4, 0,0, 2,,a
+2,5, 0,0, 2,,a
+2,4, 0,0, 10,,a
+2,3, 0,0, 10,,a
+2,2, 0,0, 10,,a
+2,1, 0,0, 10,,a
+2,9, 0,0, 130,,a
+
+[bg raio 4]
+type=anim
+start = -340, -100
+delta = 0.4, 0.9
+velocity = 0.3
+mask = 1
+layerno = 1
+tilespacing = 600
+tile = 1, 0
+actionno = 13
+[begin action 13]
+2,9, 0,0, 5100,,a
+Loopstart
+2,9, 0,0, 78,,a
+6,5, 0,0, 2,,a
+2,9, 0,0, 2,,a
+6,5, 0,0, 5,,a
+2,9, 0,0, 165,,a
+2,9, 0,0, 78,,a
+6,6, 0,0, 2,,a
+2,9, 0,0, 2,,a
+6,6, 0,0, 5,,a
+2,9, 0,0, 165,,a
+
+
+
+;========================================
+;O mar
+;========================================
+
+
+[bg mar 1]
+type=parallax
+start = 0,248
+spriteno = 150,0
+delta = 0.4,0.9
+velocity = 0.03
+mask = 1
+layerno = 0
+tile = 1, 0
+id = 201
+width = 70,100
+
+[bg mar 2]
+type=parallax
+start = 0,848
+spriteno = 150,1
+delta = 0.4,0.9
+velocity = 0.03
+mask = 1
+layerno = 0
+tile = 1, 0
+id = 202
+width = 70,100
+
+[bg mar 3]
+type=parallax
+start = 0,848
+spriteno = 150,2
+delta = 0.4,0.9
+velocity = 0.06
+mask = 1
+layerno = 0
+tile = 1, 0
+id = 203
+width = 70,100
+
+[bg mar 4]
+type=parallax
+start = 0,848
+spriteno = 150,3
+delta = 0.4,0.9
+velocity = 0.06
+mask = 1
+layerno = 0
+tile = 1, 0
+id = 204
+width = 70,100
+
+[bg mar 5]
+type=parallax
+start = 0,848
+spriteno = 150,4
+delta = 0.4,0.9
+velocity = 0.06
+mask = 1
+layerno = 0
+tile = 1, 0
+id = 205
+width = 70,100
+
+[bg mar 6]
+type=parallax
+start = 0,848
+spriteno = 150,5
+delta = 0.4,0.9
+velocity = 0.07
+mask = 1
+layerno = 0
+tile = 1, 0
+id = 206
+width = 70,100
+
+[bg lava]
+type=parallax
+start = 0,848
+spriteno = 150,6
+delta =  .0714285,0.9    ;era 0.4
+mask = 0
+layerno = 0
+tile = 1, 0
+id = 207
+xscale      = 1, 3.7777778
+
+[BG Magma FX]
+type        = normal
+spriteno    = 150,7
+layerno     = 0
+start = 0,848
+trans       = add
+mask        = 0
+delta       = .0714285, 1
+tile        = 1,0
+velocity    = .1,0
+id = 207
+
+[bgctrldef 1]
+ctrlid = 201
+
+[bgctrl 1]
+type = posset
+time = 2501
+x = 0
+y = 600
+
+[bgctrldef 2]
+ctrlid = 202
+
+[bgctrl 1]
+type = posset
+time = 2500
+x = 0
+y = -600
+
+[bgctrl 1]
+type = posset
+time = 3601
+x = 0
+y = 600
+
+[bgctrldef 3]
+ctrlid = 203
+
+[bgctrl 1]
+type = posset
+time = 3600
+x = 0
+y = -600
+
+[bgctrl 1]
+type = posset
+time = 5801
+x = 0
+y = 600
+
+[bgctrldef 4]
+ctrlid = 204
+
+[bgctrl 1]
+type = posset
+time = 5800
+x = 0
+y = -600
+
+[bgctrl 1]
+type = posset
+time = 7101
+x = 0
+y = 600
+
+[bgctrldef 5]
+ctrlid = 205
+
+[bgctrl 1]
+type = posset
+time = 7100
+x = 0
+y = -600
+
+[bgctrl 1]
+type = posset
+time = 9101
+x = 0
+y = 600
+
+[bgctrldef 6]
+ctrlid = 206
+
+[bgctrl 1]
+type = posset
+time = 9100
+x = 0
+y = -600
+
+[bgctrl 1]
+type = posset
+time = 11001
+x = 0
+y = 600
+
+[bgctrldef 7]
+ctrlid = 207
+
+[bgctrl 1]
+type = posset
+time = 11000
+x = 0
+y = -600
+
+
+;========================================
+;As montanhas
+;========================================
+[bg back reflexo]
+type=normal
+start = 0,90
+delta = 0.46,0.9
+spriteno = 86,0
+mask = 0
+trans = sub
+layerno = 0
+id = 86
+tile = 1, 0
+
+[bg isle reflexo]
+type=normal
+start = 0,90
+delta = 0.44,0.9
+spriteno = 86,2
+mask = 0
+id = 84
+trans = sub
+layerno = 0
+tile = 1, 0
+
+
+[bg front reflexo]
+type=normal
+start = 0,90
+delta = 0.46,0.9
+spriteno = 86,1
+mask = 0
+id = 88
+trans = sub
+layerno = 0
+tile = 1, 0
+
+;========================================
+;Splash!!
+;========================================
+[bgctrldef 86]
+ctrlid = 100
+[bgctrl 86.2]
+type = sinx
+time = 7500
+value = 1, 200
+[bgctrl 86.2]
+type = sinx
+time = 10000
+value = 1, 100
+[bgctrl 1]
+type = posset
+time = 5800
+x = 0
+y = 800
+
+[bgctrldef 86]
+ctrlid = 101
+[bgctrl 86.2]
+type = sinx
+time = 7500
+value = 1, 200
+[bgctrl 86.2]
+type = sinx
+time = 10000
+value = 1, 100
+[bgctrl 1]
+type = posset
+time = 5800
+x = 0
+y = -800
+[bgctrl 1]
+type = posset
+time = 11000
+x = 0
+y = 800
+
+[bgctrldef 86]
+ctrlid = 102
+[bgctrl 86.2]
+type = sinx
+time = 7500
+value = 1, 200
+[bgctrl 86.2]
+type = sinx
+time = 10000
+value = 1, 100
+[bgctrl 1]
+type = posset
+time = 11000
+x = 0
+y = -800
+
+
+
+[bgctrldef 88]
+ctrlid = 103
+[bgctrl 86.2]
+type = sinx
+time = 6000
+value = -1, 100
+[bgctrl 86.2]
+type = sinx
+time = 8500
+value = -1, 25
+[bgctrl 1]
+type = posset
+time = 5800
+x = 0
+y = 800
+
+[bgctrldef 88]
+ctrlid = 104
+[bgctrl 86.2]
+type = sinx
+time = 6000
+value = -1, 100
+[bgctrl 86.2]
+type = sinx
+time = 8500
+value = -1, 25
+[bgctrl 1]
+type = posset
+time = 5800
+x = 0
+y = -800
+[bgctrl 1]
+type = posset
+time = 11000
+x = 0
+y = 800
+
+[bgctrldef 88]
+ctrlid = 105
+[bgctrl 86.2]
+type = sinx
+time = 6000
+value = -1, 100
+[bgctrl 86.2]
+type = sinx
+time = 8500
+value = -1, 25
+[bgctrl 1]
+type = posset
+time = 11000
+x = 0
+y = -800
+
+
+[bg fundo]
+type=anim
+start = 0,90
+delta = 0.4,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 85
+tilespacing = 256
+[begin action 85]
+85,6, 0,0, 3600
+85,7, 0,0, 3500
+85,8, 0,0, 999999
+
+[bg back]
+type=anim
+start = 0,90
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 88
+id = 86
+tilespacing = 256
+[begin action 88]
+85,0, 0,0, 3600
+85,1, 0,0, 3500
+85,2, 0,0, 999999
+
+
+
+[bg splash grande claro]
+type=anim
+start = 49,150
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 160
+id = 100
+tilespacing = 256
+[begin action 160]
+161,9, 0,0, 3600,,
+loopstart
+161,0, 0,0, 10,,a1
+161,1, 0,0, 10,,a1
+161,2, 0,0, 10,,a1
+161,3, 0,0, 10,,a1
+161,2, 0,0, 10,,a1
+161,1, 0,0, 10,,a1
+
+[bg splash grande escuro]
+type=anim
+start = 49,950
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 166
+id = 101
+tilespacing = 256
+[begin action 166]
+164,0, 0,0, 10,,
+164,1, 0,0, 10,,
+164,2, 0,0, 10,,
+164,3, 0,0, 10,,
+164,2, 0,0, 10,,
+164,1, 0,0, 10,,
+
+[bg splash grande lava]
+type=anim
+start = 49,950
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 167
+id = 102
+tilespacing = 256
+[begin action 167]
+165,0, 0,0, 10,,a1
+165,1, 0,0, 10,,a1
+165,2, 0,0, 10,,a1
+165,3, 0,0, 10,,a1
+165,2, 0,0, 10,,a1
+165,1, 0,0, 10,,a1
+
+
+
+[bg isle]
+type=anim
+start = 0,90
+delta = 0.44,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 87
+id = 84
+tilespacing = 256
+[begin action 87]
+85,9, 0,0, 3600
+85,10, 0,0, 3500
+85,11, 0,0, 999999
+
+[bg splash medio claro]
+type=anim
+start = 113,182
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 161
+id = 100
+tilespacing = 256
+[begin action 161]
+161,9, 0,0, 3600,,a1
+loopstart
+162,0, 0,0, 10,,a1
+162,1, 0,0, 10,,a1
+162,2, 0,0, 10,,a1
+162,3, 0,0, 10,,a1
+162,2, 0,0, 10,,a1
+162,1, 0,0, 10,,a1
+
+[bg splash medio escuro]
+type=anim
+start = 113,982
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 168
+id = 101
+tilespacing = 256
+[begin action 168]
+164,4, 0,0, 10,,
+164,5, 0,0, 10,,
+164,6, 0,0, 10,,
+164,7, 0,0, 10,,
+164,6, 0,0, 10,,
+164,5, 0,0, 10,,
+
+[bg splash medio lava]
+type=anim
+start = 113,982
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 169
+id = 102
+tilespacing = 256
+[begin action 169]
+165,4, 0,0, 10,,a1
+165,5, 0,0, 10,,a1
+165,6, 0,0, 10,,a1
+165,7, 0,0, 10,,a1
+165,6, 0,0, 10,,a1
+165,5, 0,0, 10,,a1
+
+[bg splash front 1]
+type=anim
+start = 49,216
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 163
+id = 103
+tilespacing = 256
+[begin action 163]
+161,9, 0,0, 3600,,
+loopstart
+163,0, 0,0, 10,,a1
+163,3, 0,0, 10,,a1
+163,4, 0,0, 10,,a1
+163,30, 0,0, 40,,a1
+
+[bg splash front 1 escuro]
+type=anim
+start = 49,1016
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 170
+id = 104
+tilespacing = 256
+[begin action 170]
+164,8, 0,0, 10,,
+164,11, 0,0, 10,,
+164,12, 0,0, 10,,
+164,30, 0,0, 40,,
+
+[bg splash front 1 lava]
+type=anim
+start = 49,1016
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 171
+id = 88
+id = 105
+tilespacing = 256
+[begin action 171]
+165,8, 0,0, 10,,a1
+165,11, 0,0, 10,,a1
+165,12, 0,0, 10,,a1
+165,30, 0,0, 40,,a1
+
+[bg splash front 2]
+type=anim
+start = 80,224
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 153
+id = 103
+tilespacing = 256
+[begin action 153]
+161,9, 0,0, 3600,,
+loopstart
+163,5, 0,0, 10,H,a1
+163,2, 0,0, 10,H,a1
+163,1, 0,0, 10,H,a1
+163,30, 0,0, 40,H,a1
+
+[bg splash front 2 escuro]
+type=anim
+start = 80,1024
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 172
+id = 104
+tilespacing = 256
+[begin action 172]
+164,13, 0,0, 10,H,
+164,10, 0,0, 10,H,
+164,9, 0,0, 10,H,
+164,30, 0,0, 40,H,
+
+[bg splash front 2 lava]
+type=anim
+start = 80,1024
+delta = 0.46,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 173
+id = 105
+tilespacing = 256
+[begin action 173]
+165,13, 0,0, 10,H,a1
+165,10, 0,0, 10,H,a1
+165,9, 0,0, 10,H,a1
+165,30, 0,0, 40,H,a1
+
+[bg front]
+type=anim
+start = 0,90
+delta = 0.42,0.9
+mask = 0
+trans = none
+layerno = 0
+tile = 1, 0
+actionno = 86
+id = 88
+tilespacing = 256
+[begin action 86]
+85,3, 0,0, 3600
+85,4, 0,0, 3500
+85,5, 0,0, 999999
+
+
+
+[bgctrldef 84]
+ctrlid = 84
+[bgctrl 84.1]
+type = sinx
+time = 4000
+value = 1, 100
+[bgctrl 84.2]
+type = sinx
+time = 5500
+value = 2, 100
+[bgctrl 84.2]
+type = sinx
+time = 8500
+value = 2, 50
+
+[bgctrldef 86]
+ctrlid = 86
+[bgctrl 86.2]
+type = sinx
+time = 7500
+value = 1, 200
+[bgctrl 86.2]
+type = sinx
+time = 10000
+value = 1, 100
+
+[bgctrldef 88]
+ctrlid = 88
+[bgctrl 86.2]
+type = sinx
+time = 6000
+value = -1, 100
+[bgctrl 86.2]
+type = sinx
+time = 8500
+value = -1, 25
+
+
+
+
+
+[bg rocha 1]
+type  = anim
+layerno = 0                
+start = 26, -200
+delta = 1,1
+trans = none
+velocity = 0, -0.25
+mask  = 0
+tile = 1, 1
+actionno = 202
+tilespacing = 290
+
+
+[bg rocha 1]
+type  = anim
+layerno = 0                
+start = 223, -60
+delta = 1,1
+trans = none
+velocity = 0, -0.22
+mask  = 0
+tile = 1, 1
+actionno = 203
+tilespacing = 270
+
+
+
+
+;========================================
+;O chão
+;========================================
+[bg chao longe]
+type=anim
+start = -180, 240
+delta = 0.6,1
+mask = 0
+trans = none
+layerno = 0
+
+id = 2
+actionno = 95
+tilespacing = 726
+[begin action 95]
+0,5, 0,0, 3600
+93,0, 0,0, 3500
+93,1, 0,0, 999999
+
+
+
+[bg arvores]
+type=anim
+start = -260, 290
+delta = 0.8,1
+mask = 0
+trans = none
+layerno = 0
+actionno = 2000
+
+[begin action 2000]
+200,0, 0,0, 3600
+200,1, 0,0, 3500
+200,2, 0,0, 999999
+
+
+[bg chao]
+type=anim
+start = 0, 240
+delta = 1,1
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+id = 52
+actionno = 93
+[begin action 93]
+0,0, 0,0, 3600
+93,10, 0,0, 3500
+93,11, 0,0, 999999
+
+
+;========================================
+;Rochas voadoras
+;========================================
+
+[bg rocha 1]
+type  = anim
+layerno = 1                
+start = 0, -20
+delta = 1,1
+trans = none
+velocity = 0, -0.27
+mask  = 0
+tile = 1, 1
+actionno = 200
+tilespacing = 310
+[begin action 200]
+999,0, 0,0, 3600
+999,10, 0,0, 3600
+200,3, 0,0, 999999
+
+[bg rocha 2]
+type  = anim
+layerno = 1                
+start = 40, -70
+delta = 1,1
+trans = none
+velocity = 0, -0.30
+mask  = 0
+tile = 1, 1
+actionno = 201
+tilespacing = 270
+[begin action 201]
+999,0, 0,0, 3600
+999,10, 0,0, 3500
+200,4, 0,0, 999999
+
+[bg rocha 1]
+type  = anim
+layerno = 1                
+start = 70, -20
+delta = 1,1
+trans = none
+velocity = 0, -0.25
+mask  = 0
+tile = 1, 1
+actionno = 202
+tilespacing = 190
+[begin action 202]
+999,0, 0,0, 3600
+999,10, 0,0, 3900
+200,5, 0,0, 999999
+
+[bg rocha 1]
+type  = anim
+layerno = 1                
+start = 120, -60
+delta = 1,1
+trans = none
+velocity = 0, -0.22
+mask  = 0
+tile = 1, 1
+actionno = 203
+tilespacing = 370
+[begin action 203]
+999,0, 0,0, 3600
+999,10, 0,0, 4200
+200,6, 0,0, 999999

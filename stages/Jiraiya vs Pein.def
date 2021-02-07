@@ -1,0 +1,193 @@
+Creador: ===Arthur25===
+MSN: a2.-a2@hotmail.com
+pagina : www.lifemugen.foroactivo.net
+
+;--------------------------------------------------------
+[Info]
+name = "Jiraiya vs Pein"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+
+boundleft = -90
+boundright = 100
+boundhigh = -40
+boundlow =
+verticalfollow = .3
+floortension = 0
+tension = 60
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound = 1000
+topbound  =  0
+botbound  =  0
+
+;--------------------------------------------------------
+[Scaling]
+topz  = 0
+botz  = 50
+topscale = 1
+botscale = 1.2
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 75
+color = 0,0,0
+yscale = 0.4
+fade.range = -400,100
+
+;--------------------------------------------------------
+[Reflection]
+intensity=
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Pain For Pleasure.mp3
+bgvolume = 2500
+
+;--------------------------------------------------------
+[BGDef]
+spr = Jiraiya vs Pein.sff
+debugbg =
+
+;--------------------------------------------------------
+[BG piso]
+type  = normal
+spriteno = 0,0
+start = 0, 181
+mask = 1
+
+[BG pared]
+type  = normal
+spriteno = 1,0
+start = 0, 181
+mask = 1
+
+[BG barda]
+type  = normal
+spriteno = 11,0
+start = 0, 181
+mask = 1
+
+[BG tuvos]
+type  = normal
+spriteno = 13,1
+start = 0, 181
+mask = 1
+
+[BG tuvos]
+type  = normal
+spriteno = 13,0
+start = 0, 181
+mask = 1
+
+[BG tuvos]
+type  = normal
+spriteno = 4,0
+start = 0, 181
+mask = 1
+
+[BG a]
+type = anim
+actionno = 1
+start = 0,181
+mask = 1
+
+[BG konan]
+type  = normal
+spriteno = 6,0
+start = 0, 181
+mask = 1
+
+[BG papel]
+type = anim
+actionno = 2
+start = 0,181
+mask = 1
+
+[BG dein]
+type = anim
+actionno = 3
+start = 0,181
+mask = 1
+
+[BG zein]
+type  = normal
+spriteno = 9,0
+start = 0, 181
+mask = 1
+
+[BG pein]
+type = anim
+actionno = 4
+start = 0,181
+mask = 1
+
+[BG a]
+type  = normal
+spriteno = 14,0
+start = 0, 181
+mask = 1
+
+[BG a]
+type  = normal
+spriteno = 14,1
+start = 0, 181
+mask = 1
+
+[BG b]
+type = anim
+actionno = 5
+start = 0,181
+mask = 1
+;----------
+[Begin Action 1]
+5,0, 0,0, 15
+5,1, 0,0, 15
+
+[Begin Action 2]
+7,0, 0,0, 10
+7,1, 0,0, 10
+
+[Begin Action 3]
+8,0, 0,0, 10,H
+8,1, 0,0, 10,H
+8,2, 0,0, 10,H
+8,3, 0,0, 10,H
+
+[Begin Action 4]
+10,0, 0,0, 10
+10,1, 0,0, 10
+10,2, 0,0, 10
+10,3, 0,0, 10
+
+[Begin Action 5]
+15,0, 0,0, 10
+15,1, 0,0, 10
+15,2, 0,0, 10
+15,3, 0,0, 10

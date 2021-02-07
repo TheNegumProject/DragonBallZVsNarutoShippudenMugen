@@ -1,0 +1,4543 @@
+;______________________________________________________________
+;INFORMACION
+;_________________________________________________________
+[Info]
+name ="Chibaku Tensei"
+;author= "Darek"
+;Web=mugenimperiolatino.com
+;_________________________________________________________
+;PARAMETROS
+;_________________________________________________________
+[Camera]
+startx =0
+starty =0
+boundleft  = -340
+boundright = 340
+boundhigh  = -130
+boundlow   = 0
+verticalfollow=.95
+floortension=50
+tension=50
+[PlayerInfo]
+p1startx =-70
+p1starty =0
+p1startz =0
+p1facing =1
+p2startx =70
+p2starty =0
+p2startz =0
+p2facing =-1
+leftbound =-1000
+rightbound =1000
+topbound =0
+botbound =0
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1.2
+[Bound]
+screenleft  =15
+screenright =15
+[StageInfo]
+zoffset  = 207
+autoturn = 1
+resetBG  = 0
+Hires=1
+[Shadow]
+intensity = 150
+yscale =.17
+fade.range = -300,-50
+[Reflection]
+intensity = 0
+[Music]
+bgmusic  =sound/Radiant Eclipse.mp3
+bgvolume = 255
+;----------------------------------------------------------------------
+[BGdef]
+spr =Chibaku Tensei.sff
+debugbg = 0
+;___________________________________________________________________________
+:CODIGOS
+;___________________________________________________________________________
+[BG CT]
+type =normal
+spriteno =4,2
+start = -400,-200
+delta = 1,1.5
+[BG CT]
+type =normal
+spriteno =4,0
+start = -500,-200
+delta = 1,1.5
+Id=57
+[BGCtrlDef CT]
+ctrlID = 57
+[BGCtrl]
+type = Enable
+time =0
+value=1
+[BGCtrl]
+type = Enable
+time =4700
+value=0
+[BG CT]
+type =normal
+spriteno =4,1
+start = -400,-200
+delta = 1,1.5
+Id=55
+[BGCtrlDef CT]
+ctrlID = 55
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =4820
+value=1
+[BG CT]
+type =anim
+actionno=28
+start = -400,-200
+delta = 1,1.5
+Id=56
+[BGCtrlDef CT]
+ctrlID = 56
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =4700
+value=1
+[BGCtrl]
+type = Enable
+time =4830
+value=0
+[BG CT]
+type =anim
+actionno=29
+start = -500,-200
+delta = 1,1.5
+Id=58
+[BGCtrlDef CT]
+ctrlID = 58
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =4700
+value=1
+[BGCtrl]
+type = Enable
+time =4825
+value=0
+[BG CT]
+type =anim
+actionno=30
+start = -400,-300
+delta = 1,1.5
+Id=59
+[BG CT]
+type =anim
+actionno=31
+start = -400,-300
+delta = 1,1.5
+Id=59
+[BGCtrlDef CT]
+ctrlID = 59
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =6000
+value=1
+[BG CT]
+type =normal
+spriteno =1,0
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,1
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,2
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,3
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,4
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,5
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,6
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,7
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,8
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,9
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,10
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,11
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,12
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,13
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,14
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =1,15
+start = -500,110
+delta = 1.3,2
+mask =1
+[BG CT]
+type =normal
+spriteno =8,0
+start = 350,320
+delta = 1.2,2
+mask =1
+Id=22
+[BGCtrlDef CT]
+ctrlID = 22
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2530
+x=-1
+y=-3
+[BGCtrl]
+type = Velset
+time =2700
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2701
+x=0
+y=0
+[BGCtrl]
+type = Enable
+time =2702
+value=0
+[BG CT]
+type =normal
+spriteno =23,0
+start = -400,-310
+delta = 1.35,2
+mask =1
+[BG CT]
+type =normal
+spriteno =8,1
+start = -150,320
+delta = 1.2,2
+mask =1
+Id=23
+[BGCtrlDef CT]
+ctrlID = 23
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=2
+y=-3
+[BGCtrl]
+type = Velset
+time =2650
+x=0
+y=0
+[BGCtrl]
+type =Posset
+time =2651
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2652
+value=0
+[BG CT]
+type =normal
+spriteno =9,0
+start = 150,320
+delta = 1.2,2
+mask =1
+Id=24
+[BGCtrlDef CT]
+ctrlID = 24
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=1
+y=-3
+[BGCtrl]
+type = Velset
+time =2650
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2651
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2652
+value=0
+[BG CT]
+type =normal
+spriteno =23,0
+start = -450,-305
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =9,1
+start = 500,320
+delta = 1.2,2
+mask =1
+Id=25
+[BGCtrlDef CT]
+ctrlID = 25
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=-1
+y=-3
+[BGCtrl]
+type = Velset
+time =2650
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2651
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2652
+value=0
+[BG CT]
+type =normal
+spriteno =10,0
+start =470,320
+delta = 1.2,2
+mask =1
+Id=26
+[BGCtrlDef CT]
+ctrlID = 26
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=-1
+y=-3
+[BGCtrl]
+type = Velset
+time =2650
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2651
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2652
+value=0
+[BG CT]
+type =normal
+spriteno =10,1
+start =100,320
+delta = 1.2,2
+mask =1
+Id=27
+[BGCtrlDef CT]
+ctrlID = 27
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=1
+y=-3
+[BGCtrl]
+type = Velset
+time =2650
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2651
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2652
+value=0
+[BG CT]
+type =normal
+spriteno =23,0
+start = -400,-310
+delta = 1.35,2
+mask =1
+[BG CT]
+type =normal
+spriteno =7,0
+start = 0,280
+delta = 1.2,2
+mask =1
+Id=28
+[BGCtrlDef CT]
+ctrlID = 28
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=1
+y=-3
+[BGCtrl]
+type = Velset
+time =2650
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2651
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2652
+value=0
+[BG CT]
+type =normal
+spriteno =7,0
+start = 350,280
+delta = 1.2,2
+mask =1
+Id=29
+[BGCtrlDef CT]
+ctrlID = 29
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=-1
+y=-3
+[BGCtrl]
+type = Velset
+time =2640
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2641
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2642
+value=0
+[BG CT]
+type =normal
+spriteno =23,0
+start = -400,-310
+delta = 1.35,2
+mask =1
+[BG CT]
+type =normal
+spriteno =7,1
+start = -50,320
+delta = 1.2,2
+mask =1
+Id=30
+[BGCtrlDef CT]
+ctrlID = 30
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=2
+y=-3
+[BGCtrl]
+type = Velset
+time =2650
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2651
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2652
+value=0
+[BG CT]
+type =normal
+spriteno =7,1
+start = 440,320
+delta = 1.2,2
+mask =1
+Id=31
+[BGCtrlDef CT]
+ctrlID = 31
+[BGCtrl]
+type =Enable
+time =0
+value=0
+[BGCtrl]
+type =Enable
+time =2500
+value=1
+[BGCtrl]
+type = Velset
+time =2501
+x=-1.5
+y=-3
+[BGCtrl]
+type = Velset
+time =2660
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =2661
+x=0
+y=0
+[BGCtrl]
+type =Enable
+time =2662
+value=0
+[BG CT]
+type =normal
+spriteno =8,0
+start = 350,320
+delta = 1.2,2
+mask =1
+Id=4
+[BGCtrlDef CT]
+ctrlID = 4
+looptime=752
+[BGCtrl]
+type = Velset
+time =30
+x=-0.3
+y=-0.6
+[BGCtrl]
+type = Velset
+time =750
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =751
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 4
+[BGCtrl]
+type = Enable
+time =2257
+value=0
+[BG CT]
+type =anim
+actionno=36
+start = -175,30
+delta = 1.4,2
+[BG CT]
+type =normal
+spriteno =8,1
+start = -150,320
+delta = 1.2,2
+mask =1
+Id=5
+[BGCtrlDef CT]
+ctrlID = 5
+looptime=682
+[BGCtrl]
+type = Velset
+time =0
+x=0.4
+y=-0.6
+[BGCtrl]
+type = Velset
+time =680
+x=0
+y=0
+[BGCtrl]
+type =Posset
+time =681
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 5
+[BGCtrl]
+type = Enable
+time =2729
+value=0
+[BG CT]
+type =normal
+spriteno =9,0
+start = 150,320
+delta = 1.2,2
+mask =1
+Id=6
+[BGCtrlDef CT]
+ctrlID = 6
+looptime=952
+[BGCtrl]
+type = Velset
+time =0
+x=0.1
+y=-0.4
+[BGCtrl]
+type = Velset
+time =950
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =951
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 6
+[BGCtrl]
+type = Enable
+time =1904
+value=0
+[BG CT]
+type =anim
+actionno=36
+start = -125,30
+delta = 1.4,2
+[BG CT]
+type =normal
+spriteno =9,1
+start = 500,320
+delta = 1.2,2
+mask =1
+Id=7
+[BGCtrlDef CT]
+ctrlID = 7
+looptime=952
+[BGCtrl]
+type = Velset
+time =0
+x=-0.3
+y=-0.5
+[BGCtrl]
+type = Velset
+time =950
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =951
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 7
+[BGCtrl]
+type = Enable
+time =2857
+value=0
+[BG CT]
+type =normal
+spriteno =10,0
+start =470,320
+delta = 1.2,2
+mask =1
+Id=10
+[BGCtrlDef CT]
+ctrlID = 10
+looptime=502
+[BGCtrl]
+type = Velset
+time =0
+x=-0.3
+y=-0.8
+[BGCtrl]
+type = Velset
+time =500
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =501
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 10
+[BGCtrl]
+type = Enable
+time =2511
+value=0
+[BG CT]
+type =normal
+spriteno =10,1
+start =100,320
+delta = 1.2,2
+mask =1
+Id=11
+[BGCtrlDef CT]
+ctrlID = 11
+looptime=412
+[BGCtrl]
+type = Velset
+time =0
+x=0.3
+y=-0.8
+[BGCtrl]
+type = Velset
+time =410
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =411
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 11
+[BGCtrl]
+type = Enable
+time =2473
+value=0
+[BG CT]
+type =normal
+spriteno =23,0
+start = -350,-310
+delta = 1.35,2
+mask =1
+[BG CT]
+type =normal
+spriteno =7,0
+start = 0,280
+delta = 1.2,2
+mask =1
+Id=2
+[BGCtrlDef CT]
+ctrlID = 2
+looptime=452
+[BGCtrl]
+type = Velset
+time =0
+x=0.5
+y=-1
+[BGCtrl]
+type = Velset
+time =450
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =451
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 2
+[BGCtrl]
+type = Enable
+time =2260
+value=0
+[BG CT]
+type =normal
+spriteno =7,0
+start = 350,280
+delta = 1.2,2
+mask =1
+Id=8
+[BGCtrlDef CT]
+ctrlID = 8
+looptime=492
+[BGCtrl]
+type = Velset
+time =60
+x=-0.5
+y=-1
+[BGCtrl]
+type = Velset
+time =490
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =491
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 8
+[BGCtrl]
+type = Enable
+time =2461
+value=0
+[BG CT]
+type =anim
+actionno=36
+start = -225,37
+delta = 1.4,2
+[BG CT]
+type =normal
+spriteno =7,1
+start = -50,320
+delta = 1.2,2
+mask =1
+Id=3
+[BGCtrlDef CT]
+ctrlID = 3
+looptime=352
+[BGCtrl]
+type = Velset
+time =30
+x=0.7
+y=-1.5
+[BGCtrl]
+type = Velset
+time =350
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =351
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 3
+[BGCtrl]
+type = Enable
+time =2465
+value=0
+[BG CT]
+type =normal
+spriteno =7,1
+start = 440,320
+delta = 1.2,2
+mask =1
+Id=9
+[BGCtrlDef CT]
+ctrlID = 9
+looptime=337
+[BGCtrl]
+type = Velset
+time =15
+x=-0.7
+y=-1.5
+[BGCtrl]
+type = Velset
+time =335
+x=0
+y=0
+[BGCtrl]
+type = Posset
+time =336
+x=0
+y=0
+[BGCtrlDef CT]
+ctrlID = 9
+[BGCtrl]
+type = Enable
+time =2360
+value=0
+[BG CT]
+type =anim
+actionno=1
+start = -30,-320
+delta = 1.2,2
+Id=39
+[BGCtrlDef CT]
+ctrlID = 39
+[BGCtrl]
+type = Enable
+time =2650
+value=0
+[BG CT]
+type =normal
+spriteno =19,0
+start = 250,-220
+delta = 1.2,2
+mask=1
+Id=42
+[BGCtrlDef CT]
+ctrlID = 42
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5199
+value=1
+[BGCtrl]
+type = Velset
+time =5200
+x=0.5
+y=0.3
+[BGCtrl]
+type = SinY
+time =5200
+value = 1,3,0
+[BGCtrl]
+type = Velset
+time =5350
+x=0
+y=0
+[BGCtrl]
+type = SinY
+time =5350
+value = 0,0,0
+[BG CT]
+type =anim
+actionno=24
+start = 375,-240
+delta = 1.2,2
+Id=43
+[BGCtrlDef CT]
+ctrlID = 43
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5200
+value=1
+[BGCtrl]
+type = Enable
+time =5434
+value=0
+[BG CT]
+type =normal
+spriteno =19,0
+start = 250,-170
+delta = 1.2,2
+mask=1
+Id=44
+[BGCtrlDef CT]
+ctrlID = 44
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5149
+value=1
+[BGCtrl]
+type = Velset
+time =5150
+x=0.5
+y=0.1
+[BGCtrl]
+type = SinY
+time =5150
+value = 1,3,0
+[BGCtrl]
+type = Velset
+time =5300
+x=0
+y=0
+[BGCtrl]
+type = SinY
+time =5300
+value = 0,0,0
+[BG CT]
+type =anim
+actionno=25
+start = 390,-210
+delta = 1.2,2
+Id=45
+[BGCtrlDef CT]
+ctrlID = 45
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5150
+value=1
+[BGCtrl]
+type = Enable
+time =5384
+value=0
+[BG CT]
+type =normal
+spriteno =19,1
+start = 250,-130
+delta = 1.2,2
+mask=1
+Id=46
+[BGCtrlDef CT]
+ctrlID = 46
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5249
+value=1
+[BGCtrl]
+type = Velset
+time =5250
+x=0.6
+y=0.1
+[BGCtrl]
+type = SinY
+time =5250
+value = 1,3,0
+[BGCtrl]
+type = Velset
+time =5460
+x=0
+y=0
+[BGCtrl]
+type = SinY
+time =5460
+value = 0,0,0
+[BG CT]
+type =anim
+actionno=23
+start = 390,-120
+delta = 1.2,2
+Id=47
+[BGCtrlDef CT]
+ctrlID = 47
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5250
+value=1
+[BGCtrl]
+type = Enable
+time =5601
+value=0
+[BG CT]
+type =normal
+spriteno =19,2
+start = 250,-150
+delta = 1.2,2
+mask=1
+Id=48
+[BGCtrlDef CT]
+ctrlID = 48
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5199
+value=1
+[BGCtrl]
+type = Velset
+time =5200
+x=0.6
+y=0.1
+[BGCtrl]
+type = SinY
+time =5200
+value = 1,3,0
+[BGCtrl]
+type = Velset
+time =5450
+x=0
+y=0
+[BGCtrl]
+type = SinY
+time =5450
+value = 0,0,0
+[BG CT]
+type =anim
+actionno=24
+start = 360,-40
+delta = 1.2,2
+Id=49
+[BGCtrlDef CT]
+ctrlID = 49
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5200
+value=1
+[BGCtrl]
+type = Enable
+time =5434
+value=0
+[BG CT]
+type =normal
+spriteno =19,3
+start = 300,-170
+delta = 1.2,2
+mask=1
+Id=50
+[BGCtrlDef CT]
+ctrlID = 50
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5149
+value=1
+[BGCtrl]
+type = Velset
+time =5150
+x=0.4
+y=0.3
+[BGCtrl]
+type = SinY
+time =5150
+value = 1,3,0
+[BGCtrl]
+type = Velset
+time =5350
+x=0
+y=0
+[BGCtrl]
+type = SinY
+time =5350
+value = 0,0,0
+[BG CT]
+type =anim
+actionno=25
+start = 310,0
+delta = 1.2,2
+Id=51
+[BGCtrlDef CT]
+ctrlID = 51
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5150
+value=1
+[BGCtrl]
+type = Enable
+time =5384
+value=0
+[BG CT]
+type =normal
+spriteno=20,1
+start = 270,-100
+delta = 1.2,2
+Id=52
+mask=1
+[BGCtrlDef CT]
+ctrlID = 52
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5499
+value=1
+[BGCtrl]
+type = Velset
+time =5500
+x=0.5
+y=0
+[BGCtrl]
+type = SinY
+time =5500
+value = 1,5,0
+[BGCtrl]
+type = Velset
+time =5750
+x=0
+y=0
+[BGCtrl]
+type = SinY
+time =5750
+value = 0,0,0
+[BG CT]
+type =anim
+actionno=27
+start = 205,-228
+delta = 1.2,2
+Id=54
+[BG CT]
+type =anim
+actionno=26
+start = 205,-228
+delta = 1.2,2
+Id=54
+[BGCtrlDef CT]
+ctrlID = 54
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5750
+value=1
+[BG CT]
+type =anim
+actionno=25
+start = 400,-125
+delta = 1.2,2
+Id=53
+[BGCtrlDef CT]
+ctrlID = 53
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =5500
+value=1
+[BGCtrl]
+type = Enable
+time =5851
+value=0
+[BG CT]
+type =normal
+spriteno =6,0
+start = 150,-220
+delta = 1.2,2
+mask =1
+Id=32
+[BGCtrlDef CT]
+ctrlID = 32
+[BGCtrl]
+type = Enable
+time =0
+value=1
+[BGCtrl]
+type = Enable
+time =2405
+value=0
+[BGCtrl]
+type = Enable
+time =2650
+value=1
+[BG CT]
+type =anim
+actionno=18
+start = -55,-370
+delta = 1.2,2
+Id=35
+[BGCtrlDef CT]
+ctrlID = 35
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =4000
+value=1
+[BG CT]
+type =anim
+actionno=19
+start = -55,-370
+delta = 1.2,2
+Id=38
+[BG CT]
+type =anim
+actionno=20
+start = -55,-370
+delta = 1.2,2
+Id=38
+[BGCtrlDef]
+ctrlID = 38
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =4450
+value=1
+[BG CT]
+type =normal
+spriteno =6,2
+start = 150,-220
+delta = 1.2,2
+mask =1
+Id=36
+[BGCtrlDef CT]
+ctrlID = 36
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =3000
+value=1
+[BG CT]
+type =normal
+spriteno =6,2
+start = 150,-220
+delta = 1.2,2
+mask =1
+Id=37
+[BGCtrlDef CT]
+ctrlID = 37
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =4500
+value=1
+[BG CT]
+type =normal
+spriteno =6,1
+start = 150,-220
+delta = 1.2,2
+mask =1
+Id=33
+[BGCtrlDef CT]
+ctrlID = 33
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =2405
+value=1
+[BGCtrl]
+type = Enable
+time =2650
+value=0
+[BG CT]
+type =anim
+actionno=2
+start = 255,10
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=5
+start = 155,-40
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=4
+start = 355,-20
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=2
+start = 310,-15
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=3
+start = 175,-10
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=4
+start = 225,-45
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=5
+start = 325,-30
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=3
+start = 290,-26
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=2
+start = 155,-80
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=5
+start = 255,-100
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=4
+start = 355,-180
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=2
+start = 210,-145
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=3
+start = 145,-150
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=4
+start = 275,-45
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=5
+start = 255,-30
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=3
+start = 230,-126
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=2
+start = 155,-100
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=5
+start = 255,-140
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=4
+start = 255,-120
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=2
+start = 210,-115
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=17
+start = -60,-330
+delta = 1.2,2
+Id=34
+[BGCtrlDef CT]
+ctrlID = 34
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =2600
+value=1
+[BG CT]
+type =anim
+actionno=3
+start = 155,-110
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=4
+start = 325,-155
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=5
+start = 355,-80
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=3
+start = 190,-96
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=2
+start = 355,-180
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=5
+start = 155,-200
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=4
+start = 255,-250
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=2
+start = 150,-220
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=3
+start = 345,-180
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=4
+start = 295,-145
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=5
+start = 155,-130
+delta = 1.2,2
+Id=12
+[BG CT]
+type =anim
+actionno=3
+start = 130,-186
+delta = 1.2,2
+Id=12
+[BGCtrlDef CT]
+ctrlID = 12
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =180
+value=1
+[BGCtrl]
+type = Enable
+time =2780
+value=0
+[BG CT]
+type =normal
+spriteno =5,0
+start = 50,280
+delta = 1.2,2
+mask =1
+Id=1
+[BGCtrlDef CT]
+ctrlID = 1
+[BGCtrl]
+type = Velset
+time =0
+x=0.1
+y=-0.1
+[BGCtrl]
+type = Velset
+time =2400
+x=0
+y=0
+[BGCtrl]
+type = Enable
+time =2405
+value=0
+[BG CT]
+type =anim
+actionno=14
+start = 220,-25
+delta = 1.2,2
+Id=21
+[BG CT]
+type =anim
+actionno=15
+start = 225,-30
+delta = 1.2,2
+Id=21
+[BG CT]
+type =anim
+actionno=16
+start = 240,-35
+delta = 1.2,2
+Id=21
+[BG CT]
+type =anim
+actionno=14
+start = 220,-55
+delta = 1.2,2
+Id=21
+[BG CT]
+type =anim
+actionno=15
+start = 225,-45
+delta = 1.2,2
+Id=21
+[BG CT]
+type =anim
+actionno=16
+start = 225,-40
+delta = 1.2,2
+Id=21
+[BG CT]
+type =anim
+actionno=14
+start = 235,-50
+delta = 1.2,2
+Id=21
+[BG CT]
+type =anim
+actionno=15
+start = 225,-45
+delta = 1.2,2
+Id=21
+[BG CT]
+type =anim
+actionno=16
+start = 235,-55
+delta = 1.2,2
+Id=21
+[BGCtrlDef CT]
+ctrlID = 21
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =2400
+value=1
+[BG CT]
+type =anim
+actionno=6
+start = -120,115
+delta = 1.2,2
+Id=13
+[BGCtrlDef CT]
+ctrlID = 13
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =600
+value=1
+[BGCtrl]
+type = Velset
+time =630
+x=0.5
+y=-0.7
+[BGCtrl]
+type = Velset
+time =900
+x=0
+y=-0
+[BGCtrl]
+type = Enable
+time =901
+value=0
+[BG CT]
+type =anim
+actionno=7
+start = 50,-200
+delta = 1.2,2
+Id=14
+[BGCtrlDef CT]
+ctrlID = 14
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =900
+value=1
+[BG CT]
+type =anim
+actionno=8
+start = -85,80
+delta = 1.2,2
+Id=15
+[BGCtrlDef CT]
+ctrlID = 15
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =970
+value=1
+[BGCtrl]
+type = Velset
+time =985
+x=0.8
+y=-0.7
+[BGCtrl]
+type = Velset
+time =1250
+x=0
+y=0
+[BGCtrl]
+type = Enable
+time =1251
+value=0
+[BG CT]
+type =anim
+actionno=9
+start = 160,-230
+delta = 1.2,2
+Id=16
+[BGCtrlDef CT]
+ctrlID = 16
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =1247
+value=1
+[BG CT]
+type =anim
+actionno=10
+start = -50,45
+delta = 1.2,2
+Id=17
+[BGCtrlDef CT]
+ctrlID = 17
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =1300
+value=1
+[BGCtrl]
+type = Velset
+time =1320
+x=1
+y=-1
+[BGCtrl]
+type = Velset
+time =1550
+x=0
+y=0
+[BGCtrl]
+type = Enable
+time =1551
+value=0
+[BG CT]
+type =anim
+actionno=11
+start = 205,-300
+delta = 1.2,2
+Id=18
+[BGCtrlDef CT]
+ctrlID = 18
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =1550
+value=1
+[BG CT]
+type =anim
+actionno=12
+start = -7,0
+delta = 1.2,2
+Id=19
+[BGCtrlDef CT]
+ctrlID = 19
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =1740
+value=1
+[BGCtrl]
+type = Velset
+time =1750
+x=1
+y=-1
+[BGCtrl]
+type = Velset
+time =1850
+x=0
+y=0
+[BGCtrl]
+type = Enable
+time =1851
+value=0
+[BG CT]
+type =anim
+actionno=13
+start = 125,-230
+delta = 1.2,2
+Id=20
+[BGCtrlDef CT]
+ctrlID = 20
+[BGCtrl]
+type = Enable
+time =0
+value=0
+[BGCtrl]
+type = Enable
+time =1850
+value=1
+[BG CT]
+type =normal
+spriteno =2,0
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,1
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,2
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,3
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,4
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,5
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,6
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,7
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,8
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,9
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,10
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,11
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,12
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,13
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,14
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =normal
+spriteno =2,15
+start = -580,-300
+delta = 1.4,2
+mask =1
+[BG CT]
+type =anim
+actionno=36
+start = -225,45
+delta = 1.4,2
+[BG CT]
+type =normal
+spriteno =3,0
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,1
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,2
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,3
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,4
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,5
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,6
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,7
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,8
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,9
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,10
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,11
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,12
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,13
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,14
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,15
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,16
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,17
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,18
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,19
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,20
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,21
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,22
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,23
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,24
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,25
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,26
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,27
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,28
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,29
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,30
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,31
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,32
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,33
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,34
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,35
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,36
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,37
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,38
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,39
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,40
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,41
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,42
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,43
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,44
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,45
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,46
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,47
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =normal
+spriteno =3,48
+start = -580,-300
+delta = 1.5,2
+mask =1
+[BG CT]
+type =anim
+actionno=34
+start = -580,0
+delta = 1.5,2
+[BG CT]
+type =anim
+actionno=35
+start = 357,5
+delta = 1.5,2
+[BG CT]
+type =parallax
+spriteno =0,0
+start = 0,290;-680,-300
+delta = 1.5,2
+mask =1
+width = 2000,2863.095238095238
+[BG CT]
+type =normal
+spriteno =26,0
+start = 450,308
+delta = 1.55,2
+mask =1
+trans=addalpha
+alpha=150,120
+[BG CT]
+type =normal
+spriteno =25,0
+start = 450,235
+delta = 1.55,2
+mask =1
+[BG CT]
+type =normal
+spriteno =27,0
+delta = 2,2
+trans=addalpha
+alpha=135,256
+tile=1,1
+tilespacing=0
+velocity=1
+layerno=1
+;_________________________________________________________________________________
+:ANIMACIONES
+;_________________________________________________________________________________
+[Begin Action 1]
+11,0,0,0,5,,AS250D256    
+11,1,0,0,5,,AS250D256    
+11,2,0,0,5,,AS250D256    
+11,3,0,0,5,,AS250D256    
+11,4,0,0,5,,AS250D256    
+11,5,0,0,5,,AS250D256    
+11,6,0,0,5,,AS250D256    
+11,7,0,0,5,,AS250D256    
+11,8,0,0,5,,AS250D256    
+11,9,0,0,5,,AS250D256    
+11,10,0,0,5,,AS250D256   
+[Begin Action 2]
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3   
+-1,0,0,0,22
+[Begin Action 3]
+-1,0,0,0,37
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3   
+[Begin Action 4]
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3   
+-1,0,0,0,75
+[Begin Action 5]
+-1,0,0,0,53
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3   
+[Begin Action 6]
+13,0,0,0,5,,AS50D256    
+13,1,0,0,5,,AS75D256    
+13,2,0,0,5,,AS125D256    
+13,3,0,0,5,,AS150D256    
+13,4,0,0,5,,AS175D256    
+13,5,0,0,5,,AS200D256    
+13,6,0,0,5,,AS225D256 
+loopstart  
+13,7,0,0,5,,AS256D256    
+13,8,0,0,5,,AS256D256    
+13,9,0,0,5,,AS256D256    
+13,10,0,0,5,,AS256D256   
+[Begin Action 7]
+14,0,0,0,5,,AS256D256     
+14,1,0,0,5,,AS256D256     
+14,2,0,0,5,,AS256D256     
+14,3,0,0,5,,AS256D256     
+14,4,0,0,5,,AS256D256     
+14,5,0,0,5,,AS256D256     
+14,6,0,0,5,,AS256D256     
+14,7,0,0,5,,AS256D256     
+14,8,0,0,5,,AS256D256     
+14,9,0,0,5,,AS256D256     
+14,10,0,0,5,,AS256D256    
+14,11,0,0,5,,AS256D256    
+14,12,0,0,5,,AS256D256    
+14,13,0,0,5,,AS256D256    
+14,14,0,0,5,,AS256D256    
+14,15,0,0,5,,AS256D256    
+14,16,0,0,5,,AS256D256    
+14,17,0,0,5,,AS256D256    
+14,18,0,0,5,,AS256D256    
+14,19,0,0,5,,AS256D256    
+14,20,0,0,5,,AS256D256    
+14,21,0,0,5,,AS256D256    
+14,22,0,0,5,,AS256D256    
+14,23,0,0,5,,AS256D256    
+14,24,0,0,5,,AS256D256    
+14,25,0,0,5,,AS256D256    
+14,26,0,0,5,,AS256D256    
+14,27,0,0,5,,AS256D256    
+14,28,0,0,5,,AS256D256    
+14,29,0,0,5,,AS256D256    
+14,30,0,0,5,,AS256D256    
+14,31,0,0,5,,AS256D256    
+14,32,0,0,5,,AS256D256    
+14,33,0,0,5,,AS256D256    
+14,34,0,0,5,,AS256D256    
+14,35,0,0,5,,AS256D256    
+14,36,0,0,5,,AS256D256    
+14,37,0,0,5,,AS256D256    
+14,38,0,0,5,,AS256D256    
+14,39,0,0,5,,AS256D256    
+14,40,0,0,5,,AS256D256    
+14,41,0,0,5,,AS256D256    
+14,42,0,0,5,,AS256D256    
+14,43,0,0,5,,AS256D256    
+14,44,0,0,5,,AS256D256    
+14,45,0,0,5,,AS256D256    
+14,46,0,0,5,,AS256D256    
+14,47,0,0,5,,AS256D256    
+14,48,0,0,5,,AS256D256    
+14,49,0,0,5,,AS256D256    
+14,50,0,0,5,,AS256D256    
+14,51,0,0,5,,AS256D256    
+14,52,0,0,5,,AS256D256    
+14,53,0,0,5,,AS256D256    
+14,54,0,0,5,,AS256D256    
+14,55,0,0,5,,AS256D256    
+14,56,0,0,5,,AS256D256    
+14,57,0,0,5,,AS256D256    
+14,58,0,0,5,,AS256D256    
+14,59,0,0,5,,AS256D256    
+14,60,0,0,5,,AS256D256    
+14,61,0,0,5,,AS256D256    
+14,62,0,0,5,,AS256D256    
+14,63,0,0,5,,AS256D256    
+14,64,0,0,5,,AS256D256    
+14,65,0,0,5,,AS256D256    
+14,66,0,0,5,,AS256D256    
+14,67,0,0,5,,AS256D256    
+14,68,0,0,5,,AS256D256    
+14,69,0,0,5,,AS256D256    
+14,70,0,0,5,,AS256D256    
+14,71,0,0,5,,AS256D256    
+14,72,0,0,5,,AS256D256    
+14,73,0,0,5,,AS256D256    
+14,74,0,0,5,,AS256D256    
+14,75,0,0,5,,AS256D256    
+14,76,0,0,5,,AS256D256    
+14,77,0,0,5,,AS256D256    
+14,78,0,0,5,,AS256D256    
+14,79,0,0,5,,AS256D256    
+14,80,0,0,5,,AS256D256    
+14,81,0,0,5,,AS256D256    
+14,82,0,0,5,,AS256D256    
+14,83,0,0,5,,AS256D256    
+14,84,0,0,5,,AS256D256    
+14,85,0,0,5,,AS256D256    
+14,86,0,0,5,,AS256D256    
+14,87,0,0,5,,AS256D256    
+14,88,0,0,5,,AS256D256    
+14,89,0,0,5,,AS256D256    
+14,90,0,0,5,,AS256D256    
+14,91,0,0,5,,AS256D256    
+14,92,0,0,5,,AS256D256    
+14,93,0,0,5,,AS256D256    
+14,94,0,0,5,,AS256D256    
+14,95,0,0,5,,AS256D256    
+14,96,0,0,5,,AS256D256    
+14,97,0,0,5,,AS256D256    
+14,98,0,0,5,,AS240D256    
+14,99,0,0,5,,AS220D256    
+14,100,0,0,5,,AS200D256   
+14,101,0,0,5,,AS180D256   
+14,102,0,0,5,,AS160D256   
+14,103,0,0,5,,AS140D256   
+14,104,0,0,5,,AS120D256   
+14,105,0,0,5,,AS100D256   
+14,106,0,0,5,,AS80D256   
+14,107,0,0,5,,AS60D256   
+14,108,0,0,5,,AS40D256   
+14,109,0,0,5,,AS20D256  
+-1,0,0,0,-1 
+[Begin Action 8]
+13,0,0,0,5,,AS50D256    
+13,1,0,0,5,,AS75D256    
+13,2,0,0,5,,AS125D256    
+13,3,0,0,5,,AS150D256    
+13,4,0,0,5,,AS175D256    
+13,5,0,0,5,,AS200D256    
+13,6,0,0,5,,AS225D256 
+loopstart  
+13,7,0,0,5,,AS256D256    
+13,8,0,0,5,,AS256D256    
+13,9,0,0,5,,AS256D256    
+13,10,0,0,5,,AS256D256  
+[Begin Action 9]
+14,0,0,0,5,,AS256D256     
+14,1,0,0,5,,AS256D256     
+14,2,0,0,5,,AS256D256     
+14,3,0,0,5,,AS256D256     
+14,4,0,0,5,,AS256D256     
+14,5,0,0,5,,AS256D256     
+14,6,0,0,5,,AS256D256     
+14,7,0,0,5,,AS256D256     
+14,8,0,0,5,,AS256D256     
+14,9,0,0,5,,AS256D256     
+14,10,0,0,5,,AS256D256    
+14,11,0,0,5,,AS256D256    
+14,12,0,0,5,,AS256D256    
+14,13,0,0,5,,AS256D256    
+14,14,0,0,5,,AS256D256    
+14,15,0,0,5,,AS256D256    
+14,16,0,0,5,,AS256D256    
+14,17,0,0,5,,AS256D256    
+14,18,0,0,5,,AS256D256    
+14,19,0,0,5,,AS256D256    
+14,20,0,0,5,,AS256D256    
+14,21,0,0,5,,AS256D256    
+14,22,0,0,5,,AS256D256    
+14,23,0,0,5,,AS256D256    
+14,24,0,0,5,,AS256D256    
+14,25,0,0,5,,AS256D256    
+14,26,0,0,5,,AS256D256    
+14,27,0,0,5,,AS256D256    
+14,28,0,0,5,,AS256D256    
+14,29,0,0,5,,AS256D256    
+14,30,0,0,5,,AS256D256    
+14,31,0,0,5,,AS256D256    
+14,32,0,0,5,,AS256D256    
+14,33,0,0,5,,AS256D256    
+14,34,0,0,5,,AS256D256    
+14,35,0,0,5,,AS256D256    
+14,36,0,0,5,,AS256D256    
+14,37,0,0,5,,AS256D256    
+14,38,0,0,5,,AS256D256    
+14,39,0,0,5,,AS256D256    
+14,40,0,0,5,,AS256D256    
+14,41,0,0,5,,AS256D256    
+14,42,0,0,5,,AS256D256    
+14,43,0,0,5,,AS256D256    
+14,44,0,0,5,,AS256D256    
+14,45,0,0,5,,AS256D256    
+14,46,0,0,5,,AS256D256    
+14,47,0,0,5,,AS256D256    
+14,48,0,0,5,,AS256D256    
+14,49,0,0,5,,AS256D256    
+14,50,0,0,5,,AS256D256    
+14,51,0,0,5,,AS256D256    
+14,52,0,0,5,,AS256D256    
+14,53,0,0,5,,AS256D256    
+14,54,0,0,5,,AS256D256    
+14,55,0,0,5,,AS256D256    
+14,56,0,0,5,,AS256D256    
+14,57,0,0,5,,AS256D256    
+14,58,0,0,5,,AS256D256    
+14,59,0,0,5,,AS256D256    
+14,60,0,0,5,,AS256D256    
+14,61,0,0,5,,AS256D256    
+14,62,0,0,5,,AS256D256    
+14,63,0,0,5,,AS256D256    
+14,64,0,0,5,,AS256D256    
+14,65,0,0,5,,AS256D256    
+14,66,0,0,5,,AS256D256    
+14,67,0,0,5,,AS256D256    
+14,68,0,0,5,,AS256D256    
+14,69,0,0,5,,AS256D256    
+14,70,0,0,5,,AS256D256    
+14,71,0,0,5,,AS256D256    
+14,72,0,0,5,,AS256D256    
+14,73,0,0,5,,AS256D256    
+14,74,0,0,5,,AS256D256    
+14,75,0,0,5,,AS256D256    
+14,76,0,0,5,,AS256D256    
+14,77,0,0,5,,AS256D256    
+14,78,0,0,5,,AS256D256    
+14,79,0,0,5,,AS256D256    
+14,80,0,0,5,,AS256D256    
+14,81,0,0,5,,AS256D256    
+14,82,0,0,5,,AS256D256    
+14,83,0,0,5,,AS256D256    
+14,84,0,0,5,,AS256D256    
+14,85,0,0,5,,AS256D256    
+14,86,0,0,5,,AS256D256    
+14,87,0,0,5,,AS256D256    
+14,88,0,0,5,,AS256D256    
+14,89,0,0,5,,AS256D256    
+14,90,0,0,5,,AS256D256    
+14,91,0,0,5,,AS256D256    
+14,92,0,0,5,,AS256D256    
+14,93,0,0,5,,AS256D256    
+14,94,0,0,5,,AS256D256    
+14,95,0,0,5,,AS256D256    
+14,96,0,0,5,,AS256D256    
+14,97,0,0,5,,AS256D256    
+14,98,0,0,5,,AS240D256    
+14,99,0,0,5,,AS220D256    
+14,100,0,0,5,,AS200D256   
+14,101,0,0,5,,AS180D256   
+14,102,0,0,5,,AS160D256   
+14,103,0,0,5,,AS140D256   
+14,104,0,0,5,,AS120D256   
+14,105,0,0,5,,AS100D256   
+14,106,0,0,5,,AS80D256   
+14,107,0,0,5,,AS60D256   
+14,108,0,0,5,,AS40D256   
+14,109,0,0,5,,AS20D256  
+-1,0,0,0,-1
+[Begin Action 10]
+13,0,0,0,5,,AS50D256    
+13,1,0,0,5,,AS75D256    
+13,2,0,0,5,,AS125D256    
+13,3,0,0,5,,AS150D256    
+13,4,0,0,5,,AS175D256    
+13,5,0,0,5,,AS200D256    
+13,6,0,0,5,,AS225D256 
+loopstart  
+13,7,0,0,5,,AS256D256    
+13,8,0,0,5,,AS256D256    
+13,9,0,0,5,,AS256D256    
+13,10,0,0,5,,AS256D256  
+[Begin Action 11]
+14,0,0,0,5,,AS256D256     
+14,1,0,0,5,,AS256D256     
+14,2,0,0,5,,AS256D256     
+14,3,0,0,5,,AS256D256     
+14,4,0,0,5,,AS256D256     
+14,5,0,0,5,,AS256D256     
+14,6,0,0,5,,AS256D256     
+14,7,0,0,5,,AS256D256     
+14,8,0,0,5,,AS256D256     
+14,9,0,0,5,,AS256D256     
+14,10,0,0,5,,AS256D256    
+14,11,0,0,5,,AS256D256    
+14,12,0,0,5,,AS256D256    
+14,13,0,0,5,,AS256D256    
+14,14,0,0,5,,AS256D256    
+14,15,0,0,5,,AS256D256    
+14,16,0,0,5,,AS256D256    
+14,17,0,0,5,,AS256D256    
+14,18,0,0,5,,AS256D256    
+14,19,0,0,5,,AS256D256    
+14,20,0,0,5,,AS256D256    
+14,21,0,0,5,,AS256D256    
+14,22,0,0,5,,AS256D256    
+14,23,0,0,5,,AS256D256    
+14,24,0,0,5,,AS256D256    
+14,25,0,0,5,,AS256D256    
+14,26,0,0,5,,AS256D256    
+14,27,0,0,5,,AS256D256    
+14,28,0,0,5,,AS256D256    
+14,29,0,0,5,,AS256D256    
+14,30,0,0,5,,AS256D256    
+14,31,0,0,5,,AS256D256    
+14,32,0,0,5,,AS256D256    
+14,33,0,0,5,,AS256D256    
+14,34,0,0,5,,AS256D256    
+14,35,0,0,5,,AS256D256    
+14,36,0,0,5,,AS256D256    
+14,37,0,0,5,,AS256D256    
+14,38,0,0,5,,AS256D256    
+14,39,0,0,5,,AS256D256    
+14,40,0,0,5,,AS256D256    
+14,41,0,0,5,,AS256D256    
+14,42,0,0,5,,AS256D256    
+14,43,0,0,5,,AS256D256    
+14,44,0,0,5,,AS256D256    
+14,45,0,0,5,,AS256D256    
+14,46,0,0,5,,AS256D256    
+14,47,0,0,5,,AS256D256    
+14,48,0,0,5,,AS256D256    
+14,49,0,0,5,,AS256D256    
+14,50,0,0,5,,AS256D256    
+14,51,0,0,5,,AS256D256    
+14,52,0,0,5,,AS256D256    
+14,53,0,0,5,,AS256D256    
+14,54,0,0,5,,AS256D256    
+14,55,0,0,5,,AS256D256    
+14,56,0,0,5,,AS256D256    
+14,57,0,0,5,,AS256D256    
+14,58,0,0,5,,AS256D256    
+14,59,0,0,5,,AS256D256    
+14,60,0,0,5,,AS256D256    
+14,61,0,0,5,,AS256D256    
+14,62,0,0,5,,AS256D256    
+14,63,0,0,5,,AS256D256    
+14,64,0,0,5,,AS256D256    
+14,65,0,0,5,,AS256D256    
+14,66,0,0,5,,AS256D256    
+14,67,0,0,5,,AS256D256    
+14,68,0,0,5,,AS256D256    
+14,69,0,0,5,,AS256D256    
+14,70,0,0,5,,AS256D256    
+14,71,0,0,5,,AS256D256    
+14,72,0,0,5,,AS256D256    
+14,73,0,0,5,,AS256D256    
+14,74,0,0,5,,AS256D256    
+14,75,0,0,5,,AS256D256    
+14,76,0,0,5,,AS256D256    
+14,77,0,0,5,,AS256D256    
+14,78,0,0,5,,AS256D256    
+14,79,0,0,5,,AS256D256    
+14,80,0,0,5,,AS256D256    
+14,81,0,0,5,,AS256D256    
+14,82,0,0,5,,AS256D256    
+14,83,0,0,5,,AS256D256    
+14,84,0,0,5,,AS256D256    
+14,85,0,0,5,,AS256D256    
+14,86,0,0,5,,AS256D256    
+14,87,0,0,5,,AS256D256    
+14,88,0,0,5,,AS256D256    
+14,89,0,0,5,,AS256D256    
+14,90,0,0,5,,AS256D256    
+14,91,0,0,5,,AS256D256    
+14,92,0,0,5,,AS256D256    
+14,93,0,0,5,,AS256D256    
+14,94,0,0,5,,AS256D256    
+14,95,0,0,5,,AS256D256    
+14,96,0,0,5,,AS256D256    
+14,97,0,0,5,,AS256D256    
+14,98,0,0,5,,AS240D256    
+14,99,0,0,5,,AS220D256    
+14,100,0,0,5,,AS200D256   
+14,101,0,0,5,,AS180D256   
+14,102,0,0,5,,AS160D256   
+14,103,0,0,5,,AS140D256   
+14,104,0,0,5,,AS120D256   
+14,105,0,0,5,,AS100D256   
+14,106,0,0,5,,AS80D256   
+14,107,0,0,5,,AS60D256   
+14,108,0,0,5,,AS40D256   
+14,109,0,0,5,,AS20D256  
+-1,0,0,0,-1
+[Begin Action 12]
+13,0,0,0,5,,AS50D256    
+13,1,0,0,5,,AS75D256    
+13,2,0,0,5,,AS125D256    
+13,3,0,0,5,,AS150D256    
+13,4,0,0,5,,AS175D256    
+13,5,0,0,5,,AS200D256    
+13,6,0,0,5,,AS225D256 
+loopstart  
+13,7,0,0,5,,AS256D256    
+13,8,0,0,5,,AS256D256    
+13,9,0,0,5,,AS256D256    
+13,10,0,0,5,,AS256D256  
+[Begin Action 13]
+14,0,0,0,5,,AS256D256     
+14,1,0,0,5,,AS256D256     
+14,2,0,0,5,,AS256D256     
+14,3,0,0,5,,AS256D256     
+14,4,0,0,5,,AS256D256     
+14,5,0,0,5,,AS256D256     
+14,6,0,0,5,,AS256D256     
+14,7,0,0,5,,AS256D256     
+14,8,0,0,5,,AS256D256     
+14,9,0,0,5,,AS256D256     
+14,10,0,0,5,,AS256D256    
+14,11,0,0,5,,AS256D256    
+14,12,0,0,5,,AS256D256    
+14,13,0,0,5,,AS256D256    
+14,14,0,0,5,,AS256D256    
+14,15,0,0,5,,AS256D256    
+14,16,0,0,5,,AS256D256    
+14,17,0,0,5,,AS256D256    
+14,18,0,0,5,,AS256D256    
+14,19,0,0,5,,AS256D256    
+14,20,0,0,5,,AS256D256    
+14,21,0,0,5,,AS256D256    
+14,22,0,0,5,,AS256D256    
+14,23,0,0,5,,AS256D256    
+14,24,0,0,5,,AS256D256    
+14,25,0,0,5,,AS256D256    
+14,26,0,0,5,,AS256D256    
+14,27,0,0,5,,AS256D256    
+14,28,0,0,5,,AS256D256    
+14,29,0,0,5,,AS256D256    
+14,30,0,0,5,,AS256D256    
+14,31,0,0,5,,AS256D256    
+14,32,0,0,5,,AS256D256    
+14,33,0,0,5,,AS256D256    
+14,34,0,0,5,,AS256D256    
+14,35,0,0,5,,AS256D256    
+14,36,0,0,5,,AS256D256    
+14,37,0,0,5,,AS256D256    
+14,38,0,0,5,,AS256D256    
+14,39,0,0,5,,AS256D256    
+14,40,0,0,5,,AS256D256    
+14,41,0,0,5,,AS256D256    
+14,42,0,0,5,,AS256D256    
+14,43,0,0,5,,AS256D256    
+14,44,0,0,5,,AS256D256    
+14,45,0,0,5,,AS256D256    
+14,46,0,0,5,,AS256D256    
+14,47,0,0,5,,AS256D256    
+14,48,0,0,5,,AS256D256    
+14,49,0,0,5,,AS256D256    
+14,50,0,0,5,,AS256D256    
+14,51,0,0,5,,AS256D256    
+14,52,0,0,5,,AS256D256    
+14,53,0,0,5,,AS256D256    
+14,54,0,0,5,,AS256D256    
+14,55,0,0,5,,AS256D256    
+14,56,0,0,5,,AS256D256    
+14,57,0,0,5,,AS256D256    
+14,58,0,0,5,,AS256D256    
+14,59,0,0,5,,AS256D256    
+14,60,0,0,5,,AS256D256    
+14,61,0,0,5,,AS256D256    
+14,62,0,0,5,,AS256D256    
+14,63,0,0,5,,AS256D256    
+14,64,0,0,5,,AS256D256    
+14,65,0,0,5,,AS256D256    
+14,66,0,0,5,,AS256D256    
+14,67,0,0,5,,AS256D256    
+14,68,0,0,5,,AS256D256    
+14,69,0,0,5,,AS256D256    
+14,70,0,0,5,,AS256D256    
+14,71,0,0,5,,AS256D256    
+14,72,0,0,5,,AS256D256    
+14,73,0,0,5,,AS256D256    
+14,74,0,0,5,,AS256D256    
+14,75,0,0,5,,AS256D256    
+14,76,0,0,5,,AS256D256    
+14,77,0,0,5,,AS256D256    
+14,78,0,0,5,,AS256D256    
+14,79,0,0,5,,AS256D256    
+14,80,0,0,5,,AS256D256    
+14,81,0,0,5,,AS256D256    
+14,82,0,0,5,,AS256D256    
+14,83,0,0,5,,AS256D256    
+14,84,0,0,5,,AS256D256    
+14,85,0,0,5,,AS256D256    
+14,86,0,0,5,,AS256D256    
+14,87,0,0,5,,AS256D256    
+14,88,0,0,5,,AS256D256    
+14,89,0,0,5,,AS256D256    
+14,90,0,0,5,,AS256D256    
+14,91,0,0,5,,AS256D256    
+14,92,0,0,5,,AS256D256    
+14,93,0,0,5,,AS256D256    
+14,94,0,0,5,,AS256D256    
+14,95,0,0,5,,AS256D256    
+14,96,0,0,5,,AS256D256    
+14,97,0,0,5,,AS256D256    
+14,98,0,0,5,,AS240D256    
+14,99,0,0,5,,AS220D256    
+14,100,0,0,5,,AS200D256   
+14,101,0,0,5,,AS180D256   
+14,102,0,0,5,,AS160D256   
+14,103,0,0,5,,AS140D256   
+14,104,0,0,5,,AS120D256   
+14,105,0,0,5,,AS100D256   
+14,106,0,0,5,,AS80D256   
+14,107,0,0,5,,AS60D256   
+14,108,0,0,5,,AS40D256   
+14,109,0,0,5,,AS20D256  
+-1,0,0,0,-1
+[Begin Action 14]
+-1,0,0,0,30
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3 
+-1,0,0,0,-1
+[Begin Action 15]
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3   
+-1,0,0,0,25
+-1,0,0,0,-1
+[Begin Action 16]
+-1,0,0,0,15
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3   
+-1,0,0,0,-1
+[Begin Action 17]
+15,0,0,0,4    
+15,1,0,0,4    
+15,2,0,0,4    
+15,3,0,0,4    
+15,4,0,0,4    
+15,5,0,0,4    
+15,6,0,0,4    
+15,7,0,0,4    
+15,8,0,0,4    
+15,9,0,0,4    
+15,10,0,0,4   
+15,11,0,0,4   
+15,12,0,0,4   
+15,13,0,0,4   
+15,14,0,0,4   
+15,15,0,0,4   
+15,16,0,0,4   
+15,17,0,0,4   
+15,18,0,0,4   
+15,19,0,0,4   
+15,20,0,0,4   
+15,21,0,0,4   
+15,22,0,0,4   
+15,23,0,0,4   
+15,24,0,0,4   
+15,25,0,0,4   
+15,26,0,0,4   
+15,27,0,0,4   
+15,28,0,0,4   
+15,29,0,0,4   
+15,30,0,0,4   
+15,31,0,0,4   
+15,32,0,0,4   
+15,33,0,0,4   
+15,34,0,0,4   
+15,35,0,0,4   
+15,36,0,0,4   
+15,37,0,0,4   
+15,38,0,0,4   
+15,39,0,0,4   
+15,40,0,0,4   
+15,41,0,0,4   
+15,42,0,0,4   
+15,43,0,0,4   
+15,44,0,0,4   
+15,45,0,0,4   
+15,46,0,0,4   
+15,47,0,0,4   
+15,48,0,0,4   
+15,49,0,0,4   
+15,50,0,0,4   
+15,51,0,0,4   
+15,52,0,0,4   
+15,53,0,0,4   
+15,54,0,0,4   
+15,55,0,0,4   
+15,56,0,0,4   
+15,57,0,0,4   
+-1,0,0,0,-1
+[Begin Action 18]
+16,0,0,0,5,,AS10D256
+16,0,0,0,5,,AS20D256
+16,0,0,0,5,,AS30D256
+16,0,0,0,5,,AS40D256
+16,0,0,0,5,,AS50D256
+16,0,0,0,5,,AS60D256
+16,0,0,0,5,,AS70D256
+16,0,0,0,5,,AS80D256
+16,0,0,0,5,,AS90D256
+loopstart
+16,0,0,0,5,,AS100D256
+16,0,0,0,5,,AS140D256
+16,0,0,0,5,,AS170D256
+16,0,0,0,5,,AS200D256
+16,0,0,0,5,,AS220D256
+16,0,0,0,5,,AS200D256
+16,0,0,0,5,,AS170D256
+16,0,0,0,5,,AS140D256
+[Begin Action 20]
+18,0,0,0,5,,AS20D256    
+18,1,0,0,5,,AS40D256    
+18,2,0,0,5,,AS60D256    
+18,3,0,0,5,,AS80D256    
+18,4,0,0,5,,AS100D256    
+18,5,0,0,5,,AS120D256    
+18,6,0,0,5,,AS140D256    
+18,7,0,0,5,,AS160D256    
+18,8,0,0,5,,AS180D256    
+18,9,0,0,5,,AS190D256    
+18,10,0,0,5,,AS200D256   
+18,11,0,0,5,,AS210D256   
+18,12,0,0,5,,AS220D256   
+18,13,0,0,5,,AS230D256   
+18,14,0,0,5,,AS256D256 
+loopstart
+17,15,0,0,5,,AS256D256   
+17,16,0,0,5,,AS239D256   
+17,17,0,0,5,,AS222D256   
+17,18,0,0,5,,AS205D256   
+17,19,0,0,5,,AS188D256   
+17,20,0,0,5,,AS171D256   
+17,21,0,0,5,,AS154D256   
+17,22,0,0,5,,AS137D256   
+17,23,0,0,5,,AS120D256   
+17,24,0,0,5,,AS103D256   
+17,25,0,0,5,,AS86D256   
+17,26,0,0,5,,AS69D256   
+17,27,0,0,5,,AS52D256   
+17,28,0,0,5,,AS35D256   
+17,29,0,0,5,,AS18D256   
+[Begin Action 19]
+17,0,0,0,5,,AS18D256    
+17,1,0,0,5,,AS35D256    
+17,2,0,0,5,,AS52D256    
+17,3,0,0,5,,AS69D256    
+17,4,0,0,5,,AS86D256    
+17,5,0,0,5,,AS103D256    
+17,6,0,0,5,,AS120D256    
+17,7,0,0,5,,AS137D256    
+17,8,0,0,5,,AS154D256    
+17,9,0,0,5,,AS171D256    
+17,10,0,0,5,,AS188D256   
+17,11,0,0,5,,AS205D256   
+17,12,0,0,5,,AS222D256   
+17,13,0,0,5,,AS239D256   
+17,14,0,0,5,,AS256D256   
+[Begin Action 21]
+18,0,0,0,5,,AS256D256    
+18,1,0,0,5,,AS256D256    
+18,2,0,0,5,,AS256D256    
+18,3,0,0,5,,AS256D256    
+18,4,0,0,5,,AS256D256    
+18,5,0,0,5,,AS256D256    
+18,6,0,0,5,,AS256D256    
+18,7,0,0,5,,AS256D256    
+18,8,0,0,5,,AS256D256    
+18,9,0,0,5,,AS256D256    
+18,10,0,0,5,,AS256D256   
+18,11,0,0,5,,AS256D256   
+18,12,0,0,5,,AS256D256   
+18,13,0,0,5,,AS256D256   
+18,14,0,0,5,,AS256D256   
+18,15,0,0,5,,AS256D256   
+18,16,0,0,5,,AS256D256   
+18,17,0,0,5,,AS256D256   
+18,18,0,0,5,,AS256D256   
+18,19,0,0,5,,AS256D256   
+18,20,0,0,5,,AS256D256   
+18,21,0,0,5,,AS256D256   
+18,22,0,0,5,,AS256D256   
+18,23,0,0,5,,AS256D256   
+18,24,0,0,5,,AS256D256   
+18,25,0,0,5,,AS256D256   
+18,26,0,0,5,,AS256D256   
+18,27,0,0,5,,AS240D256   
+18,28,0,0,5,,AS210D256   
+18,29,0,0,5,,AS180D256   
+18,30,0,0,5,,AS150D256   
+18,31,0,0,5,,AS120D256   
+18,32,0,0,5,,AS90D256   
+18,33,0,0,5,,AS60D256   
+18,34,0,0,5,,AS30D256   
+-1,0,0,0,-1
+[Begin Action 22]
+17,0,0,0,5,,AS10D256    
+17,1,0,0,5,,AS20D256    
+17,2,0,0,5,,AS30D256    
+17,3,0,0,5,,AS40D256    
+17,4,0,0,5,,AS50D256    
+17,5,0,0,5,,AS60D256    
+17,6,0,0,5,,AS70D256    
+17,7,0,0,5,,AS80D256    
+17,8,0,0,5,,AS90D256    
+17,9,0,0,5,,AS100D256    
+17,10,0,0,5,,AS110D256   
+17,11,0,0,5,,AS120D256   
+17,12,0,0,5,,AS130D256   
+17,13,0,0,5,,AS140D256   
+17,14,0,0,5,,AS150D256   
+17,15,0,0,5,,AS160D256   
+17,16,0,0,5,,AS170D256   
+17,17,0,0,5,,AS180D256   
+17,18,0,0,5,,AS190D256   
+17,19,0,0,5,,AS200D256   
+17,20,0,0,5,,AS210D256   
+17,21,0,0,5,,AS220D256   
+17,22,0,0,5,,AS230D256   
+17,23,0,0,5,,AS240D256   
+17,24,0,0,5,,AS256D256   
+17,25,0,0,5,,AS256D256   
+17,26,0,0,5,,AS256D256   
+17,27,0,0,5,,AS256D256   
+17,28,0,0,5,,AS256D256   
+17,29,0,0,5,,AS256D256   
+-1,0,0,0,-1
+[Begin Action 23]
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3 
+[Begin Action 24]
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3   
+[Begin Action 25]
+12,0,0,0,3    
+12,1,0,0,3    
+12,2,0,0,3    
+12,3,0,0,3    
+12,4,0,0,3    
+12,5,0,0,3    
+12,6,0,0,3    
+12,7,0,0,3    
+12,8,0,0,3    
+12,9,0,0,3    
+12,10,0,0,3   
+12,11,0,0,3   
+12,12,0,0,3   
+12,13,0,0,3   
+12,14,0,0,3   
+12,15,0,0,3   
+12,16,0,0,3   
+12,17,0,0,3   
+12,18,0,0,3   
+12,19,0,0,3   
+12,20,0,0,3   
+12,21,0,0,3   
+12,22,0,0,3   
+12,23,0,0,3   
+12,24,0,0,3   
+12,25,0,0,3   
+12,26,0,0,3   
+12,27,0,0,3   
+12,28,0,0,3   
+12,29,0,0,3   
+12,30,0,0,3   
+12,31,0,0,3   
+12,32,0,0,3   
+12,33,0,0,3   
+12,34,0,0,3   
+12,35,0,0,3   
+12,36,0,0,3   
+12,37,0,0,3   
+12,38,0,0,3  
+[Begin Action 27]
+-1,0,0,0,170
+21,48,0,0,5,,AS20D256   
+21,49,0,0,5,,AS40D256   
+21,50,0,0,5,,AS60D256   
+21,51,0,0,5,,AS80D256   
+21,52,0,0,5,,AS100D256   
+21,53,0,0,5,,AS120D256   
+21,54,0,0,5,,AS140D256   
+21,55,0,0,5,,AS160D256   
+21,56,0,0,5,,AS180D256   
+21,57,0,0,5,,AS200D256   
+21,58,0,0,5,,AS220D256   
+21,59,0,0,5,,AS240D256  
+loopstart
+21,61,0,0,5,,AS256D256   
+21,62,0,0,5,,AS238D256   
+21,63,0,0,5,,AS220D256   
+21,64,0,0,5,,AS202D256   
+21,65,0,0,5,,AS184D256   
+21,66,0,0,5,,AS166D256   
+21,67,0,0,5,,AS148D256   
+21,68,0,0,5,,AS130D256   
+21,69,0,0,5,,AS112D256   
+21,70,0,0,5,,AS94D256   
+21,71,0,0,5,,AS76D256   
+21,72,0,0,5,,AS58D256   
+21,73,0,0,5,,AS40D256   
+21,74,0,0,5,,AS22D256  
+[Begin Action 26]
+21,0,0,0,5,,AS10D256    
+21,1,0,0,5,,AS20D256    
+21,2,0,0,5,,AS30D256    
+21,3,0,0,5,,AS40D256    
+21,4,0,0,5,,AS50D256    
+21,5,0,0,5,,AS60D256    
+21,6,0,0,5,,AS70D256    
+21,7,0,0,5,,AS80D256    
+21,8,0,0,5,,AS90D256    
+21,9,0,0,5,,AS100D256    
+21,10,0,0,5,,AS110D256   
+21,11,0,0,5,,AS120D256   
+21,12,0,0,5,,AS130D256   
+21,13,0,0,5,,AS140D256   
+21,14,0,0,5,,AS150D256   
+21,15,0,0,5,,AS160D256   
+21,16,0,0,5,,AS170D256   
+21,17,0,0,5,,AS180D256   
+21,18,0,0,5,,AS190D256   
+21,19,0,0,5,,AS200D256   
+21,20,0,0,5,,AS210D256   
+21,21,0,0,5,,AS220D256   
+21,22,0,0,5,,AS230D256   
+21,23,0,0,5,,AS240D256   
+21,24,0,0,5,,AS250D256   
+21,25,0,0,5,,AS256D256   
+21,26,0,0,5,,AS256D256   
+21,27,0,0,5,,AS256D256   
+21,28,0,0,5,,AS256D256   
+21,29,0,0,5,,AS256D256   
+21,30,0,0,5,,AS256D256   
+21,31,0,0,5,,AS256D256   
+21,32,0,0,5,,AS256D256   
+21,33,0,0,5,,AS256D256   
+21,34,0,0,5,,AS256D256   
+21,35,0,0,5,,AS256D256   
+21,36,0,0,5,,AS256D256   
+21,37,0,0,5,,AS256D256   
+21,38,0,0,5,,AS256D256   
+21,39,0,0,5,,AS256D256   
+21,40,0,0,5,,AS256D256   
+21,41,0,0,5,,AS256D256   
+21,42,0,0,5,,AS256D256   
+21,43,0,0,5,,AS256D256   
+21,44,0,0,5,,AS256D256   
+21,45,0,0,5,,AS256D256 
+loopstart  
+21,46,0,0,5,,AS22D256   
+21,47,0,0,5,,AS40D256   
+21,48,0,0,5,,AS58D256   
+21,49,0,0,5,,AS76D256   
+21,50,0,0,5,,AS94D256   
+21,51,0,0,5,,AS112D256   
+21,52,0,0,5,,AS130D256   
+21,53,0,0,5,,AS148D256   
+21,54,0,0,5,,AS166D256   
+21,55,0,0,5,,AS184D256   
+21,56,0,0,5,,AS202D256   
+21,57,0,0,5,,AS220D256   
+21,58,0,0,5,,AS238D256   
+21,59,0,0,5,,AS256D256   
+[Begin Action 28]
+4,1,0,0,5,,AS20D256
+4,1,0,0,5,,AS30D256
+4,1,0,0,5,,AS40D256
+4,1,0,0,5,,AS50D256
+4,1,0,0,5,,AS60D256
+4,1,0,0,5,,AS70D256
+4,1,0,0,5,,AS80D256
+4,1,0,0,5,,AS90D256
+4,1,0,0,5,,AS100D256
+4,1,0,0,5,,AS110D256
+4,1,0,0,5,,AS120D256
+4,1,0,0,5,,AS130D256 
+4,1,0,0,5,,AS140D256
+4,1,0,0,5,,AS150D256
+4,1,0,0,5,,AS160D256
+4,1,0,0,5,,AS170D256 
+4,1,0,0,5,,AS180D256
+4,1,0,0,5,,AS190D256 
+4,1,0,0,5,,AS200D256
+4,1,0,0,5,,AS210D256
+4,1,0,0,5,,AS220D256
+4,1,0,0,5,,AS230D256 
+4,1,0,0,5,,AS240D256
+4,1,0,0,5,,AS256D256 
+-1,0,0,0,-1
+[Begin Action 29]
+4,0,0,0,5,,AS256D256
+4,0,0,0,5,,AS240D256
+4,0,0,0,5,,AS230D256
+4,0,0,0,5,,AS220D256
+4,0,0,0,5,,AS210D256
+4,0,0,0,5,,AS200D256
+4,0,0,0,5,,AS190D256
+4,0,0,0,5,,AS180D256
+4,0,0,0,5,,AS170D256
+4,0,0,0,5,,AS160D256
+4,0,0,0,5,,AS150D256
+4,0,0,0,5,,AS140D256
+4,0,0,0,5,,AS130D256
+4,0,0,0,5,,AS120D256
+4,0,0,0,5,,AS110D256
+4,0,0,0,5,,AS100D256
+4,0,0,0,5,,AS90D256
+4,0,0,0,5,,AS80D256
+4,0,0,0,5,,AS70D256
+4,0,0,0,5,,AS60D256
+4,0,0,0,5,,AS50D256
+4,0,0,0,5,,AS40D256
+4,0,0,0,5,,AS30D256
+4,0,0,0,5,,AS20D256
+4,0,0,0,5,,AS10D256
+-1,0,0,0,-1
+[Begin Action 30]
+22,18,0,0,5,,AS256D256    
+22,19,0,0,5,,AS256D256    
+22,20,0,0,5,,AS256D256    
+22,21,0,0,5,,AS256D256    
+22,22,0,0,5,,AS256D256    
+22,23,0,0,5,,AS256D256    
+22,24,0,0,5,,AS256D256    
+22,25,0,0,5,,AS256D256    
+22,26,0,0,5,,AS256D256    
+22,27,0,0,5,,AS256D256    
+22,28,0,0,5,,AS256D256    
+22,29,0,0,5,,AS256D256    
+22,30,0,0,5,,AS256D256    
+22,31,0,0,5,,AS256D256    
+22,32,0,0,5,,AS256D256    
+22,33,0,0,5,,AS256D256    
+22,34,0,0,5,,AS256D256    
+22,35,0,0,5,,AS256D256    
+22,36,0,0,5,,AS256D256    
+22,37,0,0,5,,AS256D256    
+22,38,0,0,5,,AS256D256    
+22,39,0,0,5,,AS256D256    
+22,40,0,0,5,,AS256D256    
+22,41,0,0,5,,AS256D256    
+22,42,0,0,5,,AS256D256    
+22,43,0,0,5,,AS256D256    
+22,44,0,0,5,,AS256D256    
+22,45,0,0,5,,AS256D256    
+22,46,0,0,5,,AS256D256    
+22,47,0,0,5,,AS256D256    
+22,48,0,0,5,,AS256D256    
+22,49,0,0,5,,AS256D256    
+22,50,0,0,5,,AS256D256    
+22,51,0,0,5,,AS256D256    
+22,52,0,0,5,,AS256D256    
+22,53,0,0,5,,AS256D256    
+22,54,0,0,5,,AS256D256    
+22,55,0,0,5,,AS256D256    
+22,56,0,0,5,,AS256D256    
+22,57,0,0,5,,AS256D256    
+22,58,0,0,5,,AS256D256    
+22,59,0,0,5,,AS256D256    
+22,60,0,0,5,,AS256D256    
+22,61,0,0,5,,AS256D256    
+22,62,0,0,5,,AS256D256    
+22,63,0,0,5,,AS256D256    
+22,64,0,0,5,,AS256D256    
+22,65,0,0,5,,AS256D256    
+22,66,0,0,5,,AS256D256    
+22,67,0,0,5,,AS256D256    
+22,68,0,0,5,,AS256D256    
+22,69,0,0,5,,AS256D256    
+22,70,0,0,5,,AS256D256    
+22,71,0,0,5,,AS256D256    
+22,72,0,0,5,,AS256D256    
+22,73,0,0,5,,AS256D256    
+22,74,0,0,5,,AS256D256    
+22,75,0,0,5,,AS256D256    
+22,76,0,0,5,,AS256D256    
+22,77,0,0,5,,AS256D256    
+22,78,0,0,5,,AS256D256    
+22,79,0,0,5,,AS256D256    
+22,80,0,0,5,,AS256D256    
+22,81,0,0,5,,AS256D256    
+22,82,0,0,5,,AS256D256    
+22,83,0,0,5,,AS256D256    
+22,84,0,0,5,,AS256D256    
+22,85,0,0,5,,AS256D256    
+22,86,0,0,5,,AS256D256    
+22,87,0,0,5,,AS256D256    
+22,88,0,0,5,,AS256D256    
+22,89,0,0,5,,AS256D256    
+22,90,0,0,5,,AS256D256    
+22,91,0,0,5,,AS256D256    
+22,92,0,0,5,,AS256D256    
+22,93,0,0,5,,AS256D256    
+22,94,0,0,5,,AS256D256    
+22,95,0,0,5,,AS256D256    
+22,96,0,0,5,,AS256D256    
+22,97,0,0,5,,AS256D256    
+22,98,0,0,5,,AS256D256    
+22,99,0,0,5,,AS256D256    
+22,100,0,0,5,,AS256D256   
+22,101,0,0,5,,AS256D256   
+22,102,0,0,5,,AS256D256   
+22,103,0,0,5,,AS256D256   
+22,104,0,0,5,,AS256D256   
+22,105,0,0,5,,AS256D256   
+22,106,0,0,5,,AS256D256   
+22,107,0,0,5,,AS256D256   
+22,108,0,0,5,,AS256D256   
+22,109,0,0,5,,AS256D256   
+[Begin Action 31]
+-1,0,0,0,225
+loopstart 
+22,18,0,0,5,,AS256D256    
+22,19,0,0,5,,AS256D256    
+22,20,0,0,5,,AS256D256    
+22,21,0,0,5,,AS256D256    
+22,22,0,0,5,,AS256D256    
+22,23,0,0,5,,AS256D256    
+22,24,0,0,5,,AS256D256    
+22,25,0,0,5,,AS256D256    
+22,26,0,0,5,,AS256D256    
+22,27,0,0,5,,AS256D256    
+22,28,0,0,5,,AS256D256    
+22,29,0,0,5,,AS256D256    
+22,30,0,0,5,,AS256D256    
+22,31,0,0,5,,AS256D256    
+22,32,0,0,5,,AS256D256    
+22,33,0,0,5,,AS256D256    
+22,34,0,0,5,,AS256D256    
+22,35,0,0,5,,AS256D256    
+22,36,0,0,5,,AS256D256    
+22,37,0,0,5,,AS256D256    
+22,38,0,0,5,,AS256D256    
+22,39,0,0,5,,AS256D256    
+22,40,0,0,5,,AS256D256    
+22,41,0,0,5,,AS256D256    
+22,42,0,0,5,,AS256D256    
+22,43,0,0,5,,AS256D256    
+22,44,0,0,5,,AS256D256    
+22,45,0,0,5,,AS256D256    
+22,46,0,0,5,,AS256D256    
+22,47,0,0,5,,AS256D256    
+22,48,0,0,5,,AS256D256    
+22,49,0,0,5,,AS256D256    
+22,50,0,0,5,,AS256D256    
+22,51,0,0,5,,AS256D256    
+22,52,0,0,5,,AS256D256    
+22,53,0,0,5,,AS256D256    
+22,54,0,0,5,,AS256D256    
+22,55,0,0,5,,AS256D256    
+22,56,0,0,5,,AS256D256    
+22,57,0,0,5,,AS256D256    
+22,58,0,0,5,,AS256D256    
+22,59,0,0,5,,AS256D256    
+22,60,0,0,5,,AS256D256    
+22,61,0,0,5,,AS256D256    
+22,62,0,0,5,,AS256D256    
+22,63,0,0,5,,AS256D256    
+22,64,0,0,5,,AS256D256    
+22,65,0,0,5,,AS256D256    
+22,66,0,0,5,,AS256D256    
+22,67,0,0,5,,AS256D256    
+22,68,0,0,5,,AS256D256    
+22,69,0,0,5,,AS256D256    
+22,70,0,0,5,,AS256D256    
+22,71,0,0,5,,AS256D256    
+22,72,0,0,5,,AS256D256    
+22,73,0,0,5,,AS256D256    
+22,74,0,0,5,,AS256D256    
+22,75,0,0,5,,AS256D256    
+22,76,0,0,5,,AS256D256    
+22,77,0,0,5,,AS256D256    
+22,78,0,0,5,,AS256D256    
+22,79,0,0,5,,AS256D256    
+22,80,0,0,5,,AS256D256    
+22,81,0,0,5,,AS256D256    
+22,82,0,0,5,,AS256D256    
+22,83,0,0,5,,AS256D256    
+22,84,0,0,5,,AS256D256    
+22,85,0,0,5,,AS256D256    
+22,86,0,0,5,,AS256D256    
+22,87,0,0,5,,AS256D256    
+22,88,0,0,5,,AS256D256    
+22,89,0,0,5,,AS256D256    
+22,90,0,0,5,,AS256D256    
+22,91,0,0,5,,AS256D256    
+22,92,0,0,5,,AS256D256    
+22,93,0,0,5,,AS256D256    
+22,94,0,0,5,,AS256D256    
+22,95,0,0,5,,AS256D256    
+22,96,0,0,5,,AS256D256    
+22,97,0,0,5,,AS256D256    
+22,98,0,0,5,,AS256D256    
+22,99,0,0,5,,AS256D256    
+22,100,0,0,5,,AS256D256   
+22,101,0,0,5,,AS256D256   
+22,102,0,0,5,,AS256D256   
+22,103,0,0,5,,AS256D256   
+22,104,0,0,5,,AS256D256   
+22,105,0,0,5,,AS256D256   
+22,106,0,0,5,,AS256D256   
+22,107,0,0,5,,AS256D256   
+22,108,0,0,5,,AS256D256   
+22,109,0,0,5,,AS256D256   
+[Begin Action 32]
+28,0,0,0,4     
+28,1,0,0,4     
+28,2,0,0,4     
+28,3,0,0,4     
+28,4,0,0,4     
+28,5,0,0,4     
+28,6,0,0,4     
+28,7,0,0,4     
+28,8,0,0,4     
+28,9,0,0,4     
+28,10,0,0,4    
+28,11,0,0,4    
+28,12,0,0,4    
+28,13,0,0,4    
+28,14,0,0,4    
+28,15,0,0,4    
+28,16,0,0,4    
+28,17,0,0,4    
+28,18,0,0,4    
+28,19,0,0,4    
+28,20,0,0,4    
+28,21,0,0,4    
+28,22,0,0,4    
+28,23,0,0,4    
+28,24,0,0,4    
+28,25,0,0,4    
+28,26,0,0,4    
+28,27,0,0,4    
+28,28,0,0,4    
+28,29,0,0,4    
+28,30,0,0,4    
+28,31,0,0,4    
+28,32,0,0,4    
+28,33,0,0,4    
+28,34,0,0,4    
+28,35,0,0,4    
+28,36,0,0,4    
+28,37,0,0,4    
+28,38,0,0,4    
+28,39,0,0,4    
+28,40,0,0,4    
+28,41,0,0,4    
+28,42,0,0,4    
+28,43,0,0,4    
+28,44,0,0,4    
+28,45,0,0,4    
+28,46,0,0,4    
+28,47,0,0,4    
+28,48,0,0,4    
+28,49,0,0,4    
+28,50,0,0,4    
+28,51,0,0,4    
+28,52,0,0,4    
+28,53,0,0,4    
+28,54,0,0,4    
+28,55,0,0,4    
+28,56,0,0,4    
+28,57,0,0,4    
+28,58,0,0,4    
+28,59,0,0,4    
+28,60,0,0,4    
+28,61,0,0,4    
+28,62,0,0,4    
+28,63,0,0,4    
+28,64,0,0,4    
+28,65,0,0,4    
+28,66,0,0,4    
+28,67,0,0,4    
+28,68,0,0,4    
+28,69,0,0,4    
+28,70,0,0,4    
+28,71,0,0,4    
+28,72,0,0,4    
+28,73,0,0,4    
+28,74,0,0,4    
+28,75,0,0,4    
+28,76,0,0,4    
+28,77,0,0,4    
+28,78,0,0,4    
+28,79,0,0,4    
+28,80,0,0,4    
+28,81,0,0,4    
+28,82,0,0,4    
+28,83,0,0,4    
+28,84,0,0,4    
+28,85,0,0,4    
+28,86,0,0,4    
+28,87,0,0,4    
+28,88,0,0,4    
+28,89,0,0,4    
+28,90,0,0,4    
+28,91,0,0,4    
+28,92,0,0,4    
+28,93,0,0,4    
+28,94,0,0,4    
+28,95,0,0,4    
+28,96,0,0,4    
+28,97,0,0,4    
+28,98,0,0,4    
+28,99,0,0,4    
+28,100,0,0,4   
+28,101,0,0,4   
+28,102,0,0,4   
+28,103,0,0,4   
+28,104,0,0,4   
+28,105,0,0,4   
+28,106,0,0,4   
+28,107,0,0,4   
+28,108,0,0,4   
+28,109,0,0,4   
+28,110,0,0,4   
+28,111,0,0,4   
+28,112,0,0,4   
+28,113,0,0,4   
+28,114,0,0,4   
+28,115,0,0,4   
+28,116,0,0,4   
+28,117,0,0,4   
+28,118,0,0,4   
+28,119,0,0,4   
+28,120,0,0,4   
+28,121,0,0,4   
+28,122,0,0,4   
+28,123,0,0,4   
+28,124,0,0,4   
+28,125,0,0,4   
+28,126,0,0,4   
+28,127,0,0,4   
+28,128,0,0,4   
+28,129,0,0,4   
+28,130,0,0,4   
+28,131,0,0,4   
+28,132,0,0,4   
+28,133,0,0,4   
+28,134,0,0,4   
+28,135,0,0,4   
+28,136,0,0,4   
+28,137,0,0,4   
+28,138,0,0,4   
+28,139,0,0,4   
+28,140,0,0,4   
+28,141,0,0,4   
+28,142,0,0,4   
+28,143,0,0,4   
+28,144,0,0,4   
+28,145,0,0,4   
+28,146,0,0,4   
+28,147,0,0,4   
+28,148,0,0,4   
+28,149,0,0,4   
+28,150,0,0,4   
+28,151,0,0,4   
+28,152,0,0,4   
+28,153,0,0,4   
+28,154,0,0,4   
+28,155,0,0,4   
+28,156,0,0,4   
+28,157,0,0,4   
+28,158,0,0,4   
+28,159,0,0,4   
+28,160,0,0,4   
+28,161,0,0,4   
+28,162,0,0,4   
+28,163,0,0,4   
+28,164,0,0,4   
+28,165,0,0,4   
+28,166,0,0,4   
+28,167,0,0,4   
+28,168,0,0,4   
+28,169,0,0,4   
+28,170,0,0,4   
+28,171,0,0,4   
+28,172,0,0,4   
+28,173,0,0,4   
+28,174,0,0,4   
+28,175,0,0,4   
+28,176,0,0,4   
+28,177,0,0,4   
+28,178,0,0,4   
+28,179,0,0,4   
+28,180,0,0,4   
+28,181,0,0,4   
+28,182,0,0,4   
+28,183,0,0,4   
+28,184,0,0,4   
+28,185,0,0,4   
+28,186,0,0,4   
+28,187,0,0,4   
+28,188,0,0,4   
+28,189,0,0,4   
+28,190,0,0,4   
+28,191,0,0,4   
+28,192,0,0,4   
+28,193,0,0,4   
+28,194,0,0,4   
+28,195,0,0,4   
+28,196,0,0,4   
+28,197,0,0,4   
+28,198,0,0,4   
+28,199,0,0,4   
+28,200,0,0,4   
+28,201,0,0,4   
+28,202,0,0,4   
+28,203,0,0,4   
+28,204,0,0,4   
+28,205,0,0,4   
+28,206,0,0,4   
+28,207,0,0,4   
+28,208,0,0,4   
+28,209,0,0,4   
+28,210,0,0,4   
+28,211,0,0,4   
+28,212,0,0,4   
+28,213,0,0,4   
+28,214,0,0,4   
+28,215,0,0,4   
+28,216,0,0,4   
+28,217,0,0,4   
+28,218,0,0,4   
+28,219,0,0,4   
+28,220,0,0,4   
+28,221,0,0,4   
+28,222,0,0,4   
+28,223,0,0,4   
+28,224,0,0,4   
+28,225,0,0,4   
+28,226,0,0,4   
+28,227,0,0,4   
+28,228,0,0,4   
+28,229,0,0,4   
+28,230,0,0,4   
+28,231,0,0,4   
+28,232,0,0,4   
+28,233,0,0,4   
+28,234,0,0,4   
+28,235,0,0,4   
+28,236,0,0,4   
+28,237,0,0,4   
+28,238,0,0,4   
+28,239,0,0,4   
+28,240,0,0,4   
+28,241,0,0,4   
+28,242,0,0,4   
+28,243,0,0,4   
+28,244,0,0,4   
+28,245,0,0,4   
+28,246,0,0,4   
+28,247,0,0,4   
+28,248,0,0,4   
+28,249,0,0,4   
+28,250,0,0,4   
+28,251,0,0,4   
+28,252,0,0,4   
+28,253,0,0,4   
+28,254,0,0,4   
+28,255,0,0,4   
+28,256,0,0,4   
+28,257,0,0,4   
+28,258,0,0,4   
+28,259,0,0,4   
+28,260,0,0,4   
+28,261,0,0,4   
+28,262,0,0,4   
+28,263,0,0,4   
+28,264,0,0,4   
+28,265,0,0,4   
+28,266,0,0,4   
+28,267,0,0,4   
+28,268,0,0,4   
+28,269,0,0,4   
+28,270,0,0,4   
+28,271,0,0,4   
+28,272,0,0,4   
+28,273,0,0,4   
+28,274,0,0,4   
+28,275,0,0,4   
+28,276,0,0,4   
+28,277,0,0,4   
+28,278,0,0,4   
+28,279,0,0,4   
+28,280,0,0,4   
+28,281,0,0,4   
+28,282,0,0,4   
+28,283,0,0,4   
+28,284,0,0,4   
+28,285,0,0,4   
+28,286,0,0,4   
+28,287,0,0,4   
+28,288,0,0,4   
+28,289,0,0,4   
+28,290,0,0,4   
+28,291,0,0,4   
+28,292,0,0,4   
+28,293,0,0,4   
+28,294,0,0,4   
+28,295,0,0,4   
+28,296,0,0,4   
+28,297,0,0,4   
+28,298,0,0,4   
+28,299,0,0,4   
+28,300,0,0,4   
+28,301,0,0,4   
+28,302,0,0,4   
+28,303,0,0,4   
+28,304,0,0,4   
+28,305,0,0,4   
+28,306,0,0,4   
+28,307,0,0,4   
+28,308,0,0,4   
+28,309,0,0,4   
+28,310,0,0,4   
+28,311,0,0,4   
+28,312,0,0,4   
+28,313,0,0,4   
+28,314,0,0,4   
+28,315,0,0,4   
+28,316,0,0,4   
+28,317,0,0,4   
+28,318,0,0,4   
+28,319,0,0,4   
+28,320,0,0,4   
+28,321,0,0,4   
+28,322,0,0,4   
+28,323,0,0,4   
+28,324,0,0,4   
+28,325,0,0,4   
+28,326,0,0,4   
+28,327,0,0,4   
+28,328,0,0,4   
+28,329,0,0,4   
+28,330,0,0,4   
+28,331,0,0,4   
+28,332,0,0,4   
+28,333,0,0,4   
+28,334,0,0,4   
+28,335,0,0,4   
+28,336,0,0,4   
+28,337,0,0,4   
+28,338,0,0,4   
+28,339,0,0,4   
+28,340,0,0,4   
+28,341,0,0,4   
+28,342,0,0,4   
+28,343,0,0,4   
+28,344,0,0,4   
+28,345,0,0,4   
+28,346,0,0,4   
+28,347,0,0,4   
+28,348,0,0,4   
+28,349,0,0,4   
+28,350,0,0,4   
+28,351,0,0,4   
+28,352,0,0,4   
+28,353,0,0,4   
+28,354,0,0,4   
+28,355,0,0,4   
+28,356,0,0,4   
+28,357,0,0,4   
+28,358,0,0,4   
+28,359,0,0,4   
+28,360,0,0,4   
+28,361,0,0,4   
+28,362,0,0,4   
+28,363,0,0,4   
+28,364,0,0,4   
+28,365,0,0,4   
+28,366,0,0,4   
+28,367,0,0,4   
+28,368,0,0,4   
+28,369,0,0,4   
+28,370,0,0,4   
+28,371,0,0,4   
+28,372,0,0,4   
+28,373,0,0,4   
+28,374,0,0,4   
+28,375,0,0,4   
+28,376,0,0,4   
+28,377,0,0,4   
+28,378,0,0,4   
+28,379,0,0,4   
+28,380,0,0,4   
+28,381,0,0,4   
+28,382,0,0,4   
+28,383,0,0,4   
+28,384,0,0,4   
+28,385,0,0,4   
+28,386,0,0,4   
+28,387,0,0,4   
+28,388,0,0,4   
+28,389,0,0,4   
+28,390,0,0,4   
+28,391,0,0,4   
+28,392,0,0,4   
+28,393,0,0,4   
+28,394,0,0,4   
+28,395,0,0,4   
+28,396,0,0,4   
+28,397,0,0,4   
+28,398,0,0,4
+28,399,0,0,4   
+28,400,0,0,4   
+28,401,0,0,4   
+28,402,0,0,4   
+28,403,0,0,4   
+28,404,0,0,4   
+28,405,0,0,4   
+28,406,0,0,4   
+28,407,0,0,4   
+28,408,0,0,4   
+28,409,0,0,4   
+28,410,0,0,4   
+28,411,0,0,4   
+28,412,0,0,4   
+28,413,0,0,4   
+28,414,0,0,4   
+28,415,0,0,4   
+28,416,0,0,4   
+28,417,0,0,4   
+28,418,0,0,4   
+28,419,0,0,4   
+28,420,0,0,4   
+28,421,0,0,4   
+28,422,0,0,4   
+28,423,0,0,4   
+28,424,0,0,4   
+28,425,0,0,4   
+28,426,0,0,4   
+28,427,0,0,4   
+28,428,0,0,4   
+28,429,0,0,4   
+28,430,0,0,4   
+28,431,0,0,4   
+28,432,0,0,4   
+28,433,0,0,4   
+28,434,0,0,4   
+28,435,0,0,4   
+28,436,0,0,4   
+28,437,0,0,4   
+28,438,0,0,4   
+28,439,0,0,4   
+28,440,0,0,4   
+28,441,0,0,4   
+28,442,0,0,4   
+28,443,0,0,4   
+28,444,0,0,4   
+28,445,0,0,4   
+28,446,0,0,4   
+28,447,0,0,4   
+28,448,0,0,4   
+28,449,0,0,4   
+28,450,0,0,4   
+28,451,0,0,4   
+28,452,0,0,4  
+28,453,0,0,4   
+28,454,0,0,4   
+28,455,0,0,4   
+28,456,0,0,4   
+28,457,0,0,4   
+28,458,0,0,4   
+28,459,0,0,4   
+28,460,0,0,4   
+28,461,0,0,4   
+28,462,0,0,4   
+28,463,0,0,4   
+28,464,0,0,4   
+28,465,0,0,4   
+28,466,0,0,4   
+28,467,0,0,4   
+28,468,0,0,4   
+28,469,0,0,4   
+28,470,0,0,4   
+28,471,0,0,4   
+28,472,0,0,4   
+28,473,0,0,4   
+28,474,0,0,4   
+28,475,0,0,4   
+28,476,0,0,4   
+28,477,0,0,4   
+28,478,0,0,4   
+28,479,0,0,4   
+28,480,0,0,4   
+28,481,0,0,4   
+28,482,0,0,4   
+28,483,0,0,4   
+28,484,0,0,4   
+28,485,0,0,4   
+28,486,0,0,4   
+28,487,0,0,4   
+28,488,0,0,4   
+28,489,0,0,4      
+28,490,0,0,4   
+28,491,0,0,4   
+28,492,0,0,4   
+28,493,0,0,4   
+28,494,0,0,4   
+28,495,0,0,4   
+28,496,0,0,4   
+28,497,0,0,4   
+28,498,0,0,4   
+28,499,0,0,4   
+28,500,0,0,4   
+28,501,0,0,4   
+28,502,0,0,4   
+28,503,0,0,4   
+28,504,0,0,4   
+28,505,0,0,4   
+28,506,0,0,4   
+28,507,0,0,4   
+28,508,0,0,4   
+28,509,0,0,4   
+28,510,0,0,4   
+28,511,0,0,4   
+28,512,0,0,4   
+28,513,0,0,4   
+28,514,0,0,4   
+28,515,0,0,4   
+28,516,0,0,4   
+28,517,0,0,4   
+28,518,0,0,4   
+28,519,0,0,4   
+28,520,0,0,4   
+28,521,0,0,4   
+28,522,0,0,4   
+28,523,0,0,4   
+28,524,0,0,4   
+28,525,0,0,4   
+28,526,0,0,4   
+28,527,0,0,4   
+28,528,0,0,4   
+28,529,0,0,4   
+28,530,0,0,4   
+28,531,0,0,4,,AS240D256    
+28,532,0,0,4,,AS220D256    
+28,533,0,0,4,,AS200D256    
+28,534,0,0,4,,AS180D256   
+28,535,0,0,4,,AS160D256    
+28,536,0,0,4,,AS140D256   
+28,537,0,0,4,,AS120D256   
+28,538,0,0,4,,AS100D256    
+28,539,0,0,4,,AS80D256     
+28,540,0,0,4,,AS40D256  
+28,541,0,0,4,,AS60D256 
+28,542,0,0,4,,AS20D256
+-1,0,0,0,-1
+[Begin Action 33]
+4,2,0,0,2120   
+4,2,0,0,4,,AS256D20
+4,2,0,0,4,,AS256D40
+4,2,0,0,4,,AS256D60
+4,2,0,0,4,,AS256D80
+4,2,0,0,4,,AS256D100
+4,2,0,0,4,,AS256D120
+4,2,0,0,4,,AS256D140
+4,2,0,0,4,,AS256D160
+4,2,0,0,4,,AS256D180
+4,2,0,0,4,,AS256D200
+4,2,0,0,4,,AS256D220
+4,2,0,0,4,,AS256D240
+4,2,0,0,4,,AS256D256
+-1,0,0,0,-1
+[Begin Action 34]
+29,0,0,0,5,,AS200D50    
+29,1,0,0,5,,AS200D50    
+29,2,0,0,5,,AS200D50    
+29,3,0,0,5,,AS200D50    
+29,4,0,0,5,,AS200D50    
+29,5,0,0,5,,AS200D50    
+29,6,0,0,5,,AS200D50    
+29,7,0,0,5,,AS200D50    
+29,8,0,0,5,,AS200D50    
+29,9,0,0,5,,AS200D50    
+29,10,0,0,5,,AS200D50   
+29,11,0,0,5,,AS200D50   
+29,12,0,0,5,,AS200D50   
+29,13,0,0,5,,AS200D50   
+29,14,0,0,5,,AS200D50   
+29,15,0,0,5,,AS200D50   
+29,16,0,0,5,,AS200D50   
+29,17,0,0,5,,AS200D50   
+29,18,0,0,5,,AS200D50   
+29,19,0,0,5,,AS200D50   
+29,20,0,0,5,,AS200D50   
+29,21,0,0,5,,AS200D50   
+29,22,0,0,5,,AS200D50   
+29,23,0,0,5,,AS200D50   
+29,24,0,0,5,,AS200D50  
+29,23,0,0,5,,AS200D50   
+29,22,0,0,5,,AS200D50   
+29,21,0,0,5,,AS200D50   
+29,20,0,0,5,,AS200D50   
+29,19,0,0,5,,AS200D50   
+29,18,0,0,5,,AS200D50   
+29,17,0,0,5,,AS200D50   
+29,16,0,0,5,,AS200D50   
+29,15,0,0,5,,AS200D50   
+29,14,0,0,5,,AS200D50   
+29,13,0,0,5,,AS200D50   
+29,12,0,0,5,,AS200D50   
+29,11,0,0,5,,AS200D50   
+29,10,0,0,5,,AS200D50   
+29,9,0,0,5,,AS200D50    
+29,8,0,0,5,,AS200D50    
+29,7,0,0,5,,AS200D50    
+29,6,0,0,5,,AS200D50    
+29,5,0,0,5,,AS200D50    
+29,4,0,0,5,,AS200D50    
+29,3,0,0,5,,AS200D50    
+29,2,0,0,5,,AS200D50    
+29,1,0,0,5,,AS200D50  
+[Begin Action 35]
+30,0,0,0,5,,AS200D50    
+30,1,0,0,5,,AS200D50    
+30,2,0,0,5,,AS200D50    
+30,3,0,0,5,,AS200D50    
+30,4,0,0,5,,AS200D50    
+30,5,0,0,5,,AS200D50    
+30,6,0,0,5,,AS200D50    
+30,7,0,0,5,,AS200D50    
+30,8,0,0,5,,AS200D50    
+30,9,0,0,5,,AS200D50    
+30,10,0,0,5,,AS200D50   
+30,11,0,0,5,,AS200D50   
+30,12,0,0,5,,AS200D50   
+30,13,0,0,5,,AS200D50   
+30,14,0,0,5,,AS200D50   
+30,15,0,0,5,,AS200D50   
+30,16,0,0,5,,AS200D50   
+30,17,0,0,5,,AS200D50   
+30,18,0,0,5,,AS200D50   
+30,19,0,0,5,,AS200D50   
+30,20,0,0,5,,AS200D50   
+30,21,0,0,5,,AS200D50   
+30,22,0,0,5,,AS200D50   
+30,23,0,0,5,,AS200D50   
+30,24,0,0,5,,AS200D50   
+30,23,0,0,5,,AS200D50   
+30,22,0,0,5,,AS200D50   
+30,21,0,0,5,,AS200D50   
+30,20,0,0,5,,AS200D50   
+30,19,0,0,5,,AS200D50   
+30,18,0,0,5,,AS200D50   
+30,17,0,0,5,,AS200D50   
+30,16,0,0,5,,AS200D50   
+30,15,0,0,5,,AS200D50   
+30,14,0,0,5,,AS200D50   
+30,13,0,0,5,,AS200D50   
+30,12,0,0,5,,AS200D50   
+30,11,0,0,5,,AS200D50   
+30,10,0,0,5,,AS200D50   
+30,9,0,0,5,,AS200D50    
+30,8,0,0,5,,AS200D50    
+30,7,0,0,5,,AS200D50    
+30,6,0,0,5,,AS200D50    
+30,5,0,0,5,,AS200D50    
+30,4,0,0,5,,AS200D50    
+30,3,0,0,5,,AS200D50    
+30,2,0,0,5,,AS200D50    
+30,1,0,0,5,,AS200D50  
+[Begin Action 36]
+31,0,0,0,5,,AS150D100    
+31,1,0,0,5,,AS150D100    
+31,2,0,0,5,,AS150D100    
+31,3,0,0,5,,AS150D100    
+31,4,0,0,5,,AS150D100    
+31,5,0,0,5,,AS150D100    
+31,6,0,0,5,,AS150D100    
+31,7,0,0,5,,AS150D100    
+31,8,0,0,5,,AS150D100    
+31,9,0,0,5,,AS150D100    
+31,10,0,0,5,,AS150D100   
+31,11,0,0,5,,AS150D100   
+31,12,0,0,5,,AS150D100   
+31,13,0,0,5,,AS150D100   
+31,14,0,0,5,,AS150D100   
+31,15,0,0,5,,AS150D100   
+31,16,0,0,5,,AS150D100   
+31,17,0,0,5,,AS150D100   
+31,18,0,0,5,,AS150D100   
+31,19,0,0,5,,AS150D100   
+31,20,0,0,5,,AS150D100   
+31,21,0,0,5,,AS150D100   
+31,22,0,0,5,,AS150D100   
+31,23,0,0,5,,AS150D100   
+31,24,0,0,5,,AS150D100   
+31,23,0,0,5,,AS150D100   
+31,22,0,0,5,,AS150D100   
+31,21,0,0,5,,AS150D100   
+31,20,0,0,5,,AS150D100   
+31,19,0,0,5,,AS150D100   
+31,18,0,0,5,,AS150D100   
+31,17,0,0,5,,AS150D100   
+31,16,0,0,5,,AS150D100   
+31,15,0,0,5,,AS150D100   
+31,14,0,0,5,,AS150D100   
+31,13,0,0,5,,AS150D100   
+31,12,0,0,5,,AS150D100   
+31,11,0,0,5,,AS150D100   
+31,10,0,0,5,,AS150D100   
+31,9,0,0,5,,AS150D100    
+31,8,0,0,5,,AS150D100    
+31,7,0,0,5,,AS150D100    
+31,6,0,0,5,,AS150D100    
+31,5,0,0,5,,AS150D100    
+31,4,0,0,5,,AS150D100    
+31,3,0,0,5,,AS150D100    
+31,2,0,0,5,,AS150D100    
+31,1,0,0,5,,AS150D100  
+;______________________________________________________________________
+;FIN DEL ARCHIVO DEF
+;______________________________________________________________________

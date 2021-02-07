@@ -1,0 +1,151 @@
+;--------------------------------------------------------
+[Info]
+name ="Trainig Rasenshuriken"
+displayname="Trainig Rasenshuriken"
+versiondate=15/01/2010
+mugenversion=04,14,2001
+author="werobe"
+pal.defaults=1,2,3,4,5
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -90
+boundright = 90
+boundhigh = -58
+boundlow = 0.2
+verticalfollow = 0.1
+tension = 20
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+
+p1startx = -70        
+p1starty = 0            
+p1startz = 0           
+p1facing = 1           
+
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0    
+botbound  =  0     
+
+;--------------------------------------------------------
+[Scaling]
+
+topz     = 0      
+botz     = 50     
+topscale = 1       
+botscale = 1.2    
+
+;--------------------------------------------------------
+[Bound]
+ 
+screenleft = 15    
+screenright = 15   
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+Hires = 1
+
+;--------------------------------------------------------
+[Shadow]
+
+intensity = 256
+color = 255,255,255
+yscale = 1
+fade.range = -300,-1
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/400 AM.mp3
+bgvolume = 
+
+
+;-------------------------------------
+[BGdef]
+spr = stages/Trainig Rasenshuriken.sff
+debugbg = 1
+
+[BG 0]
+type = normal
+
+spriteno =2,0
+
+start = 0,0
+
+delta = 2,2 ;Å¶
+
+mask =0
+
+[BG 1] 
+
+type = anim
+
+actionno = 1 
+
+start: 0, 0
+
+delta = 2,2
+
+mask = 1
+
+
+
+[begin action 1]
+
+3,0,0,0,18
+3,1,0,0,18
+3,2,0,0,18
+
+
+[BG 2] 
+
+type = anim
+
+actionno = 2
+
+start: 0, 0
+
+mask = 1
+
+delta = 2,2
+
+
+[begin action 2]
+
+4,0,0,0,18
+4,1,0,0,18
+4,2,0,0,18
+
+
+
+
+
+
+[Files]
+sprite=
+sound=
+anim=
+cmd=
+cns=
+st=
+stcommon=
+[Arcade]
+intro.storyboard=
+ending.storyboard=
